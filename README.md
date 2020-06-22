@@ -20,7 +20,11 @@ Using some onomatopoeia, here's an illustration of the concept: Let's say we hav
 
 There will be a single screen with a cool blueish/purpleish blended background. Top left will be a dropdown of the backing tracks to choose from. On the top right will be any controls for sounds, such as play & stop, volume and even bpm adjustment if there's time. On the bottom center will be a box containing all the sound effects, each noted with a corresponding icon. Below the effects box will the nav section with links to my githup, linkedin and angellist profiles.
 
+![image](https://user-images.githubusercontent.com/16979527/85238681-9ff5b800-b3fd-11ea-99ac-ba67d6324d08.png)
+
 https://wireframe.cc/g73kLP
 
 # Architecture and Technologies
-Javascript
+* Javascript
+* HTML
+* CSS
