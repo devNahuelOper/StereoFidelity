@@ -23,7 +23,7 @@
   "bugs": {
     "url": "https://github.com/devNahuelOper/StereoFidelity/issues"
   },
-  "homepage": "https://github.com/devNahuelOper/StereoFidelity#readme",
+  "homepage": "https://devnahueloper.github.io/StereoFidelity/",
   "devDependencies": {
     "@babel/core": "^7.10.3",
     "@babel/preset-env": "^7.10.3",
@@ -43,5 +43,8 @@
     "webpack-cli": "^3.3.12",
     "webpack-dev-server": "^3.11.0",
     "webpack-merge": "^4.2.2"
+  },
+  "dependencies": {
+    "gh-pages": "^3.1.0"
   }
 }
