@@ -1,5 +1,8 @@
 import "./styles/index.scss";
+import "./styles/keyboard.scss";
 // import canvasExample from "./scripts/canvas";
+import piano from "./scripts/keyboard";
+
 
 window.addEventListener("DOMContentLoaded", main);
 
@@ -17,6 +20,7 @@ function main() {
   stage.style.height = winHeight + 'px';
   }
 
+
   let audio, analyser, audioContext, soundSource,
     soundBuffer, sourceNode;
 
@@ -25,6 +29,15 @@ function main() {
 
   sample.addEventListener('click', function() {
     audio = new Audio('stereo_fidelity.mp3');
+    audio.controls = true;
+    setup();
+  })
+
+  const sample2 = document.getElementsByClassName('sample')[1];
+
+  sample2.addEventListener('click', function () {
+    audio = new Audio('motorcycle.mp3');
+    audio.controls = true;
     setup();
   })
 
@@ -50,6 +63,9 @@ function main() {
 
   document.getElementsByClassName('play')[0].addEventListener('click', playSound.bind(null, sourceNode));
   document.getElementsByClassName('stop')[0].addEventListener('click', stopSound);
+  
+  document.getElementsByClassName('play')[1].addEventListener('click', playSound.bind(null, sourceNode));
+  document.getElementsByClassName('stop')[1].addEventListener('click', stopSound);
 
   function playSound() {
     if (audioContext) {
@@ -66,4 +82,7 @@ function main() {
       }
     }
   }
+
+  piano();
+
 }

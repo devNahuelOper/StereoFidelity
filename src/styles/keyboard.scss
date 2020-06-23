@@ -1,0 +1,12 @@
+.keyboardContainer {
+  display: flex;
+  flex-direction: column;
+  background-color: #3086e0;
+  float: right;
+  display: none;
+} 
+
+.keyboard {
+  display: flex;
+  white-space: nowrap;
+}
