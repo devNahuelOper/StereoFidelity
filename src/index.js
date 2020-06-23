@@ -54,17 +54,17 @@ function main() {
     audio.addEventListener('canplay', function () {
       audioContext = audioContext || new AudioContext();
       analyser = (analyser || audioContext.createAnalyser());
-      analyser.smoothingTimeConstant = 0.1;
+      analyser.smoothingTimeConstant = 1.0;
       analyser.fftSize = 512;
 
       startSound();
     });
   }
 
-  document.getElementsByClassName('play')[0].addEventListener('click', playSound.bind(null, sourceNode));
+  document.getElementsByClassName('play')[0].addEventListener('click', playSound.bind(null, sample));
   document.getElementsByClassName('stop')[0].addEventListener('click', stopSound);
-  
-  document.getElementsByClassName('play')[1].addEventListener('click', playSound.bind(null, sourceNode));
+
+  document.getElementsByClassName('play')[1].addEventListener('click', playSound.bind(null, sample2));
   document.getElementsByClassName('stop')[1].addEventListener('click', stopSound);
 
   function playSound() {
