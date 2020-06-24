@@ -4,15 +4,17 @@
   left: 20%;
   width: 50%;
   height: 40%;
+  filter: contrast(1.5) drop-shadow(2px 4px 6px black);
 
   img {
-    cursor: crosshair;
-    animation: flicker 3.5s infinite alternate;
+    cursor: grab;
+    animation: flicker 0.5s infinite alternate;
     border-radius: 18px;
     width: 6%;
     height: 9%;
     box-sizing: border-box;
     filter: contrast(1.5) drop-shadow(2px 4px 6px black);
+    box-shadow: 0 0 0.5rem #F44336, inset 0 0 0.5rem #F44336, 0 0 2rem var(--neon-border-color), inset 0 0 2rem var(--neon-border-color), 0 0 4rem var(--neon-border-color), inset 0 0 4rem var(--neon-border-color);
   }
 
   img:hover, img:focus, img:active {
@@ -41,6 +43,11 @@
   padding-right: 5px;
 }
 
+#dodgybass {
+  border-radius: 6px;
+  filter: hue-rotate(257deg);
+}
+
 #hardcore {
   filter: hue-rotate(148deg);
 }
@@ -51,6 +58,11 @@
 
 #machine {
   filter: grayscale(4) sepia(1);
+}
+
+#perc {
+  padding-top: 3px;
+  padding-left: 2px;
 }
 
 #psy {
@@ -87,5 +99,9 @@
   filter: contrast(1.5);
 }
 
+#xkicks {
+  border-radius: 12px;
+  padding-right: 2px;
+}
 
 
