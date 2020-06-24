@@ -8,11 +8,21 @@
   height: 40%;
 
   img {
+    cursor: crosshair;
     animation: flicker 3.5s infinite alternate;
     border-radius: 18px;
     width: 6%;
     height: 9%;
+    
   }
+    img:hover, img:focus, img:active {
+      -webkit-box-shadow: 15px 15px 20px rgba(0,0, 0, 0.4);
+      -moz-box-shadow: 15px 15px 20px rgba(0,0, 0, 0.4);
+      box-shadow: 15px 15px 20px rgba(0,0, 0, 0.4);
+      -webkit-transform: scale(1.48);
+      -moz-transform: scale(1.48);
+      transform: scale(1.48);
+    }
 }
 
 
