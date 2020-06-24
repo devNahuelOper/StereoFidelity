@@ -1,9 +1,29 @@
 .effects {
-  position: absolute;
-  bottom: 10%;
-  left: 50%;
+  display: flex;
+  justify-content: space-evenly;
+  position: relative;;
+  bottom: -10%;
+  left: 20%;
+  width: 50%;
+  height: 40%;
+
+  img {
+    animation: flicker 3.5s infinite alternate;
+    border-radius: 18px;
+    width: 6%;
+    height: 9%;
+  }
+}
+
+
+#hardcore {
+  filter: hue-rotate(148deg);
 }
 
 #kick {
-  width: 130%;
+  filter: hue-rotate(-148deg);
+}
+
+#bassline {
+  filter: hue-rotate(175deg);
 }
