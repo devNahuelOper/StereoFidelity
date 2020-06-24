@@ -1,7 +1,8 @@
 import "./styles/index.scss";
-import "./styles/keyboard.scss";
+import "./styles/effects.scss";
+// import "./styles/keyboard.scss";
 // import canvasExample from "./scripts/canvas";
-import piano from "./scripts/keyboard";
+// import piano from "./scripts/keyboard";
 
 
 window.addEventListener("DOMContentLoaded", main);
@@ -47,7 +48,6 @@ function main() {
     sourceNode.connect(audioContext.destination);
 
     audio.play();
-  
   }
 
   function setup() {
@@ -83,6 +83,24 @@ function main() {
     }
   }
 
-  piano();
+  
+  // function setVolume(percentage) {
+  //   let activeSong = document.getElementById('depravity');
+  //   activeSong.volume = percentage;
+
+  //   var percentageOfVolume = activeSong.volume / 1;
+  //   var percentageOfVolumeSlider = document.getElementById('volumeMeter').offsetWidth * percentageOfVolume;
+
+  //   document.getElementById('volumeStatus').style.width = Math.round(percentageOfVolumeSlider) + "px";
+  // }
+
+  // function setNewVolume(obj, e) {
+  //   var volumeSliderWidth = obj.offsetWidth;
+  //   var evtobj = window.event ? event : e;
+  //   clickLocation = evtobj.layerX - obj.offsetLeft;
+
+  //   var percentage = (clickLocation / volumeSliderWidth);
+  //   setVolume(percentage);
+  // }
 
 }

@@ -4,6 +4,12 @@ body {
     background-color: #05154d;
 }
 
+:root {
+  /* Set neon color */
+  --neon-text-color: #f40;
+  --neon-border-color: #08f;
+}
+
 .stage {
   position: relative;
   width: 100px;
@@ -21,7 +27,6 @@ body {
   top: 2%;
   display: flex;
   align-items: baseline;
-
   width: 15%;
 
   img {
@@ -29,16 +34,10 @@ body {
   }
 }
 
-:root {
-  /* Base font size */
-  font-size: 10px;   
-  
-  /* Set neon color */
-  --neon-text-color: #f40;
-  --neon-border-color: #08f;
-}
 
-.sample {
+
+.sample, .songTitle {
+  font-size: 12px; 
   cursor: pointer;
   font-family: 'Exo 2', sans-serif;
   width: fit-content;
@@ -47,22 +46,26 @@ body {
   padding: 4px;
   margin-right: 13px;
   border-radius: 4px;
-  font-size: 1rem;
   font-weight: bold;
   font-style: italic;
   text-align: center;
   color: #fff;
   text-transform: uppercase;
   animation: flicker 3.5s infinite alternate;
-
-  
 }
 
-.play img, .stop img {
+.play img, .stop img, #play, #pause, #kick {
   vertical-align: -50%;
   cursor: pointer;
   border-radius: 18px;
   animation: flicker 2.5s infinite alternate;
+}
+
+ #volume {
+  vertical-align: -50%;
+  cursor: pointer;
+  border-radius: 18px;
+  animation: flicker 12.5s infinite alternate;
 }
 
 .sample::-moz-selection {
@@ -101,4 +104,42 @@ body {
         text-shadow: none;
         box-shadow: none;
     }    
+}
+
+audio {
+  position: absolute;
+  top: 15%;
+  height: 34px;
+  -webkit-transition:all 0.5s linear;
+  -moz-transition:all 0.5s linear;
+  -o-transition:all 0.5s linear;
+  transition:all 0.5s linear;
+  -moz-box-shadow: 2px 2px 4px 0px #006773;
+  -webkit-box-shadow:  2px 2px 4px 0px #006773;
+  box-shadow: 2px 2px 4px 0px #006773;
+  -moz-border-radius:7px 7px 7px 7px ;
+  -webkit-border-radius:7px 7px 7px 7px ;
+  border-radius:7px 7px 7px 7px ;
+  animation: flicker 2.5s infinite alternate;
+}
+
+.playerControls {
+ 
+
+
+  button {
+    border-radius: 18px;
+    background-color: transparent;
+    border: none;
+
+  }
+}
+
+.tracks {
+  position: relative;
+  left: 3%;
+  height: 50%;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
 }
