@@ -7,7 +7,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link rel="stylesheet" href="./dist/main.css" />
     <title>Stereo Fidelity</title>
-      <script src="dist/main.js"></script>
+      <script src="dist/main.js">
+ 
+      </script>
   </head>
 
   <body>
@@ -49,7 +51,7 @@
           </div> -->
         <div class="tracks">
 
-          <audio id="fidelity" src="stereo_fidelity.mp3"></audio>
+          <audio id="fidelity" src="dist/sounds/stereo_fidelity.mp3"></audio>
           <div class="playerControls">
             <span class="songTitle">Stereo Fidelity</span>
             <button onclick="document.getElementById('fidelity').play()"><img id="play" src="dist/images/play-button.png" alt=""></button>
@@ -58,7 +60,7 @@
             <button onclick="document.getElementById('fidelity').volume+=0.1"><img id="volume" src="dist/images/high-volume.png"alt=""></button>
           </div>
 
-            <audio id="xbeats" src="x-beats-hck-demo.mp3"></audio>
+            <audio id="xbeats" src="dist/sounds/x-beats-hck-demo.mp3"></audio>
                 <div class="playerControls">
                   <span class="songTitle">xbeats</span>
                   <button onclick="document.getElementById('xbeats').play()"><img id="play" src="dist/images/play-button.png" alt=""></button>
@@ -68,7 +70,7 @@
                 </div>
              
 
-            <audio id="depravity" src="depravity.mp3"></audio>
+            <audio id="depravity" src="dist/sounds/depravity.mp3"></audio>
             <div class="playerControls">
               <span class="songTitle">Depravity</span>
               <button onclick="document.getElementById('depravity').play()"><img id="play" src="dist/images/play-button.png" alt=""></button>
@@ -77,7 +79,7 @@
               <button onclick="document.getElementById('depravity').volume+=0.1"><img id="volume" src="dist/images/high-volume.png" alt=""></button>
             </div>
             
-            <audio id="vvr" src="vvr.mp3"></audio>
+            <audio id="vvr" src="dist/sounds/vvr.mp3"></audio>
             <div class="playerControls">
               <span class="songTitle">VVR</span>
               <button onclick="document.getElementById('vvr').play()"><img id="play" src="dist/images/play-button.png" alt=""></button>
@@ -90,28 +92,58 @@
 
         <!-- <button onclick="document.getElementById('subby').play()"><img id="kick" src="kick.png" ></button> -->
         <div class="effects">
-
-          <audio id="bassline" src="bassline.mp3"></audio>
+         
+          <audio id="bassline" src="dist/sounds/bassline.mp3"></audio>
           <img id="bassline" src="dist/images/bass.png" onmouseover="document.getElementById('bassline').play()">
 
-          <audio id="subby" src="subby.mp3"></audio>
+          <audio id="subby" src="dist/sounds/subby.mp3"></audio>
           <img id="kick" src="dist/images/kick.png" onmouseover="document.getElementById('subby').play()">
 
-          <audio id="hardcore" src="hardcore.mp3"></audio>
+          <audio id="hardcore" src="dist/sounds/hardcore.mp3"></audio>
           <img id="hardcore" src="dist/images/hardcore.png" onmouseover="document.getElementById('hardcore').play()">
 
-          <audio id="laser" src="laser.mp3"></audio>
+          <audio id="laser" src="dist/sounds/laser.mp3"></audio>
           <img id="laser" src="dist/images/laser-gun.png" onmouseover="document.getElementById('laser').play()">
 
-          <audio id="timba" src="timba.mp3"></audio>
+          <audio id="timba" src="dist/sounds/timba.mp3"></audio>
           <img id="timba" src="dist/images/timba.png" onmouseover="document.getElementById('timba').play()">
 
-          <audio id="64bit" src="64bit.mp3"></audio>
+          <audio id="64bit" src="dist/sounds/64bit.mp3"></audio>
           <img id="arcade" src="dist/images/arcade.png" onmouseover="document.getElementById('64bit').play()">
 
           <audio id="lazer" src="dist/sounds/lazer.mp3"></audio>
-          <img id="lazer" src="dist/images/laser.png" onmouseover="document.getElementById('lazer').play()">
+          <img id="lazer" src="dist/images/laser.png" onmouseover="document.getElementById('lazer').play()" onload="document.getElementById('lazer').volume=0.1">
 
+          <audio id="80s" src="dist/sounds/80kick.mp3"></audio>
+          <img id="rhombus" src="dist/images/80s.png" onmouseover="document.getElementById('80s').play()">
+
+          <audio id="technokick" src="dist/sounds/technokick.mp3"></audio>
+          <img id="speaker" src="dist/images/speaker.png" onmouseover="document.getElementById('technokick').play()">
+
+          <audio id="bassquirt" src="dist/sounds/bassquirt.mp3"></audio>
+          <img id="rave" src="dist/images/rave.png" onmouseover="document.getElementById('bassquirt').play()" onload="document.getElementById('bassquirt').volume=0.8">
+
+          <audio id="duer" src="dist/sounds/duer.mp3"></audio>
+          <img id="duer" src="dist/images/duer.png" onmouseover="document.getElementById('duer').play()">
+
+          <audio id="machine" src="dist/sounds/machine.mp3"></audio>
+          <img id="machine" src="dist/images/machine.png" onmouseover="document.getElementById('machine').play()" onload="document.getElementById('machine').volume=0.7">
+
+          <audio id="psy" src="dist/sounds/psykick.mp3"></audio>
+          <img id="psy" src="dist/images/psy.png" onmouseover="document.getElementById('psy').play()">
+
+          <audio id="plink" src="dist/sounds/plink.mp3"></audio>
+          <img id="plink" src="dist/images/plink.png" onmouseover="document.getElementById('plink').play()">
+
+          <audio id="voice" src="dist/sounds/technovoice.mp3"></audio>
+          <img id="voice" src="dist/images/voice.png" onmouseover="document.getElementById('voice').play()">
+
+          <audio id="chirp" src="dist/sounds/chirp.mp3"></audio>
+          <img id="chirp" src="dist/images/chirp.png" onmouseover="document.getElementById('chirp').play()">
+
+          <audio id="sheenery" src="dist/sounds/sheenery.mp3"></audio>
+          <img id="sheenery" src="dist/images/sheenery.png" onmouseover="document.getElementById('sheenery').play()">
+        
         </div>
         
     </div>

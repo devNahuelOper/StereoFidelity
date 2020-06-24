@@ -1,6 +1,4 @@
 .effects {
-  display: flex;
-  justify-content: space-evenly;
   position: relative;;
   bottom: -10%;
   left: 20%;
@@ -13,18 +11,35 @@
     border-radius: 18px;
     width: 6%;
     height: 9%;
+    box-sizing: border-box;
+    filter: contrast(1.5) drop-shadow(2px 4px 6px black);
+  }
+
+  img:hover, img:focus, img:active {
+    -webkit-box-shadow: 15px 15px 20px rgba(0,0, 0, 0.4);
+    -moz-box-shadow: 15px 15px 20px rgba(0,0, 0, 0.4);
+    box-shadow: 15px 15px 20px rgba(0,0, 0, 0.4);
+    -webkit-transform: scale(1.48);
+    -moz-transform: scale(1.48);
+    transform: scale(1.48);
     
   }
-    img:hover, img:focus, img:active {
-      -webkit-box-shadow: 15px 15px 20px rgba(0,0, 0, 0.4);
-      -moz-box-shadow: 15px 15px 20px rgba(0,0, 0, 0.4);
-      box-shadow: 15px 15px 20px rgba(0,0, 0, 0.4);
-      -webkit-transform: scale(1.48);
-      -moz-transform: scale(1.48);
-      transform: scale(1.48);
-    }
 }
 
+
+#arcade {
+  filter: hue-rotate(48deg);
+}
+
+#bassline {
+  filter: hue-rotate(175deg);
+}
+
+#chirp {
+  border-radius: 15px;
+  
+  padding-right: 5px;
+}
 
 #hardcore {
   filter: hue-rotate(148deg);
@@ -34,6 +49,43 @@
   filter: hue-rotate(-148deg);
 }
 
-#bassline {
-  filter: hue-rotate(175deg);
+#machine {
+  filter: grayscale(4) sepia(1);
 }
+
+#psy {
+  border-radius: 14px;
+  filter: invert(1);
+}
+
+#rave {
+  filter: hue-rotate(255deg) invert(1);
+  border-radius: 14px;
+}
+
+#rhombus {
+  filter: invert(1);
+  border-radius: 8px;
+}
+
+#sheenery {
+  border-radius: 6px;
+  filter: hue-rotate(194deg);
+}
+
+#speaker {
+  filter: hue-rotate(29deg);
+  border-radius: 6px;
+}
+
+#timba {
+  filter: hue-rotate(68deg);
+}
+
+#voice {
+  border-radius: 8px;
+  filter: contrast(1.5);
+}
+
+
+
