@@ -7,6 +7,7 @@
   filter: contrast(1.5) drop-shadow(2px 4px 6px black);
 
   img {
+    margin: 8px;
     cursor: grab;
     animation: flicker 0.5s infinite alternate;
     border-radius: 18px;
