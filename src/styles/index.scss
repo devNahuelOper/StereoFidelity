@@ -124,12 +124,15 @@ audio {
 }
 
 .playerControls {
-
+  display: flex;
   button {
     border-radius: 18px;
     background-color: transparent;
     border: none;
 
+    img {
+      width: 50%;
+    }
   }
 }
 
@@ -137,6 +140,7 @@ audio {
   position: relative;
   left: 3%;
   height: 50%;
+  width: 20%;
   display: flex;
   justify-content: space-around;
   flex-direction: column;
