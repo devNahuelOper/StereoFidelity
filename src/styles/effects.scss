@@ -1,8 +1,8 @@
 .effects {
   cursor: url('spinhand2.png'), auto;
   position: relative;;
-  bottom: -10%;
-  left: 20%;
+  bottom: -3%;
+  left: 23%;
   width: 50%;
   height: 40%;
   filter: contrast(1.5) drop-shadow(2px 4px 6px black);
@@ -56,9 +56,18 @@
   border-radius: 6px;
 }
 
+#dolphin {
+  padding-top: 3px;
+  padding-right: 3px;
+}
+
 #electrotab {
   border-radius: 8px;
   filter: hue-rotate(145deg);
+}
+
+#guineapig {
+  padding-bottom: 5px;
 }
 
 #hardcore {

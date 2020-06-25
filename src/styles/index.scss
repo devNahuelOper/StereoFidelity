@@ -1,7 +1,7 @@
 @import url(https://fonts.googleapis.com/css?family=Exo+2:200i);
 
 body {
-    background-color: #05154d;
+  background-color: #000004;
 }
 
 :root {
@@ -14,7 +14,7 @@ body {
   position: relative;
   width: 100px;
   height: 100px;
-  background-image: url('deadmau5.jpg');
+  background-image: url('turntable.png');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -24,12 +24,10 @@ body {
 
 
 
-.sample, .songTitle {
+.songTitle {
   font-size: 12px; 
   cursor: pointer;
   font-family: 'Exo 2', sans-serif;
-  width: fit-content;
-  height: fit-content;
   white-space: nowrap;
   padding: 4px;
   margin-right: 13px;
@@ -39,32 +37,20 @@ body {
   text-align: center;
   color: #fff;
   text-transform: uppercase;
-  animation: flicker 3.5s infinite alternate;
 }
 
-.play img, .stop img, #play, #pause {
+#play, #pause {
   vertical-align: -50%;
   cursor: pointer;
   border-radius: 18px;
-  animation: flicker 2.5s infinite alternate;
 }
 
  #volume {
   vertical-align: -50%;
   cursor: pointer;
   border-radius: 18px;
-  animation: flicker 12.5s infinite alternate;
 }
 
-.sample::-moz-selection {
-  background-color: var(--neon-border-color);
-  color: var(--neon-text-color);
-}
-
-.sample::selection {
-  background-color: var(--neon-border-color);
-  color: var(--neon-text-color);
-}
 
 @keyframes flicker {
     
@@ -94,22 +80,6 @@ body {
     }    
 }
 
-audio {
-  position: absolute;
-  top: 15%;
-  height: 34px;
-  -webkit-transition:all 0.5s linear;
-  -moz-transition:all 0.5s linear;
-  -o-transition:all 0.5s linear;
-  transition:all 0.5s linear;
-  -moz-box-shadow: 2px 2px 4px 0px #006773;
-  -webkit-box-shadow:  2px 2px 4px 0px #006773;
-  box-shadow: 2px 2px 4px 0px #006773;
-  -moz-border-radius:7px 7px 7px 7px ;
-  -webkit-border-radius:7px 7px 7px 7px ;
-  border-radius:7px 7px 7px 7px ;
-  animation: flicker 2.5s infinite alternate;
-}
 
 .playerControls {
   display: flex;
@@ -129,6 +99,5 @@ audio {
   height: 50%;
   width: 20%;
   display: flex;
-  justify-content: space-around;
   flex-direction: column;
 }
