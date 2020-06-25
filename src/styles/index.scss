@@ -21,18 +21,6 @@ body {
   background-color: black;
 }
 
-.controls {
-  position: relative;
-  left: 5%;
-  top: 2%;
-  display: flex;
-  align-items: baseline;
-  width: 15%;
-
-  img {
-    width: 21px;
-  }
-}
 
 
 
@@ -129,7 +117,6 @@ audio {
     border-radius: 18px;
     background-color: transparent;
     border: none;
-
     img {
       width: 50%;
     }

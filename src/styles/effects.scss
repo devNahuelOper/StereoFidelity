@@ -8,6 +8,7 @@
   filter: contrast(1.5) drop-shadow(2px 4px 6px black);
 
   img {
+    image-rendering: -webkit-optimize-contrast;
     margin: 8px;
     cursor: url('spinhand3.png'), auto;
     animation: flicker 0.5s infinite alternate;
