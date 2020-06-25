@@ -38,15 +38,26 @@
   filter: hue-rotate(175deg);
 }
 
+
+
 #chirp {
   border-radius: 15px;
   
   padding-right: 5px;
 }
 
+#deathstep, #lazzzer, #gangster {
+  filter: hue-rotate(145deg);
+}
+
 #dodgybass {
   border-radius: 6px;
   filter: hue-rotate(257deg);
+}
+
+#electrotab {
+  border-radius: 8px;
+  filter: hue-rotate(145deg);
 }
 
 #hardcore {
