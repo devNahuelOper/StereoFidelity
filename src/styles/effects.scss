@@ -15,6 +15,7 @@
     margin: 8px;
     cursor: url('spinhand3.png'), auto;
     animation: flicker 0.5s infinite alternate;
+    border: 1px solid #041029;
     border-radius: 18px;
     width: 6%;
     height: 9%;
@@ -101,17 +102,20 @@
 
 #psy, #speaker {
   border-radius: 14px;
+  border: 1px solid #fafff0;
   filter: invert(1);
 }
 
 #rave {
   filter: hue-rotate(255deg) invert(1);
   border-radius: 14px;
+  border: 1px solid #fafff0;
 }
 
 #rhombus {
   filter: invert(1);
   border-radius: 8px;
+  border: 1px solid #fafff0;
 }
 
 #sheenery {
