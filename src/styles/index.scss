@@ -23,6 +23,7 @@ body {
 
 .tracks {
   position: relative;
+  top: 3%;
   left: 3%;
   height: 50%;
   width: 20%;
@@ -30,9 +31,13 @@ body {
   flex-direction: column;
 }
 
+.track {
+  margin-bottom: 8px;
+}
+
 
 .songTitle {
-  font-size: 12px; 
+  font-size: 14px; 
   cursor: pointer;
   font-family: 'Exo 2', sans-serif;
   white-space: nowrap;
@@ -45,23 +50,31 @@ body {
   text-transform: uppercase;
 }
 
-#play, #pause, #stop, #volume {
+#play, #pause, #stop, #rewind, #forward, #volume {
   vertical-align: -50%;
   cursor: pointer;
   border-radius: 18px;
+
+}
+
+#rewind, #forward, #volume {
+  height: 9%;
+  width: 8%;
 }
 
 
 .playerControls {
   display: flex;
+  align-items: center;
+  border: 2px solid #0d7a91;
+  background-color: #000510;
+  border-radius: 8px;
+  box-sizing: border-box;
 
-  button {
-    border-radius: 18px;
-    background-color: transparent;
-    border: none;
-    img {
-      width: 17px;
-    }
+  img {
+    image-rendering: -webkit-optimize-contrast;
+    width: 10%;
+    margin: 2px auto;
   }
 }
 
