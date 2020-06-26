@@ -55,43 +55,50 @@
           </div> -->
         <div class="tracks">
 
+        <article class="track">
           <audio id="fidelity" src="dist/sounds/stereo_fidelity.mp3"></audio>
+          <span class="songTitle">Stereo Fidelity</span>
           <div class="playerControls">
-            <span class="songTitle">Stereo Fidelity</span>
             <button onclick="document.getElementById('fidelity').play()"><img id="play" src="dist/images/play-button.png" alt=""></button>
             <button onclick="document.getElementById('fidelity').pause()"><img id="pause" src="dist/images/pause-button.png" alt=""></button>
+            <button onclick="document.getElementById('fidelity').currentTime=0"><img id="stop" src="dist/images/stop-button.png" onclick="document.getElementById('fidelity').pause()"></button>
             <button onclick="document.getElementById('fidelity').volume-=0.1"><img id="volume" src="dist/images/low-volume.png" alt=""></button>
             <button onclick="document.getElementById('fidelity').volume+=0.1"><img id="volume" src="dist/images/high-volume.png"alt=""></button>
           </div>
-
+        </article>
+        <article class="track">
             <audio id="xbeats" src="dist/sounds/x-beats-hck-demo.mp3"></audio>
+            <span class="songTitle">xbeats</span>
                 <div class="playerControls">
-                  <span class="songTitle">xbeats</span>
                   <button onclick="document.getElementById('xbeats').play()"><img id="play" src="dist/images/play-button.png" alt=""></button>
                   <button onclick="document.getElementById('xbeats').pause()"><img id="pause" src="dist/images/pause-button.png" alt=""></button>
+                  <button onclick="document.getElementById('xbeats').currentTime=0"><img id="stop" src="dist/images/stop-button.png" onclick="document.getElementById('xbeats').pause()"></button>
                   <button onclick="document.getElementById('xbeats').volume-=0.1"><img id="volume" src="dist/images/low-volume.png"alt=""></button>
                   <button onclick="document.getElementById('xbeats').volume+=0.1"><img id="volume" src="dist/images/high-volume.png"alt=""></button>
                 </div>
-             
-
+        </article>     
+        <article class="track">
             <audio id="depravity" src="dist/sounds/depravity.mp3"></audio>
+            <span class="songTitle">Depravity</span>
             <div class="playerControls">
-              <span class="songTitle">Depravity</span>
               <button onclick="document.getElementById('depravity').play()"><img id="play" src="dist/images/play-button.png" alt=""></button>
               <button onclick="document.getElementById('depravity').pause()"><img id="pause" src="dist/images/pause-button.png" alt=""></button>
+              <button onclick="document.getElementById('depravity').currentTime=0"><img id="stop" src="dist/images/stop-button.png" onclick="document.getElementById('depravity').pause()"></button>
               <button onclick="document.getElementById('depravity').volume-=0.1"><img id="volume" src="dist/images/low-volume.png" alt=""></button> 
               <button onclick="document.getElementById('depravity').volume+=0.1"><img id="volume" src="dist/images/high-volume.png" alt=""></button>
             </div>
-            
+        </article>
+        <article class="track">
             <audio id="vvr" src="dist/sounds/vvr.mp3"></audio>
+            <span class="songTitle">VVR</span>
             <div class="playerControls">
-              <span class="songTitle">VVR</span>
               <button onclick="document.getElementById('vvr').play()"><img id="play" src="dist/images/play-button.png" alt=""></button>
               <button onclick="document.getElementById('vvr').pause()"><img id="pause" src="dist/images/pause-button.png" alt=""></button>
+              <button onclick="document.getElementById('vvr').currentTime=0"><img id="stop" src="dist/images/stop-button.png" onclick="document.getElementById('vvr').pause()"></button>
               <button onclick="document.getElementById('vvr').volume-=0.1"><img id="volume" src="dist/images/low-volume.png" alt=""></button>
               <button onclick="document.getElementById('vvr').volume+=0.1"><img id="volume" src="dist/images/high-volume.png" alt=""></button>
             </div>
-
+        </article>
         </div>
 
         <!-- <button onclick="document.getElementById('subby').play()"><img id="kick" src="kick.png" ></button> -->
