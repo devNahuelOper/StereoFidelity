@@ -11,7 +11,9 @@
     <title>Stereo Fidelity</title>
     
        
-      <script src="dist/main.js"></script>
+      <script src="dist/main.js">
+     
+      </script>
      
       
   </head>
@@ -126,10 +128,10 @@
         <div class="effects" draggable="true">
 
           <audio id="xkicks" src="dist/sounds/xkicks.mp3"></audio>
-          <img id="xkicks" src="dist/images/xkicks.png" onmouseover="document.getElementById('xkicks').play()">
+          <img id="xkicks" src="dist/images/xkicks.png" onmouseover="document.getElementById('xkicks').play()" onmouseout="document.getElementById('xkicks').currentTime=0">
 
           <audio id="bassline" src="dist/sounds/bassline.mp3"></audio>
-          <img id="bassline" src="dist/images/bassline.png" onmouseover="document.getElementById('bassline').play()">
+          <img id="bassline" src="dist/images/bassline.png" onmouseover="document.getElementById('bassline').play()" onmouseout="document.getElementById('bassline').currentTime=0">
 
           <audio id="subby" src="dist/sounds/subby.mp3"></audio>
           <img id="kick" src="dist/images/kick.png" onmouseover="document.getElementById('subby').play()">
@@ -147,7 +149,7 @@
           <img id="rhombus" src="dist/images/80s.png" onmouseover="document.getElementById('80s').play()">
 
           <audio id="dancetrance" src="dist/sounds/dancetrance.mp3"></audio>
-          <img id="dancetrance" src="dist/images/dancetrance.png" onmouseover="document.getElementById('dancetrance').play()">
+          <img id="dancetrance" src="dist/images/dancetrance.png" onmouseover="document.getElementById('dancetrance').play()" onmouseout="document.getElementById('dancetrance').currentTime=0">
 
 
           <audio id="technokick" src="dist/sounds/technokick.mp3"></audio>
@@ -157,7 +159,7 @@
           <img id="psy" src="dist/images/psyy.png" onmouseover="document.getElementById('psy').play()">
 
           <audio id="heavyglitch" src="dist/sounds/heavyglitch.mp3"></audio>
-          <img id="heavyglitch" src="dist/images/heavyglitch.png" onmouseover="document.getElementById('heavyglitch').play()">
+          <img id="heavyglitch" src="dist/images/heavyglitch.png" onmouseover="document.getElementById('heavyglitch').play()" onmouseout="document.getElementById('heavyglitch').currentTime=0">
 
           <audio id="screech" src="dist/sounds/screech.mp3"></audio>
           <img id="screech" src="dist/images/screech.png" onmouseover="document.getElementById('screech').play()">
@@ -205,7 +207,7 @@
           <img id="trancekick" src="dist/images/trancekick.png" onmouseover="document.getElementById('trancekick').play()">
 
           <audio id="gloving" src="dist/sounds/gloving.mp3"></audio>
-          <img id="gloving" src="dist/images/gloving.png" onmouseover="document.getElementById('gloving').play()">
+          <img id="gloving" src="dist/images/gloving.png" onmouseover="document.getElementById('gloving').play()" onmouseout="document.getElementById('gloving').currentTime=0">
 
           <audio id="plink" src="dist/sounds/plink.mp3"></audio>
           <img id="plink" src="dist/images/plink.png" onmouseover="document.getElementById('plink').play()">
@@ -220,7 +222,7 @@
           <img id="elecguitar" src="dist/images/guitar2.png" onmouseover="document.getElementById('elecguitar').play()">
 
           <audio id="victory" src="dist/sounds/victory.mp3"></audio>
-          <img id="victory" src="dist/images/victory.png" onmouseover="document.getElementById('victory').play()" onload="document.getElementById('victory').volume=0.5">
+          <img id="victory" src="dist/images/victory.png" onmouseover="document.getElementById('victory').play()" onload="document.getElementById('victory').volume=0.5" onmouseout="document.getElementById('victory').currentTime=0, document.getElementById('victory').pause()">
 
           <audio id="dubdrop" src="dist/sounds/dubdrop.mp3"></audio>
           <img id="electrotab" src="dist/images/electrotab.png" onmouseover="document.getElementById('dubdrop').play()">
@@ -247,16 +249,16 @@
           <img id="distorcion" src="dist/images/rockhands.png" onmouseover="document.getElementById('distorcion').play()">
 
           <audio id="deathstep" src="dist/sounds/deathstep.mp3"></audio>
-          <img id="deathstep" src="dist/images/deathstep.png" onmouseover="document.getElementById('deathstep').play()">
+          <img id="deathstep" src="dist/images/deathstep.png" onmouseover="document.getElementById('deathstep').play()" onmouseout="document.getElementById('deathstep').currentTime=0">
                   
           <audio id="readycore" src="dist/sounds/readycore.mp3"></audio>
-          <img id="readycore" src="dist/images/headbanger.png" onmouseover="document.getElementById('readycore').play()">
+          <img id="readycore" src="dist/images/headbanger.png" onmouseover="document.getElementById('readycore').play()" onmouseout="document.getElementById('readycore').currentTime=0">
                   
           <audio id="trance" src="dist/sounds/trance.mp3"></audio>
           <img id="trance" src="dist/images/trance.png" onmouseover="document.getElementById('trance').play()">
 
           <audio id="edmdistort" src="dist/sounds/edmdistort.mp3"></audio>
-          <img id="edmdistort" src="dist/images/edmdistort.png" onmouseover="document.getElementById('edmdistort').play()">
+          <img id="edmdistort" src="dist/images/edmdistort.png" onmouseover="document.getElementById('edmdistort').play()" onmouseout="document.getElementById('edmdistort').currentTime=0">
 
           <audio id="pacscratch" src="dist/sounds/pacscratch.mp3"></audio>
           <img id="spinit" src="dist/images/spinit.png" onmouseover="document.getElementById('pacscratch').play()">
@@ -265,7 +267,7 @@
           <img id="backspin" src="dist/images/backspin.png" onmouseover="document.getElementById('backspin').play()">
 
           <audio id="ignition" src="dist/sounds/ignition.mp3"></audio>
-          <img id="ignition" src="dist/images/ignition.png" onmouseover="document.getElementById('ignition').play()">
+          <img id="ignition" src="dist/images/ignition.png" onmouseover="document.getElementById('ignition').play()" onmouseout="document.getElementById('ignition').currentTime=0">
 
           <audio id="remix" src="dist/sounds/remix.mp3"></audio>
           <img id="remix" src="dist/images/remix.png" onmouseover="document.getElementById('remix').play()">
@@ -283,7 +285,7 @@
           <img id="perc" src="dist/images/perc.png" onmouseover="document.getElementById('perc').play()">
 
           <audio id="killerloop" src="dist/sounds/killerloop.mp3"></audio>
-          <img id="killerloop" src="dist/images/killerloop.png" onmouseover="document.getElementById('killerloop').play()">
+          <img id="killerloop" src="dist/images/killerloop.png" onmouseover="document.getElementById('killerloop').play()" onmouseout="document.getElementById('killerloop').currentTime=0">
 
           <audio id="analog" src="dist/sounds/analog.mp3"></audio>
           <img id="analog" src="dist/images/analog.png" onmouseover="document.getElementById('analog').play()">
@@ -298,7 +300,7 @@
           <img id="elecdrum2" src="dist/images/elecdrum2.png" onmouseover="document.getElementById('elecdrum2').play()">
 
             <audio id="funkysynth" src="dist/sounds/funkysynth.mp3"></audio>
-            <img id="funkysynth" src="dist/images/funkysynth.png" onmouseover="document.getElementById('funkysynth').play()">
+            <img id="funkysynth" src="dist/images/funkysynth.png" onmouseover="document.getElementById('funkysynth').play()" onmouseout="document.getElementById('funkysynth').currentTime=0">
 
           <audio id="kickdsh" src="dist/sounds/kickdsh.mp3"></audio>
           <img id="kickdsh" src="dist/images/kickdsh.png" onmouseover="document.getElementById('kickdsh').play()">
@@ -310,15 +312,13 @@
           <img id="voice" src="dist/images/voice.png" onmouseover="document.getElementById('voice').play()">
 
           <audio id="disco" src="dist/sounds/disco.mp3"></audio>
-          <img id="disco" src="dist/images/disco.png" onmouseover="document.getElementById('disco').play()">
+          <img id="disco" src="dist/images/disco.png" onmouseover="document.getElementById('disco').play()" onmouseout="document.getElementById('disco').currentTime=0">
           
           <audio id="elecpop" src="dist/sounds/elecpop.mp3"></audio>
-          <img id="elecpop" src="dist/images/elecpop.png" onmouseover="document.getElementById('elecpop').play()">
-
-         
+          <img id="elecpop" src="dist/images/elecpop.png" onmouseover="document.getElementById('elecpop').play()" onmouseout="document.getElementById('elecpop').currentTime=0">
 
           <audio id="herbert" src="dist/sounds/herbert.mp3"></audio>
-          <img id="herbert" src="dist/images/herbert.png" onmouseover="document.getElementById('herbert').play()">
+          <img id="herbert" src="dist/images/herbert.png" onmouseover="document.getElementById('herbert').play()" onmouseout="document.getElementById('herbert').currentTime=0">
 
           <audio id="sheenery" src="dist/sounds/sheenery.mp3"></audio>
           <img id="sheenery" src="dist/images/sheenery.png" onmouseover="document.getElementById('sheenery').play()">

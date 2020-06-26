@@ -1,6 +1,8 @@
+
 .effects {
   cursor: url('spinhand2.png'), auto;
-  position: relative;;
+  position: relative;
+  -webkit-user-drag: element;
   bottom: -4%;
   left: 15%;
   width: 75%;
@@ -8,6 +10,7 @@
   filter: contrast(1.5) drop-shadow(2px 4px 6px black);
 
   img {
+    -webkit-user-drag: element;
     image-rendering: -webkit-optimize-contrast;
     margin: 8px;
     cursor: url('spinhand3.png'), auto;

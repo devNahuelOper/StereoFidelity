@@ -61,11 +61,11 @@ function main() {
     });
   }
 
-  document.getElementsByClassName('play')[0].addEventListener('click', playSound.bind(null, sample));
-  document.getElementsByClassName('stop')[0].addEventListener('click', stopSound);
+  // document.getElementsByClassName('play')[0].addEventListener('click', playSound.bind(null, sample));
+  // document.getElementsByClassName('stop')[0].addEventListener('click', stopSound);
 
-  document.getElementsByClassName('play')[1].addEventListener('click', playSound.bind(null, sample2));
-  document.getElementsByClassName('stop')[1].addEventListener('click', stopSound);
+  // document.getElementsByClassName('play')[1].addEventListener('click', playSound.bind(null, sample2));
+  // document.getElementsByClassName('stop')[1].addEventListener('click', stopSound);
 
   function playSound() {
     if (audioContext) {
@@ -83,24 +83,53 @@ function main() {
     }
   }
 
+  // let one = document.querySelector('effects');
+  // let two = document.querySelector('stage');
 
-  // function setVolume(percentage) {
-  //   let activeSong = document.getElementById('depravity');
-  //   activeSong.volume = percentage;
+  // let drake = dragula([one, two])
 
-  //   var percentageOfVolume = activeSong.volume / 1;
-  //   var percentageOfVolumeSlider = document.getElementById('volumeMeter').offsetWidth * percentageOfVolume;
+  // drake.on('drag', function (el, source) {
+  //   document.getElementsByTagName('body')[0].style.backgroundColor = '#28a0ef';
+  // });
 
-  //   document.getElementById('volumeStatus').style.width = Math.round(percentageOfVolumeSlider) + "px";
-  // }
+  // drake.on('drop', function (el, target) {
+  //   el.style.border = '5px dashed white';
+  //   el.innerText = "Drag MEEEE :)"
+  //   document.getElementsByTagName('body')[0].style.backgroundColor = 'black';
+  // });
 
-  // function setNewVolume(obj, e) {
-  //   var volumeSliderWidth = obj.offsetWidth;
-  //   var evtobj = window.event ? event : e;
-  //   clickLocation = evtobj.layerX - obj.offsetLeft;
+  // var dragAndDrop = {
 
-  //   var percentage = (clickLocation / volumeSliderWidth);
-  //   setVolume(percentage);
-  // }
+  //   limit: 2,
+  //   count: 0,
+
+  //   init: function () {
+  //     this.dragula();
+  //     this.drake();
+  //   },
+
+  //   drake: function () {
+  //     this.dragula.on('drop', this.dropped.bind(this));
+  //   },
+
+  //   dragula: function () {
+  //     this.dragula = dragula([document.getElementsByClassName('effects'), document.getElementsByClassName('stage')],
+  //       {
+  //         moves: this.canMove.bind(this),
+  //         copy: true,
+  //       });
+  //   },
+
+  //   canMove: function () {
+  //     return this.count < this.limit;
+  //   },
+
+  //   dropped: function (el) {
+  //     this.count++;
+  //   }
+
+  // };
+
+  // dragAndDrop.init();
 
 }
