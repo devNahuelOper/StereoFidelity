@@ -20,68 +20,39 @@
 
   <body>
     <div class="stage">
+      <!-- <button id="help">Open Modal</button>
 
-      <!-- <div class="controls">
-        <div class="sample"><a>Stereo Fidelity</a></div>
-          <p class="play"><img src="play-button.png" alt=""></p>
-          <p class="stop"><img src="stop-button.png" alt=""></p>
-      </div>
-      <div class="controls">
-        <div class="sample"><a>Motorcycle</a></div>
-        <p class="play"><img src="play-button.png" alt=""></p>
-        <p class="stop"><img src="stop-button.png" alt=""></p>
+      <div id="myModal" class="modal">
+
+
       </div> -->
 
-      <!-- <div class="keyboardContainer">
-        <div class="keyboard"></div>
-           <div class="settingsBar">
-              <div class="left">
-                <span>Volume: </span>
-                <input type="range" min="0.0" max="1.0" step="0.01" value="0.5" list="volumes" name="volume">
-                <datalist id="volumes">
-                  <option value="0.0" label="Mute">
-                  <option value="1.0" label="100%">
-                </datalist>
-              </div>
-                <div class="right">
-                  <span>Current waveform: </span>
-                  <select name="waveform">
-                    <option value="sine">Sine</option>
-                    <option value="square" selected>Square</option>
-                    <option value="sawtooth">Sawtooth</option>
-                    <option value="triangle">Triangle</option>
-                    <option value="custom">Custom</option>
-                  </select>
-                </div>
-           </div>
-          </div> -->
-        <div class="tracks">
-
+      <div class="tracks">
         <article class="track">
           <audio id="fidelity" src="dist/sounds/stereo_fidelity.mp3"></audio>
           <span class="songTitle">Stereo Fidelity</span>
-          <div class="playerControls">
-            <img id="play" src="dist/images/play-button.png" onclick="document.getElementById('fidelity').play()">
-            <img id="pause" src="dist/images/pause-button.png" onclick="document.getElementById('fidelity').pause()">
-            <img id="stop" src="dist/images/stop-button.png" onclick="document.getElementById('fidelity').pause(), document.getElementById('fidelity').currentTime=0">
-            <img id="rewind" src="dist/images/rewind.png" onclick="document.getElementById('fidelity').currentTime-=5">
-            <img id="forward" src="dist/images/forward.png" onclick="document.getElementById('fidelity').currentTime+=5">
-            <img id="volume" src="dist/images/lo-volume.png" onclick="document.getElementById('fidelity').volume-=0.1">
-            <img id="volume" src="dist/images/hi-volume.png" onclick="document.getElementById('fidelity').volume+=0.1">
-          </div>
+            <div class="playerControls">
+              <img id="play" src="dist/images/play-button.png" onclick="document.getElementById('fidelity').play()">
+              <img id="pause" src="dist/images/pause-button.png" onclick="document.getElementById('fidelity').pause()">
+              <img id="stop" src="dist/images/stop-button.png" onclick="document.getElementById('fidelity').pause(), document.getElementById('fidelity').currentTime=0">
+              <img id="rewind" src="dist/images/rewind.png" onclick="document.getElementById('fidelity').currentTime-=5">
+              <img id="forward" src="dist/images/forward.png" onclick="document.getElementById('fidelity').currentTime+=5">
+              <img id="volume" src="dist/images/lo-volume.png" onclick="document.getElementById('fidelity').volume-=0.1">
+              <img id="volume" src="dist/images/hi-volume.png" onclick="document.getElementById('fidelity').volume+=0.1">
+            </div>
         </article>
         <article class="track">
             <audio id="xbeats" src="dist/sounds/x-beats-hck-demo.mp3"></audio>
             <span class="songTitle">xbeats</span>
-                <div class="playerControls">
-      <img id="play" src="dist/images/play-button.png" onclick="document.getElementById('xbeats').play()">
-      <img id="pause" src="dist/images/pause-button.png" onclick="document.getElementById('xbeats').pause()">
-      <img id="stop" src="dist/images/stop-button.png" onclick="document.getElementById('xbeats').pause(), document.getElementById('xbeats').currentTime=0">
-      <img id="rewind" src="dist/images/rewind.png" onclick="document.getElementById('xbeats').currentTime-=5">
-      <img id="forward" src="dist/images/forward.png" onclick="document.getElementById('xbeats').currentTime+=5">
-      <img id="volume" src="dist/images/lo-volume.png" onclick="document.getElementById('xbeats').volume-=0.1">
-      <img id="volume" src="dist/images/hi-volume.png" onclick="document.getElementById('xbeats').volume+=0.1">
-                </div>
+            <div class="playerControls">
+              <img id="play" src="dist/images/play-button.png" onclick="document.getElementById('xbeats').play()">
+              <img id="pause" src="dist/images/pause-button.png" onclick="document.getElementById('xbeats').pause()">
+              <img id="stop" src="dist/images/stop-button.png" onclick="document.getElementById('xbeats').pause(), document.getElementById('xbeats').currentTime=0">
+              <img id="rewind" src="dist/images/rewind.png" onclick="document.getElementById('xbeats').currentTime-=5">
+              <img id="forward" src="dist/images/forward.png" onclick="document.getElementById('xbeats').currentTime+=5">
+              <img id="volume" src="dist/images/lo-volume.png" onclick="document.getElementById('xbeats').volume-=0.1">
+              <img id="volume" src="dist/images/hi-volume.png" onclick="document.getElementById('xbeats').volume+=0.1">
+            </div>
         </article>     
         <article class="track">
             <audio id="depravity" src="dist/sounds/depravity.mp3"></audio>
@@ -274,15 +245,6 @@
           <audio id="revbass" src="dist/sounds/revbass.mp3"></audio>
           <img id="revbass" src="dist/images/revbass.png" onmouseover="document.getElementById('revbass').play()" onmouseout="document.getElementById('revbass').currentTime=0">
 
-          <audio id="gabkicks" src="dist/sounds/gabkicks.mp3"></audio>
-          <img id="gabkicks" src="dist/images/gabkicks.png" onmouseover="document.getElementById('gabkicks').play()" onmouseout="document.getElementById('gabkicks').currentTime=0">
-              
-          <audio id="quake" src="dist/sounds/quake.mp3"></audio>
-          <img id="quake" src="dist/images/quake.png" onmouseover="document.getElementById('quake').play()" onmouseout="document.getElementById('quake').currentTime=0">
-
-          <audio id="distodnb" src="dist/sounds/distodnb.mp3"></audio>
-          <img id="distodnb" src="dist/images/distodnb.png" onmouseover="document.getElementById('distodnb').play()" onmouseout="document.getElementById('distodnb').currentTime=0">
-
           <audio id="shockforce" src="dist/sounds/shockforce.mp3"></audio>
           <img id="shockforce" src="dist/images/hacker.png" onmouseover="document.getElementById('shockforce').play()" onmouseout="document.getElementById('shockforce').currentTime=0">
 
@@ -292,11 +254,20 @@
           <audio id="distorcion" src="dist/sounds/distorcion.mp3"></audio>
           <img id="distorcion" src="dist/images/rockhands.png" onmouseover="document.getElementById('distorcion').play()" onmouseout="document.getElementById('distorcion').currentTime=0">
 
+          <audio id="gabkicks" src="dist/sounds/gabkicks.mp3"></audio>
+          <img id="gabkicks" src="dist/images/gabkicks.png" onmouseover="document.getElementById('gabkicks').play()" onmouseout="document.getElementById('gabkicks').currentTime=0">
+          
+          <audio id="corekick" src="dist/sounds/corekick.mp3"></audio>
+          <img id="corekick" src="dist/images/corekick.png" onmouseover="document.getElementById('corekick').play()" onmouseout="document.getElementById('corekick').currentTime=0">
+          
+          <audio id="distodnb" src="dist/sounds/distodnb.mp3"></audio>
+          <img id="distodnb" src="dist/images/distodnb.png" onmouseover="document.getElementById('distodnb').play()" onmouseout="document.getElementById('distodnb').currentTime=0">
+
           <audio id="frenchcore" src="dist/sounds/frenchcore.mp3"></audio>
           <img id="frenchcore" src="dist/images/frenchcore.png" onmouseover="document.getElementById('frenchcore').play()" onmouseout="document.getElementById('frenchcore').currentTime=0">
 
-          <audio id="corekick" src="dist/sounds/corekick.mp3"></audio>
-          <img id="corekick" src="dist/images/corekick.png" onmouseover="document.getElementById('corekick').play()" onmouseout="document.getElementById('corekick').currentTime=0">
+          <audio id="quake" src="dist/sounds/quake.mp3"></audio>
+          <img id="quake" src="dist/images/quake.png" onmouseover="document.getElementById('quake').play()" onmouseout="document.getElementById('quake').currentTime=0">
 
           <audio id="deathstep" src="dist/sounds/skrillgrowl.mp3"></audio>
           <img id="deathstep" src="dist/images/deathstep.png" onmouseover="document.getElementById('deathstep').play()" onmouseout="document.getElementById('deathstep').currentTime=0">
