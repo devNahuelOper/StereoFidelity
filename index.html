@@ -20,18 +20,19 @@
 
   <body>
     <div class="stage">
-      <button id="help" onclick="document.getElementById('myModal').style.display='block'">Open Modal</button>
+      <button id="help" onclick="document.getElementById('myModal').style.display='flex'">Open Modal</button>
 
       <div id="myModal" class="modal">
         <div class="modal-content">
-          <h1 id="welcome">Welcome to Stereo Fidelity</h1>
+          <h1 id="welcome">Stereo Fidelity</h1>
+         <span id="notice">
           <p id="instructions">
-            Pick a track on the left and go to town hovering over the 100 sound effects at the bottom.
-             <br>
-             <br>
-            You can play more than one track at once, or not play any 
-            and just mess around with the effects.
+            Pick a track on the left (optional).
           </p>
+          <p id="instructions">
+            Hover over bottom icons to play sounds.
+          </p>
+        </span>
           <br>
           <span class="close" onclick="document.getElementById('myModal').style.display='none'">Let's Play!</span>
         </div>

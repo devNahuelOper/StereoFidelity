@@ -124,49 +124,58 @@ body {
 }
 
 .modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   opacity: 0.9;
   font-family: 'Exo 2', sans-serif;
   position: fixed; 
   z-index: 1; 
   left: 30%;
+  top: 5%;
   width: 45%; 
   height: 80%; 
   overflow: auto; 
   background-color: rgb(0, 5, 15);
-  border: 1px solid #17cec5;
-  border-radius: 300px; 
+  border: 3px solid #17cec5;
+  border-radius: 50%; 
 }
 
 .modal-content {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  background-color: #000f30;
-  margin: 8% auto;
-  padding: 40px;
-  border: 1px solid #17cec5;
+  justify-content: space-evenly;
+  background-color: #1b4d83;
+  padding: 10px;
+  border: 3px solid #17cec5;
   width: 70%;
-  height: 67%;
-  border-radius: 400px; 
+  height: 70%;
+  border-radius: 50%; 
 }
 
 #welcome {
-  font-size: 34px;
+  font-size: 3em;
   text-align: center;
   color: #24eaa4;
   
 }
 
-#instructions {
+#notice {
   width: 90%;
-  font-size: 16px;
-  color: #17cec5;
+  display: flex;
+  justify-content: space-between;
+}
+
+#instructions {
+  width: 36%;
+  font-size: 14px;
+  color: #00ffa3;
 }
 
 .close {
   position: absolute;
-  bottom: 15%;
+  bottom: 20%;
   color: #24eaa4;
   font-size: 28px;
   font-weight: bold;
