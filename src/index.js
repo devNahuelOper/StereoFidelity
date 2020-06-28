@@ -83,6 +83,32 @@ function main() {
     }
   }
 
+  // let modal = document.getElementById('myModal');
+  // let btn = document.getElementById('help');
+  // let close = document.getElementsByClassName('close')[0];
+
+  // btn.onclick = function () {
+  //   modal.style.display = "block";
+  // }
+
+  // btn.addEventListener('click',function () {
+  //   modal.style.display = 'block';
+  // })
+
+  // close.onclick = function () {
+  //   modal.style.display = 'none';
+  // }
+
+  // close.addEventListener('click', function () {
+  //   modal.style.display = 'none';
+  // })
+
+  // window.onclick = function (event) {
+  //   if (event.target == modal) {
+  //     modal.style.display = 'none';
+  //   }
+  // }
+
   // let one = document.querySelector('effects');
   // let two = document.querySelector('stage');
 

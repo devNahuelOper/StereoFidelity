@@ -118,3 +118,63 @@ body {
         box-shadow: none;
     }    
 }
+
+#help {
+  float: right;
+}
+
+.modal {
+  opacity: 0.9;
+  font-family: 'Exo 2', sans-serif;
+  position: fixed; 
+  z-index: 1; 
+  left: 30%;
+  width: 45%; 
+  height: 80%; 
+  overflow: auto; 
+  background-color: rgb(0, 5, 15);
+  border: 1px solid #17cec5;
+  border-radius: 300px; 
+}
+
+.modal-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #000f30;
+  margin: 8% auto;
+  padding: 40px;
+  border: 1px solid #17cec5;
+  width: 70%;
+  height: 67%;
+  border-radius: 400px; 
+}
+
+#welcome {
+  font-size: 34px;
+  text-align: center;
+  color: #24eaa4;
+  
+}
+
+#instructions {
+  width: 90%;
+  font-size: 16px;
+  color: #17cec5;
+}
+
+.close {
+  position: absolute;
+  bottom: 15%;
+  color: #24eaa4;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
