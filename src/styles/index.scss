@@ -213,7 +213,7 @@ body {
   background-color: #1b4d83;
   background-image: url('aliens.jpg');
   background-position-x: center;
-  background-position-y: -12px;
+  background-position-y: -20px;
   background-size: cover;
   padding: 8px;
   border: 8px solid #17171f;
@@ -232,25 +232,38 @@ body {
 
 #notice {
   width: 100%;
-  display: flex;
-  justify-content: space-between;
+
   position: relative;
-  top: 8%;
+  top: 13%;
   left: -1%;
 }
 
+
 #instructions {
-  width: 39%;
-  font-size: 14px;
+  position: relative;
+  top: 10%;
+  height: 0%;
+  font-size: 1em;
   font-weight: bold;
   color: #e5e6e8;
   text-align: center;
+
+  strong {
+    font-size: 1.1em;
+    font-weight: bolder;
+    text-transform: uppercase;
+  }
 }
 
+
+
+
 #instructions2 {
+  position: relative;
+  bottom: -9%;
   text-align: center;
   width: 60%;
-  font-size: 0.7em;
+  font-size: 0.9em;
   font-weight: bold;
   color: #e5e6e8;
 }

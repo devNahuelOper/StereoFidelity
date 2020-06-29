@@ -35,14 +35,18 @@
       <div class="modal-wrapper">
         <div class="modal-content">
           <h1 id="welcome">Stereo Fidelity</h1>
-         <span id="notice">
+        
           <p id="instructions">
-            Pick one of my tracks, or upload your own.
+            Pick one of my tracks, or upload your own! 
+          <br>
+          <br>
+         <strong>Hover</strong> over icons to play sounds. 
+          <br>
+          <strong>Click</strong> any icon you want to mute. 
+          <br>
+            <strong>Double-click</strong> icon to reactivate.
           </p>
-          <p id="instructions">
-            Hover over bottom icons to play sounds.
-          </p>
-        </span>
+          <br>
           <p id="instructions2">🎧 start with your device volume low 🎧</p>
           <br>
           <span class="close" onclick="document.getElementById('myModal').style.display='none'">Let's Play!</span>
@@ -132,10 +136,16 @@
         <div class="effects" draggable="true">
 
           <audio id="xkicks" src="dist/sounds/xkicks.mp3"></audio>
-          <img id="xkicks" src="dist/images/xkicks.png" onmouseover="document.getElementById('xkicks').play()" onmouseout="document.getElementById('xkicks').currentTime=0">
+          <img id="xkicks" src="dist/images/xkicks.png" onmouseover="document.getElementById('xkicks').play()" onmouseout="document.getElementById('xkicks').currentTime=0"
+            onclick="document.getElementById('xkicks').volume=0"
+            ondblclick="document.getElementById('xkicks').volume=1"
+          >
 
           <audio id="bassline" src="dist/sounds/bassline.mp3"></audio>
-          <img id="bassline" src="dist/images/bassline.png" onmouseover="document.getElementById('bassline').play()" onmouseout="document.getElementById('bassline').currentTime=0">
+          <img id="bassline" src="dist/images/bassline.png" onmouseover="document.getElementById('bassline').play()" onmouseout="document.getElementById('bassline').currentTime=0"
+            onclick="document.getElementById('bassline').volume=0"
+            ondblclick="document.getElementById('bassline').volume=1"
+          >
 
           <audio id="subby" src="dist/sounds/subby.mp3"></audio>
           <img id="kick" src="dist/images/kick.png" onmouseover="document.getElementById('subby').play()" onmouseout="document.getElementById('subby').currentTime=0">

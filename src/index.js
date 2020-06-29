@@ -27,11 +27,23 @@ function main() {
   document.getElementById("upload").addEventListener("change", handleFiles, false);
 
 
+  const effects = document.getElementsByClassName('effects')[0];
+  const sounds = effects.querySelectorAll('audio');
+  // console.log(sounds);
+  sounds.forEach(sound => {
+    console.log(sound.nextElementSibling);
+    let adjImg = sound.nextElementSibling;
+    adjImg.onclick = function () {
+      sound.volume = 0;
+    }
+    adjImg.ondblclick = function () {
+      sound.volume = 1;
+    }
+  });
 
 
-
-  let fidelity = document.getElementById('fidelity');
-  let play = document.getElementById('play');
+  // let fidelity = document.getElementById('fidelity');
+  // let play = document.getElementById('play');
 
   
 
