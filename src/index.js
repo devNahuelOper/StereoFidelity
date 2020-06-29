@@ -26,21 +26,35 @@ function main() {
 
   document.getElementById("upload").addEventListener("change", handleFiles, false);
 
+  const tracks = document.getElementsByClassName('tracks')[0];
+  const chosen = document.getElementsByClassName('chosen')[0];
 
   const effects = document.getElementsByClassName('effects')[0];
   const sounds = effects.querySelectorAll('audio');
+
   sounds.forEach(sound => {
     let adjImg = sound.nextElementSibling;
+
     adjImg.onclick = function () {
       sound.volume = 0;
+      stage.appendChild(adjImg);
+      adjImg.style.width = adjImg.style.width + 2 + '%';
+      adjImg.style.height = adjImg.style.height + 2 + '%';
     }
     adjImg.ondblclick = function () {
       sound.volume = 1;
+      effects.appendChild(adjImg);
+      adjImg.style.height = 7 + '%';
+      adjImg.style.width = 3 + '%';
     }
+
     adjImg.ondrag = function () {
+      // stage.appendChild(adjImg);
       sound.volume = 0.5;
     }
   });
+
+ 
 
 
   // let fidelity = document.getElementById('fidelity');
