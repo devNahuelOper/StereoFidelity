@@ -162,9 +162,10 @@ body {
   cursor: pointer;
   position: absolute;
   right: 6%;
-  top: 10px;
-  width: 2.5%;
-  filter: brightness(1.5);
+  top: 2%;
+  width: 2%;
+  filter: invert(1);
+  border-radius: 40px;
 }
 
 .modal {
