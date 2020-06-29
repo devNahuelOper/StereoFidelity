@@ -29,9 +29,7 @@ function main() {
 
   const effects = document.getElementsByClassName('effects')[0];
   const sounds = effects.querySelectorAll('audio');
-  // console.log(sounds);
   sounds.forEach(sound => {
-    console.log(sound.nextElementSibling);
     let adjImg = sound.nextElementSibling;
     adjImg.onclick = function () {
       sound.volume = 0;
