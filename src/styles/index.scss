@@ -120,7 +120,19 @@ body {
 }
 
 #help {
-  float: right;
+  position: absolute;
+  right: 2%;
+  top: 2%;
+  background-color: transparent;
+  border: none;
+}
+
+#about {
+  cursor: pointer;
+  position: absolute;
+  right: 2%;
+  top: 2%;
+  width: 2%;
 }
 
 .modal {
@@ -136,9 +148,22 @@ body {
   width: 45%; 
   height: 80%; 
   overflow: auto; 
-  background-color: rgb(0, 5, 15);
-  border: 3px solid #17cec5;
+  background-color:  #21d498;
+  border: 13px solid #191719;
   border-radius: 50%; 
+  box-shadow: 0px 0px 0px 1px silver inset;
+}
+
+.modal-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 90%;
+  width: 90%;
+  background-color: transparent;
+  border-radius: 50%;
+  border: 1px solid #9b9b9b;
+  box-shadow: 0px 0px 0px 1px #1f1f2c inset;
 }
 
 .modal-content {
@@ -147,43 +172,62 @@ body {
   align-items: center;
   justify-content: space-evenly;
   background-color: #1b4d83;
-  padding: 10px;
-  border: 3px solid #17cec5;
-  width: 70%;
-  height: 70%;
-  border-radius: 50%; 
+  background-image: url('aliens.jpg');
+  background-position-x: center;
+  background-position-y: 2px;
+  background-size: cover;
+  padding: 8px;
+  border: 8px solid #17171f;
+  box-shadow: 0px 0px 0px 1px silver inset;
+  width: 75%;
+  height: 75%;
+  border-radius: 50%;
 }
 
 #welcome {
   font-size: 3em;
   text-align: center;
-  color: #24eaa4;
+  color: #1ec190;
   
 }
 
 #notice {
-  width: 90%;
+  width: 100%;
   display: flex;
   justify-content: space-between;
+  position: relative;
+  top: 8%;
+  left: -1%;
 }
 
 #instructions {
-  width: 36%;
+  width: 39%;
   font-size: 14px;
-  color: #00ffa3;
+  font-weight: bold;
+  color: #e5e6e8;
+  text-align: center;
+}
+
+#instructions2 {
+  text-align: center;
+  width: 60%;
+  font-size: 13px;
+  font-weight: bold;
+  color: #e5e6e8;
 }
 
 .close {
   position: absolute;
   bottom: 20%;
-  color: #24eaa4;
+  color: #1ec190;
   font-size: 28px;
   font-weight: bold;
 }
 
 .close:hover,
 .close:focus {
-  color: black;
-  text-decoration: none;
+  text-transform: uppercase;
+  transform: scale(1.3);
   cursor: pointer;
+    text-shadow: 2px 0 0 #171717, -2px 0 0 #1ec08e, 0 2px 0 #171517, 0 -2px 0 #171516, 1px 1px #171516, -1px -1px 0 #151515, 1px -1px 0 #171416, -1px 1px 0 #171516;
 }
