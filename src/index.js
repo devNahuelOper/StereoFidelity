@@ -37,6 +37,9 @@ function main() {
     adjImg.ondblclick = function () {
       sound.volume = 1;
     }
+    adjImg.ondrag = function () {
+      sound.volume = 0.5;
+    }
   });
 
 
