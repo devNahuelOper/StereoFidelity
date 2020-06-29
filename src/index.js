@@ -1,8 +1,5 @@
 import "./styles/index.scss";
 import "./styles/effects.scss";
-// import "./styles/keyboard.scss";
-// import canvasExample from "./scripts/canvas";
-// import piano from "./scripts/keyboard";
 
 
 window.addEventListener("DOMContentLoaded", main);
@@ -28,33 +25,37 @@ function main() {
   }
 
   document.getElementById("upload").addEventListener("change", handleFiles, false);
-  // function () {
-
-  // }
-
-   // close.onclick = function () {
-  //   modal.style.display = 'none';
-  // }
-
-  // let audio, analyser, audioContext, soundSource,
-  //   soundBuffer, sourceNode;
 
 
-  // const sample = document.getElementsByClassName('sample')[0];
 
-  // sample.addEventListener('click', function() {
-  //   audio = new Audio('stereo_fidelity.mp3');
-  //   audio.controls = true;
-  //   setup();
-  // })
 
-  // const sample2 = document.getElementsByClassName('sample')[1];
 
-  // sample2.addEventListener('click', function () {
-  //   audio = new Audio('motorcycle.mp3');
-  //   audio.controls = true;
-  //   setup();
-  // })
+  let fidelity = document.getElementById('fidelity');
+  let play = document.getElementById('play');
+
+  
+
+  // let audio,
+  //   analyser,
+  //   audioContext,
+  //   soundSource,
+  //   soundBuffer,
+  //   sourceNode,
+  //   cycle,
+  //   transparency,
+  //   freqArray,
+  //   stream;
+
+
+  // audioInput.addEventListener('change', function (event) {
+  //   if (!audioContext || audioContext.state !== "running") {
+  //     stream = URL.createObjectURL(event.target.files[0]);
+  //     audio = new Audio();
+  //     console.log(audio);
+  //     audio.src = stream;
+  //     setup();
+  //   }
+  // });
 
   // function startSound() {
   //   sourceNode = audioContext.createMediaElementSource(audio);
