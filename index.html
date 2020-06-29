@@ -21,8 +21,12 @@
   </head>
 
   <body>
-    <div class="stage">
-   
+    <div class="stage"
+  
+    >
+        <a href="https://github.com/devNahuelOper" target=" _blank">
+          <img id="git" src="dist/images/gitstereo.png">
+        </a>
         <img id="about" src="dist/images/about.png" onclick="document.getElementById('myModal').style.display='flex'">
      
 
@@ -32,7 +36,7 @@
           <h1 id="welcome">Stereo Fidelity</h1>
          <span id="notice">
           <p id="instructions">
-            Pick a track on the left (optional).
+            Pick one of my tracks, or upload your own.
           </p>
           <p id="instructions">
             Hover over bottom icons to play sounds.
@@ -111,8 +115,18 @@
               <img id="volume" src="dist/images/hi-volume.png" onclick="document.getElementById('2448').volume+=0.1">
             </div>
           </article>
+          <article class="track">
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+            <input type="file" id="upload" value="Upload your own!"/>
+            <br>
+            <audio id="audio" controls>
+              <source src="" id="src" />
+            </audio>
+          </article>
         </div>
-
+       
+       
+        
         <!-- <button onclick="document.getElementById('subby').play()"><img id="kick" src="kick.png" ></button> -->
         <div class="effects" draggable="true">
 

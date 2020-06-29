@@ -21,26 +21,13 @@ function main() {
   stage.style.height = winHeight + 'px';
   }
 
-  function allowDrop(ev) {
-    ev.preventDefault();
+  function handleFiles(event) {
+    var files = event.target.files;
+    $("#src").attr("src", URL.createObjectURL(files[0]));
+    document.getElementById("audio").load();
   }
 
-  function drag(ev) {
-    ev.dataTransfer.setData("text", ev.target.id);
-  }
-
-  function drop(ev) {
-    ev.preventDefault();
-    var data = ev.dataTransfer.getData("text");
-    ev.target.appendChild(document.getElementById(data));
-  }
-
-  let track = document.getElementsByClassName('track')[0];
-
-  document.getElementsByClassName('stage')[0].ondrop = drop(stage);
-  document.getElementsByClassName('stage')[0].ondragover = allowDrop(stage);
-  document.getElementsByClassName('track')[0].ondragstart = drag(track);
-  
+  document.getElementById("upload").addEventListener("change", handleFiles, false);
   // function () {
 
   // }
