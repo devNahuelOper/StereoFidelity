@@ -8,8 +8,13 @@
   width: 80%;
   height: 45%;
   filter: contrast(1.5) drop-shadow(2px 4px 6px black);
+  resize: both;
+  overflow: scroll;
+  border-radius: 12px;
 
   img {
+    resize: both;
+    overflow: auto;
     -webkit-user-drag: element;
     image-rendering: -webkit-optimize-contrast;
     margin: 8px;
