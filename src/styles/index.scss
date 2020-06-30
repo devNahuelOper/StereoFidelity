@@ -83,14 +83,14 @@ body {
             0 0 10rem var(--neon-text-color);
 }
 
-#play, #pause, #stop, #rewind, #forward, #volume {
+#play, #pause, #stop, #rewind, #forward, #volume, #tempo {
   vertical-align: -50%;
   cursor: pointer;
   border-radius: 18px;
 
 }
 
-#rewind, #forward, #volume {
+#rewind, #forward, #volume, #tempo {
   height: 9%;
   width: 8%;
 }
