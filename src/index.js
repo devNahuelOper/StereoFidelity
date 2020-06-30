@@ -16,7 +16,8 @@ function main() {
   winHeight = window.innerHeight;
   stage.style.width = winWidth + 'px';
   stage.style.height = winHeight + 'px';
-  }
+  } 
+
 
   function handleFiles(event) {
     var files = event.target.files;
@@ -27,7 +28,24 @@ function main() {
   document.getElementById("upload").addEventListener("change", handleFiles, false);
 
   const tracks = document.getElementsByClassName('tracks')[0];
-  const chosen = document.getElementsByClassName('chosen')[0];
+  const songs = tracks.querySelectorAll('audio');
+
+  songs.forEach(song => {
+    let songTitle = song.nextElementSibling;
+    let playButton = songTitle.nextElementSibling.firstElementChild;
+    
+    song.onplay = function () {
+      songTitle.style.animation = 'quick-scroll 15s linear infinite';
+      songTitle.style.fontSize = 20 + 'px';
+    }
+    playButton.onmousedown = function () {
+      songTitle.style.animation = 'flicker 0.5s infinite alternate';
+    }
+    song.onpause = function () {
+      songTitle.style.animation = 'none';
+      songTitle.style.fontSize = 14 + 'px';
+    }
+  })
 
   const effects = document.getElementsByClassName('effects')[0];
   const sounds = effects.querySelectorAll('audio');

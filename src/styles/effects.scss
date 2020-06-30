@@ -1,6 +1,6 @@
 
 .effects {
-  cursor: url('spinhand2.png'), auto;
+  cursor: url('spinhand3.png'), auto;
   position: relative;
   -webkit-user-drag: element;
   bottom: -10%;
@@ -18,7 +18,7 @@
     -webkit-user-drag: element;
     image-rendering: -webkit-optimize-contrast;
     margin: 8px;
-    cursor: url('spinhand3.png'), auto;
+    cursor: url('spinhand2.png'), auto;
     animation: flicker 0.5s infinite alternate;
     border: 1px solid #041029;
     border-radius: 18px;
@@ -48,8 +48,6 @@
 #bassline {
   filter: hue-rotate(175deg);
 }
-
-
 
 #chirp {
   border-radius: 15px;
