@@ -231,6 +231,7 @@ body {
 
 
 .instructions {
+  font-size: 0.8em;
   position: relative;
   top: 10%;
   list-style: none;
@@ -251,21 +252,9 @@ body {
 }
 
 
-
-
-#instructions2 {
-  position: relative;
-  bottom: -9%;
-  text-align: center;
-  width: 60%;
-  font-size: 0.9em;
-  font-weight: bold;
-  color: #e5e6e8;
-}
-
 .close {
   position: absolute;
-  bottom: 20%;
+  bottom: 16%;
   color: #1ec190;
   font-size: 28px;
   font-weight: bold;
