@@ -228,19 +228,25 @@ body {
   color: #1ec190;
 }
 
-#instructions {
+
+
+.instructions {
   position: relative;
   top: 10%;
-  height: 0%;
-  font-size: 1em;
+  list-style: none;
   font-weight: bold;
   color: #e5e6e8;
-  text-align: center;
-
   strong {
+    color: #21d498;
     font-size: 1.1em;
     font-weight: bolder;
     text-transform: uppercase;
+  }
+  li:first-child {
+    margin-bottom: 2px;
+  }
+  li:last-child {
+    margin-top: 2px;
   }
 }
 
