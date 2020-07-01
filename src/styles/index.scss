@@ -32,6 +32,13 @@ body {
   width: 20%;
   display: flex;
   flex-direction: column;
+  #msg {
+    strong {
+      font-size: 40px;
+      padding: 0 4px 0 4px;
+      filter: brightness(2.5);
+    }
+  }
 }
 
 .track {
