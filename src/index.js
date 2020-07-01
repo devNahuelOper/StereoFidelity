@@ -82,7 +82,8 @@ function main() {
     let playButton = songTitle.nextElementSibling.firstElementChild;
 
     song.onplay = function () {
-     
+      const start = new Date();
+      console.log(start);
       songTitle.style.animation = 'quick-scroll 15s linear infinite';
       songTitle.style.fontSize = 20 + 'px';
 
@@ -112,12 +113,13 @@ function main() {
       test.appendChild(pic3);
       test.style.animation = 'quick-scroll 15s linear infinite';
       test.style.position = 'relative';
-      // test.style.left = 35 + '%';
-      // songTitle.appendChild(test);
-      //  stage.appendChild(test);
-      //  effects.appendChild(test);
       effects.insertBefore(test, effects.childNodes[0]);
       effects.style.height = 'fit-content';
+
+      const score = document.createElement('p');
+      score.style.color = '#faf8ec';
+      score.style.fontSize = 28 + 'px';
+      tracks.appendChild(score);
       //  const canvas = document.createElement(canvas);
        processor.onaudioprocess = function() {
           //  analyser.getByteTimeDomainData(data);
@@ -129,17 +131,12 @@ function main() {
          const slots = [pic.src, pic2.src, pic3.src];
          images.forEach(image => {
            if(slots.includes(image.src)) {
-            //  image.style.width = 4 + '%';
-            //  image.style.height = 8 + '%';
              image.style.animation = 'flicker 0.5s infinite alternate';
              image.style.transform = 'scale3d(1.7, 1.7, 1.7)';
              image.style.boxShadow = 'none';
             //  image.style.filter = 'brightness(1.5)';
             //  image.style.backgroundColor = 'crimson';
            } else {
-           
-            //  image.style.width = 3 + '%';
-            //  image.style.height = 7 + '%';
              image.style.animation = 'none';
             //  image.style.backgroundColor = 'none';
              image.style.boxShadow != 'none';
@@ -154,6 +151,7 @@ function main() {
               } else {
                 song.playbackRate += 0.1;
               }
+              score.innerHTML = 103 - effects.querySelectorAll('img').length;
             }
           })
          if (effects.querySelectorAll('img').length <= 3) {
@@ -164,24 +162,29 @@ function main() {
          
        } 
        song.onended = function() {
+         const end = new Date();
+         const diff = end - start;
+         console.log(end, diff);
+         const bonus = Math.round(((song.duration) - (diff / 1000)) * (100 - effects.querySelectorAll('img').length));
          const msg = document.createElement('h1');
-         msg.style.fontSize = 60 + 'px';
-         msg.style.position = 'absolute';
-         msg.style.left = 150 + '%';
-         msg.style.top = 30 + '%';
-         msg.style.whiteSpace = 'nowrap';
-         msg.style.fontFamily = 'Exo 2, sans-serif'
+         msg.setAttribute("style", "font-size:60px; position: absolute; left: 150%; top: 30%; white-space: nowrap;");
+        //  msg.style.fontSize = 60 + 'px';
+        //  msg.style.position = 'absolute';
+        //  msg.style.left = 150 + '%';
+        //  msg.style.top = 30 + '%';
+        //  msg.style.whiteSpace = 'nowrap';
+        //  msg.style.fontFamily = 'Exo 2, sans-serif';
          tracks.appendChild(msg);
         //  test.style.display = 'none';
          effects.removeChild(test);
          if (effects.querySelectorAll('img').length <= 50) {
-           msg.innerHTML = `You cleared: ${100 - effects.querySelectorAll('img').length}...YOU WIN!`;
+           msg.innerHTML = `You cleared: ${100 - effects.querySelectorAll('img').length} <br/> Bonus: ${bonus} <br/> YOU WIN!`;
            msg.style.color = '#1ec190';
-           console.log('you win!', effects.querySelectorAll('img').length);
+           console.log('you win!', effects.querySelectorAll('img').length, bonus);
          } else {
-           msg.innerHTML = `You cleared: ${100 - effects.querySelectorAll('img').length}...YOU LOSE!`;
+           msg.innerHTML = `You cleared: ${100 - effects.querySelectorAll('img').length} <br/> Bonus: ${bonus} <br/> YOU LOSE!`;
            msg.style.color = 'crimson';
-           console.log('you lose!', effects.querySelectorAll('img').length);
+           console.log('you lose!', effects.querySelectorAll('img').length, bonus);
          }
          setTimeout(function(){msg.style.display = 'none';}, 5000)
        }
