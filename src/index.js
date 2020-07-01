@@ -97,19 +97,22 @@ function main() {
       let pic = document.createElement('img');
       let pic2 = document.createElement('img');
       let pic3 = document.createElement('img');
-      pic.style.width = 8 + '%';
-      pic.style.height = 8 + '%';
-      pic2.style.width = 8 + '%';
-      pic2.style.height = 8 + '%';
-      pic3.style.width = 8 + '%';
-      pic3.style.height = 8 + '%';
+      pic.style.width = 7 + '%';
+      pic.style.height = 7 + '%';
+      pic2.style.width = 7 + '%';
+      pic2.style.height = 7 + '%';
+      pic3.style.width = 7 + '%';
+      pic3.style.height = 7 + '%';
       test.appendChild(pic);
       test.appendChild(pic2);
       test.appendChild(pic3);
+      // test.style.position = 'relative';
+      // test.style.left = 35 + '%';
       // songTitle.appendChild(test);
       //  stage.appendChild(test);
       //  effects.appendChild(test);
       effects.insertBefore(test, effects.childNodes[0]);
+      effects.style.height = 'fit-content';
       //  const canvas = document.createElement(canvas);
        processor.onaudioprocess = function() {
           //  analyser.getByteTimeDomainData(data);
@@ -130,9 +133,21 @@ function main() {
          
        } 
        song.onended = function() {
+         const msg = document.createElement('h1');
+         msg.style.fontSize = 60 + 'px';
+         msg.style.position = 'absolute';
+         msg.style.left = 150 + '%';
+         msg.style.top = 30 + '%';
+         msg.style.whiteSpace = 'nowrap';
+         msg.style.fontFamily = 'Exo 2, sans-serif'
+         tracks.appendChild(msg);
          if (effects.querySelectorAll('img').length <= 50) {
+           msg.innerHTML = `You cleared: ${100 - effects.querySelectorAll('img').length}...YOU WIN!`;
+           msg.style.color = '#1ec190';
            console.log('you win!', effects.querySelectorAll('img').length);
          } else {
+           msg.innerHTML = `You cleared: ${102 - effects.querySelectorAll('img').length}...YOU LOSE!`;
+           msg.style.color = 'crimson';
            console.log('you lose!', effects.querySelectorAll('img').length);
          }
        }
