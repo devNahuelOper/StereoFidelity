@@ -18,6 +18,10 @@ function main() {
   stage.style.height = winHeight + 'px';
   } 
 
+  const modal = document.getElementById('myModal');
+  window.onclick = function () {
+    modal.style.display = 'none';
+  }
 
   function handleFiles(event) {
     var files = event.target.files;
@@ -70,15 +74,15 @@ function main() {
  
  const tracks = document.getElementsByClassName('tracks')[0];
  const songs = tracks.querySelectorAll('audio');
-//  console.log(songs);
  const ctx = new AudioContext();
 
   songs.forEach(song => {
-
+    
     let songTitle = song.nextElementSibling;
     let playButton = songTitle.nextElementSibling.firstElementChild;
 
     song.onplay = function () {
+     
       songTitle.style.animation = 'quick-scroll 15s linear infinite';
       songTitle.style.fontSize = 20 + 'px';
 
@@ -106,7 +110,8 @@ function main() {
       test.appendChild(pic);
       test.appendChild(pic2);
       test.appendChild(pic3);
-      // test.style.position = 'relative';
+      test.style.animation = 'quick-scroll 15s linear infinite';
+      test.style.position = 'relative';
       // test.style.left = 35 + '%';
       // songTitle.appendChild(test);
       //  stage.appendChild(test);
@@ -123,13 +128,39 @@ function main() {
 
          const slots = [pic.src, pic2.src, pic3.src];
          images.forEach(image => {
+           if(slots.includes(image.src)) {
+            //  image.style.width = 4 + '%';
+            //  image.style.height = 8 + '%';
+             image.style.animation = 'flicker 0.5s infinite alternate';
+             image.style.transform = 'scale3d(1.7, 1.7, 1.7)';
+             image.style.boxShadow = 'none';
+            //  image.style.filter = 'brightness(1.5)';
+            //  image.style.backgroundColor = 'crimson';
+           } else {
+           
+            //  image.style.width = 3 + '%';
+            //  image.style.height = 7 + '%';
+             image.style.animation = 'none';
+            //  image.style.backgroundColor = 'none';
+             image.style.boxShadow != 'none';
+             image.style.transform = 'none';
+            //  image.style.filter = 'brightness(0.5)';
+           }
             image.onmouseenter = function() {
               if (slots.includes(image.src)) {
                 effects.removeChild(image);
+                song.playbackRate -= 0.8;
                 console.log(effects.querySelectorAll('img').length);
-              } 
+              } else {
+                song.playbackRate += 0.1;
+              }
             }
           })
+         if (effects.querySelectorAll('img').length <= 3) {
+           song.playbackRate += 1;
+           song.volume -= 0.7;
+           setTimeout(function () { song.currentTime += 400; }, 4000);
+         }
          
        } 
        song.onended = function() {
@@ -141,15 +172,18 @@ function main() {
          msg.style.whiteSpace = 'nowrap';
          msg.style.fontFamily = 'Exo 2, sans-serif'
          tracks.appendChild(msg);
+        //  test.style.display = 'none';
+         effects.removeChild(test);
          if (effects.querySelectorAll('img').length <= 50) {
            msg.innerHTML = `You cleared: ${100 - effects.querySelectorAll('img').length}...YOU WIN!`;
            msg.style.color = '#1ec190';
            console.log('you win!', effects.querySelectorAll('img').length);
          } else {
-           msg.innerHTML = `You cleared: ${102 - effects.querySelectorAll('img').length}...YOU LOSE!`;
+           msg.innerHTML = `You cleared: ${100 - effects.querySelectorAll('img').length}...YOU LOSE!`;
            msg.style.color = 'crimson';
            console.log('you lose!', effects.querySelectorAll('img').length);
          }
+         setTimeout(function(){msg.style.display = 'none';}, 5000)
        }
     
     }
