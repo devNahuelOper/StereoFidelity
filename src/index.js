@@ -27,29 +27,12 @@ function main() {
 
   document.getElementById("upload").addEventListener("change", handleFiles, false);
 
-  const tracks = document.getElementsByClassName('tracks')[0];
-  const songs = tracks.querySelectorAll('audio');
 
-  songs.forEach(song => {
-    let songTitle = song.nextElementSibling;
-    let playButton = songTitle.nextElementSibling.firstElementChild;
-    
-    song.onplay = function () {
-      songTitle.style.animation = 'quick-scroll 15s linear infinite';
-      songTitle.style.fontSize = 20 + 'px';
-    }
-    playButton.onmousedown = function () {
-      songTitle.style.animation = 'flicker 0.5s infinite alternate';
-    }
-    song.onpause = function () {
-      songTitle.style.animation = 'none';
-      songTitle.style.fontSize = 14 + 'px';
-    }
-  })
 
   const effects = document.getElementsByClassName('effects')[0];
   const sounds = effects.querySelectorAll('audio');
-
+  const images = effects.querySelectorAll('img');
+  const dblImages = Array.from(images).concat(Array.from(images)).concat(Array.from(images));
   sounds.forEach(sound => {
     let adjImg = sound.nextElementSibling;
 
@@ -67,10 +50,107 @@ function main() {
     }
 
     adjImg.ondrag = function () {
-      // stage.appendChild(adjImg);
       sound.volume = 0.5;
     }
   });
+
+ 
+  // const audio = document.getElementById('audio');
+  // const audioSrc = audioContext.createMediaElementSource(audio);
+  // const analyser = audioContext.createAnalyser();
+  // audioSrc.connect(analyser);
+  // const frequencyData = new Uint8Array(analyser.frequencyBinCount);
+
+  // function renderFrame() {
+  //   requestAnimationFrame(renderFrame);
+  //   analyser.getByteFrequencyData(frequencyData);
+  // }
+  // audio.start();
+  // renderFrame();
+ 
+ const tracks = document.getElementsByClassName('tracks')[0];
+ const songs = tracks.querySelectorAll('audio');
+//  console.log(songs);
+ const ctx = new AudioContext();
+
+  songs.forEach(song => {
+
+    let songTitle = song.nextElementSibling;
+    let playButton = songTitle.nextElementSibling.firstElementChild;
+
+    song.onplay = function () {
+      songTitle.style.animation = 'quick-scroll 15s linear infinite';
+      songTitle.style.fontSize = 20 + 'px';
+
+      let audioSrc = ctx.createMediaElementSource(song)
+      audioSrc.connect(ctx.destination);
+
+      let processor = ctx.createScriptProcessor(1024);
+      let analyser = ctx.createAnalyser();
+      processor.connect(ctx.destination);
+      analyser.connect(processor);
+
+      let data = new Uint8Array(analyser.frequencyBinCount);
+      audioSrc.connect(analyser);
+
+      let test = document.createElement('aside');
+      let pic = document.createElement('img');
+      let pic2 = document.createElement('img');
+      let pic3 = document.createElement('img');
+      pic.style.width = 8 + '%';
+      pic.style.height = 8 + '%';
+      pic2.style.width = 8 + '%';
+      pic2.style.height = 8 + '%';
+      pic3.style.width = 8 + '%';
+      pic3.style.height = 8 + '%';
+      test.appendChild(pic);
+      test.appendChild(pic2);
+      test.appendChild(pic3);
+      // songTitle.appendChild(test);
+      //  stage.appendChild(test);
+      //  effects.appendChild(test);
+      effects.insertBefore(test, effects.childNodes[0]);
+      //  const canvas = document.createElement(canvas);
+       processor.onaudioprocess = function() {
+          //  analyser.getByteTimeDomainData(data);
+         analyser.getByteFrequencyData(data);
+         pic.src =  dblImages[Math.floor(Math.random(Array.from(Array(data[0]).keys())) * 100)].src;
+         pic2.src = dblImages[Math.floor(Math.random(Array.from(Array(100).keys())) * 100)].src;
+         pic3.src = dblImages[data[0]].src;
+
+         const slots = [pic.src, pic2.src, pic3.src];
+         images.forEach(image => {
+            image.onmouseenter = function() {
+              if (slots.includes(image.src)) {
+                effects.removeChild(image);
+                console.log(effects.querySelectorAll('img').length);
+              } 
+            }
+          })
+         
+       } 
+       song.onended = function() {
+         if (effects.querySelectorAll('img').length <= 50) {
+           console.log('you win!', effects.querySelectorAll('img').length);
+         } else {
+           console.log('you lose!', effects.querySelectorAll('img').length);
+         }
+       }
+    
+    }
+
+    playButton.onmousedown = function () {
+      songTitle.style.animation = 'flicker 0.5s infinite alternate';
+    }
+    song.onpause = function () {     
+      songTitle.style.animation = 'none';
+      songTitle.style.fontSize = 14 + 'px';
+    }
+   
+
+  })
+
+
 
  
 
@@ -143,79 +223,6 @@ function main() {
   //   }
   // }
 
-  // let modal = document.getElementById('myModal');
-  // let btn = document.getElementById('help');
-  // let close = document.getElementsByClassName('close')[0];
 
-  // btn.onclick = function () {
-  //   modal.style.display = "block";
-  // }
-
-  // btn.addEventListener('click',function () {
-  //   modal.style.display = 'block';
-  // })
-
-  // close.onclick = function () {
-  //   modal.style.display = 'none';
-  // }
-
-  // close.addEventListener('click', function () {
-  //   modal.style.display = 'none';
-  // })
-
-  // window.onclick = function (event) {
-  //   if (event.target == modal) {
-  //     modal.style.display = 'none';
-  //   }
-  // }
-
-  // let one = document.querySelector('effects');
-  // let two = document.querySelector('stage');
-
-  // let drake = dragula([one, two])
-
-  // drake.on('drag', function (el, source) {
-  //   document.getElementsByTagName('body')[0].style.backgroundColor = '#28a0ef';
-  // });
-
-  // drake.on('drop', function (el, target) {
-  //   el.style.border = '5px dashed white';
-  //   el.innerText = "Drag MEEEE :)"
-  //   document.getElementsByTagName('body')[0].style.backgroundColor = 'black';
-  // });
-
-  // var dragAndDrop = {
-
-  //   limit: 2,
-  //   count: 0,
-
-  //   init: function () {
-  //     this.dragula();
-  //     this.drake();
-  //   },
-
-  //   drake: function () {
-  //     this.dragula.on('drop', this.dropped.bind(this));
-  //   },
-
-  //   dragula: function () {
-  //     this.dragula = dragula([document.getElementsByClassName('effects'), document.getElementsByClassName('stage')],
-  //       {
-  //         moves: this.canMove.bind(this),
-  //         copy: true,
-  //       });
-  //   },
-
-  //   canMove: function () {
-  //     return this.count < this.limit;
-  //   },
-
-  //   dropped: function (el) {
-  //     this.count++;
-  //   }
-
-  // };
-
-  // dragAndDrop.init();
 
 }
