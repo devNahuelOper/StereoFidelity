@@ -2,8 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap');
 
 body {
-  background-color: #000004;
-  background-image: linear-gradient(105deg, #010206, #011959, #00040b);
+  background-color: #000000;
   font-family: 'Exo 2', sans-serif;
 }
 
@@ -48,6 +47,9 @@ body {
 }
 
 .track:last-of-type {
+  width: 50%;
+  height: 4%;
+  margin-left: 4%;
   border: 2px solid #f1f3f4;
   border-radius: 4px;
 }
@@ -174,11 +176,12 @@ body {
 
 
 .playerControls {
+  width: 60%;
   display: flex;
   align-items: center;
   border: 2px solid #0d7a91;
   background-color: #000510;
-  border-radius: 8px;
+  border-radius: 20px;
   box-sizing: border-box;
   
   img {
