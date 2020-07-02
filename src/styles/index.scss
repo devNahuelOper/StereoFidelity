@@ -17,7 +17,7 @@ body {
   position: relative;
   width: 100px;
   height: 100px;
-  background-image: url('turntable.png');
+  background-image: url('headphones.jpg');
   background-size: cover;
   background-repeat: repeat;
   background-position: center;
@@ -139,19 +139,22 @@ body {
 
 @keyframes color-change {
   0% {
-    filter: hue-rotate(0deg);
+    filter: hue-rotate(0deg) drop-shadow(2px 4px 6px currentColor);
   }
   25% {
-    filter: hue-rotate(180deg);
+    filter: hue-rotate(180deg) saturate(1.5) drop-shadow(2px 4px 6px currentColor);
+    transform: scale3d(1.1, 1.0, 1.1);
   }
   50% {
-    filter: hue-rotate(360deg);
+    filter: hue-rotate(360deg) saturate(1.5) drop-shadow(2px 4px 6px currentColor);
+    transform: scale3d(1.0, 1.1, 1.1);
   }
   75% {
-    filter: hue-rotate(180deg);
+    filter: hue-rotate(180deg) saturate(1.5) drop-shadow(2px 4px 6px currentColor);
+    transform: scale3d(1.1, 1.1, 1.0);
   }
   100% {
-    filter: hue-rotate(0deg);
+    filter: hue-rotate(0deg) drop-shadow(2px 4px 6px currentColor);
   }
 }
 
@@ -263,7 +266,8 @@ body {
   border: 13px solid #191719;
   border-radius: 50%; 
   box-shadow: 0px 0px 0px 1px silver inset;
-  animation: spin 1.0s ease-in-out 1;
+  animation: spin 1.0s ease-in-out 1,color-change 25s linear infinite;
+
 }
 
 .modal-wrapper {
@@ -276,9 +280,11 @@ body {
   border-radius: 50%;
   border: 1px solid #9b9b9b;
   box-shadow: 0px 0px 0px 1px #1f1f2c inset;
+  animation: color-change 15s linear infinite;
 }
 
 .modal-content {
+  
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -297,6 +303,7 @@ body {
 }
 
 #welcome {
+  animation: color-change 15s linear infinite both;
   font-size: 3em;
   text-align: center;
   color: #1ec190;
@@ -305,6 +312,7 @@ body {
 
 
 .instructions {
+  
   font-size: 0.8em;
   position: relative;
   top: 10%;
@@ -342,3 +350,15 @@ body {
     text-shadow: 2px 0 0 #171717, -2px 0 0 #1ec08e, 0 2px 0 #171517, 0 -2px 0 #171516, 1px 1px #171516, -1px -1px 0 #151515, 1px -1px 0 #171416, -1px 1px 0 #171516;
 }
 
+#bgtoggle {
+  cursor: pointer;
+  position: relative;
+  left: 4%;
+  border-radius: 8px;
+  background-color: black;
+  color: #61c29b;
+  font-weight: bold;
+  font-size: 24px;
+  font-family: 'Exo 2', sans-serif;
+  animation: color-change 15s linear infinite;
+}

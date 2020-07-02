@@ -19,9 +19,14 @@ function main() {
   } 
 
   const modal = document.getElementById('myModal');
-  window.onclick = function () {
-    modal.style.display = 'none';
-  }
+  const about = document.getElementById('about');
+ 
+  // window.onclick = function () {
+  //    modal.style.display = 'none';
+  //   about.onclick = function () {
+  //     modal.display.style = 'flex';
+  //   }
+  // }
 
   const backgrounds = [
     'src/styles/waves.jpg', 'src/styles/face.jpg',
@@ -29,17 +34,34 @@ function main() {
     'src/styles/buttons.jpg', 'src/styles/turntable.png'
   ];
   
-  // stage.style.backgroundImage = "url('src/styles/waves.jpg')";
+ 
   
   function randomBg(){ 
     let num = Math.floor(Math.random(backgrounds) * backgrounds.length);
     stage.style.backgroundImage = "url('"+backgrounds[num]+"')";
   }
-  randomBg();
-  
+  // randomBg();
+
+ 
+  const bgtoggle = document.getElementById('bgtoggle');
+  bgtoggle.onclick = function() {
+    randomBg();
+  }
+  // for (let i = 0; i < backgrounds.length - 1; i++) {
+  //   let currbg = stage.style.backgroundImage;
+  //   let currbgIdx = backgrounds.indexOf(currbg);
+  //   rightbg.onclick = function() {
+  //     stage.style.backgroundImage = "url('" + backgrounds[ i % backgrounds.length] + "')";
+  //   }
+  //   leftbg.onclick = function () {
+  //     stage.style.backgroundImage = "url('" + backgrounds[ i % backgrounds.length] + "')";
+  //   }
+  // }
+  // (currbgIdx += i)
+  // Math.abs((currbgIdx -= i))
 
   function handleFiles(event) {
-    var files = event.target.files;
+    let files = event.target.files;
     $("#src").attr("src", URL.createObjectURL(files[0]));
     document.getElementById("audio").load();
   }
@@ -137,8 +159,9 @@ function main() {
       tracks.appendChild(score);
       //  const canvas = document.createElement(canvas);
        processor.onaudioprocess = function() {
-          //  analyser.getByteTimeDomainData(data);
-         analyser.getByteFrequencyData(data);
+        //  randomBg();
+           analyser.getByteTimeDomainData(data);
+        //  analyser.getByteFrequencyData(data);
          pic1.src = dblImages[Math.floor(Math.random(Array.from(Array(data[0]).keys())) * 100)].src;
          pic2.src = dblImages[Math.floor(Math.random(Array.from(Array(100).keys())) * 100)].src;
          pic3.src = dblImages[data[0]].src;
@@ -240,7 +263,7 @@ function main() {
          }
         //  setTimeout(function(){msg.style.display = 'none';}, 15000);
         window.onclick = function() {
-          msg.style.display = 'none';
+          msg.style.display = 'none'; 
         }
        }
     
