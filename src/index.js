@@ -23,6 +23,21 @@ function main() {
     modal.style.display = 'none';
   }
 
+  const backgrounds = [
+    'src/styles/waves.jpg', 'src/styles/face.jpg',
+    'src/styles/headphones.jpg','src/styles/deadmau5.jpg',
+    'src/styles/buttons.jpg', 'src/styles/turntable.png'
+  ];
+  
+  // stage.style.backgroundImage = "url('src/styles/waves.jpg')";
+  
+  function randomBg(){ 
+    let num = Math.floor(Math.random(backgrounds) * backgrounds.length);
+    stage.style.backgroundImage = "url('"+backgrounds[num]+"')";
+  }
+  randomBg();
+  
+
   function handleFiles(event) {
     var files = event.target.files;
     $("#src").attr("src", URL.createObjectURL(files[0]));
@@ -82,6 +97,10 @@ function main() {
     let playButton = songTitle.nextElementSibling.firstElementChild;
 
     song.onplay = function () {
+      sounds.forEach(sound => {
+        sound.volume = 0.3;
+      })
+
       const start = new Date();
       console.log(start);
       songTitle.style.animation = 'quick-scroll 15s linear infinite';
@@ -120,7 +139,7 @@ function main() {
        processor.onaudioprocess = function() {
           //  analyser.getByteTimeDomainData(data);
          analyser.getByteFrequencyData(data);
-         pic1.src =  dblImages[Math.floor(Math.random(Array.from(Array(data[0]).keys())) * 100)].src;
+         pic1.src = dblImages[Math.floor(Math.random(Array.from(Array(data[0]).keys())) * 100)].src;
          pic2.src = dblImages[Math.floor(Math.random(Array.from(Array(100).keys())) * 100)].src;
          pic3.src = dblImages[data[0]].src;
 
@@ -152,7 +171,7 @@ function main() {
             }
           })
 
-         if ( iconsLeft <= 3) {
+         if (iconsLeft <= 3) {
            song.playbackRate += 1;
            song.volume -= 0.7;
            effects.removeChild(frame);
@@ -161,6 +180,7 @@ function main() {
          
        } 
        song.onended = function() {
+         effects.removeChild(frame);
          let iconsLeft = effects.querySelectorAll('img').length;       
          const end = new Date();
          const diff = (end - start) / 1000;
@@ -190,7 +210,7 @@ function main() {
          if (iconsLeft > 15 && iconsLeft <= 30) {
            bonus = Math.round((song.duration / diff) * (100 - iconsLeft));
            msg.innerHTML = `You cleared <strong>${103 - iconsLeft}</strong> sounds off the board like a maybe soon to be baw$$, not bad.<br/> 
-           you got <strong>${bonus}</strong> bonus points for efficiency.`;
+           You got <strong>${bonus}</strong> bonus points for efficiency.`;
            msg.style.color = '#d4f575';
          } 
          if (iconsLeft > 30 && iconsLeft <= 50) {

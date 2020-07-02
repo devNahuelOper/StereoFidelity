@@ -19,6 +19,11 @@
 
   <body>
     <div class="stage">
+        <nav class="bgToggle">
+          <button id="leftbg">left</button>
+          <button id="rightbg">right</button>
+        </nav>
+
         <a href="https://github.com/devNahuelOper" target=" _blank">
           <img id="git" src="dist/images/gitstereo.png">
         </a>
@@ -87,6 +92,21 @@
               <img id="tempo" src="dist/images/downtempo.png" onclick="document.getElementById('depravity').playbackRate-=0.1">
               <img id="tempo" src="dist/images/uptempo.png" onclick="document.getElementById('depravity').playbackRate+=0.1">
             </div>
+        </article>
+        <article class="track">
+          <audio id="matrix" src="dist/sounds/matrix.mp3"></audio>
+          <span class="songTitle">Matrix</span>
+          <div class="playerControls">
+            <img id="play" src="dist/images/play-button.png" onclick="document.getElementById('matrix').play()">
+            <img id="pause" src="dist/images/pause-button.png" onclick="document.getElementById('matrix').pause()">
+            <img id="stop" src="dist/images/stop-button.png" onclick="document.getElementById('matrix').pause(), document.getElementById('matrix').currentTime=0">
+            <img id="rewind" src="dist/images/rewind.png" onclick="document.getElementById('matrix').currentTime-=5">
+            <img id="forward" src="dist/images/forward.png" onclick="document.getElementById('matrix').currentTime+=5">
+            <img id="volume" src="dist/images/lo-volume.png" onclick="document.getElementById('matrix').volume-=0.1">
+            <img id="volume" src="dist/images/hi-volume.png" onclick="document.getElementById('matrix').volume+=0.1">
+            <img id="tempo" src="dist/images/downtempo.png" onclick="document.getElementById('matrix').playbackRate-=0.1">
+            <img id="tempo" src="dist/images/uptempo.png" onclick="document.getElementById('matrix').playbackRate+=0.1">
+          </div>
         </article>
         <article class="track">
             <audio id="vvr" src="dist/sounds/vvr.mp3"></audio>
