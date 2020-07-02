@@ -47,6 +47,7 @@ body {
 }
 
 .track:last-of-type {
+  display: none;
   width: 50%;
   height: 4%;
   margin-left: 4%;
@@ -96,6 +97,36 @@ body {
             0 0 8rem var(--neon-text-color),
             0 0 10rem var(--neon-text-color);
 }
+
+
+.playerControls {
+  width: 60%;
+  display: flex;
+  align-items: center;
+  border: 2px solid #0d7a91;
+  background-color: #000510;
+  border-radius: 20px;
+  box-sizing: border-box;
+  
+  img {
+    image-rendering: -webkit-optimize-contrast;
+    width: 10%;
+    margin: 2px auto;
+  }
+}
+
+#play, #pause, #stop, #rewind, #forward, #volume, #tempo {
+  vertical-align: -50%;
+  cursor: pointer;
+  border-radius: 18px;
+}
+
+#rewind, #forward, #volume, #tempo {
+  height: 9%;
+  width: 8%;
+}
+
+
 
 @keyframes scroll-right {
   0% {
@@ -158,36 +189,6 @@ body {
   }
   100% {
     filter: hue-rotate(0deg) drop-shadow(2px 4px 6px currentColor);
-  }
-}
-
-
-#play, #pause, #stop, #rewind, #forward, #volume, #tempo {
-  vertical-align: -50%;
-  cursor: pointer;
-  border-radius: 18px;
-
-}
-
-#rewind, #forward, #volume, #tempo {
-  height: 9%;
-  width: 8%;
-}
-
-
-.playerControls {
-  width: 60%;
-  display: flex;
-  align-items: center;
-  border: 2px solid #0d7a91;
-  background-color: #000510;
-  border-radius: 20px;
-  box-sizing: border-box;
-  
-  img {
-    image-rendering: -webkit-optimize-contrast;
-    width: 10%;
-    margin: 2px auto;
   }
 }
 
@@ -290,8 +291,7 @@ body {
   animation: color-change 15s linear infinite;
 }
 
-.modal-content {
-  
+.modal-content { 
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -319,7 +319,6 @@ body {
 
 
 .instructions {
-  
   font-size: 0.8em;
   position: relative;
   top: 10%;
