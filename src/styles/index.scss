@@ -33,7 +33,9 @@ body {
   display: flex;
   flex-direction: column;
   #msg {
+    animation: color-change 15s linear infinite both;
     strong {
+      animation: color-change 15s linear infinite both;
       font-size: 40px;
       padding: 0 4px 0 4px;
       filter: brightness(2.5);
@@ -79,7 +81,6 @@ body {
   font-style: italic;
   color: #fff;
   text-transform: uppercase;
-  
 }
 
 
@@ -179,7 +180,7 @@ body {
   background-color: #000510;
   border-radius: 8px;
   box-sizing: border-box;
-
+  
   img {
     image-rendering: -webkit-optimize-contrast;
     width: 10%;
@@ -237,6 +238,7 @@ body {
   right: 2%;
   top: 2%;
   width: 2%;
+  animation: color-change 15s linear infinite both;
 }
 
 #git {
@@ -247,6 +249,8 @@ body {
   width: 2%;
   filter: invert(1);
   border-radius: 40px;
+  animation: color-change 15s linear infinite both;
+  background-color: black;
 }
 
 .modal {
@@ -267,7 +271,7 @@ body {
   border-radius: 50%; 
   box-shadow: 0px 0px 0px 1px silver inset;
   animation: spin 1.0s ease-in-out 1,color-change 25s linear infinite;
-
+  z-index: 3;
 }
 
 .modal-wrapper {
@@ -320,6 +324,7 @@ body {
   font-weight: bold;
   color: #e5e6e8;
   strong {
+    animation: color-change 15s linear infinite both;
     color: #21d498;
     font-size: 1.1em;
     font-weight: bolder;
@@ -335,6 +340,7 @@ body {
 
 
 .close {
+  animation: color-change 15s linear infinite both;
   position: absolute;
   bottom: 16%;
   color: #1ec190;
@@ -352,8 +358,9 @@ body {
 
 #bgtoggle {
   cursor: pointer;
-  position: relative;
+  position: fixed;
   left: 4%;
+  bottom: 6%;
   border-radius: 8px;
   background-color: black;
   color: #61c29b;
@@ -361,4 +368,5 @@ body {
   font-size: 24px;
   font-family: 'Exo 2', sans-serif;
   animation: color-change 15s linear infinite;
+  z-index: 1;
 }
