@@ -130,20 +130,20 @@ function main() {
            if(slots.includes(image.src)) {
              image.style.animation = 'flicker 0.5s infinite alternate';
              image.style.transform = 'scale3d(1.7, 1.7, 1.7)';
-             image.style.boxShadow = 'none';
+            //  image.style.boxShadow = 'none';
             //  image.style.filter = 'brightness(1.5)';
             //  image.style.backgroundColor = 'crimson';
            } else {
              image.style.animation = 'none';
             //  image.style.backgroundColor = 'none';
-             image.style.boxShadow != 'none';
+            //  image.style.boxShadow != 'none';
              image.style.transform = 'none';
             //  image.style.filter = 'brightness(0.5)';
            }
             image.onmouseenter = function() {
               if (slots.includes(image.src)) {
                 effects.removeChild(image);
-                song.playbackRate -= 0.8;
+                song.playbackRate -= 0.7;
                 console.log(iconsLeft);
               } else {
                 song.playbackRate += 0.1;
@@ -151,9 +151,11 @@ function main() {
               score.innerHTML = 103 - iconsLeft;
             }
           })
+
          if ( iconsLeft <= 3) {
            song.playbackRate += 1;
            song.volume -= 0.7;
+           effects.removeChild(frame);
            setTimeout(function () { song.currentTime += 400; }, 4000);
          }
          
@@ -167,31 +169,39 @@ function main() {
          msg.id = "msg";
          msg.setAttribute("style", "font-size:30px; position: absolute; left: 150%; top: 30%; white-space: nowrap; border: 2px solid currentColor; border-radius: 14px; padding: 14px; background-color: black; text-align: center;");
          tracks.appendChild(msg);
-         effects.removeChild(frame);
+        //  effects.removeChild(frame);
          console.log(`icons left: ${iconsLeft}`);
-         
-         if (iconsLeft <= 15) {
-           bonus = Math.round((song.duration - diff) * (103 - iconsLeft));
+         if (iconsLeft <= 0) {
+           bonus = Math.round((song.duration * diff) * (100 - iconsLeft));
+           msg.innerHTML = `Beatles. Einstein. Ghandi. King. Mandela. Musk. Washington. <br/> 
+           And now there's YOU, joining just of few of the most iconoclastic baw$$$es of all time.<br/>
+           YOU...who cleared ALL <strong>${100 - iconsLeft}</strong> sounds of the board, and <br/>
+           YOU who racked up <strong>${bonus}</strong> bonus points in the process.`;
+           msg.style.color = '#26dc08';
+           msg.style.animation = 'color-change 15s linear infinite';
+         }
+         if (iconsLeft <= 15 && iconsLeft > 0) {
+           bonus = Math.round((song.duration - diff) * (100 - iconsLeft));
            msg.innerHTML = `You cleared <strong>${100 - iconsLeft}</strong> sounds off the board
            like a true baw$$!!<br/> And as if that weren't enough, 
            you got <strong>${bonus}</strong> bonus points for waving your mouse extra maniacally...<br/>Don't let it get to your head now.`;
            msg.style.color = '#26dc08';
          }
          if (iconsLeft > 15 && iconsLeft <= 30) {
-           bonus = Math.round((song.duration / diff) * (103 - iconsLeft))
+           bonus = Math.round((song.duration / diff) * (100 - iconsLeft));
            msg.innerHTML = `You cleared <strong>${103 - iconsLeft}</strong> sounds off the board like a maybe soon to be baw$$, not bad.<br/> 
            you got <strong>${bonus}</strong> bonus points for efficiency.`;
            msg.style.color = '#d4f575';
          } 
          if (iconsLeft > 30 && iconsLeft <= 50) {
            bonus = Math.round((song.duration - diff));
-           msg.innerHTML = `You cleared <strong>${103 - iconsLeft}</strong> sound like a true average Joe, just enough to get by.<br/> 
+           msg.innerHTML = `You cleared <strong>${100 - iconsLeft}</strong> sound like a true average Joe, just enough to get by.<br/> 
            You get <strong>${bonus}</strong> bonus points for doing you.`;
            msg.style.color = '#e0e2d5';
          }
          if (iconsLeft > 50 && iconsLeft <= 75) {
            bonus = Math.round(song.duration / diff);
-           msg.innerHTML = `Hmm, you only cleared <strong>${103 - iconsLeft}</strong> sounds...
+           msg.innerHTML = `Hmm, you only cleared <strong>${100 - iconsLeft}</strong> sounds...
            You umm, got something on your mind?<br/> 
            eh it could be worse, at least you got a little pocket change.<br/>  
            Here, take these <strong>${bonus}</strong> bonus points and go buy yourself a soup or something.`;
@@ -202,7 +212,7 @@ function main() {
            msg.innerHTML = `Whoa whoa whoa...are you a bot? Maybe you saw a mouse and
            you to go deal with that during the song? <br/> If not, then it might be time for
            some serious self-reflection and ask yourself, <br/> "how much longer do I want to be the
-           person who only clears <strong>${103 - iconsLeft}</strong> sounds off the board"? <br/>
+           person who only clears <strong>${100 - iconsLeft}</strong> sounds off the board"? <br/>
            Well here, take these  <strong>${bonus}</strong> bonus -- oh wait, no, it looks like you owe me points.`;
            msg.style.left = 120 + '%';
            msg.style.color = 'rgb(113, 8, 8)';

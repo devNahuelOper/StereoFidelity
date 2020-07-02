@@ -79,6 +79,7 @@ body {
   font-style: italic;
   color: #fff;
   text-transform: uppercase;
+  
 }
 
 
@@ -133,6 +134,24 @@ body {
   }
   100% {
     left: 0;
+  }
+}
+
+@keyframes color-change {
+  0% {
+    filter: hue-rotate(0deg);
+  }
+  25% {
+    filter: hue-rotate(180deg);
+  }
+  50% {
+    filter: hue-rotate(360deg);
+  }
+  75% {
+    filter: hue-rotate(180deg);
+  }
+  100% {
+    filter: hue-rotate(0deg);
   }
 }
 
