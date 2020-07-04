@@ -210,7 +210,7 @@ function main() {
          let bonus; 
          const msg = document.createElement('h1');
          msg.id = "msg";
-         msg.setAttribute("style", "font-size:30px; position: absolute; left: 150%; top: 30%; white-space: nowrap; border: 2px solid currentColor; border-radius: 14px; padding: 14px; background-color: black; text-align: center;");
+         msg.setAttribute("style", "font-size:24px; position: absolute; left: 80%; top: 30%; white-space: nowrap; border: 2px solid currentColor; border-radius: 14px; padding: 14px; background-color: black;");
          tracks.appendChild(msg);
         //  effects.removeChild(frame);
          console.log(`icons left: ${iconsLeft}`);
@@ -257,7 +257,7 @@ function main() {
            some serious self-reflection and ask yourself, <br/> "how much longer do I want to be the
            person who only clears <strong>${100 - iconsLeft}</strong> sounds off the board"? <br/>
            Well here, take these  <strong>${bonus}</strong> bonus -- oh wait, no, it looks like you owe me points.`;
-           msg.style.left = 120 + '%';
+           msg.style.left = 90 + '%';
            msg.style.color = 'rgb(113, 8, 8)';
            msg.style.textAlign = 'left';
          }
