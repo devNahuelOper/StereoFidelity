@@ -298,8 +298,8 @@ body {
   justify-content: space-evenly;
   background-color: #1b4d83;
   background-image: url('aliens.jpg');
-  background-position-x: center;
-  background-position-y: -20px;
+  background-position-x: 45%;
+  background-position-y: -60px;
   background-size: cover;
   padding: 8px;
   border: 8px solid #17171f;
@@ -319,9 +319,11 @@ body {
 
 
 .instructions {
+  height: 90%;
   font-size: 0.6em;
   position: relative;
-  top: 1%;
+  top: 7%;
+  left: 4%;
   list-style: none;
   font-weight: bold;
   color: #e5e6e8;
@@ -333,24 +335,20 @@ body {
     text-transform: uppercase;
   }
   p {
-    background-color: #15190f;
     border-radius: 8px;
     padding: 2px;
   }
- 
   h2 {
     text-decoration: underline;
   }
-  li:last-child {
-    margin-top: 2px;
-  }
+
 }
 
 
 .close {
   animation: color-change 15s linear infinite both;
   position: absolute;
-  bottom: 16%;
+  bottom: 13%;
   color: #1ec190;
   font-size: 28px;
   font-weight: bold;
