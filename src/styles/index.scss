@@ -319,9 +319,9 @@ body {
 
 
 .instructions {
-  font-size: 0.8em;
+  font-size: 0.6em;
   position: relative;
-  top: 10%;
+  top: 1%;
   list-style: none;
   font-weight: bold;
   color: #e5e6e8;
@@ -332,8 +332,13 @@ body {
     font-weight: bolder;
     text-transform: uppercase;
   }
-  li:first-child {
-    margin-bottom: 2px;
+  p {
+    background-color: #15190f;
+    border-radius: 8px;
+  }
+ 
+  h2 {
+    text-decoration: underline;
   }
   li:last-child {
     margin-top: 2px;
