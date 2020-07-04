@@ -216,8 +216,8 @@ function main() {
          console.log(`icons left: ${iconsLeft}`);
          if (iconsLeft <= 0) {
            bonus = Math.round((song.duration * diff) * (100 - iconsLeft));
-           msg.innerHTML = `Beatles. Einstein. Ghandi. King. Mandela. Musk. Washington. <br/> 
-           And now there's YOU, joining just of few of the most iconoclastic baw$$$es of all time.<br/>
+           msg.innerHTML = `The Wheel. Electricity. The Automobile. Flight. The Moonlanding. Computers. The Internet.<br/> 
+           And now there's YOU, who brings one more entry onto the list of some of mankind’s greatest acheivements.<br/>
            YOU...who cleared ALL <strong>${100 - iconsLeft}</strong> sounds of the board, and <br/>
            YOU who racked up <strong>${bonus}</strong> bonus points in the process.`;
            msg.style.color = '#26dc08';
