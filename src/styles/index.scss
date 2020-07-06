@@ -127,6 +127,154 @@ body {
 }
 
 
+#help {
+  position: absolute;
+  right: 2%;
+  top: 2%;
+  background-color: transparent;
+  border: none;
+}
+
+#about {
+  cursor: pointer;
+  position: absolute;
+  right: 2%;
+  top: 2%;
+  width: 2%;
+  animation: color-change 15s linear infinite both;
+}
+
+#git {
+  cursor: pointer;
+  position: absolute;
+  right: 6%;
+  top: 2%;
+  width: 2%;
+  filter: invert(1);
+  border-radius: 40px;
+  animation: color-change 15s linear infinite both;
+  background-color: black;
+}
+
+.modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0.9;
+  font-family: 'Exo 2', sans-serif;
+  position: fixed; 
+  z-index: 1; 
+  left: 30%;
+  top: 5%;
+  width: 45%; 
+  height: 80%; 
+  overflow: auto; 
+  background-color:  #21d498;
+  border: 13px solid #191719;
+  border-radius: 50%; 
+  box-shadow: 0px 0px 0px 1px silver inset;
+  animation: spin 1.0s ease-in-out 1,color-change 25s linear infinite;
+  z-index: 3;
+}
+
+.modal-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 90%;
+  width: 90%;
+  background-color: transparent;
+  border-radius: 50%;
+  border: 1px solid #9b9b9b;
+  box-shadow: 0px 0px 0px 1px #1f1f2c inset;
+  animation: color-change 15s linear infinite;
+}
+
+.modal-content { 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  background-color: #1b4d83;
+  background-image: url('aliens.jpg');
+  background-position-x: 45%;
+  background-position-y: -60px;
+  background-size: cover;
+  padding: 8px;
+  border: 8px solid #17171f;
+  box-shadow: 0px 0px 0px 1px silver inset;
+  width: 75%;
+  height: 75%;
+  border-radius: 50%;
+}
+
+#welcome {
+  animation: color-change 15s linear infinite both;
+  font-size: 2.3em;
+  text-align: center;
+  color: #1ec190;
+}
+
+
+.instructions {
+  height: 90%;
+  font-size: 0.5em;
+  position: relative;
+  top: 7%;
+  left: 4%;
+  list-style: none;
+  font-weight: bold;
+  color: #e5e6e8;
+  strong {
+    animation: color-change 15s linear infinite both;
+    color: #21d498;
+    font-size: 1.1em;
+    font-weight: bolder;
+    text-transform: uppercase;
+  }
+  p {
+    border-radius: 8px;
+    padding: 2px;
+  }
+  h2 {
+    text-decoration: underline;
+  }
+
+}
+
+
+.close {
+  animation: color-change 15s linear infinite both;
+  position: absolute;
+  bottom: 13%;
+  color: #1ec190;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  text-transform: uppercase;
+  transform: scale(1.3);
+  cursor: pointer;
+    text-shadow: 2px 0 0 #171717, -2px 0 0 #1ec08e, 0 2px 0 #171517, 0 -2px 0 #171516, 1px 1px #171516, -1px -1px 0 #151515, 1px -1px 0 #171416, -1px 1px 0 #171516;
+}
+
+#bgtoggle {
+  cursor: pointer;
+  position: fixed;
+  left: 4%;
+  bottom: 6%;
+  border-radius: 8px;
+  background-color: black;
+  color: #61c29b;
+  font-weight: bold;
+  font-size: 24px;
+  font-family: 'Exo 2', sans-serif;
+  animation: color-change 15s linear infinite;
+  z-index: 1;
+}
+
 
 @keyframes scroll-right {
   0% {
@@ -226,153 +374,4 @@ body {
   to {
     -webkit-transform: rotate(360deg);
   }
-}
-
-#help {
-  position: absolute;
-  right: 2%;
-  top: 2%;
-  background-color: transparent;
-  border: none;
-}
-
-#about {
-  cursor: pointer;
-  position: absolute;
-  right: 2%;
-  top: 2%;
-  width: 2%;
-  animation: color-change 15s linear infinite both;
-}
-
-#git {
-  cursor: pointer;
-  position: absolute;
-  right: 6%;
-  top: 2%;
-  width: 2%;
-  filter: invert(1);
-  border-radius: 40px;
-  animation: color-change 15s linear infinite both;
-  background-color: black;
-}
-
-.modal {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  opacity: 0.9;
-  font-family: 'Exo 2', sans-serif;
-  position: fixed; 
-  z-index: 1; 
-  left: 30%;
-  top: 5%;
-  width: 45%; 
-  height: 80%; 
-  overflow: auto; 
-  background-color:  #21d498;
-  border: 13px solid #191719;
-  border-radius: 50%; 
-  box-shadow: 0px 0px 0px 1px silver inset;
-  animation: spin 1.0s ease-in-out 1,color-change 25s linear infinite;
-  z-index: 3;
-}
-
-.modal-wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 90%;
-  width: 90%;
-  background-color: transparent;
-  border-radius: 50%;
-  border: 1px solid #9b9b9b;
-  box-shadow: 0px 0px 0px 1px #1f1f2c inset;
-  animation: color-change 15s linear infinite;
-}
-
-.modal-content { 
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-evenly;
-  background-color: #1b4d83;
-  background-image: url('aliens.jpg');
-  background-position-x: 45%;
-  background-position-y: -60px;
-  background-size: cover;
-  padding: 8px;
-  border: 8px solid #17171f;
-  box-shadow: 0px 0px 0px 1px silver inset;
-  width: 75%;
-  height: 75%;
-  border-radius: 50%;
-}
-
-#welcome {
-  animation: color-change 15s linear infinite both;
-  font-size: 3em;
-  text-align: center;
-  color: #1ec190;
-}
-
-
-
-.instructions {
-  height: 90%;
-  font-size: 0.6em;
-  position: relative;
-  top: 7%;
-  left: 4%;
-  list-style: none;
-  font-weight: bold;
-  color: #e5e6e8;
-  strong {
-    animation: color-change 15s linear infinite both;
-    color: #21d498;
-    font-size: 1.1em;
-    font-weight: bolder;
-    text-transform: uppercase;
-  }
-  p {
-    border-radius: 8px;
-    padding: 2px;
-  }
-  h2 {
-    text-decoration: underline;
-  }
-
-}
-
-
-.close {
-  animation: color-change 15s linear infinite both;
-  position: absolute;
-  bottom: 13%;
-  color: #1ec190;
-  font-size: 28px;
-  font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-  text-transform: uppercase;
-  transform: scale(1.3);
-  cursor: pointer;
-    text-shadow: 2px 0 0 #171717, -2px 0 0 #1ec08e, 0 2px 0 #171517, 0 -2px 0 #171516, 1px 1px #171516, -1px -1px 0 #151515, 1px -1px 0 #171416, -1px 1px 0 #171516;
-}
-
-#bgtoggle {
-  cursor: pointer;
-  position: fixed;
-  left: 4%;
-  bottom: 6%;
-  border-radius: 8px;
-  background-color: black;
-  color: #61c29b;
-  font-weight: bold;
-  font-size: 24px;
-  font-family: 'Exo 2', sans-serif;
-  animation: color-change 15s linear infinite;
-  z-index: 1;
 }
