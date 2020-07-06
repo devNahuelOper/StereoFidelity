@@ -124,9 +124,10 @@ function main() {
       })
 
       const start = new Date();
-      console.log(start);
       songTitle.style.animation = 'quick-scroll 15s linear infinite';
       songTitle.style.fontSize = 20 + 'px';
+      effects.style.bottom = 6 + '%';
+      effects.style.left = 13 + '%';
 
       let audioSrc = ctx.createMediaElementSource(song)
       audioSrc.connect(ctx.destination);
@@ -160,11 +161,12 @@ function main() {
       //  const canvas = document.createElement(canvas);
        processor.onaudioprocess = function() {
         //  randomBg();
-           analyser.getByteTimeDomainData(data);
-        //  analyser.getByteFrequencyData(data);
+          //  analyser.getByteTimeDomainData(data);
+         analyser.getByteFrequencyData(data);
          pic1.src = dblImages[Math.floor(Math.random(Array.from(Array(data[0]).keys())) * 100)].src;
          pic2.src = dblImages[Math.floor(Math.random(Array.from(Array(100).keys())) * 100)].src;
          pic3.src = dblImages[data[0]].src;
+         
 
          let iconsLeft = effects.querySelectorAll('img').length;
          const slots = [pic1.src, pic2.src, pic3.src];
@@ -194,12 +196,12 @@ function main() {
             }
           })
 
-         if (iconsLeft <= 3) {
-           song.playbackRate += 1;
-           song.volume -= 0.7;
-           effects.removeChild(frame);
-           setTimeout(function () { song.currentTime += 400; }, 4000);
-         }
+        //  if (iconsLeft <= 3) {
+        //    song.playbackRate += 1;
+        //    song.volume -= 0.7;
+        //    effects.removeChild(frame);
+        //    setTimeout(function () { song.currentTime += 400; }, 4000);
+        //  }
          
        } 
        song.onended = function() {
@@ -239,7 +241,7 @@ function main() {
          if (iconsLeft > 30 && iconsLeft <= 50) {
            bonus = Math.round((song.duration - diff));
            msg.innerHTML = `You cleared <strong>${100 - iconsLeft}</strong> sound like a true average Joe, just enough to get by.<br/> 
-           You get <strong>${bonus}</strong> bonus points for doing you.`;
+           You get <strong>${bonus}</strong> bonus points for existing.`;
            msg.style.color = '#e0e2d5';
          }
          if (iconsLeft > 50 && iconsLeft <= 75) {
