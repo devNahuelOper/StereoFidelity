@@ -233,7 +233,7 @@ body {
   list-style: none;
   font-weight: bolder;
   color: #e5e6e8;
-  border-radius: 90px;
+  border-radius: 140px;
   transform: scale(0.7);
 
   strong {
@@ -266,11 +266,11 @@ body {
 }
 
 #frame, #match {
+  cursor: url('zoom2.png'), auto;
   width: 15%;
   border-radius: 10px;
   image-rendering: -webkit-optimize-contrast;
   position: relative;
-  cursor: zoom-in;
 }
 
 #frame:hover, #match:hover {
@@ -361,7 +361,7 @@ body {
     left: 0;
   }
   50% {
-    left: 26%;
+    left: 9%;
   }
   100% {
     left: 0;

@@ -137,8 +137,8 @@ function main() {
 
       const start = new Date();
       songTitle.style.animation = 'quick-scroll 15s linear infinite';
-      songTitle.style.fontSize = 20 + 'px';
-      effects.style.bottom = 6 + '%';
+      songTitle.style.fontSize = 18 + 'px';
+      effects.style.bottom = 15 + '%';
       effects.style.left = 13 + '%';
 
       let audioSrc = ctx.createMediaElementSource(song)
@@ -170,9 +170,9 @@ function main() {
       score.style.color = '#faf8ec';
       score.style.fontSize = 28 + 'px';
       tracks.appendChild(score);
-      //  const canvas = document.createElement(canvas);
+
+
        processor.onaudioprocess = function() {
-        //  randomBg();
           //  analyser.getByteTimeDomainData(data);
          analyser.getByteFrequencyData(data);
          pic1.src = dblImages[Math.floor(Math.random(Array.from(Array(data[0]).keys())) * 100)].src;
@@ -182,19 +182,14 @@ function main() {
 
          let iconsLeft = effects.querySelectorAll('img').length;
          const slots = [pic1.src, pic2.src, pic3.src];
+
          images.forEach(image => {
            if(slots.includes(image.src)) {
              image.style.animation = 'flicker 0.5s infinite alternate';
              image.style.transform = 'scale3d(1.7, 1.7, 1.7)';
-            //  image.style.boxShadow = 'none';
-            //  image.style.filter = 'brightness(1.5)';
-            //  image.style.backgroundColor = 'crimson';
            } else {
              image.style.animation = 'none';
-            //  image.style.backgroundColor = 'none';
-            //  image.style.boxShadow != 'none';
              image.style.transform = 'none';
-            //  image.style.filter = 'brightness(0.5)';
            }
             image.onmouseenter = function() {
               if (slots.includes(image.src)) {
@@ -218,6 +213,7 @@ function main() {
        } 
        song.onended = function() {
          effects.removeChild(frame);
+         effects.style.bottom = -6 + '%';
          let iconsLeft = effects.querySelectorAll('img').length;       
          const end = new Date();
          const diff = (end - start) / 1000;
