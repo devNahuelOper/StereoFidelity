@@ -26,23 +26,38 @@
         <img id="about" src="dist/images/about.png" onclick="document.getElementById('myModal').style.display='flex'">
         
 
-      <div id="myModal" class="modal">
+      <div id="myModal" class="modal"
+        onmouseover="document.getElementById('myModal').style.animation = 'none';"
+      >
       <div class="modal-wrapper">
         <div class="modal-content">
           <h1 id="welcome">Stereo Fidelity</h1>
           <ul class="instructions">
-            <li><h2>GAME MODE</h2></li>
-            <p>Select a song. After clicking PLAY, a block will pop up above icons. <br>
-               The block contains 3 shifting images from the effects board at any given time. <br>
-               Object of game is to HOVER over any matching images to clear them off board. <br>
-               Clear as many as you can before song ends. Matches will be highlighted. <br>
-             <strong>INCORRECT MATCH = TEMPO INCREASE. CORRECT MATCH = TEMPO DECREASE.</strong>
+            <li><h2>INSTRUCTIONS</h2><aside>(Hover to stop animation)</aside></li>
+            <p>
+            1 ) CHOOSE SONG, <strong>CLICK PLAY</strong>. 2) MOVE MOUSE TOWARD FX BOARD (BOTTOM ICONS). <br />
+              <br>
+            ***<strong>FRAME w/ 3 SPINNING ICONS</strong>(FROM FX BOARD) WILL APPEAR <strong>ABOVE FX BOARD</strong>.***
+            <figure id="framefig">
+            <img src="dist/images/frame.png" id="frame">
+            <figcaption>Hover to zoom in</figcaption>
+            </figure>
+            <!-- ***<strong>FRAME ICONS</strong>SPIN LIKE A <strong>SLOT-MACHINE</strong> UNTIL SONG ENDS. ***<br /> -->
+            *** AT ANY GIVEN MOMENT, 1 - 3 <strong>FX ICONS</strong> --> <strong>MATCH FRAME ICONS</strong>.***
+            <figure id="matchfig">
+            <img src="dist/images/match.png" id="match">
+            <figcaption>Hover to zoom in</figcaption>
+            </figure>
+            3 ) THINK WHACK-A-MOLE!…<strong>HOVER</strong> OVER <strong>MATCHING FX ICONS</strong> TO CLEAR FROM BOARD.<br />
+            <br>
+            HERE'S THE TRICKY PART: HOVER WISELY, OR THE SONG WILL END MUCH FASTER... <br>
+             ***INCORRECT MATCH = <strong>TEMPO INCREASE</strong> | CORRECT MATCH = <strong>TEMPO DECREASE</strong>.***
             </p>
-            <li><h2>FREESTYLE MODE</h2></li>
+            <!-- <li><h2>FREESTYLE MODE</h2></li>
             <li><strong>Hover</strong> over icons to play sounds.</li>
             <li><strong>Click</strong> icon to remove from playarea.</li>
             <li><strong>Double-click</strong> icon to reactivate.</li>
-            <li>🎧 start with your device volume low 🎧</li>
+            <li>🎧 start with your device volume low 🎧</li> -->
           </ul>
           <br>
           <span class="close" onclick="document.getElementById('myModal').style.display='none'">Let's Play!</span>

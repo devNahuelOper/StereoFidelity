@@ -20,7 +20,18 @@ function main() {
 
   const modal = document.getElementById('myModal');
   const about = document.getElementById('about');
- 
+  
+  modal.onmouseover = function () {
+    modal.style.animation = 'none';
+    modal.firstElementChild.style.animation = 'none';
+  }
+
+  modal.onmouseout = function () {
+    modal.style.animation = 'color-change 25s linear infinite';
+    modal.firstElementChild.style.animation = 'color-change 15s linear infinite';
+  }
+
+
   // window.onclick = function () {
   //    modal.style.display = 'none';
   //   about.onclick = function () {
@@ -29,8 +40,8 @@ function main() {
   // }
 
   const backgrounds = [
-    'src/styles/waves.jpg', 'src/styles/face.jpg',
-    'src/styles/headphones.jpg','src/styles/deadmau5.jpg',
+    'src/styles/headphones.jpg', 'src/styles/face.jpg',
+    'src/styles/waves.jpg','src/styles/deadmau5.jpg',
     'src/styles/buttons.jpg', 'src/styles/turntable.png'
   ];
   
@@ -40,13 +51,14 @@ function main() {
     let num = Math.floor(Math.random(backgrounds) * backgrounds.length);
     stage.style.backgroundImage = "url('"+backgrounds[num]+"')";
   }
-  // randomBg();
-
+  
  
   const bgtoggle = document.getElementById('bgtoggle');
   bgtoggle.onclick = function() {
     randomBg();
   }
+
+
   // for (let i = 0; i < backgrounds.length - 1; i++) {
   //   let currbg = stage.style.backgroundImage;
   //   let currbgIdx = backgrounds.indexOf(currbg);
@@ -283,7 +295,7 @@ function main() {
   })
 
 
-
+  
  
 
 

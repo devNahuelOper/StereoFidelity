@@ -163,11 +163,10 @@ body {
   opacity: 0.9;
   font-family: 'Exo 2', sans-serif;
   position: fixed; 
-  z-index: 1; 
-  left: 30%;
+  left: 23%;
   top: 5%;
-  width: 45%; 
-  height: 80%; 
+  width: 55%; 
+  height: 90%; 
   overflow: auto; 
   background-color:  #21d498;
   border: 13px solid #191719;
@@ -206,6 +205,9 @@ body {
   width: 75%;
   height: 75%;
   border-radius: 50%;
+  animation: none;
+  overflow: hidden;
+  background-blend-mode: color-burn;
 }
 
 #welcome {
@@ -217,14 +219,20 @@ body {
 
 
 .instructions {
-  height: 90%;
-  font-size: 0.5em;
+  background: #000000 border-box;
+  margin-left: 10px;
+  width: fit-content;
+  height: fit-content;
+  font-size: 13px;
   position: relative;
-  top: 7%;
-  left: 4%;
+  top: -6%;
+  left: -1%;
   list-style: none;
-  font-weight: bold;
+  font-weight: bolder;
   color: #e5e6e8;
+  border-radius: 90px;
+  transform: scale(0.9);
+
   strong {
     animation: color-change 15s linear infinite both;
     color: #21d498;
@@ -232,21 +240,59 @@ body {
     font-weight: bolder;
     text-transform: uppercase;
   }
+  small {
+    font-size: 8px;
+  }
   p {
     border-radius: 8px;
     padding: 2px;
   }
   h2 {
     text-decoration: underline;
+   
   }
+   aside {
+    text-decoration: none;
+    font-size: 10px;
+    position: fixed;
+    top: 7%;
+    left: 32%;
+   }
+  figcaption {
+    font-size: 8px;
+  }
+}
 
+#frame, #match {
+  width: 15%;
+  border-radius: 10px;
+  image-rendering: -webkit-optimize-contrast;
+  position: relative;
+  cursor: zoom-in;
+}
+
+#frame:hover, #match:hover {
+  transform: scale(2.0);
+}
+
+#frame {
+  left: -1%;
+}
+
+#match {
+  right: 1%;
+}
+
+#matchfig {
+  position: relative;
+  left: 35%;
 }
 
 
 .close {
   animation: color-change 15s linear infinite both;
-  position: absolute;
-  bottom: 13%;
+  position: relative;
+  bottom: 10%;
   color: #1ec190;
   font-size: 28px;
   font-weight: bold;
