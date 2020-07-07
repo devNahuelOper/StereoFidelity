@@ -224,7 +224,7 @@ function main() {
          let bonus; 
          const msg = document.createElement('h1');
          msg.id = "msg";
-         msg.setAttribute("style", "font-size:24px; position: absolute; left: 80%; top: 30%; white-space: nowrap; border: 2px solid currentColor; border-radius: 14px; padding: 14px; background-color: black;");
+         msg.setAttribute("style", "font-size:18px; position: absolute; left: 80%; top: 30%; white-space: nowrap; border: 2px solid currentColor; border-radius: 14px; padding: 14px; background-color: black;");
          tracks.appendChild(msg);
         //  effects.removeChild(frame);
          console.log(`icons left: ${iconsLeft}`);
