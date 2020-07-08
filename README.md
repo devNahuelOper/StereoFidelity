@@ -31,8 +31,6 @@ Bonus points are also acquired for efficiency (calculated using the time played 
 
 # Wireframes
 
-There will be a single screen with a cool blueish/purpleish blended background. Top left will be a dropdown of the backing tracks to choose from. On the top right will be any controls for sounds, such as play & stop, volume and even bpm adjustment if there's time. On the bottom center will be a box containing all the sound effects, each noted with a corresponding icon. Below the effects box will the nav section with links to my githup, linkedin and angellist profiles.
-
 ![image](https://user-images.githubusercontent.com/16979527/86948605-5e624e00-c11b-11ea-867c-3e8e6f2967b4.png)
 
 https://wireframe.cc/g73kLP
