@@ -38,12 +38,13 @@ function main() {
   }
 
 
-  // window.onclick = function () {
-  //    modal.style.display = 'none';
-  //   about.onclick = function () {
-  //     modal.display.style = 'flex';
-  //   }
-  // }
+  window.onclick = function (event) {  
+    let inModal = modal.contains(event.target);
+    let inAbout = about.contains(event.target);
+    if (!inModal && !inAbout) {
+      modal.style.display = 'none';
+    } 
+  }
 
   const backgrounds = [
     'src/styles/headphones.jpg', 'src/styles/face.jpg',
