@@ -138,9 +138,9 @@ body {
 #about {
   cursor: pointer;
   position: absolute;
-  right: 2%;
-  top: 2%;
-  width: 2%;
+  right: 1%;
+  top: 2.4%;
+  width: 3%;
   animation: color-change 15s linear infinite both;
 }
 
@@ -148,11 +148,21 @@ body {
   cursor: pointer;
   position: absolute;
   right: 6%;
-  top: 2%;
+  top: 3%;
   width: 2%;
   filter: invert(1);
   border-radius: 40px;
   animation: color-change 15s linear infinite both;
+  background-color: black;
+}
+
+#linkedin {
+  cursor: pointer;
+  position: absolute;
+  right: 9%;
+  top: 2.6%;
+  width: 2.5%;
+  border-radius: 12px;
   background-color: black;
 }
 
