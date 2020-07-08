@@ -25,7 +25,7 @@ Bonus points are also acquired for efficiency (calculated using the time played 
   * Correct hover = playbackRate decrease, Incorrect hover = playbackRate increase.
     <img src="https://user-images.githubusercontent.com/16979527/86935172-885f4480-c10a-11ea-8421-572905e62f7a.png" width="475" height="200">
     
-  * Game concludes when song ends. Score is based on how many icons cleared + bonus points for efficiency.
+  * At song end, score is given based on how many icons cleared + bonus points for efficiency.
     <img src="https://user-images.githubusercontent.com/16979527/86939681-e04c7a00-c10f-11ea-80cf-a7a1b10efa97.png" width="50%" height="50%">
 
 * FREESTYLE MODE
