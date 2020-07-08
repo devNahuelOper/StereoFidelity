@@ -12,9 +12,9 @@ I then added an extra layer of challenge to the game, by increasing the song’s
 On a correct match, the icon you hovered over also gets removed from the board, and the score is based on how many you can clear before the song ends. 
 Bonus points are also acquired for efficiency (calculated using the time played in the round vs the song’s original duration).
 
-# Stereo Fidelity Features:
+# Stereo Fidelity Features
 * Choose Game Mode or Freestyle Mode 
-* Game Mode
+* GAME MODE
   * Select a song.
   * Get mouse ready near effect icons, as a 3-image frame appears above board.
     <img src="https://user-images.githubusercontent.com/16979527/86932562-89db3d80-c107-11ea-87cb-886f0d13c3db.png" width="50%" height="50%">
@@ -25,10 +25,7 @@ Bonus points are also acquired for efficiency (calculated using the time played 
   * Game concludes when song ends. Score is based on how many icons cleared + bonus points for efficiency.
     <img src="https://user-images.githubusercontent.com/16979527/86939681-e04c7a00-c10f-11ea-80cf-a7a1b10efa97.png" width="50%" height="50%">
 
-# Bonus Features
-* User can adjust the bpm of the backing track
-* User can upload a song of their choosing to play over
-* Indicator that turns on if it's a good place to add an effect
+* FREESTYLE MODE
 
 
 # Wireframes
