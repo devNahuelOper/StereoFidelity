@@ -20,6 +20,8 @@ Bonus points are also acquired for efficiency (calculated using the time played 
   ![image](https://user-images.githubusercontent.com/16979527/86932562-89db3d80-c107-11ea-87cb-886f0d13c3db.png)
   * Hover over any icons on board that match frame (matches are highlighted) to clear them off the board.
   ![image](https://user-images.githubusercontent.com/16979527/86932974-079f4900-c108-11ea-89ea-231c3587aaf4.png)
+  * Correct hover = playbackRate decrease, Incorrect hover = playbackRate increase.
+  ![image](https://user-images.githubusercontent.com/16979527/86935172-885f4480-c10a-11ea-8421-572905e62f7a.png)
 
 # Bonus Features
 * User can adjust the bpm of the backing track
