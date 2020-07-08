@@ -16,7 +16,10 @@ Bonus points are also acquired for efficiency (calculated using the time played 
 * Choose Game Mode or Freestyle Mode 
 * Game Mode
   * Select a song.
-  * Get mouse ready near effect icons, as a 3-image block appears above board.
+  * Get mouse ready near effect icons, as a 3-image frame appears above board.
+  ![image](https://user-images.githubusercontent.com/16979527/86932562-89db3d80-c107-11ea-87cb-886f0d13c3db.png)
+  * Hover over any icons on board that match frame (matches are highlighted) to clear them off the board.
+  ![image](https://user-images.githubusercontent.com/16979527/86932974-079f4900-c108-11ea-89ea-231c3587aaf4.png)
 
 # Bonus Features
 * User can adjust the bpm of the backing track
