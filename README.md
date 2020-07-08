@@ -21,7 +21,9 @@ Bonus points are also acquired for efficiency (calculated using the time played 
   * Hover over any icons on board that match frame (matches are highlighted) to clear them off the board.
   ![image](https://user-images.githubusercontent.com/16979527/86932974-079f4900-c108-11ea-89ea-231c3587aaf4.png)
   * Correct hover = playbackRate decrease, Incorrect hover = playbackRate increase.
-  ![image](https://user-images.githubusercontent.com/16979527/86935172-885f4480-c10a-11ea-8421-572905e62f7a.png)
+  <img src="https://user-images.githubusercontent.com/16979527/86935172-885f4480-c10a-11ea-8421-572905e62f7a.png" width="50%" height="50%">
+  
+  * Game concludes when song ends. Score is based on how many icons cleared + bonus points for efficiency.
 
 # Bonus Features
 * User can adjust the bpm of the backing track
