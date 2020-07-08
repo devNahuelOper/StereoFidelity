@@ -16,11 +16,17 @@ function main() {
   winHeight = window.innerHeight;
   stage.style.width = winWidth + 'px';
   stage.style.height = winHeight + 'px';
-  } 
+  }
 
   const modal = document.getElementById('myModal');
   const about = document.getElementById('about');
-  
+  const close = document.getElementsByClassName('close')[0];
+
+  // close.onclick = function() {
+  //   modal.style.transform = 'scale(0.07) translate(8400px, -4450px)';
+  // }
+
+
   modal.onmouseover = function () {
     modal.style.animation = 'none';
     modal.firstElementChild.style.animation = 'none';
@@ -86,6 +92,7 @@ function main() {
   const sounds = effects.querySelectorAll('audio');
   const images = effects.querySelectorAll('img');
   const dblImages = Array.from(images).concat(Array.from(images)).concat(Array.from(images));
+
   sounds.forEach(sound => {
     let adjImg = sound.nextElementSibling;
 
@@ -163,6 +170,7 @@ function main() {
 
       frame.style.animation = 'quick-scroll 15s linear infinite';
       frame.style.position = 'relative';
+
       effects.insertBefore(frame, effects.childNodes[0]);
       effects.style.height = 'fit-content';
 
@@ -170,7 +178,6 @@ function main() {
       score.style.color = '#faf8ec';
       score.style.fontSize = 28 + 'px';
       tracks.appendChild(score);
-
 
        processor.onaudioprocess = function() {
           //  analyser.getByteTimeDomainData(data);
@@ -195,7 +202,6 @@ function main() {
               if (slots.includes(image.src)) {
                 effects.removeChild(image);
                 song.playbackRate -= 0.7;
-                console.log(iconsLeft);
               } else {
                 song.playbackRate += 0.1;
               }
