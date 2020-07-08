@@ -26,6 +26,7 @@ Bonus points are also acquired for efficiency (calculated using the time played 
     <img src="https://user-images.githubusercontent.com/16979527/86939681-e04c7a00-c10f-11ea-80cf-a7a1b10efa97.png" width="50%" height="50%">
 
 * FREESTYLE MODE
+  * Just go bananas trying out all 100 sound effects, maybe turning them into music!
 
 
 # Wireframes
