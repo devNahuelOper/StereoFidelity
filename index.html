@@ -159,6 +159,21 @@
             </div>
           </article>
           <article class="track">
+            <audio id="fire" src="dist/sounds/fire.mp3"></audio>
+            <span class="songTitle">Fire</span>
+            <div class="playerControls">
+              <img id="play" src="dist/images/play-button.png" onclick="document.getElementById('fire').play()">
+              <img id="pause" src="dist/images/pause-button.png" onclick="document.getElementById('fire').pause()">
+              <img id="stop" src="dist/images/stop-button.png" onclick="document.getElementById('fire').pause(), document.getElementById('fire').currentTime=0">
+              <img id="rewind" src="dist/images/rewind.png" onclick="document.getElementById('fire').currentTime-=5">
+              <img id="forward" src="dist/images/forward.png" onclick="document.getElementById('fire').currentTime+=5">
+              <img id="volume" src="dist/images/lo-volume.png" onclick="document.getElementById('fire').volume-=0.1">
+              <img id="volume" src="dist/images/hi-volume.png" onclick="document.getElementById('fire').volume+=0.1">
+              <img id="tempo" src="dist/images/downtempo.png" onclick="document.getElementById('fire').playbackRate-=0.1">
+              <img id="tempo" src="dist/images/uptempo.png" onclick="document.getElementById('fire').playbackRate+=0.1">
+            </div>
+          </article>
+          <article class="track">
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
             <input type="file" id="upload" value="Upload your own!"/>
             <br>
