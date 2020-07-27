@@ -202,11 +202,11 @@ function main() {
             image.onmouseenter = function() {
               if (slots.includes(image.src)) {
                 effects.removeChild(image);
-                song.playbackRate -= 0.7;
+                song.playbackRate -= 0.8;
               } else {
                 song.playbackRate += 0.1;
               }
-              score.innerHTML = 103 - iconsLeft;
+              score.innerHTML = `Sounds Cleared: ${103 - iconsLeft}`;
             }
           })
 
@@ -235,7 +235,7 @@ function main() {
            bonus = Math.round((song.duration * diff) * (100 - iconsLeft));
            msg.innerHTML = `The Wheel. Electricity. The Automobile. Flight. The Moonlanding. Computers. The Internet.<br/> 
            And now there's YOU, who brings one more entry onto the list of some of mankind’s greatest acheivements.<br/>
-           YOU...who cleared ALL <strong>${100 - iconsLeft}</strong> sounds of the board, and <br/>
+           YOU...who cleared ALL <strong>${100 - iconsLeft}</strong> sounds off the board, and <br/>
            YOU who racked up <strong>${bonus}</strong> bonus points in the process.`;
            msg.style.color = '#26dc08';
            msg.style.animation = 'color-change 15s linear infinite';
@@ -268,9 +268,9 @@ function main() {
            msg.style.color = 'crimson';
          }
          if (iconsLeft > 75) {
-           bonus = Math.round(diff - song.duration - 1);
+           bonus = Math.round(diff - song.duration - 10);
            msg.innerHTML = `Whoa whoa whoa...are you a bot? Maybe you saw a mouse and
-           you to go deal with that during the song? <br/> If not, then it might be time for
+           you had to go deal with that during the song? <br/> If not, then it might be time for
            some serious self-reflection and ask yourself, <br/> "how much longer do I want to be the
            person who only clears <strong>${100 - iconsLeft}</strong> sounds off the board"? <br/>
            Well here, take these  <strong>${bonus}</strong> bonus -- oh wait, no, it looks like you owe me points.`;
@@ -296,80 +296,5 @@ function main() {
    
 
   })
-
-
-  
- 
-
-
-  // let fidelity = document.getElementById('fidelity');
-  // let play = document.getElementById('play');
-
-  
-
-  // let audio,
-  //   analyser,
-  //   audioContext,
-  //   soundSource,
-  //   soundBuffer,
-  //   sourceNode,
-  //   cycle,
-  //   transparency,
-  //   freqArray,
-  //   stream;
-
-
-  // audioInput.addEventListener('change', function (event) {
-  //   if (!audioContext || audioContext.state !== "running") {
-  //     stream = URL.createObjectURL(event.target.files[0]);
-  //     audio = new Audio();
-  //     console.log(audio);
-  //     audio.src = stream;
-  //     setup();
-  //   }
-  // });
-
-  // function startSound() {
-  //   sourceNode = audioContext.createMediaElementSource(audio);
-  //   sourceNode.connect(analyser);
-  //   sourceNode.connect(audioContext.destination);
-
-  //   audio.play();
-  // }
-
-  // function setup() {
-  //   audio.addEventListener('canplay', function () {
-  //     audioContext = audioContext || new AudioContext();
-  //     analyser = (analyser || audioContext.createAnalyser());
-  //     analyser.smoothingTimeConstant = 1.0;
-  //     analyser.fftSize = 512;
-
-  //     startSound();
-  //   });
-  // }
-
-  // document.getElementsByClassName('play')[0].addEventListener('click', playSound.bind(null, sample));
-  // document.getElementsByClassName('stop')[0].addEventListener('click', stopSound);
-
-  // document.getElementsByClassName('play')[1].addEventListener('click', playSound.bind(null, sample2));
-  // document.getElementsByClassName('stop')[1].addEventListener('click', stopSound);
-
-  // function playSound() {
-  //   if (audioContext) {
-  //     if (audioContext.state === 'suspended') {
-  //       audioContext.resume();
-  //     }
-  //   }
-  // }
-
-  // function stopSound() {
-  //   if (audioContext) {
-  //     if (audioContext.state === 'running') {
-  //       audioContext.suspend();
-  //     }
-  //   }
-  // }
-
-
 
 }
