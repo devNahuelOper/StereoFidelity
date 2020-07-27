@@ -208,9 +208,14 @@ function main() {
             image.onmouseenter = function() {
               if (slots.includes(image.src)) {
                 effects.removeChild(image);
-                song.playbackRate -= 1.0;
+                // song.playbackRate -= 1.0;
+                if (iconsLeft <= 80) {
+                  song.playbackRate -= 0.8;
+                }
               } else {
-                song.playbackRate += 0.1;
+                if (iconsLeft <= 80) {
+                  song.playbackRate += 0.1;
+                }
               }
               score.innerHTML = `Sounds Cleared: ${103 - iconsLeft}`;
             }
