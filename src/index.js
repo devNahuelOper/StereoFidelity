@@ -19,8 +19,10 @@ function main() {
   }
 
   const modal = document.getElementById('myModal');
+  const strong = modal.querySelectorAll('strong');
   const about = document.getElementById('about');
   const close = document.getElementsByClassName('close')[0];
+  const welcome = document.getElementById('welcome');
 
   // close.onclick = function() {
   //   modal.style.transform = 'scale(0.07) translate(8400px, -4450px)';
@@ -30,6 +32,11 @@ function main() {
   modal.onmouseover = function () {
     modal.style.animation = 'none';
     modal.firstElementChild.style.animation = 'none';
+    welcome.style.animation = 'none';
+    close.style.animation = 'none';
+    strong.forEach(text => {
+      text.style.animation = 'none';
+    })
   }
 
   modal.onmouseout = function () {
@@ -43,6 +50,7 @@ function main() {
     let inAbout = about.contains(event.target);
     if (!inModal && !inAbout) {
       modal.style.display = 'none';
+      about.style.display = 'block';
     } 
   }
 
