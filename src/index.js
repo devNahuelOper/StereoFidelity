@@ -49,6 +49,11 @@ function main() {
     } 
   }
 
+  close.onclick = function () {
+    about.style.display = 'block';
+    modal.style.display = 'none';
+  }
+
   const backgrounds = [
     'src/styles/headphones.jpg', 'src/styles/face.jpg',
     'src/styles/waves.jpg','src/styles/deadmau5.jpg',
@@ -148,8 +153,8 @@ function main() {
       const start = new Date();
       songTitle.style.animation = 'quick-scroll 15s linear infinite';
       songTitle.style.fontSize = 18 + 'px';
-      effects.style.bottom = 15 + '%';
-      effects.style.left = 13 + '%';
+      effects.style.bottom = 16 + '%';
+      effects.style.left = 15 + '%';
 
       let audioSrc = ctx.createMediaElementSource(song)
       audioSrc.connect(ctx.destination);
@@ -178,8 +183,7 @@ function main() {
       effects.style.height = 'fit-content';
 
       const score = document.createElement('p');
-      score.style.color = '#faf8ec';
-      score.style.fontSize = 28 + 'px';
+      score.id = 'score';
       tracks.appendChild(score);
 
        processor.onaudioprocess = function() {
@@ -204,7 +208,7 @@ function main() {
             image.onmouseenter = function() {
               if (slots.includes(image.src)) {
                 effects.removeChild(image);
-                song.playbackRate -= 0.8;
+                song.playbackRate -= 1.0;
               } else {
                 song.playbackRate += 0.1;
               }
