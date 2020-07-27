@@ -121,6 +121,10 @@ body {
     width: 10%;
     margin: 2px auto;
   }
+  img:hover {
+    transform: scale(1.2);
+    filter: brightness(1.5);
+  }
 }
 
 #play, #pause, #stop, #rewind, #forward, #volume, #tempo {
@@ -147,7 +151,7 @@ body {
   display: none;
   cursor: pointer;
   position: absolute;
-  right: 15px;
+  right: 25px;
   top: 10px;
   width: 3%;
   animation: color-change 15s linear infinite both;
@@ -364,7 +368,7 @@ body {
 
 .signature-container {
   position: absolute;
-  right: 30px;
+  right: 25px;
   bottom: -1%;
   #signature {
     font-size: 12px;
