@@ -339,9 +339,9 @@ body {
 
 #bgtoggle {
   cursor: pointer;
-  position: fixed;
-  left: 4%;
-  bottom: 6%;
+  position: absolute;
+  left: 1%;
+  bottom: 1%;
   border-radius: 8px;
   background-color: black;
   color: #61c29b;
@@ -352,6 +352,19 @@ body {
   z-index: 1;
 }
 
+.signature-container {
+  position: absolute;
+  right: 30px;
+  #signature {
+    font-size: 12px;
+    color: white;
+    strong {
+      font-size: 16px;
+      color: #61c29b;
+      animation: color-change 15s linear infinite;
+    }
+  }
+}
 
 @keyframes scroll-right {
   0% {

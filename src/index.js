@@ -24,11 +24,6 @@ function main() {
   const close = document.getElementsByClassName('close')[0];
   const welcome = document.getElementById('welcome');
 
-  // close.onclick = function() {
-  //   modal.style.transform = 'scale(0.07) translate(8400px, -4450px)';
-  // }
-
-
   modal.onmouseover = function () {
     modal.style.animation = 'none';
     modal.firstElementChild.style.animation = 'none';
@@ -60,8 +55,7 @@ function main() {
     'src/styles/buttons.jpg', 'src/styles/turntable.png'
   ];
   
- 
-  
+
   function randomBg(){ 
     let num = Math.floor(Math.random(backgrounds) * backgrounds.length);
     stage.style.backgroundImage = "url('"+backgrounds[num]+"')";
