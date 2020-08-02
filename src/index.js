@@ -209,11 +209,11 @@ function main() {
               if (slots.includes(image.src)) {
                 effects.removeChild(image);
                 // song.playbackRate -= 1.0;
-                if (iconsLeft <= 80) {
+                if (iconsLeft <= 60) {
                   song.playbackRate -= 0.8;
                 }
               } else {
-                if (iconsLeft <= 80) {
+                if (iconsLeft <= 60) {
                   song.playbackRate += 0.1;
                 }
               }

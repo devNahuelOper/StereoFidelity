@@ -187,6 +187,8 @@ body {
   width: 32px;
   background-color: white;
   border-radius: 50%;
+  filter: invert(1);
+  border: 1px solid;
 }
 
 #headshot {
