@@ -1,7 +1,7 @@
 # Stereo Fidelity
 A frenetic, rhythmic game of Whack-a-Mole!
 
-Visit Here: https://devnahueloper.github.io/StereoFidelity/
+[Stereo Fidelity]( https://devnahueloper.github.io/StereoFidelity/)
 
 # Overview
 Stereo Fidelity started out as a simple, fun and silly sound buffet, where users could play a song and add their own remix by hovering over 100 different sound effects (each represented on the page by an icon). Once I had implemented the two main features of songs and effects, I thought ‘okay, yeah this is pretty fun for 5-10 minutes’…I wanted something more.
