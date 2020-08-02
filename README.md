@@ -25,7 +25,34 @@ Bonus points are also acquired for efficiency (calculated using the time played 
     <img src="https://user-images.githubusercontent.com/16979527/86932974-079f4900-c108-11ea-89ea-231c3587aaf4.png" width="50%" height="70%">
     
   * Correct hover = playbackRate decrease, Incorrect hover = playbackRate increase.
-    <img src="https://user-images.githubusercontent.com/16979527/86935172-885f4480-c10a-11ea-8421-572905e62f7a.png" width="475" height="200">
+    
+    ``` Javascript
+       let iconsLeft = effects.querySelectorAll('img').length;
+         const slots = [pic1.src, pic2.src, pic3.src];
+
+         images.forEach(image => {
+           if(slots.includes(image.src)) {
+             image.style.animation = 'flicker 0.5s infinite alternate';
+             image.style.transform = 'scale3d(1.7, 1.7, 1.7)';
+           } else {
+             image.style.animation = 'none';
+             image.style.transform = 'none';
+           }
+            image.onmouseenter = function() {
+              if (slots.includes(image.src)) {
+                effects.removeChild(image);
+                if (iconsLeft <= 60) {
+                  song.playbackRate -= 0.8;
+                }
+              } else {
+                if (iconsLeft <= 60) {
+                  song.playbackRate += 0.1;
+                }
+              }
+              score.innerHTML = `Sounds Cleared: ${103 - iconsLeft}`;
+            }
+          })
+    ```
     
   * At song end, score is given based on how many icons cleared + bonus points for efficiency.
     <img src="https://user-images.githubusercontent.com/16979527/86939681-e04c7a00-c10f-11ea-80cf-a7a1b10efa97.png" width="50%" height="50%">
