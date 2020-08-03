@@ -217,7 +217,7 @@ function main() {
                   song.playbackRate += 0.1;
                 }
               }
-              score.innerHTML = `Sounds Cleared: ${103 - iconsLeft}`;
+              score.innerHTML = `Sounds Cleared: ${(103 - iconsLeft) + 1}`;
             }
           })
 
