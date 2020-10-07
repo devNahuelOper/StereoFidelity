@@ -14,14 +14,77 @@ body {
 
 .stage {
   position: relative;
-  width: 100px;
-  height: 100px;
+  width: 100%;
+  height: auto;
   background-image: url('headphones.jpg');
   background-size: cover;
   background-repeat: repeat;
   background-position: center;
   background-color: black;
 }
+
+.navlinks {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  img {
+    margin: 0 2px;
+  }
+}
+
+#about {
+  display: none;
+  cursor: pointer;
+  
+  right: 25px;
+  top: 10px;
+  width: 3%;
+  animation: color-change 15s linear infinite both;
+}
+
+#git {
+  cursor: pointer;
+ 
+  right: 72px;
+  top: 8px;
+  width: 34px;
+  filter: invert(1);
+  border-radius: 40px;
+  border: 2px solid purple;
+}
+
+#linkedin {
+  cursor: pointer;
+  
+  right: 113px;
+  top: 7px;
+  width: 38px;
+  border-radius: 12px;
+  background-color: black;
+}
+
+#angellist {
+  
+  right: 12%;
+  top: 9px;
+  cursor: pointer;
+  width: 32px;
+  background-color: white;
+  border-radius: 50%;
+  filter: invert(1);
+  border: 2px solid;
+}
+
+#headshot {
+  
+  right: 15%;
+  top: 10px;
+  cursor: pointer;
+  width: 32px;
+  border-radius: 50%;
+  border: 2px solid #ccdee6;
+}
+
 
 .tracks {
   position: relative;
@@ -147,58 +210,6 @@ body {
   border: none;
 }
 
-#about {
-  display: none;
-  cursor: pointer;
-  position: absolute;
-  right: 25px;
-  top: 10px;
-  width: 3%;
-  animation: color-change 15s linear infinite both;
-}
-
-#git {
-  cursor: pointer;
-  position: absolute;
-  right: 72px;
-  top: 8px;
-  width: 34px;
-  filter: invert(1);
-  border-radius: 40px;
-  border: 2px solid purple;
-}
-
-#linkedin {
-  cursor: pointer;
-  position: absolute;
-  right: 113px;
-  top: 7px;
-  width: 38px;
-  border-radius: 12px;
-  background-color: black;
-}
-
-#angellist {
-  position: absolute;
-  right: 12%;
-  top: 9px;
-  cursor: pointer;
-  width: 32px;
-  background-color: white;
-  border-radius: 50%;
-  filter: invert(1);
-  border: 2px solid;
-}
-
-#headshot {
-  position: absolute;
-  right: 15%;
-  top: 10px;
-  cursor: pointer;
-  width: 32px;
-  border-radius: 50%;
-  border: 2px solid #ccdee6;
-}
 
 .modal {
   display: flex;

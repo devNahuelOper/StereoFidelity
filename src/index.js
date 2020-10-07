@@ -19,8 +19,8 @@ function main() {
   }
 
   const modal = document.getElementById('myModal');
-  const strong = modal.querySelectorAll('strong');
   const about = document.getElementById('about');
+  const strong = modal.querySelectorAll('strong');
   const close = document.getElementsByClassName('close')[0];
   const welcome = document.getElementById('welcome');
 
@@ -47,6 +47,7 @@ function main() {
       modal.style.display = 'none';
       about.style.display = 'block';
     } 
+    // console.log(event);
   }
 
   close.onclick = function () {
