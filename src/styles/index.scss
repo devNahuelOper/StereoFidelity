@@ -309,12 +309,12 @@ body {
   border-radius: 10px;
   image-rendering: -webkit-optimize-contrast;
   position: relative;
+  &:hover {
+    transform: scale(2.3);
+    top: 6px;
+  }
 }
 
-#frame:hover, #match:hover {
-  transform: scale(2.3);
-  top: 6px;
-}
 
 #frame {
   left: -1%;
@@ -337,16 +337,15 @@ body {
   color: #1ec190;
   font-size: 28px;
   font-weight: bold;
+  &:hover, &:focus {
+    top: -95px;
+    text-transform: uppercase;
+    transform: scale(1.3);
+    cursor: pointer;
+    text-shadow: 2px 0 0 #171717, -2px 0 0 #1ec08e, 0 2px 0 #171517, 0 -2px 0 #171516, 1px 1px #171516, -1px -1px 0 #151515, 1px -1px 0 #171416, -1px 1px 0 #171516;
+  }
 }
 
-.close:hover,
-.close:focus {
-  top: -95px;
-  text-transform: uppercase;
-  transform: scale(1.3);
-  cursor: pointer;
-    text-shadow: 2px 0 0 #171717, -2px 0 0 #1ec08e, 0 2px 0 #171517, 0 -2px 0 #171516, 1px 1px #171516, -1px -1px 0 #151515, 1px -1px 0 #171416, -1px 1px 0 #171516;
-}
 
 #bgtoggle {
   cursor: pointer;
