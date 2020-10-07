@@ -37,18 +37,11 @@ body {
 
 #about {
   display: none;
-  cursor: pointer;
-  right: 25px;
-  top: 10px;
   width: 38px;
   animation: color-change 15s linear infinite both;
 }
 
 #git {
-  cursor: pointer;
- 
-  right: 72px;
-  top: 8px;
   width: 34px;
   filter: invert(1);
   border-radius: 40px;
@@ -56,20 +49,12 @@ body {
 }
 
 #linkedin {
-  cursor: pointer;
-  
-  right: 113px;
-  top: 7px;
   width: 38px;
   border-radius: 12px;
   background-color: black;
 }
 
 #angellist {
-  
-  right: 12%;
-  top: 9px;
-  cursor: pointer;
   width: 32px;
   background-color: white;
   border-radius: 50%;
@@ -78,10 +63,6 @@ body {
 }
 
 #headshot {
-  
-  right: 15%;
-  top: 10px;
-  cursor: pointer;
   width: 32px;
   border-radius: 50%;
   border: 2px solid #ccdee6;
