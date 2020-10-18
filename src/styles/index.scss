@@ -5,6 +5,9 @@
 @mixin background-image($file) {
   background-image: url('/src/assets/images/#{$file}');
 }
+@mixin cursor($file) {
+  cursor: url('/src/assets/images/#{$file}'), auto;
+}
 
 body {
   background-color: #000000;
@@ -304,7 +307,7 @@ body {
 }
 
 #frame, #match {
-  cursor: url('zoom2.png'), auto;
+  @include cursor('zoom2.png');
   width: 15%;
   border-radius: 10px;
   image-rendering: -webkit-optimize-contrast;

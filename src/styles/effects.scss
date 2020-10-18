@@ -1,6 +1,10 @@
+@mixin cursor($file) {
+  cursor: url('/src/assets/images/#{$file}'), auto;
+}
+
 
 .effects {
-  cursor: url('spinhand3.png'), auto;
+  @include cursor('spinhand3.png');
   position: relative;
   -webkit-user-drag: element;
   width: 80%;
@@ -15,7 +19,7 @@
     -webkit-user-drag: element;
     image-rendering: -webkit-optimize-contrast;
     margin: 8px;
-    cursor: url('spinhand2.png'), auto;
+    @include cursor('spinhand2.png');
     animation: flicker 0.5s infinite alternate;
     border: 1px solid #041029;
     border-radius: 18px;
