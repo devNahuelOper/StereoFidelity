@@ -1,5 +1,10 @@
 @import url(https://fonts.googleapis.com/css?family=Exo+2:200i);
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap');
+@import url('/src/assets/images/mixing.jpg');
+
+@mixin background-image($file) {
+  background-image: url('/src/assets/images/#{$file}');
+}
 
 body {
   background-color: #000000;
@@ -16,7 +21,7 @@ body {
   position: relative;
   width: 100%;
   height: auto;
-  background-image: url('headphones.jpg');
+  @include background-image('headphones.jpg');
   background-size: cover;
   background-repeat: repeat;
   background-position: center;

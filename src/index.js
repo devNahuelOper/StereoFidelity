@@ -56,9 +56,13 @@ function main() {
   }
 
   const backgrounds = [
-    'src/styles/headphones.jpg', 'src/styles/face.jpg',
-    'src/styles/waves.jpg','src/styles/deadmau5.jpg',
-    'src/styles/buttons.jpg', 'src/styles/turntable.png'
+    "src/assets/images/headphones.jpg",
+    "src/assets/images/face.jpg",
+    "src/assets/images/waves.jpg",
+    "src/assets/images/deadmau5.jpg",
+    "src/assets/images/buttons.jpg",
+    "src/assets/images/turntable.png",
+    "src/assets/images/mixing.jpg",
   ];
   
 
@@ -154,8 +158,9 @@ function main() {
       const start = new Date();
       songTitle.style.animation = 'quick-scroll 15s linear infinite';
       songTitle.style.fontSize = 18 + 'px';
-      effects.style.bottom = 16 + '%';
-      effects.style.left = 15 + '%';
+      // effects.style.bottom = 16 + '%';
+      // effects.style.left = 15 + '%';
+      effects.classList.add('playing');
 
       let audioSrc = ctx.createMediaElementSource(song)
       audioSrc.connect(ctx.destination);

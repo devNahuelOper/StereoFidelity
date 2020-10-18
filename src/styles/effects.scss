@@ -3,10 +3,8 @@
   cursor: url('spinhand3.png'), auto;
   position: relative;
   -webkit-user-drag: element;
-  bottom: -7%;
-  left: 11%;
   width: 80%;
-  height: 45%;
+  margin: 40px auto;
   filter: contrast(1.5) drop-shadow(2px 4px 6px black);
   overflow: scroll;
   border-radius: 12px;
@@ -37,6 +35,12 @@
     transform: scale(1.48);
     
   }
+}
+
+.playing {
+  margin: unset;
+  bottom: 16%;
+  left: 15%;
 }
 
 
