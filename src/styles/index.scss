@@ -231,11 +231,7 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
-  background-color: #1b4d83;
-  background-image: url('aliens.jpg');
-  background-position-x: 45%;
-  background-position-y: -60px;
-  background-size: cover;
+  background-color: black;
   padding: 8px;
   border: 8px solid #17171f;
   box-shadow: 0px 0px 0px 1px silver inset;
@@ -244,7 +240,6 @@ body {
   border-radius: 50%;
   animation: none;
   overflow: hidden;
-  background-blend-mode: color-burn;
 }
 
 #welcome {
