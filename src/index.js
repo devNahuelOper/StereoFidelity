@@ -1,5 +1,6 @@
 import "./styles/index.scss";
 import "./styles/effects.scss";
+import "./styles/mediaQueries.scss";
 
 
 window.addEventListener("DOMContentLoaded", main);
