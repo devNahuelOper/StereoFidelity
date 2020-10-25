@@ -187,9 +187,10 @@ function main() {
       effects.insertBefore(frame, effects.childNodes[0]);
       effects.style.height = 'fit-content';
 
-      const score = document.createElement('p');
+      const score = document.createElement('h1');
       score.id = 'score';
-      tracks.appendChild(score);
+      // tracks.appendChild(score);
+      effects.insertAdjacentElement("afterend", score);
 
        processor.onaudioprocess = function() {
           //  analyser.getByteTimeDomainData(data);
