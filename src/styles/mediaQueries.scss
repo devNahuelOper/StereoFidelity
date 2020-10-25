@@ -1,11 +1,20 @@
 
 
 @media only screen and (min-height: 800px) {
-  .modal, .modal-content {
-    height: unset;
-  }
   .instructions {
     top: 20px;
-    transform: scale(0.72)
+    transform: scale(0.72);
+  }
+  .close {
+    bottom: 20px;
+  }
+}
+
+@media only screen and (min-height: 1080px) {
+  .instructions {
+    font-size: 22px;
+  }
+  .close {
+    bottom: 20px;
   }
 }
