@@ -159,8 +159,6 @@ function main() {
       const start = new Date();
       songTitle.style.animation = 'quick-scroll 15s linear infinite';
       songTitle.style.fontSize = 18 + 'px';
-      // effects.style.bottom = 16 + '%';
-      // effects.style.left = 15 + '%';
       effects.classList.add('playing');
 
       let audioSrc = ctx.createMediaElementSource(song)
