@@ -8,15 +8,15 @@ window.addEventListener("DOMContentLoaded", main);
 function main() {
   const stage = document.querySelector('div');
   let winWidth = window.innerWidth;
-  let winHeight = window.innerHeight;
+  // let winHeight = window.innerHeight;
   stage.style.width = winWidth + 'px';
-  stage.style.height = winHeight + 'px';
+  // stage.style.height = winHeight + 'px';
 
   window.onresize = function () {
   winWidth = window.innerWidth;
-  winHeight = window.innerHeight;
+  // winHeight = window.innerHeight;
   stage.style.width = winWidth + 'px';
-  stage.style.height = winHeight + 'px';
+  // stage.style.height = winHeight + 'px';
   }
 
   const modal = document.getElementById('myModal');
@@ -152,6 +152,7 @@ function main() {
     let playButton = songTitle.nextElementSibling.firstElementChild;
 
     song.onplay = function () {
+      window.scrollTo(1000,1000);
       sounds.forEach(sound => {
         sound.volume = 0.3;
       })
@@ -190,7 +191,7 @@ function main() {
       const score = document.createElement('h1');
       score.id = 'score';
       // tracks.appendChild(score);
-      effects.insertAdjacentElement("afterend", score);
+      effects.insertAdjacentElement("beforeend", score);
 
        processor.onaudioprocess = function() {
           //  analyser.getByteTimeDomainData(data);
@@ -243,9 +244,10 @@ function main() {
          const diff = (end - start) / 1000;
          let bonus; 
          const msg = document.createElement('h1');
-         msg.id = "msg";
-         msg.setAttribute("style", "font-size:18px; position: absolute; left: 80%; top: 30%; white-space: nowrap; border: 2px solid currentColor; border-radius: 14px; padding: 14px; background-color: black;");
-         tracks.appendChild(msg);
+         msg.className = "msg";
+        //  msg.setAttribute("style", "font-size:18px; position: absolute; left: 80%; top: 30%; white-space: nowrap; border: 2px solid currentColor; border-radius: 14px; padding: 14px; background-color: black;");
+        //  tracks.appendChild(msg);
+         tracks.insertAdjacentElement("afterend", msg);
         //  effects.removeChild(frame);
          console.log(`icons left: ${iconsLeft}`);
          if (iconsLeft <= 0) {

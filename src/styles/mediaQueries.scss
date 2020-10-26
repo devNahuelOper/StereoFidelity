@@ -8,6 +8,9 @@
   .close {
     bottom: 20px;
   }
+  .msg {
+    font-size: 20px;
+  }
 }
 
 @media only screen and (min-height: 1080px) {
@@ -16,5 +19,12 @@
   }
   .close {
     bottom: 20px;
+  }
+  .msg {
+    font-size: 32px;
+  }
+
+  .effects img {
+    width: 4%;
   }
 }
