@@ -9,6 +9,11 @@
   cursor: url("/src/assets/images/#{$file}"), auto;
 }
 
+$lightbulb: -0.2rem -0.2rem 1rem #fff, 0.2rem 0.2rem 1rem #fff,
+    0 0 2rem var(--neon-text-color), 0 0 4rem var(--neon-text-color),
+    0 0 6rem var(--neon-text-color), 0 0 8rem var(--neon-text-color),
+    0 0 10rem var(--neon-text-color);
+
 body {
   background-color: #000000;
   font-family: "Exo 2", sans-serif;
@@ -32,7 +37,7 @@ ul {
 .stage {
   position: relative;
   width: 100%;
-  height: auto;
+  height: 100vh;
   @include background-image("headphones.jpg");
   background-size: cover;
   background-repeat: repeat;
@@ -155,13 +160,14 @@ ul {
   font-style: italic;
   color: #fff;
   text-transform: uppercase;
+  &:hover {
+    text-shadow: $lightbulb;
+  }
 }
 
-.songTitle:hover {
-  text-shadow: -0.2rem -0.2rem 1rem #fff, 0.2rem 0.2rem 1rem #fff,
-    0 0 2rem var(--neon-text-color), 0 0 4rem var(--neon-text-color),
-    0 0 6rem var(--neon-text-color), 0 0 8rem var(--neon-text-color),
-    0 0 10rem var(--neon-text-color);
+.playSong {
+  animation: 15s linear 0s infinite normal none running quick-scroll;
+  font-size: 18px;
 }
 
 .playerControls {
@@ -177,10 +183,10 @@ ul {
     image-rendering: -webkit-optimize-contrast;
     width: 10%;
     margin: 2px auto;
-  }
-  img:hover {
-    transform: scale(1.2);
+    &:hover {
+      transform: scale(1.2);
     filter: brightness(1.5);
+    }
   }
 }
 

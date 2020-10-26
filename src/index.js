@@ -152,14 +152,15 @@ function main() {
     let playButton = songTitle.nextElementSibling.firstElementChild;
 
     song.onplay = function () {
-      window.scrollTo(1000,1000);
+      
       sounds.forEach(sound => {
         sound.volume = 0.3;
-      })
+      });
 
       const start = new Date();
-      songTitle.style.animation = 'quick-scroll 15s linear infinite';
-      songTitle.style.fontSize = 18 + 'px';
+      // songTitle.style.animation = 'quick-scroll 15s linear infinite';
+      // songTitle.style.fontSize = 18 + 'px';
+      songTitle.classList.add('playSong');
       effects.classList.add('playing');
 
       let audioSrc = ctx.createMediaElementSource(song)
@@ -194,6 +195,7 @@ function main() {
       effects.insertAdjacentElement("beforeend", score);
 
        processor.onaudioprocess = function() {
+         effects.scrollIntoView();
           //  analyser.getByteTimeDomainData(data);
          analyser.getByteFrequencyData(data);
          pic1.src = dblImages[Math.floor(Math.random(Array.from(Array(data[0]).keys())) * 100)].src;
@@ -305,15 +307,12 @@ function main() {
     
     }
 
-    playButton.onmousedown = function () {
-      songTitle.style.animation = 'flicker 0.5s infinite alternate';
+    // playButton.onmousedown = function () {
+    //   songTitle.style.animation = 'flicker 0.5s infinite alternate';
+    // }
+    song.onpause = function () { 
+      songTitle.classList.remove('playSong');    
     }
-    song.onpause = function () {     
-      songTitle.style.animation = 'none';
-      songTitle.style.fontSize = 14 + 'px';
-    }
-   
-
   })
 
 }
