@@ -1,5 +1,5 @@
 @mixin cursor($file) {
-  cursor: url('/src/assets/images/#{$file}'), auto;
+  cursor: url('/dist/images/#{$file}'), auto;
 }
 
 
