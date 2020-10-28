@@ -1,12 +1,14 @@
-
+/*Smaller Width */
 
 @media only screen and (max-width: 980px) {
   .modal {
     height: 80%;
+    width: 65%;
   }
   .modal-content {
     width: 70%;
     height: 70%;
+    padding: 34px;
   }
   #welcome {
     top: 15px;
@@ -19,6 +21,26 @@
     bottom: 25%;
   }
 }
+
+@media only screen and (max-width: 640px) {
+  .modal {
+    height: 75%;
+    width: 65%;
+  }
+  #welcome {
+    top: 25px;
+  }
+  .instructions {
+    font-size: 13px;
+    transform: scale(0.5);
+    top: -45px;
+  }
+  .close {
+    bottom: 42%;
+  }
+}
+
+/*Smaller Height */
 
 @media only screen and (max-height: 620px) {
   .modal {
@@ -40,22 +62,7 @@
   }
 }
 
-@media only screen and (max-height: 530px) {
-  .modal {
-    width: 40%;
-    height: 80%;
-  }
-  .modal-content {
-    height: 70%;
-  }
-   .instructions {
-    top: -60px;
-    transform: scale(0.55);
-  }
-  .close {
-    bottom: 57%;
-  }
-}
+/* Larger Height */
 
 @media only screen and (min-height: 800px) {
   .instructions {
