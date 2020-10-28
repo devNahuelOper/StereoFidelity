@@ -69,7 +69,7 @@ function main() {
 
   function randomBg(){ 
     let num = Math.floor(Math.random(backgrounds) * backgrounds.length);
-    stage.style.backgroundImage = "url('"+backgrounds[num]+"')";
+    document.body.style.backgroundImage = "url('"+backgrounds[num]+"')";
   }
   
  
