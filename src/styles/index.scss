@@ -39,6 +39,7 @@ ul {
   width: 100%;
   height: auto;
   @include background-image("headphones.jpg");
+  background-image: url("https://stereo-fidelity.s3.amazonaws.com/headphones.jpg");
   background-size: cover;
   background-position: center;
   background-color: black;
