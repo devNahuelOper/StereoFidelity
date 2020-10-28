@@ -1,5 +1,62 @@
 
 
+@media only screen and (max-width: 980px) {
+  .modal {
+    height: 80%;
+  }
+  .modal-content {
+    width: 70%;
+    height: 70%;
+  }
+  #welcome {
+    top: 15px;
+  }
+  .instructions {
+    font-size: 12px;
+    transform: scale(0.6);
+  }
+  .close {
+    bottom: 25%;
+  }
+}
+
+@media only screen and (max-height: 620px) {
+  .modal {
+    height: 82%;
+  }
+  .modal-content {
+    width: 70%;
+    height: 75%;
+  }
+  #welcome {
+    top: 10px;
+  }
+  .instructions {
+    top: -30px;
+    font-size: 12px;
+  }
+  .close {
+    bottom: 33%;
+  }
+}
+
+@media only screen and (max-height: 530px) {
+  .modal {
+    width: 40%;
+    height: 80%;
+  }
+  .modal-content {
+    height: 70%;
+  }
+   .instructions {
+    top: -60px;
+    transform: scale(0.55);
+  }
+  .close {
+    bottom: 57%;
+  }
+}
+
 @media only screen and (min-height: 800px) {
   .instructions {
     top: 20px;
