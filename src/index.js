@@ -103,6 +103,7 @@ function main() {
 
 
   const effects = document.getElementsByClassName('effects')[0];
+  effects.style.cursor = "url('src/assets/images/spinhand3.png')";
   const sounds = effects.querySelectorAll('audio');
   const images = effects.querySelectorAll('img');
   const dblImages = Array.from(images).concat(Array.from(images)).concat(Array.from(images));
