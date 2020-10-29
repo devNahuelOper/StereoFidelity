@@ -21,12 +21,14 @@ body {
   background-image: url("https://stereo-fidelity.s3.amazonaws.com/headphones.jpg");
   background-size: cover;
   background-position: center;
+
 }
 
 :root {
   /* Set neon color */
   --neon-text-color: #f40;
   --neon-border-color: #08f;
+  font-style: italic;
 }
 
 h1,
@@ -268,7 +270,7 @@ ul {
   height: 75%;
   border-radius: 50%;
   animation: none;
-  overflow: hidden;
+  overflow: scroll;
 }
 
 #welcome {
@@ -388,6 +390,7 @@ ul {
   font-weight: bold;
   font-size: 20px;
   font-family: "Exo 2", sans-serif;
+  font-style: italic;
   animation: color-change 15s linear infinite;
   z-index: 1;
   margin-left: 18px;
@@ -406,6 +409,8 @@ ul {
     }
   }
 }
+
+
 
 @keyframes scroll-right {
   0% {
