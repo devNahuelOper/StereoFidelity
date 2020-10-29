@@ -40,6 +40,37 @@
   }
 }
 
+@media only screen and (max-width: 420px) {
+  .modal {
+    height: 55%;
+  }
+  #welcome {
+    font-size: 2em;
+  }
+  .instructions {
+    transform: scale(0.48);
+    top: -30px;
+    border-radius: 50%;
+  }
+  .close {
+    bottom: 40%;
+  }
+  footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    height: 200px;
+  }
+  #bgtoggle {
+    margin: unset;
+  }
+  .signature-container {
+    margin: unset;
+    float: unset;
+  }
+}
+
 /*Smaller Height */
 
 @media only screen and (max-height: 620px) {
@@ -64,7 +95,7 @@
 
 /* Larger Height */
 
-@media only screen and (min-height: 800px) {
+@media only screen and (min-height: 800px) and (min-width: 420px) {
   .instructions {
     top: 20px;
     transform: scale(0.72);
