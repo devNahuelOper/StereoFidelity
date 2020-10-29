@@ -59,6 +59,16 @@
    /* bottom: 40%; */
     bottom: 50%;
   }
+  .tracks {
+    width: 50%;
+    bottom: 50px;
+  }
+  .effects {
+    width: 90%;
+    img {
+      width: 5%;
+    }
+  }
   footer {
     display: flex;
     flex-direction: column;
