@@ -46,14 +46,18 @@
   }
   #welcome {
     font-size: 2em;
+    top: 230px;
   }
   .instructions {
-    transform: scale(0.48);
-    top: -30px;
+   /* transform: scale(0.48);
+    top: -30px; */
+    transform: scale(0.3);
+    top: 60px;
     border-radius: 50%;
   }
   .close {
-    bottom: 40%;
+   /* bottom: 40%; */
+    bottom: 50%;
   }
   footer {
     display: flex;
