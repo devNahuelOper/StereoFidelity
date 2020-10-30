@@ -103,7 +103,6 @@ function main() {
 
 
   const effects = document.getElementsByClassName('effects')[0];
-  // effects.style.cursor = "url('src/assets/images/spinhand3.png')";
   const sounds = effects.querySelectorAll('audio');
   const images = effects.querySelectorAll('img');
   const dblImages = Array.from(images).concat(Array.from(images)).concat(Array.from(images));
@@ -145,7 +144,9 @@ function main() {
  
  const tracks = document.getElementsByClassName('tracks')[0];
  const songs = tracks.querySelectorAll('audio');
- const ctx = new AudioContext();
+//  const ctx = new AudioContext();
+ let AudioContext = window.AudioContext || window.webkitAudioContext;
+ this.ctx = new AudioContext();
 
   songs.forEach(song => {
     
