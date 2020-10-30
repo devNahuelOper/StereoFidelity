@@ -46,18 +46,19 @@
   }
   #welcome {
     font-size: 2em;
-    top: 230px;
+   /* top: 230px; */
+    top: 25px;
   }
   .instructions {
    /* transform: scale(0.48);
     top: -30px; */
     transform: scale(0.3);
-    top: 60px;
+    top: -140px;
     border-radius: 50%;
   }
   .close {
    /* bottom: 40%; */
-    bottom: 50%;
+    bottom: 330px;
   }
   .tracks {
     width: 50%;
