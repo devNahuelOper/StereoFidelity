@@ -45,6 +45,9 @@
     height: 55%;
     width: 95%;
   }
+  .modal-content {
+    overflow-y: hidden;
+  }
   #welcome {
     font-size: 2em;
    /* top: 230px; */
