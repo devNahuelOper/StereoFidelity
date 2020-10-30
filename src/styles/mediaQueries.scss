@@ -74,6 +74,14 @@
       width: 5%;
     }
   }
+  .msg {
+    white-space: normal;
+    font-size: 10px;
+    text-align: center;
+    left: unset;
+    width: 85%;
+    margin: 0 auto;
+  }
   footer {
     display: flex;
     flex-direction: column;
