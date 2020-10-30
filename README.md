@@ -40,7 +40,7 @@ https://wireframe.cc/g73kLP
 
 # Architecture and Technologies
 * Javascript
-* Vanilla JS DOM Manipulation
+* DOM Manipulation
 * Web Audio API
 * HTML
-* CSS
+* CSS/Sass
