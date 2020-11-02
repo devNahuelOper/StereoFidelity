@@ -43,6 +43,16 @@
   }
 }
 
+.imageMatch {
+  animation: flicker 0.5s infinite alternate;
+  transform: scale3d(1.7, 1.7, 1.7);
+}
+
+.imageNoMatch {
+  animation: none !important;
+  transform: none;
+}
+
 
 #arcade {
   filter: hue-rotate(48deg);

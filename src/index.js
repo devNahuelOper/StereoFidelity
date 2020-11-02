@@ -210,12 +210,17 @@ function main() {
          const slots = [pic1.src, pic2.src, pic3.src];
 
          images.forEach(image => {
+           image.classList.add('imageNoMatch');
            if(slots.includes(image.src)) {
-             image.style.animation = 'flicker 0.5s infinite alternate';
-             image.style.transform = 'scale3d(1.7, 1.7, 1.7)';
+             image.classList.remove('imageNoMatch');
+             image.classList.add('imageMatch');
+            //  image.style.animation = 'flicker 0.5s infinite alternate';
+            //  image.style.transform = 'scale3d(1.7, 1.7, 1.7)';
            } else {
-             image.style.animation = 'none';
-             image.style.transform = 'none';
+             image.classList.add('imageNoMatch');
+             image.classList.remove('imageMatch');
+            //  image.style.animation = 'none';
+            //  image.style.transform = 'none';
            }
             image.onmouseenter = function() {
               if (slots.includes(image.src)) {
