@@ -212,13 +212,9 @@ function main() {
            if(slots.includes(image.src)) {
              image.classList.remove('imageNoMatch');
              image.classList.add('imageMatch');
-            //  image.style.animation = 'flicker 0.5s infinite alternate';
-            //  image.style.transform = 'scale3d(1.7, 1.7, 1.7)';
            } else {
              image.classList.add('imageNoMatch');
              image.classList.remove('imageMatch');
-            //  image.style.animation = 'none';
-            //  image.style.transform = 'none';
            }
             image.onmouseenter = function() {
               if (slots.includes(image.src)) {
