@@ -375,6 +375,23 @@ ul {
   padding: 14px;
   background-color: black;
 }
+.msg100 {
+  color: #18a103;
+  animation: color-change 15s linear infinite;
+}
+.msg85 {
+  color: #6fe006;
+}
+.msg70 {
+  color: #d4f575;
+}
+.msg50 {
+  color: #e0e2d5;
+}
+.msg25 {
+  color: crimson;
+}
+
 
 #bgtoggle {
   cursor: pointer;

@@ -260,27 +260,31 @@ function main() {
            And now there's YOU, who brings one more entry onto the list of some of mankind’s greatest acheivements.<br/>
            YOU...who cleared ALL <strong>${100 - iconsLeft}</strong> sounds off the board, and <br/>
            YOU who racked up <strong>${bonus}</strong> bonus points in the process.`;
-           msg.style.color = '#26dc08';
-           msg.style.animation = 'color-change 15s linear infinite';
+           msg.classList.add('msg100');
+          //  msg.style.color = '#26dc08';
+          //  msg.style.animation = 'color-change 15s linear infinite';
          }
          if (iconsLeft <= 15 && iconsLeft > 0) {
            bonus = Math.round((song.duration - diff) * (100 - iconsLeft));
            msg.innerHTML = `You cleared <strong>${100 - iconsLeft}</strong> sounds off the board
            like a true baw$$!!<br/> And as if that weren't enough, 
            you got <strong>${bonus}</strong> bonus points for waving your mouse extra maniacally...<br/>Don't let it get to your head now.`;
-           msg.style.color = '#26dc08';
+           msg.classList.add('msg85');
+          //  msg.style.color = '#26dc08';
          }
          if (iconsLeft > 15 && iconsLeft <= 30) {
            bonus = Math.round((song.duration / diff) * (100 - iconsLeft));
            msg.innerHTML = `You cleared <strong>${103 - iconsLeft}</strong> sounds off the board like a maybe soon to be baw$$, not bad.<br/> 
            You got <strong>${bonus}</strong> bonus points for efficiency.`;
-           msg.style.color = '#d4f575';
+           msg.classList.add('msg70');
+          //  msg.style.color = '#d4f575';
          } 
          if (iconsLeft > 30 && iconsLeft <= 50) {
            bonus = Math.round((song.duration - diff));
            msg.innerHTML = `You cleared <strong>${100 - iconsLeft}</strong> sound like a true average Joe, just enough to get by.<br/> 
            You get <strong>${bonus}</strong> bonus points for existing.`;
-           msg.style.color = '#e0e2d5';
+           //  msg.style.color = '#e0e2d5';
+           msg.classList.add('msg50');
          }
          if (iconsLeft > 50 && iconsLeft <= 75) {
            bonus = Math.round(song.duration / diff);
@@ -288,7 +292,8 @@ function main() {
            You umm, got something on your mind?<br/> 
            eh it could be worse, at least you got a little pocket change.<br/>  
            Here, take these <strong>${bonus}</strong> bonus points and go buy yourself a soup or something.`;
-           msg.style.color = 'crimson';
+          //  msg.style.color = 'crimson';
+           msg.classList.add('msg25');
          }
          if (iconsLeft > 75) {
            bonus = Math.round(diff - song.duration - 10);
