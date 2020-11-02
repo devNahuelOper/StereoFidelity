@@ -243,14 +243,14 @@ function main() {
        song.onended = function() {
          effects.removeChild(frame);
          effects.style.bottom = -6 + '%';
+         
          let iconsLeft = effects.querySelectorAll('img').length;       
          const end = new Date();
          const diff = (end - start) / 1000;
          let bonus; 
+
          const msg = document.createElement('h1');
          msg.className = "msg";
-        //  msg.setAttribute("style", "font-size:18px; position: absolute; left: 80%; top: 30%; white-space: nowrap; border: 2px solid currentColor; border-radius: 14px; padding: 14px; background-color: black;");
-        //  tracks.appendChild(msg);
          tracks.insertAdjacentElement("afterend", msg);
         //  effects.removeChild(frame);
          console.log(`icons left: ${iconsLeft}`);
@@ -261,8 +261,6 @@ function main() {
            YOU...who cleared ALL <strong>${100 - iconsLeft}</strong> sounds off the board, and <br/>
            YOU who racked up <strong>${bonus}</strong> bonus points in the process.`;
            msg.classList.add('msg100');
-          //  msg.style.color = '#26dc08';
-          //  msg.style.animation = 'color-change 15s linear infinite';
          }
          if (iconsLeft <= 15 && iconsLeft > 0) {
            bonus = Math.round((song.duration - diff) * (100 - iconsLeft));
@@ -270,20 +268,17 @@ function main() {
            like a true baw$$!!<br/> And as if that weren't enough, 
            you got <strong>${bonus}</strong> bonus points for waving your mouse extra maniacally...<br/>Don't let it get to your head now.`;
            msg.classList.add('msg85');
-          //  msg.style.color = '#26dc08';
          }
          if (iconsLeft > 15 && iconsLeft <= 30) {
            bonus = Math.round((song.duration / diff) * (100 - iconsLeft));
            msg.innerHTML = `You cleared <strong>${103 - iconsLeft}</strong> sounds off the board like a maybe soon to be baw$$, not bad.<br/> 
            You got <strong>${bonus}</strong> bonus points for efficiency.`;
            msg.classList.add('msg70');
-          //  msg.style.color = '#d4f575';
          } 
          if (iconsLeft > 30 && iconsLeft <= 50) {
            bonus = Math.round((song.duration - diff));
            msg.innerHTML = `You cleared <strong>${100 - iconsLeft}</strong> sound like a true average Joe, just enough to get by.<br/> 
            You get <strong>${bonus}</strong> bonus points for existing.`;
-           //  msg.style.color = '#e0e2d5';
            msg.classList.add('msg50');
          }
          if (iconsLeft > 50 && iconsLeft <= 75) {
@@ -292,7 +287,6 @@ function main() {
            You umm, got something on your mind?<br/> 
            eh it could be worse, at least you got a little pocket change.<br/>  
            Here, take these <strong>${bonus}</strong> bonus points and go buy yourself a soup or something.`;
-          //  msg.style.color = 'crimson';
            msg.classList.add('msg25');
          }
          if (iconsLeft > 75) {
@@ -302,9 +296,7 @@ function main() {
            some serious self-reflection and ask yourself, <br/> "how much longer do I want to be the
            person who only clears <strong>${100 - iconsLeft}</strong> sounds off the board"? <br/>
            Well here, take these  <strong>${bonus}</strong> bonus -- oh wait, no, it looks like you owe me points.`;
-           msg.style.left = 90 + '%';
-           msg.style.color = 'rgb(113, 8, 8)';
-           msg.style.textAlign = 'left';
+           msg.classList.add('msg0');
          }
         //  setTimeout(function(){msg.style.display = 'none';}, 15000);
         window.onclick = function() {
