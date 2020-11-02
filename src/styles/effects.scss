@@ -53,6 +53,11 @@
   transform: none;
 }
 
+#gameFrame {
+  position: relative;
+  animation: quick-scroll 15s linear infinite;
+}
+
 
 #arcade {
   filter: hue-rotate(48deg);

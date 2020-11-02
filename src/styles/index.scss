@@ -335,6 +335,7 @@ ul {
   border-radius: 10px;
   image-rendering: -webkit-optimize-contrast;
   position: relative;
+  right: 1%;
   &:hover {
     transform: scaleX(6) scaleY(2.4) translate(30px, 2.5px);
     transform: scale3d(6, 3, 30) translate3d(26px, 2px, 30px);
@@ -344,13 +345,6 @@ ul {
   }
 }
 
-#frame {
-  left: -1%;
-}
-
-#match {
-  right: 1%;
-}
 
 .close {
   animation: color-change 15s linear infinite both;

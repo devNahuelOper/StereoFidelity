@@ -161,8 +161,7 @@ function main() {
       });
 
       const start = new Date();
-      // songTitle.style.animation = 'quick-scroll 15s linear infinite';
-      // songTitle.style.fontSize = 18 + 'px';
+
       songTitle.classList.add('playSong');
       effects.classList.add('playing');
 
@@ -178,16 +177,15 @@ function main() {
       audioSrc.connect(analyser);
 
       const frame = document.createElement('aside');
+      frame.id = 'gameFrame';
+
       const pic1 = document.createElement('img');
       const pic2 = document.createElement('img');
       const pic3 = document.createElement('img');
       [pic1, pic2, pic3].forEach(pic => {
         pic.setAttribute("style", "height: 7%; width: 7%;");
         frame.appendChild(pic);
-      })
-
-      frame.style.animation = 'quick-scroll 15s linear infinite';
-      frame.style.position = 'relative';
+      });
 
       effects.insertBefore(frame, effects.childNodes[0]);
       effects.style.height = 'fit-content';
