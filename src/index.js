@@ -107,26 +107,27 @@ function main() {
   const images = effects.querySelectorAll('img');
   const dblImages = Array.from(images).concat(Array.from(images)).concat(Array.from(images));
 
-  sounds.forEach(sound => {
-    let adjImg = sound.nextElementSibling;
 
-    adjImg.onclick = function () {
-      sound.volume = 0;
-      stage.appendChild(adjImg);
-      adjImg.style.width = adjImg.style.width + 2 + '%';
-      adjImg.style.height = adjImg.style.height + 2 + '%';
-    }
-    adjImg.ondblclick = function () {
-      sound.volume = 1;
-      effects.appendChild(adjImg);
-      adjImg.style.height = 7 + '%';
-      adjImg.style.width = 3 + '%';
-    }
+  // sounds.forEach(sound => {
+  //   let adjImg = sound.nextElementSibling;
 
-    adjImg.ondrag = function () {
-      sound.volume = 0.5;
-    }
-  });
+  //   adjImg.onclick = function () {
+  //     sound.volume = 0;
+  //     stage.appendChild(adjImg);
+  //     adjImg.style.width = adjImg.style.width + 2 + '%';
+  //     adjImg.style.height = adjImg.style.height + 2 + '%';
+  //   }
+  //   adjImg.ondblclick = function () {
+  //     sound.volume = 1;
+  //     effects.appendChild(adjImg);
+  //     adjImg.style.height = 7 + '%';
+  //     adjImg.style.width = 3 + '%';
+  //   }
+
+  //   adjImg.ondrag = function () {
+  //     sound.volume = 0.5;
+  //   }
+  // });
 
  
   // const audio = document.getElementById('audio');
