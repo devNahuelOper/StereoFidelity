@@ -21,7 +21,6 @@ body {
   background-image: url("https://stereo-fidelity.s3.amazonaws.com/headphones.jpg");
   background-size: cover;
   background-position: center;
-
 }
 
 :root {
@@ -44,7 +43,6 @@ ul {
   position: relative;
   width: 100%;
   height: auto;
-
 }
 
 .navlinks {
@@ -180,7 +178,9 @@ ul {
   background-color: #000510;
   border-radius: 20px;
   box-sizing: border-box;
-
+  vertical-align: -50%;
+  cursor: pointer;
+  border-radius: 18px;
   img {
     image-rendering: -webkit-optimize-contrast;
     width: 10%;
@@ -190,18 +190,6 @@ ul {
       filter: brightness(1.5);
     }
   }
-}
-
-#play,
-#pause,
-#stop,
-#rewind,
-#forward,
-#volume,
-#tempo {
-  vertical-align: -50%;
-  cursor: pointer;
-  border-radius: 18px;
 }
 
 #rewind,
@@ -330,7 +318,7 @@ ul {
 #frame,
 #match {
   @include cursor("zoom2.png");
-  cursor: url('https://stereo-fidelity.s3.amazonaws.com/zoom2.png'), auto;
+  cursor: url("https://stereo-fidelity.s3.amazonaws.com/zoom2.png"), auto;
   width: 15%;
   border-radius: 10px;
   image-rendering: -webkit-optimize-contrast;
@@ -344,7 +332,6 @@ ul {
     box-shadow: -1px 1px 3px -1px #21d498;
   }
 }
-
 
 .close {
   animation: color-change 15s linear infinite both;
@@ -398,7 +385,6 @@ ul {
   color: rgb(113, 8, 8);
 }
 
-
 #bgtoggle {
   cursor: pointer;
   border-radius: 8px;
@@ -426,8 +412,6 @@ ul {
     }
   }
 }
-
-
 
 @keyframes scroll-right {
   0% {

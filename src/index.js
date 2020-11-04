@@ -9,15 +9,15 @@ function main() {
   const stage = document.querySelector('div');
   let winWidth = window.innerWidth;
   // let winHeight = window.innerHeight;
-  stage.style.width = winWidth + 'px';
+  // stage.style.width = winWidth + 'px';
   // stage.style.height = winHeight + 'px';
 
-  window.onresize = function () {
-  winWidth = window.innerWidth;
-  // winHeight = window.innerHeight;
-  stage.style.width = winWidth + 'px';
-  // stage.style.height = winHeight + 'px';
-  }
+  // window.onresize = function () {
+  // winWidth = window.innerWidth;
+  // // winHeight = window.innerHeight;
+  // stage.style.width = winWidth + 'px';
+  // // stage.style.height = winHeight + 'px';
+  // }
 
   const modal = document.getElementById('myModal');
   const about = document.getElementById('about');
