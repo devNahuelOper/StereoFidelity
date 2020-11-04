@@ -107,6 +107,7 @@ function main() {
     let target = event.target;
     if (target.tagName != "IMG") return;
     target.previousElementSibling.play();
+    console.log(event.width, event.height, event.pressure, event.tangentialPressure);
     // console.log(target.previousElementSibling);
   };
 
