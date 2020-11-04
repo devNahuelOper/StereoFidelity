@@ -107,7 +107,7 @@ function main() {
     let target = event.target;
     if (target.tagName != "IMG") return;
     target.previousElementSibling.play();
-    console.log(target.previousElementSibling);
+    // console.log(target.previousElementSibling);
   };
 
   effects.onpointerout = function (event) {
@@ -320,7 +320,7 @@ function main() {
            Well here, take these  <strong>${bonus}</strong> bonus -- oh wait, no, it looks like you owe me points.`;
           msg.classList.add("msg0");
         }
-        processor.removeEventListener("audioprocess", startGame());
+        processor.removeEventListener("audioprocess", startGame);
 
         //  setTimeout(function(){msg.style.display = 'none';}, 15000);
         window.onclick = function () {
