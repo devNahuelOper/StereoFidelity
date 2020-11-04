@@ -107,7 +107,7 @@ function main() {
     let target = event.target;
     if (target.tagName != "IMG") return;
     target.previousElementSibling.play();
-    // console.log(target.previousElementSibling);
+    console.log(target.previousElementSibling);
   };
 
   effects.onpointerout = function (event) {
