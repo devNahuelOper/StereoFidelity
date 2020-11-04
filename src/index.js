@@ -103,6 +103,13 @@ function main() {
     .concat(Array.from(images))
     .concat(Array.from(images));
 
+  effects.onpointerover = function (event) {
+    let target = event.target;
+    if (target.tagName != "IMG") return;
+    target.previousElementSibling.play();
+    console.log(target.previousElementSibling);
+  };
+
   // sounds.forEach(sound => {
   //   let adjImg = sound.nextElementSibling;
 
