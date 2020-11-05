@@ -41,15 +41,20 @@ function main() {
     let inModal = modal.contains(event.target);
     let inAbout = about.contains(event.target);
     if (!inModal && !inAbout) {
-      modal.style.display = "none";
-      about.style.display = "block";
+      modal.classList.add('modal-hide');
+      about.classList.add('about-show');
     }
     // console.log(event);
   };
 
   close.onclick = function () {
-    about.style.display = "block";
-    modal.style.display = "none";
+    about.classList.add('about-show');
+    modal.classList.add('modal-hide');
+  };
+
+  about.onclick = function () {
+    modal.classList.remove('modal-hide');
+    about.classList.remove('about-show');
   };
 
   const backgrounds = [
