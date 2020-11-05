@@ -19,14 +19,15 @@ function main() {
   // }
 
   const modal = document.getElementById("myModal");
+  const modalWrapper = document.getElementsByClassName('modal-wrapper')[0];
   const about = document.getElementById("about");
   const strong = modal.querySelectorAll("strong");
   const close = document.getElementsByClassName("close")[0];
   const welcome = document.getElementById("welcome");
 
-  modal.onmouseover = function () {
-    modal.style.animation = "none";
-    modal.firstElementChild.style.animation = "none";
+  modal.onpointerover = function () {
+    modal.classList.add('modal-freeze');
+    modalWrapper.classList.add('modal-freeze');
     welcome.style.animation = "none";
     close.style.animation = "none";
     strong.forEach((text) => {
@@ -34,10 +35,9 @@ function main() {
     });
   };
 
-  modal.onmouseout = function () {
-    modal.style.animation = "color-change 25s linear infinite";
-    modal.firstElementChild.style.animation =
-      "color-change 15s linear infinite";
+  modal.onpointerout = function () {
+    modal.classList.remove('modal-freeze');
+    modalWrapper.classList.remove('modal-freeze');
   };
 
   window.onclick = function (event) {
