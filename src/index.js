@@ -19,25 +19,22 @@ function main() {
   // }
 
   const modal = document.getElementById("myModal");
-  const modalWrapper = document.getElementsByClassName('modal-wrapper')[0];
-  const about = document.getElementById("about");
+  const modalWrapper = document.getElementsByClassName("modal-wrapper")[0];
+  const welcome = document.getElementById("welcome");
   const strong = modal.querySelectorAll("strong");
   const close = document.getElementsByClassName("close")[0];
-  const welcome = document.getElementById("welcome");
+  const about = document.getElementById("about");
 
   modal.onpointerover = function () {
-    modal.classList.add('modal-freeze');
-    modalWrapper.classList.add('modal-freeze');
-    welcome.style.animation = "none";
-    close.style.animation = "none";
-    strong.forEach((text) => {
-      text.style.animation = "none";
-    });
+    let modalItems = [modal, modalWrapper, welcome, close, ...strong];
+    for (let item of modalItems) {
+      item.classList.add('modal-freeze');
+    }
   };
 
   modal.onpointerout = function () {
-    modal.classList.remove('modal-freeze');
-    modalWrapper.classList.remove('modal-freeze');
+    modal.classList.remove("modal-freeze");
+    modalWrapper.classList.remove("modal-freeze");
   };
 
   window.onclick = function (event) {
@@ -112,10 +109,9 @@ function main() {
 
   effects.onpointerout = function (event) {
     let target = event.target;
-    if (target.tagName != 'IMG') return;
+    if (target.tagName != "IMG") return;
     target.previousElementSibling.currentTime = 0;
-  }
-
+  };
 
   // sounds.forEach(sound => {
   //   let adjImg = sound.nextElementSibling;
