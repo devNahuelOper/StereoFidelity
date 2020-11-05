@@ -37,7 +37,7 @@ function main() {
     modalWrapper.classList.remove("modal-freeze");
   };
 
-  window.onclick = function (event) {
+  window.onpointerdown = function (event) {
     let inModal = modal.contains(event.target);
     let inAbout = about.contains(event.target);
     if (!inModal && !inAbout) {
