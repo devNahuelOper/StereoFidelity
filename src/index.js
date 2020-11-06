@@ -80,7 +80,7 @@ function main() {
   };
 
 
-  function list() {
+  function showBackgrounds() {
     let ul = document.createElement("ul");
     ul.className = "bg-list";
 
@@ -102,7 +102,7 @@ function main() {
   let bglist;
   bgtoggle.onpointerover = function () {
     if (bglist) return;
-    bglist = list();
+    bglist = showBackgrounds();
     bgcontainer.append(bglist);
   };
 
