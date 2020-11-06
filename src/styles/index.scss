@@ -408,6 +408,10 @@ ul {
   color: rgb(113, 8, 8);
 }
 
+.bgtoggle-container {
+  display: inline-block;
+}
+
 #bgtoggle {
   cursor: pointer;
   border-radius: 8px;
@@ -420,6 +424,16 @@ ul {
   animation: color-change 15s linear infinite;
   z-index: 1;
   margin-left: 18px;
+}
+
+.bg-list {
+  display: flex;
+  position: relative;
+  top: 20px;
+  img {
+    width: 48px;
+    margin-right: 8px;
+  }
 }
 
 .signature-container {

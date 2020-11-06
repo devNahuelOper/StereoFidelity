@@ -28,7 +28,7 @@ function main() {
   modal.onpointerover = function () {
     let modalItems = [modal, modalWrapper, welcome, close, ...strong];
     for (let item of modalItems) {
-      item.classList.add('modal-freeze');
+      item.classList.add("modal-freeze");
     }
   };
 
@@ -41,20 +41,20 @@ function main() {
     let inModal = modal.contains(event.target);
     let inAbout = about.contains(event.target);
     if (!inModal && !inAbout) {
-      modal.classList.add('modal-hide');
-      about.classList.add('about-show');
+      modal.classList.add("modal-hide");
+      about.classList.add("about-show");
     }
     // console.log(event);
   };
 
   close.onclick = function () {
-    about.classList.add('about-show');
-    modal.classList.add('modal-hide');
+    about.classList.add("about-show");
+    modal.classList.add("modal-hide");
   };
 
   about.onclick = function () {
-    modal.classList.remove('modal-hide');
-    about.classList.remove('about-show');
+    modal.classList.remove("modal-hide");
+    about.classList.remove("about-show");
   };
 
   const backgrounds = [
@@ -73,8 +73,57 @@ function main() {
   }
 
   const bgtoggle = document.getElementById("bgtoggle");
+  const bgcontainer = document.getElementsByClassName("bgtoggle-container")[0];
+
   bgtoggle.onclick = function () {
     randomBg();
+  };
+
+
+  function list() {
+    let ul = document.createElement("ul");
+    ul.className = "bg-list";
+
+    for (let bg of backgrounds) {
+      let li = document.createElement("li");
+      let img = document.createElement("img");
+      img.src = bg;
+      li.append(img);
+      ul.append(li);
+    }
+
+    return ul;
+  }
+
+  let bglist;
+  bgtoggle.onmouseover = function () {
+    if (bglist) return;
+    bglist = list();
+    bgcontainer.append(bglist);
+
+    // let coords = bgtoggle.getBoundingClientRect();
+
+    // let left = coords.left + (bgtoggle.offsetWidth - bglist.offsetWidth) / 2;
+    // if (left < 0) left = 0;
+
+    // let top = coords.top - bglist.offsetHeight - 5;
+    // if (top < 0) {
+    //   top = coords.top + bgtoggle.offsetHeight + 5;
+    // }
+
+    // bglist.style.position = "relative";
+    // bglist.style.left = left + "px";
+    // bglist.style.top = top + "px";
+  };
+
+  bgcontainer.onmouseout = function (event) {
+    let target = event.relatedTarget;
+    let inContainer = bgcontainer.contains(target);
+
+    if (bglist && !inContainer) {
+      bglist.remove();
+      bglist = null;
+    }
   };
 
   // for (let i = 0; i < backgrounds.length - 1; i++) {
