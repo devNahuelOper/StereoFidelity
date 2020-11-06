@@ -96,27 +96,13 @@ function main() {
   }
 
   let bglist;
-  bgtoggle.onmouseover = function () {
+  bgtoggle.onpointerover = function () {
     if (bglist) return;
     bglist = list();
     bgcontainer.append(bglist);
-
-    // let coords = bgtoggle.getBoundingClientRect();
-
-    // let left = coords.left + (bgtoggle.offsetWidth - bglist.offsetWidth) / 2;
-    // if (left < 0) left = 0;
-
-    // let top = coords.top - bglist.offsetHeight - 5;
-    // if (top < 0) {
-    //   top = coords.top + bgtoggle.offsetHeight + 5;
-    // }
-
-    // bglist.style.position = "relative";
-    // bglist.style.left = left + "px";
-    // bglist.style.top = top + "px";
   };
 
-  bgcontainer.onmouseout = function (event) {
+  bgcontainer.onpointerout = function (event) {
     let target = event.relatedTarget;
     let inContainer = bgcontainer.contains(target);
 

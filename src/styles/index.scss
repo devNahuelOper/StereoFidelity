@@ -410,6 +410,11 @@ ul {
 
 .bgtoggle-container {
   display: inline-block;
+  &:hover {
+    #bgtoggle {
+      animation: none;
+    }
+  }
 }
 
 #bgtoggle {
@@ -430,9 +435,20 @@ ul {
   display: flex;
   position: relative;
   top: 20px;
+  left: 20px;
   img {
+    cursor: pointer;
     width: 48px;
     margin-right: 8px;
+    border-radius: 4px;
+    &:hover {
+      transform: scale3d(1.5, 1.5, 5.5) translate3d(0px, -2px, 100px);
+      filter: drop-shadow(5px 3px 30px #454645) brightness(1.5);
+      transition: 1s linear;
+    }
+    &:active {
+      width: 50px;
+    }
   }
 }
 
