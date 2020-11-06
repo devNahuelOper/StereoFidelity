@@ -90,6 +90,10 @@ function main() {
       img.src = bg;
       li.append(img);
       ul.append(li);
+
+      img.onclick = function() {
+        document.body.style.backgroundImage = "url('" + bg + "')";
+      }
     }
 
     return ul;
