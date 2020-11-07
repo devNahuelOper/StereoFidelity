@@ -138,6 +138,7 @@
 @media only screen and (min-height: 1080px) {
   .instructions {
     font-size: 22px;
+    max-height: unset;
   }
   .close {
     bottom: 20px;
