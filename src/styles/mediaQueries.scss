@@ -50,18 +50,18 @@
   }
   #welcome {
     font-size: 2em;
-   /* top: 230px; */
+    /* top: 230px; */
     top: 25px;
   }
   .instructions {
-   /* transform: scale(0.48);
+    /* transform: scale(0.48);
     top: -30px; */
     transform: scale(0.3);
     top: -140px;
     border-radius: 50%;
   }
   .close {
-   /* bottom: 40%; */
+    /* bottom: 40%; */
     bottom: 330px;
   }
   .tracks {
@@ -140,6 +140,17 @@
     font-size: 22px;
     max-height: unset;
   }
+
+  #frame,
+  #match {
+    &:hover {
+      transform: scale3d(6, 3, 30) translate3d(50px, 2px, 30px);
+      transition: transform 1s, margin 1s, box-shadow 2s;
+      margin: 8px;
+      box-shadow: -1px 1px 3px -1px #21d498;
+    }
+  }
+
   .close {
     bottom: 20px;
   }
@@ -147,7 +158,23 @@
     font-size: 32px;
   }
 
-  .effects img {
-    width: 4%;
+  .effects {
+    padding: 40px 0;
+    img {
+      width: 4%;
+    }
+  }
+
+  footer {
+    padding-bottom: 40px;
+  }
+
+  .bg-list {
+    img {
+      width: 96px;
+      &:active {
+        width: 108px;
+      }
+    }
   }
 }
