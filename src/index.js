@@ -116,18 +116,6 @@ function main() {
     }
   };
 
-  // for (let i = 0; i < backgrounds.length - 1; i++) {
-  //   let currbg = stage.style.backgroundImage;
-  //   let currbgIdx = backgrounds.indexOf(currbg);
-  //   rightbg.onclick = function() {
-  //     stage.style.backgroundImage = "url('" + backgrounds[ i % backgrounds.length] + "')";
-  //   }
-  //   leftbg.onclick = function () {
-  //     stage.style.backgroundImage = "url('" + backgrounds[ i % backgrounds.length] + "')";
-  //   }
-  // }
-  // (currbgIdx += i)
-  // Math.abs((currbgIdx -= i))
 
   // function handleFiles(event) {
   //   let files = event.target.files;
