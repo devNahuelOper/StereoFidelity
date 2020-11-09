@@ -45,6 +45,21 @@
   }
 }
 
+.draggedImg {
+  cursor: url("https://stereo-fidelity.s3.amazonaws.com/spinhand2.png"), auto;
+  animation: flicker 0.5s infinite alternate;
+  border: 1px solid #041029;
+  border-radius: 18px;
+  filter: contrast(1.5) drop-shadow(2px 4px 6px black);
+  box-shadow: 0 0 0.5rem #f44336, inset 0 0 0.5rem #f44336,
+    0 0 2rem var(--neon-border-color), inset 0 0 2rem var(--neon-border-color),
+    0 0 4rem var(--neon-border-color), inset 0 0 4rem var(--neon-border-color);
+}
+
+.draggingImg {
+  cursor: grab;
+}
+
 .imageMatch {
   animation: flicker 0.5s infinite alternate;
   transform: scale3d(1.7, 1.7, 1.7);

@@ -79,7 +79,6 @@ function main() {
     randomBg();
   };
 
-
   function showBackgrounds() {
     let ul = document.createElement("ul");
     ul.className = "bg-list";
@@ -91,9 +90,9 @@ function main() {
       li.append(img);
       ul.append(li);
 
-      img.onclick = function() {
+      img.onclick = function () {
         document.body.style.backgroundImage = "url('" + bg + "')";
-      }
+      };
     }
 
     return ul;
@@ -115,7 +114,6 @@ function main() {
       bglist = null;
     }
   };
-
 
   // function handleFiles(event) {
   //   let files = event.target.files;
@@ -144,6 +142,66 @@ function main() {
     if (target.tagName != "IMG") return;
     target.previousElementSibling.currentTime = 0;
   };
+
+  effects.onmousedown = function (event) {
+    let target = event.target;
+    if (target.tagName != "IMG") return;
+    makeDraggable(target);
+  };
+
+  function makeDraggable(elem) {
+    console.log(elem);
+    let audio = elem.previousElementSibling;
+
+    elem.onmousedown = function (event) {
+      elem.classList.add("draggingImg");
+      let shiftX = event.clientX - elem.getBoundingClientRect().left;
+      let shiftY = event.clientY - elem.getBoundingClientRect().top;
+
+      elem.style.position = "absolute";
+      elem.style.zIndex = 1000;
+      elem.style.width = 3 + "%";
+
+      audio.style = elem.style;
+      document.body.append(audio, elem);
+
+      moveAt(event.pageX, event.pageY);
+
+      function moveAt(pageX, pageY) {
+        elem.style.left = pageX - shiftX + "px";
+        elem.style.top = pageY - shiftY + "px";
+        audio.style = elem.style;
+      }
+
+      function onMouseMove(event) {
+        moveAt(event.pageX, event.pageY);
+      }
+
+      document.addEventListener("mousemove", onMouseMove);
+
+      elem.onmouseup = function () {
+        elem.classList.remove("draggingImg");
+        elem.classList.add("draggedImg");
+        document.removeEventListener("mousemove", onMouseMove);
+        elem.onmouseup = null;
+      };
+    };
+
+    elem.ondragstart = function () {
+      return false;
+    };
+    elem.ondragend = function () {
+      elem.onmousedown = null;
+    };
+
+    elem.onpointerover = function () {
+      audio.play();
+    };
+
+    elem.oncontextmenu = function () {
+      return false;
+    };
+  }
 
   // sounds.forEach(sound => {
   //   let adjImg = sound.nextElementSibling;
@@ -181,7 +239,6 @@ function main() {
 
   const tracks = document.getElementsByClassName("tracks")[0];
   const songs = tracks.querySelectorAll("audio");
-  //  const ctx = new AudioContext();
   let AudioContext = window.AudioContext || window.webkitAudioContext;
   this.ctx = new AudioContext();
 
