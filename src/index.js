@@ -221,7 +221,8 @@ function main() {
         frame.appendChild(pic);
       });
 
-      effects.insertBefore(frame, effects.childNodes[0]);
+      // effects.insertBefore(frame, effects.childNodes[0]);
+      effects.insertAdjacentElement("beforebegin", frame);
       effects.style.height = "fit-content";
 
       const score = document.createElement("h1");
@@ -267,7 +268,8 @@ function main() {
                 song.playbackRate += 0.1;
               }
             }
-            score.innerHTML = `Sounds Cleared: ${103 - iconsLeft + 1}`;
+            // score.innerHTML = `Sounds Cleared: ${103 - iconsLeft + 1}`;
+            score.innerHTML = `Sounds Cleared: ${101 - iconsLeft}`;
           };
         });
 
@@ -280,8 +282,8 @@ function main() {
       };
 
       song.onended = function () {
-        effects.removeChild(frame);
-
+        // effects.removeChild(frame);
+        frame.remove();
         let iconsLeft = effects.querySelectorAll("img").length;
         const end = new Date();
         const diff = (end - start) / 1000;

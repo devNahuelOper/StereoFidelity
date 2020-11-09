@@ -1,11 +1,10 @@
 @mixin cursor($file) {
-  cursor: url('/dist/images/#{$file}'), auto;
+  cursor: url("/dist/images/#{$file}"), auto;
 }
 
-
 .effects {
-  @include cursor('spinhand3.png');
-  cursor: url('https://stereo-fidelity.s3.amazonaws.com/spinhand3.png'), auto;
+  @include cursor("spinhand3.png");
+  cursor: url("https://stereo-fidelity.s3.amazonaws.com/spinhand3.png"), auto;
   position: relative;
   -webkit-user-drag: element;
   width: 80%;
@@ -20,8 +19,8 @@
     -webkit-user-drag: element;
     image-rendering: -webkit-optimize-contrast;
     margin: 8px;
-    @include cursor('spinhand2.png');
-    cursor: url('https://stereo-fidelity.s3.amazonaws.com/spinhand2.png'), auto;
+    @include cursor("spinhand2.png");
+    cursor: url("https://stereo-fidelity.s3.amazonaws.com/spinhand2.png"), auto;
     animation: flicker 0.5s infinite alternate;
     border: 1px solid #041029;
     border-radius: 18px;
@@ -29,17 +28,20 @@
     height: 7%;
     box-sizing: border-box;
     filter: contrast(1.5) drop-shadow(2px 4px 6px black);
-    box-shadow: 0 0 0.5rem #F44336, inset 0 0 0.5rem #F44336, 0 0 2rem var(--neon-border-color), inset 0 0 2rem var(--neon-border-color), 0 0 4rem var(--neon-border-color), inset 0 0 4rem var(--neon-border-color);
+    box-shadow: 0 0 0.5rem #f44336, inset 0 0 0.5rem #f44336,
+      0 0 2rem var(--neon-border-color), inset 0 0 2rem var(--neon-border-color),
+      0 0 4rem var(--neon-border-color), inset 0 0 4rem var(--neon-border-color);
   }
 
-  img:hover, img:focus, img:active {
-    -webkit-box-shadow: 15px 15px 20px rgba(0,0, 0, 0.4);
-    -moz-box-shadow: 15px 15px 20px rgba(0,0, 0, 0.4);
-    box-shadow: 15px 15px 20px rgba(0,0, 0, 0.4);
+  img:hover,
+  img:focus,
+  img:active {
+    -webkit-box-shadow: 15px 15px 20px rgba(0, 0, 0, 0.4);
+    -moz-box-shadow: 15px 15px 20px rgba(0, 0, 0, 0.4);
+    box-shadow: 15px 15px 20px rgba(0, 0, 0, 0.4);
     -webkit-transform: scale(1.48);
     -moz-transform: scale(1.48);
     transform: scale(1.48);
-    
   }
 }
 
@@ -59,10 +61,18 @@
 }
 
 .framePic {
-  width: 7% !important;
-  height: 7% !important;
+  width: 6% !important;
+  height: 6% !important;
+  border: 1px solid #041029;
+  border-radius: 18px;
+  margin: 8px;
+  box-sizing: border-box;
+  animation: flicker 0.5s infinite alternate;
+  filter: contrast(1.5) drop-shadow(2px 4px 6px black);
+  box-shadow: 0 0 0.5rem #f44336, inset 0 0 0.5rem #f44336,
+    0 0 2rem var(--neon-border-color), inset 0 0 2rem var(--neon-border-color),
+    0 0 4rem var(--neon-border-color), inset 0 0 4rem var(--neon-border-color);
 }
-
 
 #arcade {
   filter: hue-rotate(48deg);
@@ -74,11 +84,13 @@
 
 #chirp {
   border-radius: 15px;
-  
+
   padding-right: 5px;
 }
 
-#deathstep, #lazzzer, #gangster {
+#deathstep,
+#lazzzer,
+#gangster {
   filter: hue-rotate(145deg);
 }
 
@@ -123,10 +135,11 @@
 }
 
 #plink {
-    padding-right: 4px;
+  padding-right: 4px;
 }
 
-#psy, #speaker {
+#psy,
+#speaker {
   border-radius: 14px;
   border: 1px solid #fafff0;
   filter: invert(1);
@@ -153,7 +166,6 @@
   border-radius: 6px;
 }
 
-
 #timba {
   filter: hue-rotate(68deg);
 }
@@ -171,5 +183,3 @@
   border-radius: 12px;
   padding-right: 2px;
 }
-
-
