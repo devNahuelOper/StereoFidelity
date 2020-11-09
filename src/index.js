@@ -284,7 +284,6 @@ function main() {
 
       const score = document.createElement("h1");
       score.id = "score";
-      // tracks.appendChild(score);
       effects.insertAdjacentElement("beforeend", score);
 
       processor.onaudioprocess = function startGame() {
@@ -349,7 +348,6 @@ function main() {
         const msg = document.createElement("h1");
         msg.className = "msg";
         tracks.insertAdjacentElement("afterend", msg);
-        //  effects.removeChild(frame);
         console.log(`icons left: ${iconsLeft}`);
         if (iconsLeft <= 0) {
           bonus = Math.round(song.duration * diff * (100 - iconsLeft));
