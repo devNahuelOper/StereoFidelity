@@ -422,3 +422,10 @@ function main() {
     };
   });
 }
+
+document.addEventListener("keydown", function (event) {
+  if (event.key === "Escape") {
+    myModal.classList.add("modal-hide");
+    about.classList.add("about-show");
+  }
+});
