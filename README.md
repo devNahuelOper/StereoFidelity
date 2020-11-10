@@ -34,11 +34,11 @@ Bonus points are also acquired for efficiency (calculated using the time played 
 
          images.forEach(image => {
            if(slots.includes(image.src)) {
-             image.style.animation = 'flicker 0.5s infinite alternate';
-             image.style.transform = 'scale3d(1.7, 1.7, 1.7)';
+             image.classList.remove("imageNoMatch");
+             image.classList.add("imageMatch");
            } else {
-             image.style.animation = 'none';
-             image.style.transform = 'none';
+             image.classList.add("imageNoMatch");
+             image.classList.remove("imageMatch");
            }
             image.onmouseenter = function() {
               if (slots.includes(image.src)) {
@@ -51,7 +51,7 @@ Bonus points are also acquired for efficiency (calculated using the time played 
                   song.playbackRate += 0.1;
                 }
               }
-              score.innerHTML = `Sounds Cleared: ${103 - iconsLeft}`;
+              score.innerHTML = `Sounds Cleared: ${100 - iconsLeft}`;
             }
           })
     ```
