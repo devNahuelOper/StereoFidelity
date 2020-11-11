@@ -150,7 +150,6 @@ function main() {
   };
 
   function makeDraggable(elem) {
-    console.log(elem);
     let audio = elem.previousElementSibling;
 
     elem.onmousedown = function (event) {
