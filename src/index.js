@@ -427,4 +427,9 @@ document.addEventListener("keydown", function (event) {
     myModal.classList.add("modal-hide");
     about.classList.add("about-show");
   }
+
+  if (event.code === "KeyI") {
+    myModal.classList.remove("modal-hide");
+    about.classList.remove("about-show");
+  }
 });
