@@ -136,6 +136,7 @@ function main() {
 
     elem.onmousedown = function (event) {
       elem.classList.add("draggingImg");
+      
       let shiftX = event.clientX - elem.getBoundingClientRect().left;
       let shiftY = event.clientY - elem.getBoundingClientRect().top;
 
@@ -177,6 +178,7 @@ function main() {
 
     elem.onpointerover = function () {
       audio.play();
+      // console.log(elem.clientY, elem.pageY);
     };
 
     elem.oncontextmenu = function () {
