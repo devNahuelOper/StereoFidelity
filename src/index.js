@@ -7,7 +7,6 @@ window.addEventListener("DOMContentLoaded", main);
 function main() {
   const stage = document.querySelector("div");
 
-
   const modal = document.getElementById("myModal");
   const modalWrapper = document.getElementsByClassName("modal-wrapper")[0];
   const welcome = document.getElementById("welcome");
@@ -136,7 +135,7 @@ function main() {
 
     elem.onmousedown = function (event) {
       elem.classList.add("draggingImg");
-      
+
       let shiftX = event.clientX - elem.getBoundingClientRect().left;
       let shiftY = event.clientY - elem.getBoundingClientRect().top;
 
@@ -153,6 +152,14 @@ function main() {
         elem.style.left = pageX - shiftX + "px";
         elem.style.top = pageY - shiftY + "px";
         audio.style = elem.style;
+        // let [x, y] = [
+        //   elem.getBoundingClientRect().x,
+        //   elem.getBoundingClientRect().y,
+        // ];
+        // if (document.elementFromPoint(x, y) === effects) {
+        //   effects.append(audio, elem);
+        //   elem.style.position = "";
+        // }
       }
 
       function onMouseMove(event) {
@@ -182,7 +189,9 @@ function main() {
     };
 
     elem.oncontextmenu = function () {
-      elem.onmousedown = null;
+      effects.append(audio, elem);
+      elem.style.position = "";
+      document.removeEventListener("mousemove", onMouseMove);
     };
   }
 
