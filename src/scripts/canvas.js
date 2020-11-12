@@ -35,3 +35,69 @@ class canvasExample {
 }
 
 export default canvasExample;
+
+
+  // let winWidth = window.innerWidth;
+  // let winHeight = window.innerHeight;
+  // stage.style.width = winWidth + 'px';
+  // stage.style.height = winHeight + 'px';
+
+  // window.onresize = function () {
+  // winWidth = window.innerWidth;
+  // // winHeight = window.innerHeight;
+  // stage.style.width = winWidth + 'px';
+  // // stage.style.height = winHeight + 'px';
+  // }
+
+// function centerStage(elem) {
+//   let [stageHeight, stageWidth] = [
+//     stage.clientHeight / 2,
+//     stage.clientWidth / 2,
+//   ];
+//   let [elemHeight, elemWidth] = [elem.clientHeight / 2, elem.clientWidth / 2];
+//   elem.style.position = "absolute";
+//   elem.style.top = stageHeight - elemHeight + "px";
+//   elem.style.left = stageWidth - elemWidth + "px";
+// }
+
+ // sounds.forEach(sound => {
+  //   let adjImg = sound.nextElementSibling;
+
+  //   adjImg.onclick = function () {
+  //     sound.volume = 0;
+  //     stage.appendChild(adjImg);
+  //     adjImg.style.width = adjImg.style.width + 2 + '%';
+  //     adjImg.style.height = adjImg.style.height + 2 + '%';
+  //   }
+  //   adjImg.ondblclick = function () {
+  //     sound.volume = 1;
+  //     effects.appendChild(adjImg);
+  //     adjImg.style.height = 7 + '%';
+  //     adjImg.style.width = 3 + '%';
+  //   }
+
+  //   adjImg.ondrag = function () {
+  //     sound.volume = 0.5;
+  //   }
+  // });
+
+  // const audio = document.getElementById('audio');
+  // const audioSrc = audioContext.createMediaElementSource(audio);
+  // const analyser = audioContext.createAnalyser();
+  // audioSrc.connect(analyser);
+  // const frequencyData = new Uint8Array(analyser.frequencyBinCount);
+
+  // function renderFrame() {
+  //   requestAnimationFrame(renderFrame);
+  //   analyser.getByteFrequencyData(frequencyData);
+  // }
+  // audio.start();
+  // renderFrame();
+
+    // function handleFiles(event) {
+  //   let files = event.target.files;
+  //   $("#src").attr("src", URL.createObjectURL(files[0]));
+  //   document.getElementById("audio").load();
+  // }
+
+  // document.getElementById("upload").addEventListener("change", handleFiles, false);

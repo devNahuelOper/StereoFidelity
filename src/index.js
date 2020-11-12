@@ -6,17 +6,7 @@ window.addEventListener("DOMContentLoaded", main);
 
 function main() {
   const stage = document.querySelector("div");
-  let winWidth = window.innerWidth;
-  // let winHeight = window.innerHeight;
-  // stage.style.width = winWidth + 'px';
-  // stage.style.height = winHeight + 'px';
 
-  // window.onresize = function () {
-  // winWidth = window.innerWidth;
-  // // winHeight = window.innerHeight;
-  // stage.style.width = winWidth + 'px';
-  // // stage.style.height = winHeight + 'px';
-  // }
 
   const modal = document.getElementById("myModal");
   const modalWrapper = document.getElementsByClassName("modal-wrapper")[0];
@@ -94,7 +84,6 @@ function main() {
         document.body.style.backgroundImage = "url('" + bg + "')";
       };
     }
-
     return ul;
   }
 
@@ -103,6 +92,7 @@ function main() {
     if (bglist) return;
     bglist = showBackgrounds();
     bgcontainer.append(bglist);
+    bglist.scrollIntoView();
   };
 
   bgcontainer.onpointerout = function (event) {
@@ -114,14 +104,6 @@ function main() {
       bglist = null;
     }
   };
-
-  // function handleFiles(event) {
-  //   let files = event.target.files;
-  //   $("#src").attr("src", URL.createObjectURL(files[0]));
-  //   document.getElementById("audio").load();
-  // }
-
-  // document.getElementById("upload").addEventListener("change", handleFiles, false);
 
   const effects = document.getElementsByClassName("effects")[0];
   const sounds = effects.querySelectorAll("audio");
@@ -198,43 +180,9 @@ function main() {
     };
 
     elem.oncontextmenu = function () {
-      return false;
+      elem.onmousedown = null;
     };
   }
-
-  // sounds.forEach(sound => {
-  //   let adjImg = sound.nextElementSibling;
-
-  //   adjImg.onclick = function () {
-  //     sound.volume = 0;
-  //     stage.appendChild(adjImg);
-  //     adjImg.style.width = adjImg.style.width + 2 + '%';
-  //     adjImg.style.height = adjImg.style.height + 2 + '%';
-  //   }
-  //   adjImg.ondblclick = function () {
-  //     sound.volume = 1;
-  //     effects.appendChild(adjImg);
-  //     adjImg.style.height = 7 + '%';
-  //     adjImg.style.width = 3 + '%';
-  //   }
-
-  //   adjImg.ondrag = function () {
-  //     sound.volume = 0.5;
-  //   }
-  // });
-
-  // const audio = document.getElementById('audio');
-  // const audioSrc = audioContext.createMediaElementSource(audio);
-  // const analyser = audioContext.createAnalyser();
-  // audioSrc.connect(analyser);
-  // const frequencyData = new Uint8Array(analyser.frequencyBinCount);
-
-  // function renderFrame() {
-  //   requestAnimationFrame(renderFrame);
-  //   analyser.getByteFrequencyData(frequencyData);
-  // }
-  // audio.start();
-  // renderFrame();
 
   const tracks = document.getElementsByClassName("tracks")[0];
   const songs = tracks.querySelectorAll("audio");
@@ -428,7 +376,7 @@ document.addEventListener("keydown", function (event) {
     about.classList.add("about-show");
   }
 
-  if (event.code === "KeyI") {
+  if (event.code === "KeyH") {
     myModal.classList.remove("modal-hide");
     about.classList.remove("about-show");
   }
