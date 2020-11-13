@@ -5,7 +5,7 @@ import "./styles/mediaQueries.scss";
 window.addEventListener("DOMContentLoaded", main);
 
 function main() {
-  const stage = document.querySelector("div");
+  const stage = document.querySelector("main");
 
   const modal = document.getElementById("myModal");
   const modalWrapper = document.getElementsByClassName("modal-wrapper")[0];
@@ -390,5 +390,17 @@ document.addEventListener("keydown", function (event) {
   if (event.code === "KeyH") {
     myModal.classList.remove("modal-hide");
     about.classList.remove("about-show");
+  }
+});
+
+let times = [];
+
+document.addEventListener('readystatechange', function() {
+  let timestamp = Date.now();
+  times.push(timestamp);
+
+  if (document.readyState == 'complete') {
+    let diff = times[1] - times[0];
+    console.log(`loaded in ${diff / 1000} seconds`);
   }
 });
