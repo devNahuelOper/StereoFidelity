@@ -51,18 +51,18 @@
   #welcome {
     font-size: 2em;
     /* top: 230px; */
-    top: 25px;
+    top: 20px;
   }
   .instructions {
     /* transform: scale(0.48);
     top: -30px; */
-    /* transform: scale(0.3);
-    top: -140px; */
+    transform: scale(0.3);
+    top: -100px; 
     border-radius: 50%;
   }
   .close {
-    /* bottom: 40%; */
-    /* bottom: 330px; */
+    bottom: 80%;
+    font-size: 24px;
   }
   .tracks {
     width: 50%;
