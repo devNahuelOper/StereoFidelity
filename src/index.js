@@ -124,7 +124,7 @@ function main() {
     target.previousElementSibling.currentTime = 0;
   };
 
-  effects.onmousedown = function (event) {
+  effects.onpointerdown = function (event) {
     let target = event.target;
     if (target.tagName != "IMG") return;
     makeDraggable(target);
@@ -133,7 +133,7 @@ function main() {
   function makeDraggable(elem) {
     let audio = elem.previousElementSibling;
 
-    elem.onmousedown = function (event) {
+    elem.onpointerdown = function (event) {
       elem.classList.add("draggingImg");
 
       let shiftX = event.clientX - elem.getBoundingClientRect().left;
@@ -168,11 +168,11 @@ function main() {
 
       document.addEventListener("mousemove", onMouseMove);
 
-      elem.onmouseup = function () {
+      elem.onpointerup = function () {
         elem.classList.remove("draggingImg");
         elem.classList.add("draggedImg");
         document.removeEventListener("mousemove", onMouseMove);
-        elem.onmouseup = null;
+        elem.onpointerup = null;
       };
     };
 
@@ -180,7 +180,7 @@ function main() {
       return false;
     };
     elem.ondragend = function () {
-      elem.onmousedown = null;
+      elem.onpointerdown = null;
     };
 
     elem.onpointerover = function () {
@@ -191,7 +191,7 @@ function main() {
     elem.oncontextmenu = function () {
       effects.append(audio, elem);
       elem.style.position = "";
-      document.removeEventListener("mousemove", onMouseMove);
+      elem.onpointerup = null;
     };
   }
 

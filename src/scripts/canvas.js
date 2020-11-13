@@ -101,3 +101,44 @@ export default canvasExample;
   // }
 
   // document.getElementById("upload").addEventListener("change", handleFiles, false);
+
+//  function positionAt(anchor, position, elem) {
+//    let anchorCoords = anchor.getBoundingClientRect();
+//    //  elem.style.position = "absolute";
+//    switch (position) {
+//      case "top-out":
+//        elem.style.top = anchorCoords.top - elem.offsetHeight + "px";
+//        elem.style.left = anchorCoords.left + "px";
+//        break;
+//      case "top-in":
+//        elem.style.top = anchorCoords.top + "px";
+//        elem.style.left = anchorCoords.left + "px";
+//        break;
+//      case "bottom-out":
+//        elem.style.top = anchorCoords.bottom + "px";
+//        elem.style.left = anchorCoords.left + "px";
+//        break;
+//      case "bottom-in":
+//        elem.style.top = anchorCoords.bottom - elem.offsetHeight + "px";
+//        elem.style.left = anchorCoords.left + "px";
+//        break;
+//      case "right-out":
+//        elem.style.top = anchorCoords.top + "px";
+//        elem.style.left = anchorCoords.right + "px";
+//        break;
+//      case "right-in":
+//        elem.style.top = anchorCoords.top + "px";
+//        elem.style.left = anchorCoords.right - elem.offsetWidth + "px";
+//        break;
+//    }
+//  }
+
+//  function showNote(anchor, position, html) {
+//    let note = document.createElement("div");
+//    note.className = "note";
+//    note.innerHTML = html;
+//    document.body.append(note);
+
+//    positionAt(anchor, position, note);
+//  }
+ 
