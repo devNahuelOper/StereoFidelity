@@ -244,7 +244,7 @@ function main() {
       score.id = "score";
       effects.insertAdjacentElement("beforeend", score);
 
-      processor.onaudioprocess = function startGame() {
+      processor.onaudioprocess = function() {
         effects.scrollIntoView();
         //  analyser.getByteTimeDomainData(data);
         analyser.getByteFrequencyData(data);
@@ -307,6 +307,7 @@ function main() {
         msg.className = "msg";
         tracks.insertAdjacentElement("afterend", msg);
         console.log(`icons left: ${iconsLeft}`);
+
         if (iconsLeft <= 0) {
           bonus = Math.round(song.duration * diff * (100 - iconsLeft));
           msg.innerHTML = `The Wheel. Electricity. The Automobile. Flight. The Moonlanding. Computers. The Internet.<br/> 
@@ -363,11 +364,9 @@ function main() {
            Well here, take these  <strong>${bonus}</strong> bonus -- oh wait, no, it looks like you owe me points.`;
           msg.classList.add("msg0");
         }
-        processor.removeEventListener("audioprocess", startGame);
 
-        //  setTimeout(function(){msg.style.display = 'none';}, 15000);
         window.onclick = function () {
-          msg.style.display = "none";
+          msg.hidden = true;
         };
       };
     };
@@ -404,3 +403,7 @@ document.addEventListener('readystatechange', function() {
     console.log(`loaded in ${diff / 1000} seconds`);
   }
 });
+
+window.onunload = function() {
+  document.removeEventListener('DOMContentLoaded', main);
+}
