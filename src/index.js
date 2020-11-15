@@ -1,6 +1,7 @@
 import "./styles/index.scss";
 import "./styles/effects.scss";
 import "./styles/mediaQueries.scss";
+import "./styles/inputSlider.scss";
 
 window.addEventListener("DOMContentLoaded", main);
 
@@ -231,12 +232,12 @@ function main() {
       const pic1 = document.createElement("img");
       const pic2 = document.createElement("img");
       const pic3 = document.createElement("img");
+      
       [pic1, pic2, pic3].forEach((pic) => {
         pic.classList.add("framePic");
         frame.appendChild(pic);
       });
 
-      // effects.insertBefore(frame, effects.childNodes[0]);
       effects.insertAdjacentElement("beforebegin", frame);
       effects.style.height = "fit-content";
 

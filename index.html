@@ -70,6 +70,7 @@
                 <h2>INSTRUCTIONS</h2>
                 <aside>(Hover to stop animation)</aside>
               </li>
+              <li>
               <p>
                 1 ) CHOOSE SONG, <strong>CLICK PLAY</strong>. 2) MOVE MOUSE
                 TOWARD FX BOARD (BOTTOM ICONS). <br />
@@ -96,13 +97,13 @@
                 &nbsp; &nbsp; &nbsp; &nbsp; FRET NOT, THE TEMPO-SHIFT ONLY
                 STARTS ONCE YOU'VE CLEARED 40 ICONS.
               </p>
+              </li>
               <!-- <li><h2>FREESTYLE MODE</h2></li>
             <li><strong>Hover</strong> over icons to play sounds.</li>
             <li><strong>Click</strong> icon to remove from playarea.</li>
             <li><strong>Double-click</strong> icon to reactivate.</li>
             <li>🎧 start with your device volume low 🎧</li> -->
             </ul>
-            <!-- <span class="close" onclick="document.getElementById('myModal').style.transform = 'scale(0.07),translate(8400px, -4450px)'">Let's Play!</span> -->
             <span
               class="close"
               onclick="document.getElementById('myModal').style.display='none'"
@@ -113,7 +114,8 @@
       </div>
 
       <div class="tracks">
-        <article class="track" draggable="true">
+        <section id="track-wrap">
+        <article class="track">
           <audio id="fidelity" src="dist/sounds/stereo_fidelity.mp3"></audio>
           <span class="songTitle">Stereo Fidelity</span>
           <div class="playerControls">
@@ -142,7 +144,7 @@
               src="dist/images/forward.png"
               onclick="document.getElementById('fidelity').currentTime+=5"
             />
-            <img
+            <!-- <img
               id="volume"
               src="dist/images/lo-volume.png"
               onclick="document.getElementById('fidelity').volume-=0.1"
@@ -151,8 +153,13 @@
               id="volume"
               src="dist/images/hi-volume.png"
               onclick="document.getElementById('fidelity').volume+=0.1"
-            />
-            <img
+            /> -->
+            <fieldset class="slider-hold">
+              <input id="volume-slider" type="range" title="Volume" min="0" max="1" step="0.1" value="0.5" oninput="document.getElementById('fidelity').volume = this.value">
+                <hr>
+              <input id="tempo-slider" title="Tempo" type="range" min="0.1" max="2" step="0.1" value="1" orient="vertical" oninput="document.getElementById('fidelity').playbackRate = this.value">
+            </fieldset>
+            <!-- <img
               id="tempo"
               src="dist/images/downtempo.png"
               title="Tempo Down"
@@ -163,7 +170,7 @@
               src="dist/images/uptempo.png"
               title="Tempo Up"
               onclick="document.getElementById('fidelity').playbackRate+=0.1"
-            />
+            /> -->
           </div>
         </article>
         <article class="track">
@@ -484,14 +491,7 @@
             />
           </div>
         </article>
-        <!-- <article class="track">
-          <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-          <input type="file" id="upload" value="Upload your own!" />
-          <br />
-          <audio id="audio" controls>
-            <source src="" id="src" />
-          </audio>
-        </article> -->
+        </section>
       </div>
 
       <div
