@@ -114,15 +114,15 @@ ul {
   flex-direction: column;
   margin: 24px 18px;
   width: 25%;
-  height: 345px;
+  min-height: 445px;
 }
 
-#track-wrap {
+/* #track-wrap {
   overflow-y: scroll;
   max-height: 165px;
   background-color: #141317;
   border-radius: 8px;
-}
+} */
 
 .track {
   margin-bottom: 8px;
