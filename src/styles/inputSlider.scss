@@ -3,7 +3,7 @@ $thumb-color: #2f2d37 !default;
 
 $thumb-radius: 12px !default;
 $thumb-height: 14px !default;
-$thumb-width: 12px !default;
+$thumb-width: 14px !default;
 $thumb-shadow-size: 4px !default;
 $thumb-shadow-blur: 4px !default;
 $thumb-shadow-color: rgba(0, 0, 0, 0.2) !default;
@@ -29,7 +29,7 @@ $ie-bottom-track-color: darken($track-color, $contrast) !default;
 }
 
 @mixin track {
-  cursor: default;
+  cursor: pointer;
   height: $track-height;
   transition: all 0.2s ease;
   width: $track-width;
@@ -37,26 +37,24 @@ $ie-bottom-track-color: darken($track-color, $contrast) !default;
 
 @mixin thumb {
   @include shadow($thumb-shadow-size, $thumb-shadow-blur, $thumb-shadow-color);
-  width: $thumb-width + 2;
+  width: $thumb-width;
   height: $thumb-height;
   margin-top: -5px;
-  background: $thumb-border-color;
+  background-color: $thumb-color;
   border: 3px solid #000510;
   border-radius: $thumb-radius;
   box-sizing: border-box;
   cursor: pointer;
+
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 }
 
 @mixin thumb-hover {
-  background: $thumb-color;
-  border: $thumb-border-width solid $thumb-border-color;
-  border-radius: $thumb-radius;
-  box-sizing: border-box;
-  cursor: pointer;
-  height: $thumb-height;
-  width: $thumb-width;
-  margin-top: -5px;
-  transition: 1s;
+  border: 1px solid $thumb-border-color;
+  background-size: 80%;
+  transition: border 1s, filter 0s, background-size 0s;
 }
 
 [type="range"] {
@@ -195,6 +193,28 @@ $ie-bottom-track-color: darken($track-color, $contrast) !default;
 #tempo-slider {
   width: 50px;
   /*transform: translateX(6px);*/
+}
+
+#volume-slider {
+  width: 50px;
+  &::-webkit-slider-thumb {
+    background-image: url("/dist/images/hi-volume.png");
+  }
+}
+
+#tempo-slider {
+  width: 50px;
+  &::-webkit-slider-thumb {
+    background-image: url("/dist/images/uptempo.png");
+    &:hover {
+      border: 1px solid #079980;
+      background-size: 70%;
+      filter: contrast(1.5);
+    }
+     &:active {
+      filter: drop-shadow(2px 4px 12px black) saturate(4) brightness(1.1);
+    }
+  }
 }
 
 /* #tempo-slider {
