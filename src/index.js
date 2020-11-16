@@ -6,6 +6,7 @@ import "./styles/inputSlider.scss";
 window.addEventListener("DOMContentLoaded", main);
 
 function main() {
+  console.log(performance.now());
   const stage = document.querySelector("main");
 
   const modal = document.getElementById("myModal");
@@ -283,7 +284,6 @@ function main() {
                 song.playbackRate += 0.1;
               }
             }
-            // score.innerHTML = `Sounds Cleared: ${103 - iconsLeft + 1}`;
             score.innerHTML = `Sounds Cleared: ${101 - iconsLeft}`;
           };
         });
@@ -396,6 +396,7 @@ document.addEventListener("keydown", function (event) {
 let times = [];
 
 document.addEventListener('readystatechange', function() {
+  console.log(`Performance: ${performance.now()}`)
   let timestamp = Date.now();
   times.push(timestamp);
 
