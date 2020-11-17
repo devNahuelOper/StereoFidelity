@@ -199,6 +199,7 @@ $ie-bottom-track-color: darken($track-color, $contrast) !default;
   width: 50px;
   &::-webkit-slider-thumb {
     background-image: url("/dist/images/hi-volume.png");
+    background-image: url("https://stereo-fidelity.s3.amazonaws.com/hi-volume.png");
   }
 }
 
@@ -206,6 +207,7 @@ $ie-bottom-track-color: darken($track-color, $contrast) !default;
   width: 50px;
   &::-webkit-slider-thumb {
     background-image: url("/dist/images/uptempo.png");
+    background-image: url("https://stereo-fidelity.s3.amazonaws.com/uptempo.png");
     &:hover {
       border: 1px solid #079980;
       background-size: 70%;
