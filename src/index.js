@@ -2,6 +2,7 @@ import "./styles/index.scss";
 import "./styles/effects.scss";
 import "./styles/mediaQueries.scss";
 import "./styles/inputSlider.scss";
+import "./styles/modal.scss";
 import { toggleModal, toggleSecretPlaylist } from "./scripts/modal";
 import toggleBackgrounds from "./scripts/backgrounds";
 import activateEffects from "./scripts/effects";
@@ -9,11 +10,10 @@ import activateEffects from "./scripts/effects";
 window.addEventListener("DOMContentLoaded", main);
 
 function main() {
-
-  console.log(performance.now());
   const stage = document.querySelector("main");
 
   toggleModal();
+
   toggleSecretPlaylist();
 
   toggleBackgrounds();

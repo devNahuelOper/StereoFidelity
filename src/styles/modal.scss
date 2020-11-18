@@ -1,0 +1,174 @@
+@mixin background-image($file) {
+  background-image: url("/src/assets/images/#{$file}");
+}
+@mixin cursor($file) {
+  cursor: url("/src/assets/images/#{$file}"), auto;
+}
+
+#about {
+  display: none;
+  height: 39px;
+  width: 42px;
+  padding: 0 2px;
+  animation: color-change 15s linear infinite both;
+  &:hover {
+    transform: scale3d(1.2, 1.2, 1.5);
+  }
+}
+.about-show {
+  display: block !important;
+}
+
+.modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Exo 2", sans-serif;
+  position: fixed;
+  width: 55%;
+  height: 90%;
+  left: 0;
+  right: 0;
+  top: 5%;
+  bottom: 5%;
+  height: 90%;
+  margin: 0 auto;
+  overflow: auto;
+  background-color: #21d498;
+  border: 13px solid #191719;
+  border-radius: 50%;
+  box-shadow: 0px 0px 0px 1px silver inset;
+  animation: spin 1s ease-in-out 1, color-change 25s linear infinite;
+  z-index: 1001;
+}
+
+.modal-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 90%;
+  width: 90%;
+  background-color: transparent;
+  border-radius: 50%;
+  border: 1px solid #9b9b9b;
+  box-shadow: 0px 0px 0px 1px #1f1f2c inset;
+  animation: color-change 15s linear infinite;
+}
+
+.modal-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  background-color: black;
+  padding: 24px;
+  border: 8px solid #17171f;
+  box-shadow: 0px 0px 0px 1px silver inset;
+  width: 75%;
+  height: 75%;
+  border-radius: 50%;
+  animation: none;
+  overflow: scroll;
+}
+
+#welcome {
+  animation: color-change 15s linear infinite both;
+  font-size: 2.5rem;
+  text-align: center;
+  color: #1ec190;
+  position: relative;
+  top: 10px;
+  white-space: nowrap;
+}
+
+.instructions-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.instructions {
+  white-space: nowrap;
+  background: #000000 border-box;
+  font-size: 1rem;
+  position: relative;
+  list-style: none;
+  font-weight: bolder;
+  color: #e5e6e8;
+  transform: scale(0.65);
+  margin: auto 8px;
+  max-height: 400px;
+  top: -30px;
+
+  strong {
+    animation: color-change 15s linear infinite both;
+    color: #21d498;
+    font-size: 1.1em;
+    font-weight: bolder;
+    text-transform: uppercase;
+  }
+  small {
+    font-size: 8px;
+  }
+  p {
+    border-radius: 8px;
+    padding: 2px;
+  }
+  h2 {
+    text-decoration: underline;
+  }
+  aside {
+    text-decoration: none;
+    font-size: 20px;
+  }
+  figcaption {
+    font-size: 8px;
+  }
+}
+
+.modal-freeze {
+  animation: none !important;
+  -webkit-animation: none !important;
+  opacity: 1;
+}
+
+.modal-hide {
+  display: none;
+}
+
+#frame,
+#match {
+  @include cursor("zoom2.png");
+  cursor: url("https://stereo-fidelity.s3.amazonaws.com/zoom2.png"), auto;
+  width: 15%;
+  border-radius: 10px;
+  image-rendering: -webkit-optimize-contrast;
+  position: relative;
+  right: 1%;
+  &:hover {
+    transform: scaleX(6) scaleY(2.4) translate(30px, 2.5px);
+    transform: scale3d(6, 3, 30) translate3d(26px, 2px, 30px);
+    transition: transform 1s, margin 1s, box-shadow 2s;
+    margin: 8px;
+    box-shadow: -1px 1px 3px -1px #21d498;
+  }
+}
+
+.close {
+  animation: color-change 15s linear infinite both;
+  position: relative;
+  bottom: 20%;
+  color: #1ec190;
+  font-size: 28px;
+  font-weight: bold;
+  &:hover,
+  &:focus {
+    text-transform: uppercase;
+    transform: scale(1.3) rotateY(180deg) rotateY(180deg);
+    cursor: pointer;
+    text-shadow: 2px 0 0 #171717, -2px 0 0 #1ec08e, 0 2px 0 #171517,
+      0 -2px 0 #171516, 1px 1px #171516, -1px -1px 0 #151515, 1px -1px 0 #171416,
+      -1px 1px 0 #171516;
+    transition: transform 1s, text-shadow 1.5s, text-transform 2s;
+  }
+}
