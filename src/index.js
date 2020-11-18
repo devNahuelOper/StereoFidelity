@@ -20,13 +20,16 @@ function main() {
 
   activateEffects();
 
+  function lowerVolume(...soundArgs) {
+    for (let sound of soundArgs) sound.volume = 0.3;
+    console.log('volume lowered on sound effects');
+  }
+
 
   const effects = document.getElementsByClassName("effects")[0];
   const sounds = effects.querySelectorAll("audio");
   const images = effects.querySelectorAll("img");
-  const dblImages = Array.from(images)
-    .concat(Array.from(images))
-    .concat(Array.from(images));
+  const dblImages = [...images, ...images, ...images];
 
 
   const tracks = document.getElementsByClassName("tracks")[0];
@@ -36,12 +39,9 @@ function main() {
 
   songs.forEach((song) => {
     let songTitle = song.nextElementSibling;
-    let playButton = songTitle.nextElementSibling.firstElementChild;
 
     song.onplay = function () {
-      sounds.forEach((sound) => {
-        sound.volume = 0.3;
-      });
+      lowerVolume(...sounds);
 
       const start = new Date();
 
