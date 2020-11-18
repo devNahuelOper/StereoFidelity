@@ -2,71 +2,17 @@ import "./styles/index.scss";
 import "./styles/effects.scss";
 import "./styles/mediaQueries.scss";
 import "./styles/inputSlider.scss";
+import { toggleModal, toggleSecretPlaylist } from "./scripts/modal";
 
 window.addEventListener("DOMContentLoaded", main);
 
 function main() {
   console.log(performance.now());
+
   const stage = document.querySelector("main");
 
-  const modal = document.getElementById("myModal");
-  const modalWrapper = document.getElementsByClassName("modal-wrapper")[0];
-  const welcome = document.getElementById("welcome");
-  const strong = modal.querySelectorAll("strong");
-  const close = document.getElementsByClassName("close")[0];
-  const about = document.getElementById("about");
-
-  const playlist = document.getElementById("playlist");
-  playlist.hidden = true;
-
-  document.addEventListener("keydown", function (event) {
-    if (event.key === "Escape") {
-      myModal.classList.add("modal-hide");
-      about.classList.add("about-show");
-    }
-
-    if (event.code === "KeyH") {
-      myModal.classList.remove("modal-hide");
-      about.classList.remove("about-show");
-    }
-
-    if (event.key === "Alt") {
-      // console.log(playlist.hidden);
-      playlist.hidden = !playlist.hidden;
-    }
-  });
-
-  modal.onpointerover = function () {
-    let modalItems = [modal, modalWrapper, welcome, close, ...strong];
-    for (let item of modalItems) {
-      item.classList.add("modal-freeze");
-    }
-  };
-
-  modal.onpointerout = function () {
-    modal.classList.remove("modal-freeze");
-    modalWrapper.classList.remove("modal-freeze");
-  };
-
-  window.onpointerdown = function (event) {
-    let inModal = modal.contains(event.target);
-    let inAbout = about.contains(event.target);
-    if (!inModal && !inAbout) {
-      modal.classList.add("modal-hide");
-      about.classList.add("about-show");
-    }
-    // console.log(event);
-  };
-
-  close.onclick = function () {
-    about.classList.add("about-show");
-    modal.classList.add("modal-hide");
-  };
-
-  about.onclick = function () {
-    modal.classList.remove("modal-hide");
-    about.classList.remove("about-show");
-  };
+  toggleModal();
+  toggleSecretPlaylist();
 
   const backgrounds = [
     "src/assets/images/headphones.jpg",
@@ -392,14 +338,13 @@ function main() {
       };
     };
 
-    // playButton.onmousedown = function () {
-    //   songTitle.style.animation = 'flicker 0.5s infinite alternate';
-    // }
     song.onpause = function () {
       songTitle.classList.remove("playSong");
     };
   });
+
 };
+
 
 
 
