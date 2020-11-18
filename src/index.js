@@ -22,14 +22,12 @@ function main() {
 
   function lowerVolume(...soundArgs) {
     for (let sound of soundArgs) sound.volume = 0.3;
-    console.log('volume lowered on sound effects');
   }
-
 
   const effects = document.getElementsByClassName("effects")[0];
   const sounds = effects.querySelectorAll("audio");
   const images = effects.querySelectorAll("img");
-  const dblImages = [...images, ...images, ...images];
+  const trippleImages = [...images, ...images, ...images];
 
 
   const tracks = document.getElementsByClassName("tracks")[0];
@@ -83,14 +81,14 @@ function main() {
         //  analyser.getByteTimeDomainData(data);
         analyser.getByteFrequencyData(data);
         pic1.src =
-          dblImages[
+          trippleImages[
             Math.floor(Math.random(Array.from(Array(data[0]).keys())) * 100)
           ].src;
         pic2.src =
-          dblImages[
+          trippleImages[
             Math.floor(Math.random(Array.from(Array(100).keys())) * 100)
           ].src;
-        pic3.src = dblImages[data[0]].src;
+        pic3.src = trippleImages[data[0]].src;
 
         let iconsLeft = effects.querySelectorAll("img").length;
         const slots = [pic1.src, pic2.src, pic3.src];
