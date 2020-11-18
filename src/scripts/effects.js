@@ -83,6 +83,26 @@ function activateEffects() {
       elem.onpointerup = null;
     };
   }
+
+  // function getCoords(event) {
+  //   let [x, y] = [event.clientX, event.clientY];
+  //   let element = document.elementFromPoint(x, y);
+  //   let elemLeft = document.elementFromPoint(x - 100, y);
+  //   let elemRight = document.elementFromPoint(x + 100, y);
+  //   let elemUp = document.elementFromPoint(x, y - 100);
+  //   let elemDown = document.elementFromPoint(x, y + 100);
+
+  //   return ({
+  //     x,
+  //     y,
+  //     element,
+  //     elemLeft,
+  //     elemRight,
+  //     elemUp,
+  //     elemDown
+  //   });
+  // }
+
 }
 
 export default activateEffects;
