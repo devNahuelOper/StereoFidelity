@@ -16,6 +16,26 @@ function main() {
   const close = document.getElementsByClassName("close")[0];
   const about = document.getElementById("about");
 
+  const playlist = document.getElementById("playlist");
+  playlist.hidden = true;
+
+  document.addEventListener("keydown", function (event) {
+    if (event.key === "Escape") {
+      myModal.classList.add("modal-hide");
+      about.classList.add("about-show");
+    }
+
+    if (event.code === "KeyH") {
+      myModal.classList.remove("modal-hide");
+      about.classList.remove("about-show");
+    }
+
+    if (event.key === "Alt") {
+      // console.log(playlist.hidden);
+      playlist.hidden = !playlist.hidden;
+    }
+  });
+
   modal.onpointerover = function () {
     let modalItems = [modal, modalWrapper, welcome, close, ...strong];
     for (let item of modalItems) {
@@ -379,19 +399,9 @@ function main() {
       songTitle.classList.remove("playSong");
     };
   });
-}
+};
 
-document.addEventListener("keydown", function (event) {
-  if (event.key === "Escape") {
-    myModal.classList.add("modal-hide");
-    about.classList.add("about-show");
-  }
 
-  if (event.code === "KeyH") {
-    myModal.classList.remove("modal-hide");
-    about.classList.remove("about-show");
-  }
-});
 
 let times = [];
 
