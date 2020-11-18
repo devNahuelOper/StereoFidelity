@@ -1,5 +1,6 @@
 function activateEffects() {
   const effects = document.getElementsByClassName("effects")[0];
+  const stage = document.querySelector("main");
 
   effects.onpointerover = function (event) {
     let target = event.target;
@@ -84,24 +85,40 @@ function activateEffects() {
     };
   }
 
-  // function getCoords(event) {
-  //   let [x, y] = [event.clientX, event.clientY];
-  //   let element = document.elementFromPoint(x, y);
-  //   let elemLeft = document.elementFromPoint(x - 100, y);
-  //   let elemRight = document.elementFromPoint(x + 100, y);
-  //   let elemUp = document.elementFromPoint(x, y - 100);
-  //   let elemDown = document.elementFromPoint(x, y + 100);
+  function proximityCheck(event) {
+    let [x, y] = [event.clientX, event.clientY];
+    let element = document.elementFromPoint(x, y);
+    let elemLeft = document.elementFromPoint(x - 40, y);
+    let elemRight = document.elementFromPoint(x + 40, y);
+    let elemUp = document.elementFromPoint(x, y - 40);
+    let elemDown = document.elementFromPoint(x, y + 40);
 
-  //   return ({
-  //     x,
-  //     y,
-  //     element,
-  //     elemLeft,
-  //     elemRight,
-  //     elemUp,
-  //     elemDown
-  //   });
-  // }
+    let dirs = [elemLeft, elemRight, elemUp, elemDown];
+
+    for (let dir of dirs) {
+      if (dir.classList.contains("draggedImg")) {
+        // console.log('close by!');
+        stage.classList.add('near-dragged');
+      } 
+      // else {
+      //   if (stage.classList.contains('near-dragged')) {
+      //     stage.classList.remove('near-dragged');
+      //   }
+      // }
+    }
+
+    // return ({
+    //   x,
+    //   y,
+    //   element,
+    //   elemLeft,
+    //   elemRight,
+    //   elemUp,
+    //   elemDown
+    // });
+  }
+
+  document.addEventListener("mouseover", proximityCheck);
 
 }
 
