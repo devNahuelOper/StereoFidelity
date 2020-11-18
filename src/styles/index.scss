@@ -269,6 +269,7 @@ ul {
 
 .bgtoggle-container {
   display: inline-block;
+  cursor: pointer;
   &:hover {
     #bgtoggle {
       animation: none;
@@ -304,7 +305,9 @@ ul {
     &:hover {
       transform: scale3d(1.5, 1.5, 5.5) translate3d(0px, -2px, 100px);
       filter: drop-shadow(5px 3px 30px #454645) brightness(1.5);
-      transition: 1s linear;
+      transition-property: transform;
+      transition-duration: 1s;
+      transition-timing-function: cubic-bezier(0.25, 1.5, 0.75, 1.75);
     }
     &:active {
       width: 50px;
