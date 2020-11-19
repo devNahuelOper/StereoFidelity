@@ -89,22 +89,32 @@ function activateEffects() {
     let [x, y] = [event.clientX, event.clientY];
     let element = document.elementFromPoint(x, y);
     let elemLeft = document.elementFromPoint(x - 40, y);
+    let elemLeftDown = document.elementFromPoint(x - 40, y - 40);
+    let elemLeftUp = document.elementFromPoint(x - 40, y + 40);
     let elemRight = document.elementFromPoint(x + 40, y);
+    let elemRightDown = document.elementFromPoint(x + 40, y - 40);
+    let elemRightUp = document.elementFromPoint(x + 40, y + 40);
     let elemUp = document.elementFromPoint(x, y - 40);
     let elemDown = document.elementFromPoint(x, y + 40);
 
-    let dirs = [elemLeft, elemRight, elemUp, elemDown];
+    let dirs = [
+      element,
+      elemLeft,
+      elemLeftDown,
+      elemLeftUp,
+      elemRight,
+      elemRightDown,
+      elemRightUp,
+      elemUp,
+      elemDown,
+    ];
 
-    for (let dir of dirs) {
-      if (dir.classList.contains("draggedImg")) {
-        // console.log('close by!');
-        stage.classList.add('near-dragged');
-      } 
-      // else {
-      //   if (stage.classList.contains('near-dragged')) {
-      //     stage.classList.remove('near-dragged');
-      //   }
-      // }
+    let nearby = dirs.find(dir => dir.classList.contains('draggedImg'));
+    
+    if (nearby) {
+      stage.classList.add("near-dragged");
+    } else {
+      stage.classList.remove("near-dragged");
     }
 
     // return ({
@@ -118,8 +128,7 @@ function activateEffects() {
     // });
   }
 
-  document.addEventListener("mouseover", proximityCheck);
-
+  document.addEventListener("mousemove", proximityCheck);
 }
 
 export default activateEffects;
