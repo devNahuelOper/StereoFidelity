@@ -63,6 +63,7 @@ function activateEffects() {
         elem.classList.add("draggedImg");
         document.removeEventListener("mousemove", onMouseMove);
         elem.onpointerup = null;
+        connectProxCheck();
       };
     };
 
@@ -80,6 +81,7 @@ function activateEffects() {
 
     elem.oncontextmenu = function () {
       effects.append(audio, elem);
+      elem.classList.remove('draggedImg');
       elem.style.position = "";
       elem.onpointerup = null;
     };
@@ -116,19 +118,19 @@ function activateEffects() {
     } else {
       stage.classList.remove("near-dragged");
     }
-
-    // return ({
-    //   x,
-    //   y,
-    //   element,
-    //   elemLeft,
-    //   elemRight,
-    //   elemUp,
-    //   elemDown
-    // });
   }
 
-  document.addEventListener("mousemove", proximityCheck);
+
+  let connected = false;
+
+  function connectProxCheck() {
+    if (!connected) {
+      document.addEventListener("mousemove", proximityCheck);
+      connected = true;
+      return;
+    }
+  }
+ 
 }
 
 export default activateEffects;
