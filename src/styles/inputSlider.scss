@@ -179,6 +179,7 @@ $ie-bottom-track-color: darken($track-color, $contrast) !default;
   border: none;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   height: 28px;
   hr {
     border-color: #57595a;
