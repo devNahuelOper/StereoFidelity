@@ -104,7 +104,6 @@ $ie-bottom-track-color: darken($track-color, $contrast) !default;
     &:active {
       filter: drop-shadow(2px 4px 12px black) saturate(4) brightness(1.1);
     }
-    /* margin-top: ((-$track-border-width * 2 + $track-height) / 2 - $thumb-height / 2); */
   }
 
   &::-moz-range-track {
