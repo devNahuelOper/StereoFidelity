@@ -29,9 +29,9 @@ function main() {
   const images = effects.querySelectorAll("img");
   const trippleImages = [...images, ...images, ...images];
 
-
   const tracks = document.getElementsByClassName("tracks")[0];
   const songs = tracks.querySelectorAll("audio");
+  
   let AudioContext = window.AudioContext || window.webkitAudioContext;
   this.ctx = new AudioContext();
 
@@ -41,10 +41,10 @@ function main() {
     song.onplay = function () {
       lowerVolume(...sounds);
 
-      const start = new Date();
-
       songTitle.classList.add("playSong");
       effects.classList.add("playing");
+
+      const start = new Date();
 
       let audioSrc = ctx.createMediaElementSource(song);
       audioSrc.connect(ctx.destination);
