@@ -332,6 +332,9 @@ ul {
 #playlist {
   border-radius: 12px;
   margin: 0 18px;
+  position: fixed;
+  top: 15%;
+  right: 0;
 }
 
 @keyframes scroll-right {
