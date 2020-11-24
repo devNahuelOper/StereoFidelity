@@ -63,7 +63,6 @@ function activateEffects() {
         elem.classList.add("draggedImg");
         document.removeEventListener("mousemove", onMouseMove);
         elem.onpointerup = null;
-        connectProxCheck();
       };
     };
 
@@ -81,7 +80,7 @@ function activateEffects() {
 
     elem.oncontextmenu = function () {
       effects.append(audio, elem);
-      elem.classList.remove('draggedImg');
+      elem.classList.remove("draggedImg");
       elem.style.position = "";
       elem.onpointerup = null;
     };
@@ -111,8 +110,8 @@ function activateEffects() {
       elemDown,
     ];
 
-    let nearby = dirs.find(dir => dir.classList.contains('draggedImg'));
-    
+    let nearby = dirs.find((dir) => dir.classList.contains("draggedImg"));
+
     if (nearby) {
       stage.classList.add("near-dragged");
     } else {
@@ -120,17 +119,31 @@ function activateEffects() {
     }
   }
 
+  // let connected = false;
 
-  let connected = false;
+  // function connectProxCheck() {
+  //   if (!connected) {
+  //     document.addEventListener("pointermove", proximityCheck);
+  //     connected = true;
+  //     return;
+  //   }
+  // }
 
-  function connectProxCheck() {
-    if (!connected) {
-      document.addEventListener("mousemove", proximityCheck);
-      connected = true;
-      return;
-    }
-  }
- 
+   function connectProxCheck() {
+     let connected = false;
+     if (document.querySelector('.draggedImg')) {
+       document.addEventListener("pointermove", proximityCheck);
+       connected = true;
+     } else {
+       if (connected) {
+         document.removeEventListener("pointermove", proximityCheck);
+         connected = false;
+       }
+     }
+   }
+
+   document.addEventListener("pointermove", connectProxCheck);
+
 }
 
 export default activateEffects;
