@@ -215,7 +215,7 @@ function main() {
 let times = [];
 
 document.addEventListener('readystatechange', function() {
-  console.log(`Performance: ${performance.now()}`)
+  // console.log(`Performance: ${performance.now()}`);
   let timestamp = Date.now();
   times.push(timestamp);
 
