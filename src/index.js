@@ -7,6 +7,7 @@ import { toggleModal, toggleSecretPlaylist } from "./scripts/modal";
 import toggleBackgrounds from "./scripts/backgrounds";
 import activateEffects from "./scripts/effects";
 import { endGame } from "./scripts/game";
+import getPerformance from "./scripts/performance";
 
 window.addEventListener("DOMContentLoaded", main);
 
@@ -138,19 +139,5 @@ function main() {
   });
 }
 
-let times = [];
+getPerformance();
 
-document.addEventListener("readystatechange", function () {
-  // console.log(`Performance: ${performance.now()}`);
-  let timestamp = Date.now();
-  times.push(timestamp);
-
-  if (document.readyState == "complete") {
-    let diff = times[1] - times[0];
-    console.log(`loaded in ${diff / 1000} seconds`);
-  }
-});
-
-window.onunload = function () {
-  document.removeEventListener("DOMContentLoaded", main);
-};
