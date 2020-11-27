@@ -12,14 +12,9 @@ import getPerformance from "./scripts/performance";
 window.addEventListener("DOMContentLoaded", main);
 
 function main() {
-  const stage = document.querySelector("main");
-
   toggleModal();
-
   toggleSecretPlaylist();
-
   toggleBackgrounds();
-
   activateEffects();
 
   const effects = document.getElementsByClassName("effects")[0];
