@@ -1,32 +1,88 @@
-// function startGame(song, ctx) {
-//   const effects = document.getElementsByClassName("effects")[0];
-//   const sounds = effects.querySelectorAll("audio");
-//   const images = effects.querySelectorAll("img");
-//   const trippleImages = [...images, ...images, ...images];
-//   const tracks = document.getElementsByClassName("tracks")[0];
-//   const songs = tracks.querySelectorAll("audio");
+function lowerVolume(...soundArgs) {
+  for (let sound of soundArgs) sound.volume = 0.3;
+}
 
-//   let AudioContext = window.AudioContext || window.webkitAudioContext;
-//   this.ctx = new AudioContext();
+export function startGame(song, sounds, effects, ctx, images) {
+  lowerVolume(...sounds);
+  effects.classList.add("playing");
 
-//   lowerVolume(...sounds);
-//   let start = Date.now();
+  let audioSrc = ctx.createMediaElementSource(song);
+  audioSrc.connect(ctx.destination);
 
-//   let audioSrc = ctx.createMediaElementSource(song);
-//   audioSrc.connect(ctx.destination);
+  let processor = ctx.createScriptProcessor(1024);
+  let analyser = ctx.createAnalyser();
+  processor.connect(ctx.destination);
+  analyser.connect(processor);
 
-//   let processor = ctx.createScriptProcessor(1024);
-//   let analyser = ctx.createAnalyser();
-//   processor.connect(ctx.destination);
-//   analyser.connect(processor);
+  let data = new Uint8Array(analyser.frequencyBinCount);
+  audioSrc.connect(analyser);
 
-//   let data = new Uint8Array(analyser.frequencyBinCount);
-//   audioSrc.connect(processor);
-// }
+  const frame = document.createElement("aside");
+  frame.id = "gameFrame";
 
-// function lowerVolume(...soundArgs) {
-//   for (let sound of soundArgs) sound.volume = 0.3;
-// }
+  const pic1 = document.createElement("img");
+  const pic2 = document.createElement("img");
+  const pic3 = document.createElement("img");
+
+  [pic1, pic2, pic3].forEach((pic) => {
+    pic.classList.add("framePic");
+    frame.appendChild(pic);
+  });
+
+  effects.insertAdjacentElement("beforebegin", frame);
+  effects.style.height = "fit-content";
+
+  const score = document.createElement("h1");
+  score.id = "score";
+  effects.insertAdjacentElement("beforeend", score);
+
+  processor.onaudioprocess = () => {
+    return matchFrame;
+  }
+
+  function matchFrame() {
+    effects.scrollIntoView();
+    analyser.getByteFrequencyData(data);
+
+    pic1.src =
+      trippleImages[
+        Math.floor(Math.random(Array.from(Array(data[0]).keys())) * 100)
+      ].src;
+    pic2.src =
+      trippleImages[
+        Math.floor(Math.random(Array.from(Array(100).keys())) * 100)
+      ].src;
+    pic3.src = trippleImages[data[0]].src;
+
+    let iconsLeft = effects.querySelectorAll("img").length;
+    const slots = [pic1.src, pic2.src, pic3.src];
+
+    images.forEach((image) => {
+      image.classList.add("imageNoMatch");
+      if (slots.includes(image.src)) {
+        image.classList.remove("imageNoMatch");
+        image.classList.add("imageMatch");
+      } else {
+        image.classList.add("imageNoMatch");
+        image.classList.remove("imageMatch");
+      }
+      image.onmouseenter = function () {
+        if (slots.includes(image.src)) {
+          effects.removeChild(image);
+          // song.playbackRate -= 1.0;
+          if (iconsLeft <= 60) {
+            song.playbackRate -= 0.8;
+          }
+        } else {
+          if (iconsLeft <= 60) {
+            song.playbackRate += 0.1;
+          }
+        }
+        score.innerHTML = `Sounds Cleared: ${101 - iconsLeft}`;
+      };
+    });
+  }
+}
 
 export function endGame(frame, effects, start, tracks, song) {
   frame.remove();
