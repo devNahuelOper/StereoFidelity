@@ -2,7 +2,7 @@ function lowerVolume(...soundArgs) {
   for (let sound of soundArgs) sound.volume = 0.3;
 }
 
-export function startGame(song, sounds, effects, ctx, images) {
+export function startGame(song, sounds, effects, ctx, images, trippleImages) {
   lowerVolume(...sounds);
   effects.classList.add("playing");
 
@@ -36,9 +36,7 @@ export function startGame(song, sounds, effects, ctx, images) {
   score.id = "score";
   effects.insertAdjacentElement("beforeend", score);
 
-  processor.onaudioprocess = () => {
-    return matchFrame;
-  }
+  processor.onaudioprocess = () => matchFrame();
 
   function matchFrame() {
     effects.scrollIntoView();
@@ -81,10 +79,17 @@ export function startGame(song, sounds, effects, ctx, images) {
         score.innerHTML = `Sounds Cleared: ${101 - iconsLeft}`;
       };
     });
+    //  if (iconsLeft <= 3) {
+    //    song.playbackRate += 1;
+    //    song.volume -= 0.7;
+    //    effects.removeChild(frame);
+    //    setTimeout(function () { song.currentTime += 400; }, 4000);
+    //  }
   }
 }
 
-export function endGame(frame, effects, start, tracks, song) {
+export function endGame(effects, start, tracks, song) {
+  let frame = document.getElementById("gameFrame");
   frame.remove();
 
   let iconsLeft = effects.querySelectorAll("img").length;
