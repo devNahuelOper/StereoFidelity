@@ -42,13 +42,15 @@ export function startGame(song, sounds, effects, ctx, images, trippleImages) {
     effects.scrollIntoView();
     analyser.getByteFrequencyData(data);
 
+    let currentImages = effects.querySelectorAll("img");
+
     pic1.src =
       trippleImages[
         Math.floor(Math.random(Array.from(Array(data[0]).keys())) * 100)
       ].src;
     pic2.src =
-      trippleImages[
-        Math.floor(Math.random(Array.from(Array(100).keys())) * 100)
+      currentImages[
+        Math.round(Math.random() * 100)
       ].src;
     pic3.src = trippleImages[data[0]].src;
 
