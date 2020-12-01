@@ -39,11 +39,10 @@ export function startGame(song, sounds, effects, ctx, images, trippleImages) {
   score.id = "score";
   effects.insertAdjacentElement("beforeend", score);
 
-  // processor.onaudioprocess = () => matchFrame();
   processor.addEventListener("audioprocess", matchFrame);
 
   function matchFrame() {
-    console.log(isGameOn);
+    // console.log(isGameOn);
     effects.scrollIntoView();
     analyser.getByteFrequencyData(data);
 
@@ -80,18 +79,21 @@ export function startGame(song, sounds, effects, ctx, images, trippleImages) {
         score.innerHTML = `Sounds Cleared: ${101 - iconsLeft}`;
       };
     });
-    //  if (iconsLeft <= 3) {
-    //    song.playbackRate += 1;
-    //    song.volume -= 0.7;
-    //    effects.removeChild(frame);
-    //    setTimeout(function () { song.currentTime += 400; }, 4000);
-    //  }
+
     if (!isGameOn) {
       processor.removeEventListener("audioprocess", matchFrame);
       setTimeout(() => score.remove(), 3000);
     }
   }
 }
+
+// function endEarly(song) {
+//   song.volume -= 0.3;
+//   song.playbackRate += 1;
+//   setTimeout(() => (song.currentTime += timeRemaining(song) - 10), 2000);
+// }
+
+// const timeRemaining = (song) => song.duration - song.currentTime;
 
 export function endGame(effects, start, tracks, song) {
   isGameOn = false;
