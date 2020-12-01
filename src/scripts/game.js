@@ -49,14 +49,8 @@ export function startGame(song, sounds, effects, ctx, images, trippleImages) {
 
     let currentImages = effects.querySelectorAll("img");
 
-    pic1.src =
-      trippleImages[
-        Math.floor(Math.random() * data[0])
-      ].src;
-    pic2.src =
-      currentImages[
-        Math.round(Math.random() * 100)
-      ].src;
+    pic1.src = trippleImages[Math.floor(Math.random() * data[0])].src;
+    pic2.src = currentImages[Math.round(Math.random() * 100)].src;
     pic3.src = trippleImages[data[0]].src;
 
     let iconsLeft = currentImages.length;
@@ -92,9 +86,11 @@ export function startGame(song, sounds, effects, ctx, images, trippleImages) {
     //    effects.removeChild(frame);
     //    setTimeout(function () { song.currentTime += 400; }, 4000);
     //  }
-    if (!isGameOn) processor.removeEventListener("audioprocess", matchFrame);
+    if (!isGameOn) {
+      processor.removeEventListener("audioprocess", matchFrame);
+      setTimeout(() => score.remove(), 3000);
+    }
   }
-
 }
 
 export function endGame(effects, start, tracks, song) {
