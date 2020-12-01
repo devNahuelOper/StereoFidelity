@@ -2,7 +2,10 @@ function lowerVolume(...soundArgs) {
   for (let sound of soundArgs) sound.volume = 0.3;
 }
 
+let isGameOn = false;
+
 export function startGame(song, sounds, effects, ctx, images, trippleImages) {
+  isGameOn = true;
   lowerVolume(...sounds);
   effects.classList.add("playing");
 
@@ -36,9 +39,11 @@ export function startGame(song, sounds, effects, ctx, images, trippleImages) {
   score.id = "score";
   effects.insertAdjacentElement("beforeend", score);
 
-  processor.onaudioprocess = () => matchFrame();
+  // processor.onaudioprocess = () => matchFrame();
+  processor.addEventListener("audioprocess", matchFrame);
 
   function matchFrame() {
+    console.log(isGameOn);
     effects.scrollIntoView();
     analyser.getByteFrequencyData(data);
 
@@ -46,7 +51,7 @@ export function startGame(song, sounds, effects, ctx, images, trippleImages) {
 
     pic1.src =
       trippleImages[
-        Math.floor(Math.random(Array.from(Array(data[0]).keys())) * 100)
+        Math.floor(Math.random() * data[0])
       ].src;
     pic2.src =
       currentImages[
@@ -54,7 +59,7 @@ export function startGame(song, sounds, effects, ctx, images, trippleImages) {
       ].src;
     pic3.src = trippleImages[data[0]].src;
 
-    let iconsLeft = effects.querySelectorAll("img").length;
+    let iconsLeft = currentImages.length;
     const slots = [pic1.src, pic2.src, pic3.src];
 
     images.forEach((image) => {
@@ -87,10 +92,13 @@ export function startGame(song, sounds, effects, ctx, images, trippleImages) {
     //    effects.removeChild(frame);
     //    setTimeout(function () { song.currentTime += 400; }, 4000);
     //  }
+    if (!isGameOn) processor.removeEventListener("audioprocess", matchFrame);
   }
+
 }
 
 export function endGame(effects, start, tracks, song) {
+  isGameOn = false;
   let frame = document.getElementById("gameFrame");
   frame.remove();
 
