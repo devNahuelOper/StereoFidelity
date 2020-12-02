@@ -44,11 +44,9 @@ function main() {
       songTitle.classList.remove("playSong");
     };
   });
+
 }
 
 getPerformance();
 
-window.addEventListener("unhandledrejection", () => {
-  console.log("heyheyhey");
-});
 

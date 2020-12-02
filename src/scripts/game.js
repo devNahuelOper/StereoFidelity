@@ -48,8 +48,6 @@ export function startGame(song, sounds, effects, ctx, images, trippleImages) {
 
     let currentImages = effects.querySelectorAll("img");
     
-    
-
     try {
       pic1.src = trippleImages[Math.floor(Math.random() * data[0])].src;
       pic2.src = currentImages[Math.round(Math.random() * 100)].src;
@@ -85,7 +83,7 @@ export function startGame(song, sounds, effects, ctx, images, trippleImages) {
     } catch(e) {
       return;
     }
-    
+
     if (!isGameOn) {
       processor.removeEventListener("audioprocess", matchFrame);
       setTimeout(() => score.remove(), 3000);
