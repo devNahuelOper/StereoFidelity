@@ -34,7 +34,7 @@ function main() {
     song.onplay = function () {
       songTitle.classList.add("playSong");
       const start = new Date();
-
+      
       startGame(song, sounds, effects, ctx, images, trippleImages);
 
       song.onended = () => endGame(effects, start, tracks, song);
@@ -47,4 +47,8 @@ function main() {
 }
 
 getPerformance();
+
+window.addEventListener("unhandledrejection", () => {
+  console.log("heyheyhey");
+});
 

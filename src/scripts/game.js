@@ -47,44 +47,51 @@ export function startGame(song, sounds, effects, ctx, images, trippleImages) {
     analyser.getByteFrequencyData(data);
 
     let currentImages = effects.querySelectorAll("img");
+    
+    
 
-    pic1.src = trippleImages[Math.floor(Math.random() * data[0])].src;
-    pic2.src = currentImages[Math.round(Math.random() * 100)].src;
-    pic3.src = trippleImages[data[0]].src;
+    try {
+      pic1.src = trippleImages[Math.floor(Math.random() * data[0])].src;
+      pic2.src = currentImages[Math.round(Math.random() * 100)].src;
+      pic3.src = trippleImages[data[0]].src;
 
-    let iconsLeft = currentImages.length;
-    const slots = [pic1.src, pic2.src, pic3.src];
+      let iconsLeft = currentImages.length;
+      const slots = [pic1.src, pic2.src, pic3.src];
 
-    images.forEach((image) => {
-      image.classList.add("imageNoMatch");
-      if (slots.includes(image.src)) {
-        image.classList.remove("imageNoMatch");
-        image.classList.add("imageMatch");
-      } else {
+      images.forEach((image) => {
         image.classList.add("imageNoMatch");
-        image.classList.remove("imageMatch");
-      }
-      image.onmouseenter = function () {
         if (slots.includes(image.src)) {
-          effects.removeChild(image);
-          // song.playbackRate -= 1.0;
-          if (iconsLeft <= 60) {
-            song.playbackRate -= 0.8;
-          }
+          image.classList.remove("imageNoMatch");
+          image.classList.add("imageMatch");
         } else {
-          if (iconsLeft <= 60) {
-            song.playbackRate += 0.1;
-          }
+          image.classList.add("imageNoMatch");
+          image.classList.remove("imageMatch");
         }
-        score.innerHTML = `Sounds Cleared: ${101 - iconsLeft}`;
-      };
-    });
-
+        image.onmouseenter = function () {
+          if (slots.includes(image.src)) {
+            effects.removeChild(image);
+            // song.playbackRate -= 1.0;
+            if (iconsLeft <= 60) {
+              song.playbackRate -= 0.8;
+            }
+          } else {
+            if (iconsLeft <= 60) {
+              song.playbackRate += 0.1;
+            }
+          }
+          score.innerHTML = `Sounds Cleared: ${101 - iconsLeft}`;
+        };
+      });
+    } catch(e) {
+      return;
+    }
+    
     if (!isGameOn) {
       processor.removeEventListener("audioprocess", matchFrame);
       setTimeout(() => score.remove(), 3000);
     }
   }
+
 }
 
 // function endEarly(song) {
