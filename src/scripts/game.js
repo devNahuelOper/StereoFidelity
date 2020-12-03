@@ -70,11 +70,11 @@ export function startGame(song, sounds, effects, ctx, images, trippleImages) {
             effects.removeChild(image);
             // song.playbackRate -= 1.0;
             if (iconsLeft <= 60) {
-              song.playbackRate -= 0.8;
+              song.playbackRate -= 0.8 || 0;
             }
           } else {
             if (iconsLeft <= 60) {
-              song.playbackRate += 0.1;
+              song.playbackRate += 0.1 || 0;
             }
           }
           score.innerHTML = `Sounds Cleared: ${101 - iconsLeft}`;
@@ -84,12 +84,11 @@ export function startGame(song, sounds, effects, ctx, images, trippleImages) {
       return;
     }
 
-    if (!isGameOn) {
-      processor.removeEventListener("audioprocess", matchFrame);
-      setTimeout(() => score.remove(), 3000);
-    }
+    song.addEventListener("ended", () => {
+       processor.removeEventListener("audioprocess", matchFrame);
+       setTimeout(() => score.remove(), 3000);
+    });
   }
-
 }
 
 // function endEarly(song) {

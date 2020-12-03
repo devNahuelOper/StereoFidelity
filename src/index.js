@@ -11,7 +11,7 @@ import getPerformance from "./scripts/performance";
 
 window.addEventListener("DOMContentLoaded", main);
 
-function main() {
+async function main() {
   toggleModal();
   toggleSecretPlaylist();
   toggleBackgrounds();
@@ -45,7 +45,11 @@ function main() {
     };
   });
 
+  window.addEventListener("unhandledrejection", (e) => {
+    console.log(e.reason, e.promise);
+  });
 }
+
 
 getPerformance();
 
