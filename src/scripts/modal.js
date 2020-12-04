@@ -1,3 +1,5 @@
+import { setAnimation, toggleAnimation } from "./animation";
+
 export function toggleModal() {
   const modal = document.getElementById("myModal");
   const modalWrapper = document.getElementsByClassName("modal-wrapper")[0];
@@ -5,6 +7,8 @@ export function toggleModal() {
   const strong = modal.querySelectorAll("strong");
   const close = document.getElementsByClassName("close")[0];
   const about = document.getElementById("about");
+
+  setAnimation(modal);
 
   document.addEventListener("keydown", function (event) {
     if (event.key === "Escape") {
@@ -19,6 +23,7 @@ export function toggleModal() {
   });
 
   modal.onpointerover = function () {
+    toggleAnimation(modal);
     let modalItems = [modal, modalWrapper, welcome, close, ...strong];
     for (let item of modalItems) {
       item.classList.add("modal-freeze");
@@ -26,6 +31,7 @@ export function toggleModal() {
   };
 
   modal.onpointerout = function () {
+    toggleAnimation(true, modal);
     modal.classList.remove("modal-freeze");
     modalWrapper.classList.remove("modal-freeze");
   };

@@ -1,5 +1,3 @@
-
-
 // async function fetchPlaylistImages() {
 //     let track = "https://api.spotify.com/v1/tracks/3n3Ppam7vgaVa1iaRUc9Lp";
 
@@ -34,13 +32,13 @@
 
 // export default fetchPlaylistImages;
 
+// async function fetchUser() {
+//   const githubUrl = "https://api.github.com/users/devnahueloper";
 
-async function fetchUser() {
-  const githubUrl = "https://api.github.com/users/devnahueloper";
+//   let response = await fetch(githubUrl);
+//   let user = await response.json();
+//   console.log(user);
+// }
 
-  let response = await fetch(githubUrl);
-  let user = await response.json();
-  console.log(user);
-}
+// export default fetchUser;
 
-export default fetchUser;

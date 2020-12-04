@@ -8,6 +8,7 @@ import toggleBackgrounds from "./scripts/backgrounds";
 import activateEffects from "./scripts/effects";
 import { startGame, endGame } from "./scripts/game";
 import getPerformance from "./scripts/performance";
+// import { setAnimation } from "./scripts/fetch";
 
 window.addEventListener("DOMContentLoaded", main);
 
