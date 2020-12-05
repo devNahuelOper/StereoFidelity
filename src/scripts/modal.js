@@ -1,4 +1,4 @@
-import { setAnimation, toggleAnimation, zoomInOut } from "./animation";
+import { setMorph, setZoom } from "./animation";
 
 export function toggleModal() {
   const modal = document.getElementById("myModal");
@@ -9,12 +9,27 @@ export function toggleModal() {
   const close = document.getElementsByClassName("close")[0];
   const about = document.getElementById("about");
 
+  window.setMorph = setMorph;
+  window.setZoom = setZoom;
 
-  setAnimation(modal);
-  
-  const zoomContent = modalContent.animate(zoomInOut.animation, zoomInOut.timing);
-  zoomContent.play();
-  
+  let morph = setMorph(modal);
+  let zoomWrap = setZoom(modalWrapper, 20, -2);
+  let zoomContent = setZoom(modalContent, 10, -2.5, 20, "backwards");
+
+
+  function stopAnimations() {
+    let animations = [morph, zoomWrap, zoomContent];
+    for (let anim of animations) anim.cancel();
+  }
+  function playAnimations() {
+    let animations = [morph, zoomWrap, zoomContent];
+    for (let anim of animations) anim.play();
+  }
+
+  // [window.stopAnimations, window.playAnimations] = [stopAnimations, playAnimations];
+
+  // const zoomContent = modalContent.animate(zoomInOut.animation, zoomInOut.timing);
+  // zoomContent.play();
 
   document.addEventListener("keydown", function (event) {
     if (event.key === "Escape") {
@@ -26,11 +41,11 @@ export function toggleModal() {
       myModal.classList.remove("modal-hide");
       about.classList.remove("about-show");
     }
+
   });
 
   modal.onpointerover = function () {
-    toggleAnimation(modal);
-    zoomContent.cancel();
+    stopAnimations();
     let modalItems = [modal, modalWrapper, welcome, close, ...strong];
     for (let item of modalItems) {
       item.classList.add("modal-freeze");
@@ -38,8 +53,7 @@ export function toggleModal() {
   };
 
   modal.onpointerout = function () {
-    toggleAnimation(true, modal);
-    zoomContent.play();
+    playAnimations();
     modal.classList.remove("modal-freeze");
     modalWrapper.classList.remove("modal-freeze");
   };
