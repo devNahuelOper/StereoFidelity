@@ -119,31 +119,47 @@ function activateEffects() {
     }
   }
 
-  // let connected = false;
+  function connectProxCheck() {
+    let connected = false;
+    if (document.querySelector(".draggedImg")) {
+      document.addEventListener("pointermove", proximityCheck);
+      connected = true;
+    } else {
+      if (connected) {
+        document.removeEventListener("pointermove", proximityCheck);
+        connected = false;
+      }
+    }
+  }
 
-  // function connectProxCheck() {
-  //   if (!connected) {
-  //     document.addEventListener("pointermove", proximityCheck);
-  //     connected = true;
-  //     return;
-  //   }
-  // }
+  document.addEventListener("pointermove", connectProxCheck);
 
-   function connectProxCheck() {
-     let connected = false;
-     if (document.querySelector('.draggedImg')) {
-       document.addEventListener("pointermove", proximityCheck);
-       connected = true;
-     } else {
-       if (connected) {
-         document.removeEventListener("pointermove", proximityCheck);
-         connected = false;
-       }
-     }
-   }
+  function shuffleEffects() {
+    let images = Array.from(effects.querySelectorAll("img"));
 
-   document.addEventListener("pointermove", connectProxCheck);
+    for (let i = images.length - 1; i >= 0; i--) {
+      let j = Math.floor(Math.random() * (i + 1));
+      try {
+        swap(images[i], images[j]);
+      } catch (e) {
+        return;
+      }
+    }
+  }
 
+  window.shuffleEffects = shuffleEffects;
+
+  function swap(ele1, ele2) {
+    let [prev1, prev2] = [
+      ele1.previousElementSibling,
+      ele2.previousElementSibling,
+    ];
+    let [clone, prevClone] = [ele1.cloneNode(), prev1.cloneNode()];
+    ele1.replaceWith(ele2.cloneNode());
+    prev1.replaceWith(prev2.cloneNode());
+    ele2.replaceWith(clone);
+    prev2.replaceWith(prevClone);
+  }
 }
 
 export default activateEffects;
