@@ -147,7 +147,11 @@ function activateEffects() {
       try {
         swap(images[i], images[j]);
       } catch (e) {
-        return;
+        try {
+          swap(images[images.length - i], images[j]);
+        } catch(e) {
+          return;
+        }
       }
     }
   }

@@ -8,7 +8,6 @@ import toggleBackgrounds from "./scripts/backgrounds";
 import activateEffects from "./scripts/effects";
 import { startGame, endGame } from "./scripts/game";
 import getPerformance from "./scripts/performance";
-// import { setAnimation } from "./scripts/fetch";
 
 window.addEventListener("DOMContentLoaded", main);
 
@@ -40,17 +39,13 @@ async function main() {
 
       song.onended = () => endGame(effects, start, tracks, song);
     };
-
-    song.onpause = function () {
-      songTitle.classList.remove("playSong");
-    };
+    song.onpause = () => songTitle.classList.remove("playSong");
   });
 
   window.addEventListener("unhandledrejection", (e) => {
-    console.log(e.reason, e.promise);
+    preventDefault();
   });
 }
-
 
 getPerformance();
 
