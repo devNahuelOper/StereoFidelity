@@ -5,7 +5,7 @@ import "./styles/inputSlider.scss";
 import "./styles/modal.scss";
 import { toggleModal, toggleSecretPlaylist } from "./scripts/modal";
 import toggleBackgrounds from "./scripts/backgrounds";
-import activateEffects from "./scripts/effects";
+import { activateEffects, shuffleEffects } from "./scripts/effects";
 import { startGame, endGame } from "./scripts/game";
 import getPerformance from "./scripts/performance";
 
@@ -18,8 +18,17 @@ async function main() {
   activateEffects();
 
   const effects = document.getElementsByClassName("effects")[0];
-  const sounds = effects.querySelectorAll("audio");
-  const images = effects.querySelectorAll("img");
+  let sounds = effects.querySelectorAll("audio");
+  let images = effects.querySelectorAll("img");
+
+  document.addEventListener("keydown", (e) => {
+    if (e.code === "KeyR") {
+      shuffleEffects();
+      sounds = effects.querySelectorAll("audio");
+      images = effects.querySelectorAll("img");
+    }
+  });
+
   const trippleImages = [...images, ...images, ...images];
 
   const tracks = document.getElementsByClassName("tracks")[0];
@@ -34,7 +43,7 @@ async function main() {
     song.onplay = function () {
       songTitle.classList.add("playSong");
       const start = new Date();
-      
+
       startGame(song, sounds, effects, ctx, images, trippleImages);
 
       song.onended = () => endGame(effects, start, tracks, song);
@@ -48,5 +57,3 @@ async function main() {
 }
 
 getPerformance();
-
-

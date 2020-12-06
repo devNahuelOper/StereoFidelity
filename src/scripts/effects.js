@@ -1,4 +1,4 @@
-function activateEffects() {
+export function activateEffects() {
   const effects = document.getElementsByClassName("effects")[0];
   const stage = document.querySelector("main");
 
@@ -42,14 +42,6 @@ function activateEffects() {
         elem.style.left = pageX - shiftX + "px";
         elem.style.top = pageY - shiftY + "px";
         audio.style = elem.style;
-        // let [x, y] = [
-        //   elem.getBoundingClientRect().x,
-        //   elem.getBoundingClientRect().y,
-        // ];
-        // if (document.elementFromPoint(x, y) === effects) {
-        //   effects.append(audio, elem);
-        //   elem.style.position = "";
-        // }
       }
 
       function onMouseMove(event) {
@@ -136,43 +128,43 @@ function activateEffects() {
   }
 
   document.addEventListener("pointermove", connectProxCheck);
-
-  // Shuffle effect icons, along with corresponding sounds
-
-  function shuffleEffects() {
-    let images = Array.from(effects.querySelectorAll("img"));
-
-    for (let i = images.length - 1; i >= 0; i--) {
-      let j = Math.floor(Math.random() * (i + 1));
-      try {
-        swap(images[i], images[j]);
-      } catch (e) {
-        try {
-          swap(images[images.length - i], images[j]);
-        } catch(e) {
-          return;
-        }
-      }
-    }
-  }
-
-  function swap(ele1, ele2) {
-    let [prev1, prev2] = [
-      ele1.previousElementSibling,
-      ele2.previousElementSibling,
-    ];
-    let [clone, prevClone] = [ele1.cloneNode(), prev1.cloneNode()];
-    ele1.replaceWith(ele2.cloneNode());
-    prev1.replaceWith(prev2.cloneNode());
-    ele2.replaceWith(clone);
-    prev2.replaceWith(prevClone);
-  }
-
-  document.addEventListener("keydown", (e) => {
-    if (e.code === "KeyR") shuffleEffects();
-  });
-
-  // window.shuffleEffects = shuffleEffects;
 }
 
-export default activateEffects;
+// Shuffle effect icons, along with corresponding sounds
+
+export function shuffleEffects() {
+  function zip(arr1, arr2) {
+    let zipped = [];
+    if (arr1.length !== arr2.length) return;
+
+    for (let i = 0; i < arr1.length; i++) {
+      zipped.push([arr1[i], arr2[i]]);
+    }
+    return zipped;
+  }
+
+  function shuffle(arr) {
+    for (let i = arr.length - 1; i > 0; i--) {
+      let j = Math.floor(Math.random() * (i + 1));
+      let temp = arr[i];
+      arr[i] = arr[j];
+      arr[j] = temp;
+    }
+    return arr;
+  }
+
+  function shuffEfx() {
+    let sounds = effects.querySelectorAll("audio");
+    let images = effects.querySelectorAll("img");
+    let zipped = zip(sounds, images);
+    let shuffled = shuffle(zip(sounds, images));
+
+    for (let i = 0; i < zipped.length; i++) {
+      let [aud, img] = [zipped[i][0], zipped[i][1]];
+      let [subAud, subImg] = [shuffled[i][0], shuffled[i][1]];
+      aud.replaceWith(subAud.cloneNode());
+      img.replaceWith(subImg.cloneNode());
+    }
+  }
+  shuffEfx();
+}
