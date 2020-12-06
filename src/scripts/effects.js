@@ -86,6 +86,9 @@ function activateEffects() {
     };
   }
 
+  // Dragged image proximity checker.
+  // Used for switching cursor to DJ Spinhand lg when within 40px.
+
   function proximityCheck(event) {
     let [x, y] = [event.clientX, event.clientY];
     let element = document.elementFromPoint(x, y);
@@ -134,6 +137,8 @@ function activateEffects() {
 
   document.addEventListener("pointermove", connectProxCheck);
 
+  // Shuffle effect icons, along with corresponding sounds
+
   function shuffleEffects() {
     let images = Array.from(effects.querySelectorAll("img"));
 
@@ -147,8 +152,6 @@ function activateEffects() {
     }
   }
 
-  window.shuffleEffects = shuffleEffects;
-
   function swap(ele1, ele2) {
     let [prev1, prev2] = [
       ele1.previousElementSibling,
@@ -160,6 +163,12 @@ function activateEffects() {
     ele2.replaceWith(clone);
     prev2.replaceWith(prevClone);
   }
+
+  document.addEventListener("keydown", (e) => {
+    if (e.code === "KeyR") shuffleEffects();
+  });
+
+  // window.shuffleEffects = shuffleEffects;
 }
 
 export default activateEffects;
