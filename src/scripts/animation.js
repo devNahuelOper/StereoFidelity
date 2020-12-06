@@ -29,6 +29,13 @@ const morphTiming = {
   iterations: Infinity,
 };
 
+export function setMorph(...elements) {
+  for (let ele of elements) {
+    return ele.animate(colorMorph, morphTiming);
+  }
+}
+
+
 export function setZoom(ele, pers, tranZ, dur = 10, fill = "forwards") {
   return ele.animate(
     [
@@ -54,11 +61,7 @@ export function setZoom(ele, pers, tranZ, dur = 10, fill = "forwards") {
   );
 }
 
-export function setMorph(...elements) {
-  for (let ele of elements) {
-    return ele.animate(colorMorph, morphTiming);
-  }
-}
+
 
 
 // export function setZoom(ele, pers, tranZ, dur = 10, fill = "forwards") {
@@ -68,25 +71,25 @@ export function setMorph(...elements) {
 //         transform: `perspective(${pers - pers}px) translateZ(${
 //           tranZ - tranZ
 //         }px)`,
-//         transformOrigin: "center",
+//         perspectiveOrigin: "center",
 //       },
 //       {
 //         transform: `perspective(${pers}px) translateZ(${tranZ + 1}px)`,
-//         transformOrigin: "top right",
+//         perspectiveOrigin: "top right",
 //       },
 //       {
 //         transform: `perspective(${pers}px) translateZ(${tranZ}px)`,
-//         transformOrigin: "center",
+//         perspectiveOrigin: "center",
 //       },
 //       {
 //         transform: `perspective(${pers}px) translateZ(${tranZ + 1}px)`,
-//         transformOrigin: "bottom left",
+//         perspectiveOrigin: "bottom left",
 //       },
 //       {
 //         transform: `perspective(${pers - pers}px) translateZ(${
 //           tranZ - tranZ
 //         }px)`,
-//         transformOrigin: "center",
+//         perspectiveOrigin: "center",
 //       },
 //     ],
 //     {
