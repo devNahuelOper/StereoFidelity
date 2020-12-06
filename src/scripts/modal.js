@@ -14,7 +14,7 @@ export function toggleModal() {
 
   let morph = setMorph(modal);
   let zoomWrap = setZoom(modalWrapper, 20, -2);
-  let zoomContent = setZoom(modalContent, 10, -2.5, 20, "backwards");
+  let zoomContent = setZoom(modalContent, 500, 35.5, 20, "backwards");
 
 
   function stopAnimations() {

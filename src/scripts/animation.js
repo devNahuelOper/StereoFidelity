@@ -29,20 +29,29 @@ const morphTiming = {
   iterations: Infinity,
 };
 
-
-
 export function setZoom(ele, pers, tranZ, dur = 10, fill = "forwards") {
-  return ele.animate([
-    {transform: `perspective(${pers - pers}px) translateZ(${tranZ - tranZ}px)`},
-    {transform: `perspective(${pers}px) translateZ(${tranZ + 1}px)`},
-    {transform: `perspective(${pers}px) translateZ(${tranZ}px)`},
-    {transform: `perspective(${pers}px) translateZ(${tranZ + 1}px)`},
-    {transform: `perspective(${pers - pers}px) translateZ(${tranZ - tranZ}px)`},
-  ], {
-    duration: dur * 1000,
-    iterations: Infinity,
-    fill
-  });
+  return ele.animate(
+    [
+      {
+        transform: `perspective(${pers - pers}px) translateZ(${
+          tranZ - tranZ
+        }px)`,
+      },
+      { transform: `perspective(${pers}px) translateZ(${tranZ + 1}px)` },
+      { transform: `perspective(${pers}px) translateZ(${tranZ}px)` },
+      { transform: `perspective(${pers}px) translateZ(${tranZ + 1}px)` },
+      {
+        transform: `perspective(${pers - pers}px) translateZ(${
+          tranZ - tranZ
+        }px)`,
+      },
+    ],
+    {
+      duration: dur * 1000,
+      iterations: Infinity,
+      fill,
+    }
+  );
 }
 
 export function setMorph(...elements) {
@@ -50,6 +59,44 @@ export function setMorph(...elements) {
     return ele.animate(colorMorph, morphTiming);
   }
 }
+
+
+// export function setZoom(ele, pers, tranZ, dur = 10, fill = "forwards") {
+//   return ele.animate(
+//     [
+//       {
+//         transform: `perspective(${pers - pers}px) translateZ(${
+//           tranZ - tranZ
+//         }px)`,
+//         transformOrigin: "center",
+//       },
+//       {
+//         transform: `perspective(${pers}px) translateZ(${tranZ + 1}px)`,
+//         transformOrigin: "top right",
+//       },
+//       {
+//         transform: `perspective(${pers}px) translateZ(${tranZ}px)`,
+//         transformOrigin: "center",
+//       },
+//       {
+//         transform: `perspective(${pers}px) translateZ(${tranZ + 1}px)`,
+//         transformOrigin: "bottom left",
+//       },
+//       {
+//         transform: `perspective(${pers - pers}px) translateZ(${
+//           tranZ - tranZ
+//         }px)`,
+//         transformOrigin: "center",
+//       },
+//     ],
+//     {
+//       duration: dur * 1000,
+//       iterations: Infinity,
+//       fill,
+//     }
+//   );
+// }
+
 
 // Extra -- For testing Web Animations API
 
