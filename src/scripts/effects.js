@@ -174,5 +174,13 @@ export function shuffleEffects() {
     }
   }
 
-  shuffEfx();
+  function preWave() {
+    let images = effects.querySelectorAll("img");
+    for (let i = images.length - 1; i >= 0; i--) {
+      setTimeout(() => setZoom(images[i], 500, -200, 1, "backwards", 1), (images.length - i) * 10);
+    }
+  }
+  
+  preWave();
+  setTimeout(() => shuffEfx(), 1500);
 }
