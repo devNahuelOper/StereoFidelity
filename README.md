@@ -62,6 +62,60 @@ Bonus points are also acquired for efficiency (calculated using the time played 
 * FREESTYLE MODE
   * Just go bananas trying out all 100 sound effects, maybe turning them into music!
 
+* Newest Feature -- Shuffle Effects!
+
+  ```Javascript
+  function shuffleEffects() {
+   function zip(arr1, arr2) {
+     let zipped = [];
+     if (arr1.length !== arr2.length) return;
+
+     for (let i = 0; i < arr1.length; i++) {
+       zipped.push([arr1[i], arr2[i]]);
+     }
+     return zipped;
+   }
+
+   function shuffle(arr) {
+     for (let i = arr.length - 1; i > 0; i--) {
+       let j = Math.floor(Math.random() * (i + 1));
+       let temp = arr[i];
+       arr[i] = arr[j];
+       arr[j] = temp;
+     }
+     return arr;
+   }
+
+   function shuffEfx() {
+     let sounds = effects.querySelectorAll("audio");
+     let images = effects.querySelectorAll("img");
+     let zipped = zip(sounds, images);
+     let shuffled = shuffle(zip(sounds, images));
+
+     for (let i = 0; i < zipped.length; i++) {
+       let [aud, img] = [zipped[i][0], zipped[i][1]];
+       let [subAud, subImg] = [shuffled[i][0], shuffled[i][1]];
+       aud.replaceWith(subAud.cloneNode());
+       img.replaceWith(subImg.cloneNode());
+     }
+
+     for (let j = 0; j < images.length; j++) {
+       let img = effects.querySelectorAll("img")[j];
+       setTimeout(() => setZoom(img, 500, 100, 1, "forwards", 1), j * 20);
+     }
+   }
+
+   function preWave() {
+     let images = effects.querySelectorAll("img");
+     for (let i = images.length - 1; i >= 0; i--) {
+       setTimeout(() => setZoom(images[i], 500, -200, 1, "backwards", 1), (images.length - i) * 10);
+     }
+   }
+  
+   preWave();
+   setTimeout(() => shuffEfx(), 1500);
+  }
+  ```
 
 # Wireframes
 
