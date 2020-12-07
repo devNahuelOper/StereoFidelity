@@ -64,6 +64,8 @@ Bonus points are also acquired for efficiency (calculated using the time played 
 
 * Newest Feature -- Shuffle Effects!
 
+![effectShuffle gif](effectShuffle.gif)
+
   ```Javascript
   function shuffleEffects() {
    function zip(arr1, arr2) {
