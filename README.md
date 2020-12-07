@@ -68,6 +68,8 @@ Bonus points are also acquired for efficiency (calculated using the time played 
 
   ```Javascript
   function shuffleEffects() {
+  
+   // Zip helper function -- for grouping all icon + sound pairings.
    function zip(arr1, arr2) {
      let zipped = [];
      if (arr1.length !== arr2.length) return;
