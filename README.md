@@ -92,11 +92,17 @@ Bonus points are also acquired for efficiency (calculated using the time played 
    }
 
    function shuffEfx() {
+     // Get the current order or icon/sound pairs
      let sounds = effects.querySelectorAll("audio");
      let images = effects.querySelectorAll("img");
+     
+     // Create zipped current pair order to iterate through
      let zipped = zip(sounds, images);
+     // Create shuffled copy of zipped order
      let shuffled = shuffle(zip(sounds, images));
-
+     
+     // At each current pair index, replace with shuffled pair at same index
+     // All replacements are done with clones, otherwise we'd be cutting the board in half
      for (let i = 0; i < zipped.length; i++) {
        let [aud, img] = [zipped[i][0], zipped[i][1]];
        let [subAud, subImg] = [shuffled[i][0], shuffled[i][1]];
