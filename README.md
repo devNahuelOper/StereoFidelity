@@ -111,13 +111,15 @@ Bonus points are also acquired for efficiency (calculated using the time played 
      }
      
      // Add a visual touch using setZoom (Web Animations API function made in other file)
-     // Stagger setTimeout delay to create front-to-back increasing wave effect
+     // Stagger setTimeout delay to create front-to-back growing wave effect
      for (let j = 0; j < images.length; j++) {
        let img = effects.querySelectorAll("img")[j];
        setTimeout(() => setZoom(img, 500, 100, 1, "forwards", 1), j * 20);
      }
    }
-
+   
+   // Enhance shuffle transition with another wave outside of shuffEfx
+   // Stagger setTimeout to create back-to-front shrinking wave effect
    function preWave() {
      let images = effects.querySelectorAll("img");
      for (let i = images.length - 1; i >= 0; i--) {
@@ -125,6 +127,7 @@ Bonus points are also acquired for efficiency (calculated using the time played 
      }
    }
   
+   // Allow preWave to complete right before the call to shuffEfx
    preWave();
    setTimeout(() => shuffEfx(), 1500);
   }
