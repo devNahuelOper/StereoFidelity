@@ -51,17 +51,10 @@
         >
           <img id="linkedin" src="dist/images/linkedin.png" alt="Linkedin" />
         </a>
-        <img
-          id="about"
-          src="dist/images/modal.png"
-          title="Instructions"
-        />
+        <img id="about" src="dist/images/modal.png" title="Instructions" />
       </nav>
 
-      <div
-        id="myModal"
-        class="modal"
-      >
+      <div id="myModal" class="modal">
         <div class="modal-wrapper">
           <div class="modal-content">
             <h1 id="welcome">Stereo Fidelity</h1>
@@ -71,41 +64,37 @@
                 <aside>(Hover to stop animation)</aside>
               </li>
               <li>
-              <p>
-                1 ) CHOOSE SONG, <strong>CLICK PLAY</strong>. 2) MOVE MOUSE
-                TOWARD FX BOARD (BOTTOM ICONS). <br />
-                <br />
-                ***<strong>FRAME w/ 3 SPINNING ICONS</strong>(FROM FX BOARD)
-                WILL APPEAR <strong>ABOVE FX BOARD</strong>.***
-                <figure id="framefig">
-                  <img src="dist/images/frame.png" id="frame" />
-                  <figcaption>Hover to zoom in</figcaption>
-                </figure>
-                *** AT ANY GIVEN MOMENT, 1 - 3 <strong>FX ICONS</strong> -->
-                <strong>MATCH FRAME ICONS</strong>.***
-                <figure id="matchfig">
-                  <img src="dist/images/match.png" id="match" />
-                  <figcaption>Hover to zoom in</figcaption>
-                </figure>
-                3 ) THINK WHACK-A-MOLE!…<strong>HOVER</strong> OVER
-                <strong>MATCHING FX ICONS</strong> TO CLEAR FROM BOARD.<br />
-                <br />
-                HERE'S THE TRICKY PART: HOVER WISELY, OR THE SONG WILL END MUCH
-                FASTER... <br />
-                ***INCORRECT MATCH = <strong>TEMPO INCREASE</strong> | CORRECT
-                MATCH = <strong>TEMPO DECREASE</strong>.*** <br />
-                &nbsp; &nbsp; &nbsp; &nbsp; FRET NOT, THE TEMPO-SHIFT ONLY
-                STARTS ONCE YOU'VE CLEARED 40 ICONS.
-              </p>
+                <p>
+                  1 ) CHOOSE SONG, <strong>CLICK PLAY</strong>. 2) MOVE MOUSE
+                  TOWARD FX BOARD (BOTTOM ICONS). <br />
+                  <br />
+                  ***<strong>FRAME w/ 3 SPINNING ICONS</strong>(FROM FX BOARD)
+                  WILL APPEAR <strong>ABOVE FX BOARD</strong>.***
+                  <figure id="framefig">
+                    <img src="dist/images/frame.png" id="frame" />
+                    <figcaption>Hover to zoom in</figcaption>
+                  </figure>
+                  *** AT ANY GIVEN MOMENT, 1 - 3 <strong>FX ICONS</strong> -->
+                  <strong>MATCH FRAME ICONS</strong>.***
+                  <figure id="matchfig">
+                    <img src="dist/images/match.png" id="match" />
+                    <figcaption>Hover to zoom in</figcaption>
+                  </figure>
+                  3 ) THINK WHACK-A-MOLE!…<strong>HOVER</strong> OVER
+                  <strong>MATCHING FX ICONS</strong> TO CLEAR FROM BOARD.<br />
+                  <br />
+                  HERE'S THE TRICKY PART: HOVER WISELY, OR THE SONG WILL END
+                  MUCH FASTER... <br />
+                  ***INCORRECT MATCH = <strong>TEMPO INCREASE</strong> | CORRECT
+                  MATCH = <strong>TEMPO DECREASE</strong>.*** <br />
+                  &nbsp; &nbsp; &nbsp; &nbsp; FRET NOT, THE TEMPO-SHIFT ONLY
+                  STARTS ONCE YOU'VE CLEARED 40 ICONS.
+                </p>
               </li>
-              <!-- <li class="freestyle"><h2>FREESTYLE MODE</h2></li>
-            <li class="freestyle"><strong>Drag</strong> icons anywhere off the board to isolate your favorite sounds.</li>
-            <li class="freestyle"><strong>Right-Click</strong> dragged icon to send it back to the board.</li>
-            <li class="freestyle">🎧 start with your device volume low 🎧</li> -->
+              <!-- <li class="freestyle">🎧 start with your device volume low 🎧</li> -->
             </ul>
             <span
               class="close"
-              onclick="document.getElementById('myModal').style.display='none'"
               >Let's Play!</span
             >
           </div>
@@ -114,257 +103,390 @@
 
       <div class="tracks">
         <section id="track-wrap">
-        <article class="track">
-          <audio id="fidelity" src="dist/sounds/stereo_fidelity.mp3"></audio>
-          <span class="songTitle">Stereo Fidelity</span>
-          <div class="playerControls">
-            <img
-              id="play"
-              src="dist/images/play-button.png"
-              onclick="document.getElementById('fidelity').play()"
-            />
-            <img
-              id="pause"
-              src="dist/images/pause-button.png"
-              onclick="document.getElementById('fidelity').pause()"
-            />
-            <img
-              id="stop"
-              src="dist/images/stop-button.png"
-              onclick="document.getElementById('fidelity').pause(), document.getElementById('fidelity').currentTime=0"
-            />
-            <img
-              id="rewind"
-              src="dist/images/rewind.png"
-              onclick="document.getElementById('fidelity').currentTime-=5"
-            />
-            <img
-              id="forward"
-              src="dist/images/forward.png"
-              onclick="document.getElementById('fidelity').currentTime+=5"
-            />
-            <fieldset class="slider-hold">
-              <input id="volume-slider" type="range" title="Volume" min="0" max="1" step="0.1" value="0.5" oninput="document.getElementById('fidelity').volume = this.value">
-                <hr>
-              <input id="tempo-slider" title="Tempo" type="range" min="0.1" max="2" step="0.1" value="1" orient="vertical" oninput="document.getElementById('fidelity').playbackRate = this.value">
-            </fieldset>
-          </div>
-        </article>
-        <article class="track">
-          <audio id="xbeats" src="dist/sounds/x-beats-hck-demo.mp3"></audio>
-          <span class="songTitle">xbeats</span>
-          <div class="playerControls">
-            <img
-              id="play"
-              src="dist/images/play-button.png"
-              onclick="document.getElementById('xbeats').play()"
-            />
-            <img
-              id="pause"
-              src="dist/images/pause-button.png"
-              onclick="document.getElementById('xbeats').pause()"
-            />
-            <img
-              id="stop"
-              src="dist/images/stop-button.png"
-              onclick="document.getElementById('xbeats').pause(), document.getElementById('xbeats').currentTime=0"
-            />
-            <img
-              id="rewind"
-              src="dist/images/rewind.png"
-              onclick="document.getElementById('xbeats').currentTime-=5"
-            />
-            <img
-              id="forward"
-              src="dist/images/forward.png"
-              onclick="document.getElementById('xbeats').currentTime+=5"
-            />
-             <fieldset class="slider-hold">
-              <input id="volume-slider" type="range" title="Volume" min="0" max="1" step="0.1" value="0.5" oninput="document.getElementById('xbeats').volume = this.value">
-                <hr>
-              <input id="tempo-slider" title="Tempo" type="range" min="0.1" max="2" step="0.1" value="1" orient="vertical" oninput="document.getElementById('xbeats').playbackRate = this.value">
-            </fieldset>
-          </div>
-        </article>
-        <article class="track">
-          <audio id="depravity" src="dist/sounds/depravity.mp3"></audio>
-          <span class="songTitle">Depravity</span>
-          <div class="playerControls">
-            <img
-              id="play"
-              src="dist/images/play-button.png"
-              onclick="document.getElementById('depravity').play()"
-            />
-            <img
-              id="pause"
-              src="dist/images/pause-button.png"
-              onclick="document.getElementById('depravity').pause()"
-            />
-            <img
-              id="stop"
-              src="dist/images/stop-button.png"
-              onclick="document.getElementById('depravity').pause(), document.getElementById('depravity').currentTime=0"
-            />
-            <img
-              id="rewind"
-              src="dist/images/rewind.png"
-              onclick="document.getElementById('depravity').currentTime-=5"
-            />
-            <img
-              id="forward"
-              src="dist/images/forward.png"
-              onclick="document.getElementById('depravity').currentTime+=5"
-            />
-             <fieldset class="slider-hold">
-              <input id="volume-slider" type="range" title="Volume" min="0" max="1" step="0.1" value="0.5" oninput="document.getElementById('depravity').volume = this.value">
-                <hr>
-              <input id="tempo-slider" title="Tempo" type="range" min="0.1" max="2" step="0.1" value="1" orient="vertical" oninput="document.getElementById('depravity').playbackRate = this.value">
-            </fieldset>
-          </div>
-        </article>
-        <article class="track">
-          <audio id="matrix" src="dist/sounds/matrix.mp3"></audio>
-          <span class="songTitle">Matrix</span>
-          <div class="playerControls">
-            <img
-              id="play"
-              src="dist/images/play-button.png"
-              onclick="document.getElementById('matrix').play()"
-            />
-            <img
-              id="pause"
-              src="dist/images/pause-button.png"
-              onclick="document.getElementById('matrix').pause()"
-            />
-            <img
-              id="stop"
-              src="dist/images/stop-button.png"
-              onclick="document.getElementById('matrix').pause(), document.getElementById('matrix').currentTime=0"
-            />
-            <img
-              id="rewind"
-              src="dist/images/rewind.png"
-              onclick="document.getElementById('matrix').currentTime-=5"
-            />
-            <img
-              id="forward"
-              src="dist/images/forward.png"
-              onclick="document.getElementById('matrix').currentTime+=5"
-            />
-             <fieldset class="slider-hold">
-              <input id="volume-slider" type="range" title="Volume" min="0" max="1" step="0.1" value="0.5" oninput="document.getElementById('matrix').volume = this.value">
-                <hr>
-              <input id="tempo-slider" title="Tempo" type="range" min="0.1" max="2" step="0.1" value="1" orient="vertical" oninput="document.getElementById('matrix').playbackRate = this.value">
-            </fieldset>
-          </div>
-        </article>
-        <article class="track">
-          <audio id="vvr" src="dist/sounds/vvr.mp3"></audio>
-          <span class="songTitle">VVR</span>
-          <div class="playerControls">
-            <img
-              id="play"
-              src="dist/images/play-button.png"
-              onclick="document.getElementById('vvr').play()"
-            />
-            <img
-              id="pause"
-              src="dist/images/pause-button.png"
-              onclick="document.getElementById('vvr').pause()"
-            />
-            <img
-              id="stop"
-              src="dist/images/stop-button.png"
-              onclick="document.getElementById('vvr').pause(), document.getElementById('vvr').currentTime=0"
-            />
-            <img
-              id="rewind"
-              src="dist/images/rewind.png"
-              onclick="document.getElementById('vvr').currentTime-=5"
-            />
-            <img
-              id="forward"
-              src="dist/images/forward.png"
-              onclick="document.getElementById('vvr').currentTime+=5"
-            />
-             <fieldset class="slider-hold">
-              <input id="volume-slider" type="range" title="Volume" min="0" max="1" step="0.1" value="0.5" oninput="document.getElementById('vvr').volume = this.value">
-                <hr>
-              <input id="tempo-slider" title="Tempo" type="range" min="0.1" max="2" step="0.1" value="1" orient="vertical" oninput="document.getElementById('vvr').playbackRate = this.value">
-            </fieldset>
-          </div>
-        </article>
-        <article class="track">
-          <audio id="2448" src="dist/sounds/2448.mp3"></audio>
-          <span class="songTitle">2448</span>
-          <div class="playerControls">
-            <img
-              id="play"
-              src="dist/images/play-button.png"
-              onclick="document.getElementById('2448').play()"
-            />
-            <img
-              id="pause"
-              src="dist/images/pause-button.png"
-              onclick="document.getElementById('2448').pause()"
-            />
-            <img
-              id="stop"
-              src="dist/images/stop-button.png"
-              onclick="document.getElementById('2448').pause(), document.getElementById('2448').currentTime=0"
-            />
-            <img
-              id="rewind"
-              src="dist/images/rewind.png"
-              onclick="document.getElementById('2448').currentTime-=5"
-            />
-            <img
-              id="forward"
-              src="dist/images/forward.png"
-              onclick="document.getElementById('2448').currentTime+=5"
-            />
-            <fieldset class="slider-hold">
-              <input id="volume-slider" type="range" title="Volume" min="0" max="1" step="0.1" value="0.5" oninput="document.getElementById('2448').volume = this.value">
-                <hr>
-              <input id="tempo-slider" title="Tempo" type="range" min="0.1" max="2" step="0.1" value="1" orient="vertical" oninput="document.getElementById('2448').playbackRate = this.value">
-            </fieldset>
-          </div>
-        </article>
-        <article class="track">
-          <audio id="fire" src="dist/sounds/fire.mp3"></audio>
-          <span class="songTitle">Fire</span>
-          <div class="playerControls">
-            <img
-              id="play"
-              src="dist/images/play-button.png"
-              onclick="document.getElementById('fire').play()"
-            />
-            <img
-              id="pause"
-              src="dist/images/pause-button.png"
-              onclick="document.getElementById('fire').pause()"
-            />
-            <img
-              id="stop"
-              src="dist/images/stop-button.png"
-              onclick="document.getElementById('fire').pause(), document.getElementById('fire').currentTime=0"
-            />
-            <img
-              id="rewind"
-              src="dist/images/rewind.png"
-              onclick="document.getElementById('fire').currentTime-=5"
-            />
-            <img
-              id="forward"
-              src="dist/images/forward.png"
-              onclick="document.getElementById('fire').currentTime+=5"
-            />
+          <article class="track">
+            <audio id="fidelity" src="dist/sounds/stereo_fidelity.mp3"></audio>
+            <span class="songTitle">Stereo Fidelity</span>
+            <div class="playerControls">
+              <img
+                id="play"
+                src="dist/images/play-button.png"
+                onclick="document.getElementById('fidelity').play()"
+              />
+              <img
+                id="pause"
+                src="dist/images/pause-button.png"
+                onclick="document.getElementById('fidelity').pause()"
+              />
+              <img
+                id="stop"
+                src="dist/images/stop-button.png"
+                onclick="document.getElementById('fidelity').pause(), document.getElementById('fidelity').currentTime=0"
+              />
+              <img
+                id="rewind"
+                src="dist/images/rewind.png"
+                onclick="document.getElementById('fidelity').currentTime-=5"
+              />
+              <img
+                id="forward"
+                src="dist/images/forward.png"
+                onclick="document.getElementById('fidelity').currentTime+=5"
+              />
               <fieldset class="slider-hold">
-              <input id="volume-slider" type="range" title="Volume" min="0" max="1" step="0.1" value="0.5" oninput="document.getElementById('fire').volume = this.value">
-                <hr>
-              <input id="tempo-slider" title="Tempo" type="range" min="0.1" max="2" step="0.1" value="1" orient="vertical" oninput="document.getElementById('fire').playbackRate = this.value">
-            </fieldset>
-            <!-- <img
+                <input
+                  id="volume-slider"
+                  type="range"
+                  title="Volume"
+                  min="0"
+                  max="1"
+                  step="0.1"
+                  value="0.5"
+                  oninput="document.getElementById('fidelity').volume = this.value"
+                />
+                <hr />
+                <input
+                  id="tempo-slider"
+                  title="Tempo"
+                  type="range"
+                  min="0.1"
+                  max="2"
+                  step="0.1"
+                  value="1"
+                  orient="vertical"
+                  oninput="document.getElementById('fidelity').playbackRate = this.value"
+                />
+              </fieldset>
+            </div>
+          </article>
+          <article class="track">
+            <audio id="xbeats" src="dist/sounds/x-beats-hck-demo.mp3"></audio>
+            <span class="songTitle">xbeats</span>
+            <div class="playerControls">
+              <img
+                id="play"
+                src="dist/images/play-button.png"
+                onclick="document.getElementById('xbeats').play()"
+              />
+              <img
+                id="pause"
+                src="dist/images/pause-button.png"
+                onclick="document.getElementById('xbeats').pause()"
+              />
+              <img
+                id="stop"
+                src="dist/images/stop-button.png"
+                onclick="document.getElementById('xbeats').pause(), document.getElementById('xbeats').currentTime=0"
+              />
+              <img
+                id="rewind"
+                src="dist/images/rewind.png"
+                onclick="document.getElementById('xbeats').currentTime-=5"
+              />
+              <img
+                id="forward"
+                src="dist/images/forward.png"
+                onclick="document.getElementById('xbeats').currentTime+=5"
+              />
+              <fieldset class="slider-hold">
+                <input
+                  id="volume-slider"
+                  type="range"
+                  title="Volume"
+                  min="0"
+                  max="1"
+                  step="0.1"
+                  value="0.5"
+                  oninput="document.getElementById('xbeats').volume = this.value"
+                />
+                <hr />
+                <input
+                  id="tempo-slider"
+                  title="Tempo"
+                  type="range"
+                  min="0.1"
+                  max="2"
+                  step="0.1"
+                  value="1"
+                  orient="vertical"
+                  oninput="document.getElementById('xbeats').playbackRate = this.value"
+                />
+              </fieldset>
+            </div>
+          </article>
+          <article class="track">
+            <audio id="depravity" src="dist/sounds/depravity.mp3"></audio>
+            <span class="songTitle">Depravity</span>
+            <div class="playerControls">
+              <img
+                id="play"
+                src="dist/images/play-button.png"
+                onclick="document.getElementById('depravity').play()"
+              />
+              <img
+                id="pause"
+                src="dist/images/pause-button.png"
+                onclick="document.getElementById('depravity').pause()"
+              />
+              <img
+                id="stop"
+                src="dist/images/stop-button.png"
+                onclick="document.getElementById('depravity').pause(), document.getElementById('depravity').currentTime=0"
+              />
+              <img
+                id="rewind"
+                src="dist/images/rewind.png"
+                onclick="document.getElementById('depravity').currentTime-=5"
+              />
+              <img
+                id="forward"
+                src="dist/images/forward.png"
+                onclick="document.getElementById('depravity').currentTime+=5"
+              />
+              <fieldset class="slider-hold">
+                <input
+                  id="volume-slider"
+                  type="range"
+                  title="Volume"
+                  min="0"
+                  max="1"
+                  step="0.1"
+                  value="0.5"
+                  oninput="document.getElementById('depravity').volume = this.value"
+                />
+                <hr />
+                <input
+                  id="tempo-slider"
+                  title="Tempo"
+                  type="range"
+                  min="0.1"
+                  max="2"
+                  step="0.1"
+                  value="1"
+                  orient="vertical"
+                  oninput="document.getElementById('depravity').playbackRate = this.value"
+                />
+              </fieldset>
+            </div>
+          </article>
+          <article class="track">
+            <audio id="matrix" src="dist/sounds/matrix.mp3"></audio>
+            <span class="songTitle">Matrix</span>
+            <div class="playerControls">
+              <img
+                id="play"
+                src="dist/images/play-button.png"
+                onclick="document.getElementById('matrix').play()"
+              />
+              <img
+                id="pause"
+                src="dist/images/pause-button.png"
+                onclick="document.getElementById('matrix').pause()"
+              />
+              <img
+                id="stop"
+                src="dist/images/stop-button.png"
+                onclick="document.getElementById('matrix').pause(), document.getElementById('matrix').currentTime=0"
+              />
+              <img
+                id="rewind"
+                src="dist/images/rewind.png"
+                onclick="document.getElementById('matrix').currentTime-=5"
+              />
+              <img
+                id="forward"
+                src="dist/images/forward.png"
+                onclick="document.getElementById('matrix').currentTime+=5"
+              />
+              <fieldset class="slider-hold">
+                <input
+                  id="volume-slider"
+                  type="range"
+                  title="Volume"
+                  min="0"
+                  max="1"
+                  step="0.1"
+                  value="0.5"
+                  oninput="document.getElementById('matrix').volume = this.value"
+                />
+                <hr />
+                <input
+                  id="tempo-slider"
+                  title="Tempo"
+                  type="range"
+                  min="0.1"
+                  max="2"
+                  step="0.1"
+                  value="1"
+                  orient="vertical"
+                  oninput="document.getElementById('matrix').playbackRate = this.value"
+                />
+              </fieldset>
+            </div>
+          </article>
+          <article class="track">
+            <audio id="vvr" src="dist/sounds/vvr.mp3"></audio>
+            <span class="songTitle">VVR</span>
+            <div class="playerControls">
+              <img
+                id="play"
+                src="dist/images/play-button.png"
+                onclick="document.getElementById('vvr').play()"
+              />
+              <img
+                id="pause"
+                src="dist/images/pause-button.png"
+                onclick="document.getElementById('vvr').pause()"
+              />
+              <img
+                id="stop"
+                src="dist/images/stop-button.png"
+                onclick="document.getElementById('vvr').pause(), document.getElementById('vvr').currentTime=0"
+              />
+              <img
+                id="rewind"
+                src="dist/images/rewind.png"
+                onclick="document.getElementById('vvr').currentTime-=5"
+              />
+              <img
+                id="forward"
+                src="dist/images/forward.png"
+                onclick="document.getElementById('vvr').currentTime+=5"
+              />
+              <fieldset class="slider-hold">
+                <input
+                  id="volume-slider"
+                  type="range"
+                  title="Volume"
+                  min="0"
+                  max="1"
+                  step="0.1"
+                  value="0.5"
+                  oninput="document.getElementById('vvr').volume = this.value"
+                />
+                <hr />
+                <input
+                  id="tempo-slider"
+                  title="Tempo"
+                  type="range"
+                  min="0.1"
+                  max="2"
+                  step="0.1"
+                  value="1"
+                  orient="vertical"
+                  oninput="document.getElementById('vvr').playbackRate = this.value"
+                />
+              </fieldset>
+            </div>
+          </article>
+          <article class="track">
+            <audio id="2448" src="dist/sounds/2448.mp3"></audio>
+            <span class="songTitle">2448</span>
+            <div class="playerControls">
+              <img
+                id="play"
+                src="dist/images/play-button.png"
+                onclick="document.getElementById('2448').play()"
+              />
+              <img
+                id="pause"
+                src="dist/images/pause-button.png"
+                onclick="document.getElementById('2448').pause()"
+              />
+              <img
+                id="stop"
+                src="dist/images/stop-button.png"
+                onclick="document.getElementById('2448').pause(), document.getElementById('2448').currentTime=0"
+              />
+              <img
+                id="rewind"
+                src="dist/images/rewind.png"
+                onclick="document.getElementById('2448').currentTime-=5"
+              />
+              <img
+                id="forward"
+                src="dist/images/forward.png"
+                onclick="document.getElementById('2448').currentTime+=5"
+              />
+              <fieldset class="slider-hold">
+                <input
+                  id="volume-slider"
+                  type="range"
+                  title="Volume"
+                  min="0"
+                  max="1"
+                  step="0.1"
+                  value="0.5"
+                  oninput="document.getElementById('2448').volume = this.value"
+                />
+                <hr />
+                <input
+                  id="tempo-slider"
+                  title="Tempo"
+                  type="range"
+                  min="0.1"
+                  max="2"
+                  step="0.1"
+                  value="1"
+                  orient="vertical"
+                  oninput="document.getElementById('2448').playbackRate = this.value"
+                />
+              </fieldset>
+            </div>
+          </article>
+          <article class="track">
+            <audio id="fire" src="dist/sounds/fire.mp3"></audio>
+            <span class="songTitle">Fire</span>
+            <div class="playerControls">
+              <img
+                id="play"
+                src="dist/images/play-button.png"
+                onclick="document.getElementById('fire').play()"
+              />
+              <img
+                id="pause"
+                src="dist/images/pause-button.png"
+                onclick="document.getElementById('fire').pause()"
+              />
+              <img
+                id="stop"
+                src="dist/images/stop-button.png"
+                onclick="document.getElementById('fire').pause(), document.getElementById('fire').currentTime=0"
+              />
+              <img
+                id="rewind"
+                src="dist/images/rewind.png"
+                onclick="document.getElementById('fire').currentTime-=5"
+              />
+              <img
+                id="forward"
+                src="dist/images/forward.png"
+                onclick="document.getElementById('fire').currentTime+=5"
+              />
+              <fieldset class="slider-hold">
+                <input
+                  id="volume-slider"
+                  type="range"
+                  title="Volume"
+                  min="0"
+                  max="1"
+                  step="0.1"
+                  value="0.5"
+                  oninput="document.getElementById('fire').volume = this.value"
+                />
+                <hr />
+                <input
+                  id="tempo-slider"
+                  title="Tempo"
+                  type="range"
+                  min="0.1"
+                  max="2"
+                  step="0.1"
+                  value="1"
+                  orient="vertical"
+                  oninput="document.getElementById('fire').playbackRate = this.value"
+                />
+              </fieldset>
+              <!-- <img
               id="volume"
               src="dist/images/lo-volume.png"
               onclick="document.getElementById('fire').volume-=0.1"
@@ -386,12 +508,20 @@
               title="Tempo Up"
               onclick="document.getElementById('fire').playbackRate+=0.1"
             /> -->
-          </div>
-        </article>
+            </div>
+          </article>
         </section>
       </div>
 
-      <iframe id="playlist" src="https://open.spotify.com/embed/playlist/6vApk4FcYqtPxESEwl38mZ" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+      <iframe
+        id="playlist"
+        src="https://open.spotify.com/embed/playlist/6vApk4FcYqtPxESEwl38mZ"
+        width="300"
+        height="380"
+        frameborder="0"
+        allowtransparency="true"
+        allow="encrypted-media"
+      ></iframe>
 
       <div
         class="effects"
@@ -399,76 +529,40 @@
         style="cursor: url('dist/images/spinhand3.png'), auto"
       >
         <audio id="xkicks" src="dist/sounds/xkicks.mp3"></audio>
-        <img
-          id="xkicks"
-          src="dist/images/xkicks.png"
-        />
+        <img id="xkicks" src="dist/images/xkicks.png" />
 
         <audio id="bassline" src="dist/sounds/bassline.mp3"></audio>
-        <img
-          id="bassline"
-          src="dist/images/bassline.png"
-        />
+        <img id="bassline" src="dist/images/bassline.png" />
 
         <audio id="subby" src="dist/sounds/subby.mp3"></audio>
-        <img
-          id="kick"
-          src="dist/images/kick.png"
-        />
+        <img id="kick" src="dist/images/kick.png" />
 
         <audio id="testekick" src="dist/sounds/testekick.mp3"></audio>
-        <img
-          id="punch"
-          src="dist/images/punch.png"
-        />
+        <img id="punch" src="dist/images/punch.png" />
 
         <audio id="hardcore" src="dist/sounds/hardcore.mp3"></audio>
-        <img
-          id="hardcore"
-          src="dist/images/hardcore.png"
-        />
+        <img id="hardcore" src="dist/images/hardcore.png" />
 
         <audio id="tekchain" src="dist/sounds/tekchain.mp3"></audio>
-        <img
-          id="tekchain"
-          src="dist/images/tekchain.png"
-        />
+        <img id="tekchain" src="dist/images/tekchain.png" />
 
         <audio id="80s" src="dist/sounds/80kick.mp3"></audio>
-        <img
-          id="rhombus"
-          src="dist/images/80s.png"
-        />
+        <img id="rhombus" src="dist/images/80s.png" />
 
         <audio id="dancetrance" src="dist/sounds/dancetrance.mp3"></audio>
-        <img
-          id="dancetrance"
-          src="dist/images/dancetrance.png"
-        />
+        <img id="dancetrance" src="dist/images/dancetrance.png" />
 
         <audio id="technokick" src="dist/sounds/technokick.mp3"></audio>
-        <img
-          id="speaker"
-          src="dist/images/speaker.png"
-        />
+        <img id="speaker" src="dist/images/speaker.png" />
 
         <audio id="psy" src="dist/sounds/psykick.mp3"></audio>
-        <img
-          id="psy"
-          src="dist/images/psyy.png"
-        />
+        <img id="psy" src="dist/images/psyy.png" />
 
         <audio id="heavyglitch" src="dist/sounds/heavyglitch.mp3"></audio>
-        <img
-          id="heavyglitch"
-          src="dist/images/heavyglitch.png"
-        />
+        <img id="heavyglitch" src="dist/images/heavyglitch.png" />
 
         <audio id="screech" src="dist/sounds/screech.mp3"></audio>
-        <img
-          id="screech"
-          src="dist/images/screech.png"
-        />
+        <img id="screech" src="dist/images/screech.png" />
 
         <audio id="bassquirt" src="dist/sounds/bassquirt.mp3"></audio>
         <img
@@ -485,52 +579,28 @@
         />
 
         <audio id="duer" src="dist/sounds/duer.mp3"></audio>
-        <img
-          id="duer"
-          src="dist/images/duer.png"
-        />
+        <img id="duer" src="dist/images/duer.png" />
 
         <audio id="timba" src="dist/sounds/timba.mp3"></audio>
-        <img
-          id="timba"
-          src="dist/images/timba.png"
-        />
+        <img id="timba" src="dist/images/timba.png" />
 
         <audio id="plink" src="dist/sounds/plink.mp3"></audio>
-        <img
-          id="plink"
-          src="dist/images/plink.png"
-        />
+        <img id="plink" src="dist/images/plink.png" />
 
         <audio id="64bit" src="dist/sounds/64bit.mp3"></audio>
-        <img
-          id="arcade"
-          src="dist/images/arcade2.png"
-        />
+        <img id="arcade" src="dist/images/arcade2.png" />
 
         <audio id="coin" src="dist/sounds/coin.mp3"></audio>
-        <img
-          id="coin"
-          src="dist/images/coins.png"
-        />
+        <img id="coin" src="dist/images/coins.png" />
 
         <audio id="gameheal" src="dist/sounds/gameheal.mp3"></audio>
-        <img
-          id="gameheal"
-          src="dist/images/gameheal.png"
-        />
+        <img id="gameheal" src="dist/images/gameheal.png" />
 
         <audio id="psyloop" src="dist/sounds/psyloop.mp3"></audio>
-        <img
-          id="psyloop"
-          src="dist/images/psyloop.png"
-        />
+        <img id="psyloop" src="dist/images/psyloop.png" />
 
         <audio id="psybass" src="dist/sounds/psybass.mp3"></audio>
-        <img
-          id="psybass"
-          src="dist/images/psybass.png"
-        />
+        <img id="psybass" src="dist/images/psybass.png" />
 
         <audio id="lazer" src="dist/sounds/lazer.mp3"></audio>
         <img
@@ -540,106 +610,55 @@
         />
 
         <audio id="laser" src="dist/sounds/laser.mp3"></audio>
-        <img
-          id="laser"
-          src="dist/images/laser-gun.png"
-        />
+        <img id="laser" src="dist/images/laser-gun.png" />
 
         <audio id="levelup" src="dist/sounds/levelup.mp3"></audio>
-        <img
-          id="levelup"
-          src="dist/images/levelup.png"
-        />
+        <img id="levelup" src="dist/images/levelup.png" />
 
         <audio id="lazzzer" src="dist/sounds/lazzzer.mp3"></audio>
-        <img
-          id="lazzzer"
-          src="dist/images/lazzzer.png"
-        />
+        <img id="lazzzer" src="dist/images/lazzzer.png" />
 
         <audio id="trancekick" src="dist/sounds/trancekick.mp3"></audio>
-        <img
-          id="trancekick"
-          src="dist/images/trancekick.png"
-        />
+        <img id="trancekick" src="dist/images/trancekick.png" />
 
         <audio id="wonderloop" src="dist/sounds/wonderloop.mp3"></audio>
-        <img
-          id="wonderloop"
-          src="dist/images/wonderloop.png"
-        />
+        <img id="wonderloop" src="dist/images/wonderloop.png" />
 
         <audio id="gloving" src="dist/sounds/gloving.mp3"></audio>
-        <img
-          id="gloving"
-          src="dist/images/gloving.png"
-        />
+        <img id="gloving" src="dist/images/gloving.png" />
 
         <audio id="heaven" src="dist/sounds/heaven.mp3"></audio>
-        <img
-          id="heaven"
-          src="dist/images/heaven.png"
-        />
+        <img id="heaven" src="dist/images/heaven.png" />
 
         <audio id="dissnare" src="dist/sounds/dissnare.mp3"></audio>
-        <img
-          id="dissnare"
-          src="dist/images/dissnare.png"
-        />
+        <img id="dissnare" src="dist/images/dissnare.png" />
 
         <audio id="steadydrum" src="dist/sounds/steadydrum.mp3"></audio>
-        <img
-          id="steadydrum"
-          src="dist/images/steadydrum.png"
-        />
+        <img id="steadydrum" src="dist/images/steadydrum.png" />
 
         <audio id="rand" src="dist/sounds/rand.mp3"></audio>
-        <img
-          id="rand"
-          src="dist/images/rand.png"
-        />
+        <img id="rand" src="dist/images/rand.png" />
 
         <audio id="randd" src="dist/sounds/randd.mp3"></audio>
-        <img
-          id="randd"
-          src="dist/images/randd.png"
-        />
+        <img id="randd" src="dist/images/randd.png" />
 
         <audio id="machinegun" src="dist/sounds/machinegun.mp3"></audio>
-        <img
-          id="machinegun"
-          src="dist/images/machinegun.png"
-        />
+        <img id="machinegun" src="dist/images/machinegun.png" />
 
         <audio id="cymbals" src="dist/sounds/cymbals.mp3"></audio>
-        <img
-          id="cymbals"
-          src="dist/images/cymbals.png"
-        />
+        <img id="cymbals" src="dist/images/cymbals.png" />
 
         <audio id="drumloop" src="dist/sounds/drumloop.mp3"></audio>
-        <img
-          id="drumloop"
-          src="dist/images/drumloop.png"
-        />
+        <img id="drumloop" src="dist/images/drumloop.png" />
 
         <audio id="breakdist" src="dist/sounds/breakdist.mp3"></audio>
-        <img
-          id="breakdist"
-          src="dist/images/breakdist.png"
-        />
+        <img id="breakdist" src="dist/images/breakdist.png" />
 
         <audio id="dnbloop" src="dist/sounds/dnbloop.mp3"></audio>
-        <img
-          id="dnbloop"
-          src="dist/images/dnbloop.png"
-        />
+        <img id="dnbloop" src="dist/images/dnbloop.png" />
 
         <audio id="elecguitar" src="dist/sounds/elecguitar.mp3"></audio>
-        <img
-          id="elecguitar"
-          src="dist/images/guitar2.png"
-        />
+        <img id="elecguitar" src="dist/images/guitar2.png" />
 
         <audio id="victory" src="dist/sounds/victory.mp3"></audio>
         <img
@@ -649,22 +668,13 @@
         />
 
         <audio id="chug" src="dist/sounds/chug.mp3"></audio>
-        <img
-          id="chug"
-          src="dist/images/chug.png"
-        />
+        <img id="chug" src="dist/images/chug.png" />
 
         <audio id="dubdrop" src="dist/sounds/dubdrop.mp3"></audio>
-        <img
-          id="electrotab"
-          src="dist/images/electrotab.png"
-        />
+        <img id="electrotab" src="dist/images/electrotab.png" />
 
         <audio id="kparty" src="dist/sounds/kparty.mp3"></audio>
-        <img
-          id="kparty"
-          src="dist/images/kparty.png"
-        />
+        <img id="kparty" src="dist/images/kparty.png" />
 
         <audio id="sirenloop" src="dist/sounds/sirenloop.mp3"></audio>
         <img
@@ -681,142 +691,73 @@
         />
 
         <audio id="wobble" src="dist/sounds/wobble.mp3"></audio>
-        <img
-          id="wobble"
-          src="dist/images/wobble.png"
-        />
+        <img id="wobble" src="dist/images/wobble.png" />
 
         <audio id="revkick" src="dist/sounds/revkick.mp3"></audio>
-        <img
-          id="revkick"
-          src="dist/images/revkick.png"
-        />
+        <img id="revkick" src="dist/images/revkick.png" />
 
         <audio id="revbass" src="dist/sounds/revbass.mp3"></audio>
-        <img
-          id="revbass"
-          src="dist/images/revbass.png"
-        />
+        <img id="revbass" src="dist/images/revbass.png" />
 
         <audio id="shockforce" src="dist/sounds/shockforce.mp3"></audio>
-        <img
-          id="shockforce"
-          src="dist/images/hacker.png"
-        />
+        <img id="shockforce" src="dist/images/hacker.png" />
 
         <audio id="megakick" src="dist/sounds/megakick.mp3"></audio>
-        <img
-          id="gangster"
-          src="dist/images/gangster.png"
-        />
+        <img id="gangster" src="dist/images/gangster.png" />
 
         <audio id="distorcion" src="dist/sounds/distorcion.mp3"></audio>
-        <img
-          id="distorcion"
-          src="dist/images/rockhands.png"
-        />
+        <img id="distorcion" src="dist/images/rockhands.png" />
 
         <audio id="gabkicks" src="dist/sounds/gabkicks.mp3"></audio>
-        <img
-          id="gabkicks"
-          src="dist/images/gabkicks.png"
-        />
+        <img id="gabkicks" src="dist/images/gabkicks.png" />
 
         <audio id="corekick" src="dist/sounds/corekick.mp3"></audio>
-        <img
-          id="corekick"
-          src="dist/images/corekick.png"
-        />
+        <img id="corekick" src="dist/images/corekick.png" />
 
         <audio id="distodnb" src="dist/sounds/distodnb.mp3"></audio>
-        <img
-          id="distodnb"
-          src="dist/images/distodnb.png"
-        />
+        <img id="distodnb" src="dist/images/distodnb.png" />
 
         <audio id="frenchcore" src="dist/sounds/frenchcore.mp3"></audio>
-        <img
-          id="frenchcore"
-          src="dist/images/frenchcore.png"
-        />
+        <img id="frenchcore" src="dist/images/frenchcore.png" />
 
         <audio id="quake" src="dist/sounds/quake.mp3"></audio>
-        <img
-          id="quake"
-          src="dist/images/quake.png"
-        />
+        <img id="quake" src="dist/images/quake.png" />
 
         <audio id="deathstep" src="dist/sounds/skrillgrowl.mp3"></audio>
-        <img
-          id="deathstep"
-          src="dist/images/deathstep.png"
-        />
+        <img id="deathstep" src="dist/images/deathstep.png" />
 
         <audio id="readycore" src="dist/sounds/readycore.mp3"></audio>
-        <img
-          id="readycore"
-          src="dist/images/headbanger.png"
-        />
+        <img id="readycore" src="dist/images/headbanger.png" />
 
         <audio id="gabber" src="dist/sounds/gabber.mp3"></audio>
-        <img
-          id="gabber"
-          src="dist/images/gabber.png"
-        />
+        <img id="gabber" src="dist/images/gabber.png" />
 
         <audio id="trance" src="dist/sounds/trance.mp3"></audio>
-        <img
-          id="trance"
-          src="dist/images/trance.png"
-        />
+        <img id="trance" src="dist/images/trance.png" />
 
         <audio id="yaiyai" src="dist/sounds/yaiyai.mp3"></audio>
-        <img
-          id="yaiyai"
-          src="dist/images/yaiyai.png"
-        />
+        <img id="yaiyai" src="dist/images/yaiyai.png" />
 
         <audio id="edmdistort" src="dist/sounds/edmdistort.mp3"></audio>
-        <img
-          id="edmdistort"
-          src="dist/images/edmdistort.png"
-        />
+        <img id="edmdistort" src="dist/images/edmdistort.png" />
 
         <audio id="pacscratch" src="dist/sounds/pacscratch.mp3"></audio>
-        <img
-          id="spinit"
-          src="dist/images/spinit.png"
-        />
+        <img id="spinit" src="dist/images/spinit.png" />
 
         <audio id="backspin" src="dist/sounds/backspin.mp3"></audio>
-        <img
-          id="backspin"
-          src="dist/images/backspin.png"
-        />
+        <img id="backspin" src="dist/images/backspin.png" />
 
         <audio id="ignition" src="dist/sounds/ignition.mp3"></audio>
-        <img
-          id="ignition"
-          src="dist/images/ignition.png"
-        />
+        <img id="ignition" src="dist/images/ignition.png" />
 
         <audio id="remix" src="dist/sounds/remix.mp3"></audio>
-        <img
-          id="remix"
-          src="dist/images/remix.png"
-        />
+        <img id="remix" src="dist/images/remix.png" />
 
         <audio id="bassgrowl" src="dist/sounds/bassgrowl.mp3"></audio>
-        <img
-          id="bassgrowl"
-          src="dist/images/bassgrowl.png"
-        />
+        <img id="bassgrowl" src="dist/images/bassgrowl.png" />
 
         <audio id="reaktor" src="dist/sounds/reaktor.mp3"></audio>
-        <img
-          id="reaktor"
-          src="dist/images/reaktor.png"
-        />
+        <img id="reaktor" src="dist/images/reaktor.png" />
 
         <audio id="dubgrowl" src="dist/sounds/dubgrowl.mp3"></audio>
         <img
@@ -826,184 +767,94 @@
         />
 
         <audio id="spacewave" src="dist/sounds/spacewave.mp3"></audio>
-        <img
-          id="spacewave"
-          src="dist/images/spacewave.png"
-        />
+        <img id="spacewave" src="dist/images/spacewave.png" />
 
         <audio id="perc" src="dist/sounds/perc.mp3"></audio>
-        <img
-          id="perc"
-          src="dist/images/perc.png"
-        />
+        <img id="perc" src="dist/images/perc.png" />
 
         <audio id="killerloop" src="dist/sounds/killerloop.mp3"></audio>
-        <img
-          id="killerloop"
-          src="dist/images/killerloop.png"
-        />
+        <img id="killerloop" src="dist/images/killerloop.png" />
 
         <audio id="darkacid" src="dist/sounds/darkacid.mp3"></audio>
-        <img
-          id="darkacid"
-          src="dist/images/darkacid.png"
-        />
+        <img id="darkacid" src="dist/images/darkacid.png" />
 
         <audio id="analog" src="dist/sounds/analog.mp3"></audio>
-        <img
-          id="analog"
-          src="dist/images/analog.png"
-        />
+        <img id="analog" src="dist/images/analog.png" />
 
         <audio id="dodgybass" src="dist/sounds/dodgybass.mp3"></audio>
-        <img
-          id="dodgybass"
-          src="dist/images/dodgybass.png"
-        />
+        <img id="dodgybass" src="dist/images/dodgybass.png" />
 
         <audio id="weirdloop" src="dist/sounds/weirdloop.mp3"></audio>
-        <img
-          id="weirdloop"
-          src="dist/images/weirdloop.png"
-        />
+        <img id="weirdloop" src="dist/images/weirdloop.png" />
 
         <audio id="flostep" src="dist/sounds/flostep.mp3"></audio>
-        <img
-          id="flostep"
-          src="dist/images/flostep.png"
-        />
+        <img id="flostep" src="dist/images/flostep.png" />
 
         <audio id="elecdrum" src="dist/sounds/elecdrum.mp3"></audio>
-        <img
-          id="elecdrum"
-          src="dist/images/elecdrum.png"
-        />
+        <img id="elecdrum" src="dist/images/elecdrum.png" />
 
         <audio id="elecdrum2" src="dist/sounds/elecdrum2.mp3"></audio>
-        <img
-          id="elecdrum2"
-          src="dist/images/elecdrum2.png"
-        />
+        <img id="elecdrum2" src="dist/images/elecdrum2.png" />
 
         <audio id="funkysynth" src="dist/sounds/funkysynth.mp3"></audio>
-        <img
-          id="funkysynth"
-          src="dist/images/funkysynth.png"
-        />
+        <img id="funkysynth" src="dist/images/funkysynth.png" />
 
         <audio id="kickdsh" src="dist/sounds/kickdsh.mp3"></audio>
-        <img
-          id="kickdsh"
-          src="dist/images/kickdsh.png"
-        />
+        <img id="kickdsh" src="dist/images/kickdsh.png" />
 
         <audio id="dropkick" src="dist/sounds/dropkick.mp3"></audio>
-        <img
-          id="dropkick"
-          src="dist/images/testekick.png"
-        />
+        <img id="dropkick" src="dist/images/testekick.png" />
 
         <audio id="voice" src="dist/sounds/technovoice.mp3"></audio>
-        <img
-          id="voice"
-          src="dist/images/voice.png"
-        />
+        <img id="voice" src="dist/images/voice.png" />
 
         <audio id="disco" src="dist/sounds/disco.mp3"></audio>
-        <img
-          id="disco"
-          src="dist/images/disco.png"
-        />
+        <img id="disco" src="dist/images/disco.png" />
 
         <audio id="elecpop" src="dist/sounds/elecpop.mp3"></audio>
-        <img
-          id="elecpop"
-          src="dist/images/elecpop.png"
-        />
+        <img id="elecpop" src="dist/images/elecpop.png" />
 
         <audio id="herbert" src="dist/sounds/herbert.mp3"></audio>
-        <img
-          id="herbert"
-          src="dist/images/herbert.png"
-        />
+        <img id="herbert" src="dist/images/herbert.png" />
 
         <audio id="sheenery" src="dist/sounds/sheenery.mp3"></audio>
-        <img
-          id="sheenery"
-          src="dist/images/sheenery.png"
-        />
+        <img id="sheenery" src="dist/images/sheenery.png" />
 
         <audio id="spacewhoosh" src="dist/sounds/spacewhoosh.mp3"></audio>
-        <img
-          id="spacewhoosh"
-          src="dist/images/spacewhoosh.png"
-        />
+        <img id="spacewhoosh" src="dist/images/spacewhoosh.png" />
 
         <audio id="sword" src="dist/sounds/sword.mp3"></audio>
-        <img
-          id="sword"
-          src="dist/images/sword.png"
-        />
+        <img id="sword" src="dist/images/sword.png" />
 
         <audio id="knife" src="dist/sounds/knife.mp3"></audio>
-        <img
-          id="knife"
-          src="dist/images/knife.png"
-        />
+        <img id="knife" src="dist/images/knife.png" />
 
         <audio id="zombie" src="dist/sounds/zombie.mp3"></audio>
-        <img
-          id="zombie"
-          src="dist/images/zombie.png"
-        />
+        <img id="zombie" src="dist/images/zombie.png" />
 
         <audio id="smash" src="dist/sounds/smash.mp3"></audio>
-        <img
-          id="smash"
-          src="dist/images/smash.png"
-        />
+        <img id="smash" src="dist/images/smash.png" />
 
         <audio id="shield" src="dist/sounds/shield.mp3"></audio>
-        <img
-          id="shield"
-          src="dist/images/shield.png"
-        />
+        <img id="shield" src="dist/images/shield.png" />
 
         <audio id="chirp" src="dist/sounds/chirp.mp3"></audio>
-        <img
-          id="chirp"
-          src="dist/images/chirp.png"
-        />
+        <img id="chirp" src="dist/images/chirp.png" />
 
         <audio id="meow" src="dist/sounds/meow.mp3"></audio>
-        <img
-          id="meow"
-          src="dist/images/meow.png"
-        />
+        <img id="meow" src="dist/images/meow.png" />
 
         <audio id="dog" src="dist/sounds/dog.mp3"></audio>
-        <img
-          id="dog"
-          src="dist/images/dog.png"
-        />
+        <img id="dog" src="dist/images/dog.png" />
 
         <audio id="guineapig" src="dist/sounds/guineapig.mp3"></audio>
-        <img
-          id="guineapig"
-          src="dist/images/guineapig.png"
-        />
+        <img id="guineapig" src="dist/images/guineapig.png" />
 
         <audio id="frog" src="dist/sounds/frog.mp3"></audio>
-        <img
-          id="frog"
-          src="dist/images/frog.png"
-        />
+        <img id="frog" src="dist/images/frog.png" />
 
         <audio id="dolphin" src="dist/sounds/dolphin.mp3"></audio>
-        <img
-          id="dolphin"
-          src="dist/images/dolphin.png"
-        />
+        <img id="dolphin" src="dist/images/dolphin.png" />
       </div>
     </main>
     <footer>

@@ -40,6 +40,7 @@ export function toggleModal() {
 
     if (event.code === "KeyH") {
       myModal.classList.remove("modal-hide");
+      modalContent.scrollTo(0,0);
       about.classList.remove("about-show");
     }
 
@@ -76,9 +77,8 @@ export function toggleModal() {
   about.onclick = function () {
     modal.classList.remove("modal-hide");
     about.classList.remove("about-show");
+    modalContent.scrollTo(0, 0);
   };
-
-  // li.innerHTML = "Press <strong>R</strong> to Shuffle Effects!";
 
   const freestyle = {
     title: "<h2 class='freestyle-header'>FREESTYLE MODE</h2>",
@@ -95,7 +95,6 @@ export function toggleModal() {
 
   function addFreestyle() {
     let items = Object.values(freestyle);
-    // let fragment = document.createDocumentFragment();
     let ul = document.createElement("ul");
     ul.classList.add("instructions", "freestyle-wrap");
 
