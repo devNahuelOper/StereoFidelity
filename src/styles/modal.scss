@@ -128,8 +128,19 @@
   }
 }
 
+.freestyle-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  line-height: 1.4;
+}
+
 .freestyle {
-  text-align: center;
+  margin-left: 12px;
+}
+
+.freestyle-header {
+  margin-left: -12px;
 }
 
 .modal-freeze {
