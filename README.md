@@ -109,7 +109,8 @@ Bonus points are also acquired for efficiency (calculated using the time played 
        aud.replaceWith(subAud.cloneNode());
        img.replaceWith(subImg.cloneNode());
      }
-
+     
+     // Add a visual touch using setZoom (Web Animations API function made in other file)
      for (let j = 0; j < images.length; j++) {
        let img = effects.querySelectorAll("img")[j];
        setTimeout(() => setZoom(img, 500, 100, 1, "forwards", 1), j * 20);
