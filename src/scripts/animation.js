@@ -36,7 +36,7 @@ export function setMorph(...elements) {
 }
 
 
-export function setZoom(ele, pers, tranZ, dur = 10, fill = "forwards") {
+export function setZoom(ele, pers, tranZ, dur = 10, fill = "forwards", iterations = Infinity) {
   return ele.animate(
     [
       {
@@ -55,7 +55,7 @@ export function setZoom(ele, pers, tranZ, dur = 10, fill = "forwards") {
     ],
     {
       duration: dur * 1000,
-      iterations: Infinity,
+      iterations,
       fill,
     }
   );

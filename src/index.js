@@ -52,7 +52,7 @@ async function main() {
   });
 
   window.addEventListener("unhandledrejection", (e) => {
-    preventDefault();
+    e.preventDefault();
   });
 }
 

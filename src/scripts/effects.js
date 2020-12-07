@@ -1,3 +1,5 @@
+import { setZoom } from "./animation";
+
 export function activateEffects() {
   const effects = document.getElementsByClassName("effects")[0];
   const stage = document.querySelector("main");
@@ -165,6 +167,12 @@ export function shuffleEffects() {
       aud.replaceWith(subAud.cloneNode());
       img.replaceWith(subImg.cloneNode());
     }
+
+    for (let j = 0; j < images.length; j++) {
+      let img = effects.querySelectorAll("img")[j];
+      setTimeout(() => setZoom(img, 500, 100, 1, "forwards", 1), j * 20);
+    }
   }
+
   shuffEfx();
 }
