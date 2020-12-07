@@ -90,7 +90,8 @@ Bonus points are also acquired for efficiency (calculated using the time played 
      }
      return arr;
    }
-
+   
+   // Here comes the fun part...
    function shuffEfx() {
      // Get the current order or icon/sound pairs
      let sounds = effects.querySelectorAll("audio");
