@@ -91,7 +91,8 @@
 .instructions {
   white-space: nowrap;
   border-radius: 40px;
-  background: #000000 border-box;
+  box-sizing: border-box;
+ /* background: #000000 border-box; */
   font-size: 1rem;
   position: relative;
   list-style: none;
@@ -133,6 +134,8 @@
   flex-direction: column;
   align-items: flex-start;
   line-height: 1.4;
+  top: -70px;
+  max-height: 150px;
 }
 
 .freestyle {
@@ -141,6 +144,7 @@
 
 .freestyle-header {
   margin-left: -12px;
+  margin-top: 12px;
 }
 
 .modal-freeze {
@@ -173,8 +177,10 @@
 
 .close {
   animation: color-change 15s linear infinite both;
-  position: relative;
-  bottom: 20%;
+  /*position: relative;
+  bottom: 20%; */
+  position: sticky;
+  bottom: 0;
   color: #1ec190;
   font-size: 28px;
   font-weight: bold;

@@ -98,14 +98,14 @@ export function toggleModal() {
     // let fragment = document.createDocumentFragment();
     let ul = document.createElement("ul");
     ul.classList.add("instructions", "freestyle-wrap");
-    
+
     for (let item of items) {
       let li = document.createElement("li");
       li.className = "freestyle";
       li.innerHTML = item;
       ul.appendChild(li);
     }
-    modalContent.append(ul);
+    modalContent.insertBefore(ul, close);
   }
 
   modalContent.onscroll = () => {
