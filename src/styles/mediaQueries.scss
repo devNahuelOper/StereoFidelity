@@ -98,6 +98,21 @@
   }
 }
 
+/*Larger Width */
+
+@media only screen and (min-width: 1600px) {
+  .freestyle-wrap {
+    top: -40px !important;
+  }
+  #welcome {
+    font-size: 3rem !important;
+  }
+  .close {
+    font-size: 2.5rem !important;
+  }
+}
+
+
 /*Smaller Height */
 
 @media only screen and (max-height: 620px) {
