@@ -110,6 +110,23 @@
   .close {
     font-size: 2.5rem !important;
   }
+
+  .songTitle {
+    font-size: 1rem;
+  }
+
+  .signature-container {
+    #signature {
+      font-size: 1.25rem;
+      strong {
+        font-size: 2rem;
+      }
+    }
+  }
+
+  #bgtoggle {
+    font-size: 1.75rem;
+  }
 }
 
 
