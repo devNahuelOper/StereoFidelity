@@ -8,6 +8,7 @@ import toggleBackgrounds from "./scripts/backgrounds";
 import { activateEffects, shuffleEffects } from "./scripts/effects";
 import { startGame, endGame } from "./scripts/game";
 import getPerformance from "./scripts/performance";
+import addMoreTracks from "./scripts/playlist";
 
 window.addEventListener("DOMContentLoaded", main);
 
@@ -33,6 +34,8 @@ async function main() {
 
   const tracks = document.getElementsByClassName("tracks")[0];
   const songs = tracks.querySelectorAll("audio");
+
+  // addMoreTracks(tracks);
 
   let AudioContext = window.AudioContext || window.webkitAudioContext;
   this.ctx = new AudioContext();
