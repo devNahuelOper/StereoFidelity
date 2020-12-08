@@ -8,7 +8,7 @@ import toggleBackgrounds from "./scripts/backgrounds";
 import { activateEffects, shuffleEffects } from "./scripts/effects";
 import { startGame, endGame } from "./scripts/game";
 import getPerformance from "./scripts/performance";
-import addMoreTracks from "./scripts/playlist";
+// import addMoreTracks from "./scripts/playlist";
 
 window.addEventListener("DOMContentLoaded", main);
 
@@ -30,7 +30,7 @@ async function main() {
     }
   });
 
-  const trippleImages = [...images, ...images, ...images];
+  let trippleImages = [...images, ...images, ...images];
 
   const tracks = document.getElementsByClassName("tracks")[0];
   const songs = tracks.querySelectorAll("audio");
@@ -47,7 +47,14 @@ async function main() {
       songTitle.classList.add("playSong");
       const start = new Date();
 
-      startGame(song, sounds, effects, ctx, images, trippleImages);
+      startGame(
+        song,
+        sounds,
+        effects,
+        ctx,
+        effects.querySelectorAll("img"),
+        trippleImages
+      );
 
       song.onended = () => endGame(effects, start, tracks, song);
     };
