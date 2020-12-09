@@ -173,3 +173,34 @@ export function endGame(effects, start, tracks, song) {
     msg.hidden = true;
   };
 }
+
+
+function highScoreCheck(num) {
+  if (!localStorage.scores) localStorage.scores = '{"":0," ":0,"  ":0}';
+
+  let scores = JSON.parse(localStorage.scores);
+  let entries = Object.entries(scores);
+  
+  let i = 0;
+  for (let [key, val] of entries) {
+    if (num > val) {
+      let name = prompt("Enter your name: ");
+      name = dupCheck(name, scores);
+
+      entries.splice(i, 0, [name, num]);
+      if (entries.length > 3) entries.pop(); 
+
+      scores = Object.fromEntries(entries);
+      localStorage.scores = JSON.stringify(scores);
+      break;
+    }
+    i++;
+  }
+  return localStorage.scores;
+}
+
+function dupCheck(name, obj) {
+  if (name in obj) name = dupCheck(name + 0, obj);
+  return name;
+}
+
