@@ -113,13 +113,4 @@ export function toggleModal() {
   }
 }
 
-export function toggleSecretPlaylist() {
-  const playlist = document.getElementById("playlist");
-  playlist.hidden = true;
 
-  document.addEventListener("keydown", function (event) {
-    if (event.code === "KeyZ" && event.altKey) {
-      playlist.hidden = !playlist.hidden;
-    }
-  });
-}

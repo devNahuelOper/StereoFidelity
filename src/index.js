@@ -3,12 +3,12 @@ import "./styles/effects.scss";
 import "./styles/mediaQueries.scss";
 import "./styles/inputSlider.scss";
 import "./styles/modal.scss";
-import { toggleModal, toggleSecretPlaylist } from "./scripts/modal";
+import { toggleModal } from "./scripts/modal";
 import toggleBackgrounds from "./scripts/backgrounds";
 import { activateEffects, shuffleEffects } from "./scripts/effects";
 import { startGame, endGame } from "./scripts/game";
 import getPerformance from "./scripts/performance";
-// import addMoreTracks from "./scripts/playlist";
+import { toggleSecretPlaylist } from "./scripts/playlist";
 
 window.addEventListener("DOMContentLoaded", main);
 
