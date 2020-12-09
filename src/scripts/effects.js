@@ -3,11 +3,14 @@ import { setZoom } from "./animation";
 export function activateEffects() {
   const effects = document.getElementsByClassName("effects")[0];
   const stage = document.querySelector("main");
+  const modal = document.getElementById("myModal");
 
   effects.onpointerover = function (event) {
     let target = event.target;
     if (target.tagName != "IMG") return;
-    target.previousElementSibling.play();
+    if (modal.classList.contains("modal-hide")) {
+      target.previousElementSibling.play();
+    }
   };
 
   effects.onpointerout = function (event) {

@@ -4,7 +4,7 @@ export function toggleModal() {
   const modal = document.getElementById("myModal");
   const modalWrapper = document.getElementsByClassName("modal-wrapper")[0];
   const modalContent = document.getElementsByClassName("modal-content")[0];
-  const instructions = document.getElementsByClassName("instructions")[0];
+  // const instructions = document.getElementsByClassName("instructions")[0];
   const welcome = document.getElementById("welcome");
   const strong = modal.querySelectorAll("strong");
   const close = document.getElementsByClassName("close")[0];
@@ -27,10 +27,6 @@ export function toggleModal() {
     for (let anim of animations) anim.play();
   }
 
-  // [window.stopAnimations, window.playAnimations] = [stopAnimations, playAnimations];
-
-  // const zoomContent = modalContent.animate(zoomInOut.animation, zoomInOut.timing);
-  // zoomContent.play();
 
   document.addEventListener("keydown", function (event) {
     if (event.key === "Escape") {
