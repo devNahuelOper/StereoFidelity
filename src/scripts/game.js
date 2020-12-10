@@ -171,6 +171,7 @@ export function endGame(effects, start, tracks, song) {
 
   window.onclick = function () {
     msg.hidden = true;
+    highScoreCheck(bonus);
   };
 }
 
@@ -180,7 +181,7 @@ function highScoreCheck(num) {
 
   let scores = JSON.parse(localStorage.scores);
   let entries = Object.entries(scores);
-  
+
   let i = 0;
   for (let [key, val] of entries) {
     if (num > val) {
@@ -204,3 +205,19 @@ function dupCheck(name, obj) {
   return name;
 }
 
+function showHighScores() {
+  if (Boolean(document.getElementById("highScores"))) return;
+  let scores = JSON.parse(localStorage.scores);
+  let ul = document.createElement('ul');
+  ul.id = "highScores";
+  for (let [name, score] of Object.entries(scores)) {
+    if (name.trim()) {
+      let li = document.createElement('li');
+      li.innerHTML = `<b>${name}</b>: ${score}`;
+      ul.append(li);
+    }
+  }
+  document.body.append(ul);
+}
+
+window.showHighScores = showHighScores;

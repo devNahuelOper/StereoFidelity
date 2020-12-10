@@ -61,7 +61,6 @@ ul {
   }
 }
 
-
 #git {
   width: 34px;
   filter: invert(1);
@@ -218,8 +217,6 @@ ul {
   border: none;
 }
 
-
-
 #score {
   color: #7826dd;
   animation: color-change 15s linear infinite;
@@ -326,6 +323,24 @@ ul {
       color: #61c29b;
       animation: color-change 15s linear infinite;
     }
+  }
+}
+
+#highScores {
+  color: white;
+  list-style: decimal;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  padding: 28px;
+  border-radius: 12px;
+  background-color: #1b1b1b;
+  border: 1px solid #535151;
+  box-shadow: 1px 1px 1px 1px #333333;
+  b {
+    font-size: 1.25rem;
+    color: #61c29b;
+    animation: color-change 15s linear infinite;
   }
 }
 
