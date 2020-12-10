@@ -63,6 +63,23 @@ export function setZoom(ele, pers, tranZ, dur = 10, fill = "forwards", iteration
 
 
 
+export const diagonalZoom = [
+  { transform: "scale(1) translate(0px)" },
+  {
+    transform:
+      "perspective(500px) scale3d(0.06, 0.06, 0.2) translate3d(7200px, -3350px, 700px)",
+  },
+];
+export const diagonalTiming = {
+	  duration: 1000,
+    iterations: 1,
+    easing: "ease-in-out",
+    fill: "both"
+}
+ 
+
+
+// Extra -- For testing Web Animations API
 
 // export function setZoom(ele, pers, tranZ, dur = 10, fill = "forwards") {
 //   return ele.animate(
@@ -100,8 +117,6 @@ export function setZoom(ele, pers, tranZ, dur = 10, fill = "forwards", iteration
 //   );
 // }
 
-
-// Extra -- For testing Web Animations API
 
 // const zoomInOut = {
 //   animation: [

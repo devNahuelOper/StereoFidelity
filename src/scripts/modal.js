@@ -1,10 +1,9 @@
-import { setMorph, setZoom } from "./animation";
+import { setMorph, setZoom, diagonalZoom, diagonalTiming } from "./animation";
 
 export function toggleModal() {
   const modal = document.getElementById("myModal");
   const modalWrapper = document.getElementsByClassName("modal-wrapper")[0];
   const modalContent = document.getElementsByClassName("modal-content")[0];
-  // const instructions = document.getElementsByClassName("instructions")[0];
   const welcome = document.getElementById("welcome");
   const strong = modal.querySelectorAll("strong");
   const close = document.getElementsByClassName("close")[0];
@@ -17,7 +16,6 @@ export function toggleModal() {
   let zoomWrap = setZoom(modalWrapper, 20, -2);
   let zoomContent = setZoom(modalContent, 500, 25.5, 20);
 
-
   function stopAnimations() {
     let animations = [morph, zoomWrap, zoomContent];
     for (let anim of animations) anim.cancel();
@@ -27,19 +25,33 @@ export function toggleModal() {
     for (let anim of animations) anim.play();
   }
 
+  const modalView = {
+    open() {
+      modal.classList.remove("modal-hide");
+      about.classList.remove("about-show");
+      let openModal = modal.animate(diagonalZoom, diagonalTiming).reverse();
+      openModal.onfinish = () => {
+        modalContent.scrollTo(0, 0);
+      };
+    },
+    close() {
+      let closeModal = modal.animate(diagonalZoom, diagonalTiming);
+      closeModal.onfinish = () => {
+        modal.classList.add("modal-hide");
+        about.classList.add("about-show");
+      };
+    },
+  };
+
 
   document.addEventListener("keydown", function (event) {
     if (event.key === "Escape") {
-      myModal.classList.add("modal-hide");
-      about.classList.add("about-show");
+      modalView.close();
     }
 
     if (event.code === "KeyH") {
-      myModal.classList.remove("modal-hide");
-      modalContent.scrollTo(0,0);
-      about.classList.remove("about-show");
+      modalView.open();
     }
-
   });
 
   modal.onpointerover = function () {
@@ -60,20 +72,16 @@ export function toggleModal() {
     let inModal = modal.contains(event.target);
     let inAbout = about.contains(event.target);
     if (!inModal && !inAbout) {
-      modal.classList.add("modal-hide");
-      about.classList.add("about-show");
+      modalView.close();
     }
   };
 
   close.onclick = function () {
-    about.classList.add("about-show");
-    modal.classList.add("modal-hide");
+    modalView.close();
   };
 
   about.onclick = function () {
-    modal.classList.remove("modal-hide");
-    about.classList.remove("about-show");
-    modalContent.scrollTo(0, 0);
+    modalView.open();
   };
 
   const freestyle = {
@@ -86,7 +94,8 @@ export function toggleModal() {
       "Press <strong>OPTION/ALT + Z</strong> to show secret playlist (these songs will not trigger a game start).",
     keyboard: "<h2 class='freestyle-header'>OTHER KEYBOARD TRICKS</h2>",
     shuffle: "Press <strong>R</strong> to Shuffle Effects!",
-    modal: "Press <strong>H</strong> to Show, <strong>ESC</strong> to Hide Instructions",
+    modal:
+      "Press <strong>H</strong> to Show, <strong>ESC</strong> to Hide Instructions",
   };
 
   function addFreestyle() {
@@ -106,7 +115,5 @@ export function toggleModal() {
   modalContent.onscroll = () => {
     addFreestyle();
     modalContent.onscroll = null;
-  }
+  };
 }
-
-
