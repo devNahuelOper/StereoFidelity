@@ -205,11 +205,15 @@ function dupCheck(name, obj) {
   return name;
 }
 
+const scoresPresent = Boolean(document.getElementById("highScores"));
+
 function showHighScores() {
-  if (Boolean(document.getElementById("highScores"))) return;
+  if (scoresPresent) return;
+  
   let scores = JSON.parse(localStorage.scores);
   let ul = document.createElement('ul');
   ul.id = "highScores";
+  ul.innerHTML = '<h1 id="scoreHeader">High Scores</h1>';
   for (let [name, score] of Object.entries(scores)) {
     if (name.trim()) {
       let li = document.createElement('li');
