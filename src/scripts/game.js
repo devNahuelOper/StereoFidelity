@@ -197,6 +197,7 @@ function highScoreCheck(num) {
     }
     i++;
   }
+  showHighScores();
   return localStorage.scores;
 }
 
