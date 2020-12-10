@@ -332,7 +332,7 @@ ul {
   position: absolute;
   top: 50%;
   left: 50%;
-  padding: 12px 28px;
+  padding: 8px 28px;
   border-radius: 12px;
   background-color: #1b1b1b;
   border: 1px solid #535151;
@@ -340,7 +340,16 @@ ul {
   b {
     font-size: 1.25rem;
     color: #61c29b;
+    margin-right: 16px;
     animation: color-change 15s linear infinite;
+  }
+  li::marker {
+  color: #888a88;
+  font-weight: bolder;
+  text-shadow: 2px 2px 2px black;
+  -webkit-text-stroke-color: #ffffff61;
+  -webkit-text-fill-color: #0c0d0c;
+  -webkit-text-stroke-width: 0.01px;
   }
 }
 
@@ -356,7 +365,6 @@ ul {
   -webkit-text-stroke-color: #ffffff61;
   -webkit-text-fill-color: #0c0d0c;
   -webkit-text-stroke-width: 0.01px;
-  animation: colors 15s ease-in-out infinite;
 }
 
 #playlist {
@@ -430,6 +438,7 @@ ul {
     filter: hue-rotate(0deg);
   }
 }
+
 
 @keyframes color-change {
   0% {
