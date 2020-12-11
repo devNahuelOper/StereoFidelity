@@ -219,7 +219,7 @@ function showHighScores() {
   for (let [name, score] of Object.entries(scores)) {
     if (name.trim()) {
       let li = document.createElement('li');
-      li.innerHTML = `<b>${name} </b>  ${score}`;
+      li.innerHTML = `<b>${name.replace(/0/g, '')} </b>  ${score}`;
       ul.append(li);
     }
   }
