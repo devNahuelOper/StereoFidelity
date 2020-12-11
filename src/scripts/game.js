@@ -169,10 +169,11 @@ export function endGame(effects, start, tracks, song) {
     msg.classList.add("msg0");
   }
 
-  window.onclick = function () {
+  window.addEventListener("click", () => {
     msg.hidden = true;
+    if (scoresPresent) return;
     highScoreCheck(bonus);
-  };
+  })
 }
 
 
