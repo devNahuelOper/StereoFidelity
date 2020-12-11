@@ -30,9 +30,7 @@ export function toggleModal() {
       modal.classList.remove("modal-hide");
       about.classList.remove("about-show");
       let openModal = modal.animate(diagonalZoom, diagonalTiming).reverse();
-      openModal.onfinish = () => {
-        modalContent.scrollTo(0, 0);
-      };
+      modalContent.scrollTo(0, 0);
     },
     close() {
       let closeModal = modal.animate(diagonalZoom, diagonalTiming);
