@@ -326,7 +326,7 @@ ul {
   }
 }
 
-#highScores {
+.highScores {
   color: white;
   list-style: decimal;
   position: absolute;
@@ -336,7 +336,7 @@ ul {
   border-radius: 18px;
   background-color: #131313;
   border: 1px solid #535151;
-  box-shadow: 1px 1px 1px 1px #333333;
+  box-shadow: 1px 1px 1px 1px #333333, inset -1px -1px 0px 0px #7b7a7a;
   b {
     font-size: 1.25rem;
     color: #61c29b;
@@ -344,21 +344,53 @@ ul {
     animation: color-change 15s linear infinite;
   }
   li::marker {
-  color: #888a88;
-  font-weight: bolder;
-  text-shadow: 2px 2px 2px black;
-  -webkit-text-stroke-color: #ffffff61;
-  -webkit-text-fill-color: #0c0d0c;
-  -webkit-text-stroke-width: 0.01px;
+    color: #888a88;
+    font-weight: bolder;
+    text-shadow: 2px 2px 2px black;
+    -webkit-text-stroke-color: #ffffff61;
+    -webkit-text-fill-color: #0c0d0c;
+    -webkit-text-stroke-width: 0.01px;
+  }
+  pre {
+    cursor: pointer;
+    text-align: center;
+    font-size: 12px;
+    color: #5e5f5d;
+    margin: unset;
+    width: 22px;
+    border-radius: 100%;
+    position: absolute;
+    right: 2px;
+    top: 4px;
+    /* right: 4px;
+    top: 2px;
+    background: #464545;
+    border: 1px inset #040404;
+    box-shadow: inset 3px 0px 6px 4px black, inset -6px -4px 12px 0px silver,
+      inset -3px 6px 2px 1px lightgrey; */
+    &:hover {
+      color: #61c29b;
+      animation: colors 10s ease-in-out infinite;
+    }
+  }
+}
+
+.hs-minimized {
+  cursor: pointer;
+  transform: scale(0.5);
+  top: 0px;
+  li, pre {
+    display: none;
   }
 }
 
 #scoreHeader {
   font-size: 2rem;
   margin: 0 -12px 12px -12px;
- /* text-decoration: underline;
+  /* text-decoration: underline;
   text-decoration-style: double;
   text-decoration-thickness: from-font; */
+  filter: contrast(3.5);
   letter-spacing: 0.05em;
   text-transform: uppercase;
   text-shadow: 2px 2px 2px black;
@@ -424,21 +456,17 @@ ul {
   }
   25% {
     filter: hue-rotate(180deg) saturate(1.5);
-      
   }
   50% {
     filter: hue-rotate(360deg) saturate(2.5);
-      
   }
   75% {
     filter: hue-rotate(180deg) saturate(1.5);
-      
   }
   100% {
     filter: hue-rotate(0deg);
   }
 }
-
 
 @keyframes color-change {
   0% {

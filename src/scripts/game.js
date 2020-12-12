@@ -47,7 +47,7 @@ export function startGame(song, sounds, effects, ctx, images, trippleImages) {
     analyser.getByteFrequencyData(data);
 
     let currentImages = effects.querySelectorAll("img");
-    
+
     try {
       pic1.src = trippleImages[Math.floor(Math.random() * data[0])].src;
       pic2.src = currentImages[Math.round(Math.random() * 100)].src;
@@ -81,13 +81,13 @@ export function startGame(song, sounds, effects, ctx, images, trippleImages) {
           score.innerHTML = `Sounds Cleared: ${101 - iconsLeft}`;
         };
       });
-    } catch(e) {
+    } catch (e) {
       return;
     }
 
     song.addEventListener("ended", () => {
-       processor.removeEventListener("audioprocess", matchFrame);
-       setTimeout(() => score.remove(), 3000);
+      processor.removeEventListener("audioprocess", matchFrame);
+      setTimeout(() => score.remove(), 3000);
     });
   }
 }
@@ -176,7 +176,6 @@ export function endGame(effects, start, tracks, song) {
   });
 }
 
-
 function highScoreCheck(num) {
   if (!localStorage.scores) localStorage.scores = '{"":0," ":0,"  ":0}';
 
@@ -190,7 +189,7 @@ function highScoreCheck(num) {
       name = dupCheck(name, scores);
 
       entries.splice(i, 0, [name, num]);
-      if (entries.length > 3) entries.pop(); 
+      if (entries.length > 3) entries.pop();
 
       scores = Object.fromEntries(entries);
       localStorage.scores = JSON.stringify(scores);
@@ -207,23 +206,41 @@ function dupCheck(name, obj) {
   return name;
 }
 
-const scoresPresent = Boolean(document.getElementById("highScores"));
+
+const scoresPresent = Boolean(document.getElementsByClassName("highScores")[0]);
 
 function showHighScores() {
   if (scoresPresent) return;
-  
+
   let scores = JSON.parse(localStorage.scores);
-  let ul = document.createElement('ul');
-  ul.id = "highScores";
+
+  let ul = document.createElement("ul");
+  ul.className = "highScores";
   ul.innerHTML = '<h1 id="scoreHeader">High Scores</h1>';
+
+  let pre = document.createElement("pre");
+  pre.innerHTML = "x";
+  ul.prepend(pre);
+  pre.onclick = () => closeHighScores();
+
   for (let [name, score] of Object.entries(scores)) {
     if (name.trim()) {
-      let li = document.createElement('li');
-      li.innerHTML = `<b>${name.replace(/0/g, '')} </b>  ${score}`;
+      let li = document.createElement("li");
+      li.innerHTML = `<b>${name.replace(/0/g, "")} </b>  ${score}`;
       ul.append(li);
     }
   }
+
   document.body.append(ul);
+
+  function closeHighScores() {
+    ul.classList.add("hs-minimized");
+    ul.addEventListener("click", (e) => {
+      if (!e.target.contains(pre)) {
+        ul.classList.remove("hs-minimized");
+      }
+    });
+  }
 }
 
 window.showHighScores = showHighScores;
