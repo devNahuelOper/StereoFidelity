@@ -173,8 +173,6 @@ export function endGame(effects, start, tracks, song) {
 
   window.addEventListener("click", () => {
     msg.hidden = true;
-    // if (scoresPresent) return;
-    // highScoreCheck(bonus);
   });
 }
 
