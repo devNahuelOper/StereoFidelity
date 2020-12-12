@@ -333,8 +333,8 @@ ul {
   top: 5%;
   left: 40%;
   padding: 20px 28px;
-  border-radius: 12px;
-  background-color: #1b1b1b;
+  border-radius: 18px;
+  background-color: #131313;
   border: 1px solid #535151;
   box-shadow: 1px 1px 1px 1px #333333;
   b {
@@ -354,13 +354,13 @@ ul {
 }
 
 #scoreHeader {
-  font-size: 1.7rem;
+  font-size: 2rem;
   margin: 0 -12px 12px -12px;
-  text-decoration: underline;
+ /* text-decoration: underline;
   text-decoration-style: double;
-  text-decoration-thickness: from-font;
+  text-decoration-thickness: from-font; */
   letter-spacing: 0.05em;
-  font-weight: bolder;
+  text-transform: uppercase;
   text-shadow: 2px 2px 2px black;
   -webkit-text-stroke-color: #c5c2c261;
   -webkit-text-fill-color: #494c49;
