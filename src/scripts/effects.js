@@ -70,10 +70,8 @@ export function activateEffects() {
       elem.onpointerdown = null;
     };
 
-    elem.onpointerover = function () {
-      audio.play();
-      // console.log(elem.clientY, elem.pageY);
-    };
+    elem.onpointerover = () => audio.play();
+    elem.onpointerout = () => audio.currentTime = 0;
 
     elem.oncontextmenu = function () {
       effects.append(audio, elem);
