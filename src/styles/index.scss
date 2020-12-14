@@ -107,7 +107,7 @@ ul {
 #track-wrap {
   max-height: 260px;
   overflow: scroll;
- /*  &::after {
+  /*  &::after {
     content: "...";
     color: #b5b1b1;
     font-size: 24px;
@@ -124,6 +124,13 @@ ul {
   box-sizing: border-box;
   padding: 8px;
   border-radius: 18px 0px 18px 0;
+
+  /* connector green */
+  box-shadow: 1px 22px 34px 1px #20bc82, -1px -1px 0px -2px #161617;
+  /* connector green-blue */
+  box-shadow: 1px 22px 34px 1px #20bc82, 4px 10px 20px 4px #0c9fe0;
+
+  /* box-shadow: 3px 1px 2px 0px #20bc82, 0px -2px 0px -1px #525151; */
 }
 
 .songTitle {
@@ -159,12 +166,12 @@ ul {
   width: 260px;
   display: flex;
   align-items: center;
- /*  border: 2px solid #0d7a91;
+  /*  border: 2px solid #0d7a91;
   background-color: #000510; */
   border-radius: 20px;
   box-sizing: border-box;
   cursor: pointer;
- /*  padding: 0 4px; */
+  /*  padding: 0 4px; */
   margin-top: 4px;
   img {
     image-rendering: -webkit-optimize-contrast;
@@ -179,8 +186,7 @@ ul {
 }
 
 #rewind,
-#forward
- {
+#forward {
   width: 8%;
 }
 
