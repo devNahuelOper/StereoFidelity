@@ -63,12 +63,8 @@ export function activateEffects() {
       };
     };
 
-    elem.ondragstart = function () {
-      return false;
-    };
-    elem.ondragend = function () {
-      elem.onpointerdown = null;
-    };
+    elem.ondragstart = () => false;
+    elem.ondragend = () => elem.onpointerdown = null;
 
     elem.onpointerover = () => audio.play();
     elem.onpointerout = () => audio.currentTime = 0;
