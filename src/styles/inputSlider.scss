@@ -2,8 +2,8 @@ $track-color: #000510 !default;
 $thumb-color: #2f2d37 !default;
 
 $thumb-radius: 12px !default;
-$thumb-height: 14px !default;
-$thumb-width: 14px !default;
+$thumb-height: 16px !default;
+$thumb-width: 16px !default;
 $thumb-shadow-size: 4px !default;
 $thumb-shadow-blur: 4px !default;
 $thumb-shadow-color: rgba(0, 0, 0, 0.2) !default;
@@ -39,9 +39,9 @@ $ie-bottom-track-color: darken($track-color, $contrast) !default;
   @include shadow($thumb-shadow-size, $thumb-shadow-blur, $thumb-shadow-color);
   width: $thumb-width;
   height: $thumb-height;
-  margin-top: -5px;
+  margin-top: -6px;
   background-color: $thumb-color;
-  border: 3px solid #000510;
+  border: 2.5px solid #000510;
   border-radius: $thumb-radius;
   box-sizing: border-box;
   cursor: pointer;
@@ -60,7 +60,7 @@ $ie-bottom-track-color: darken($track-color, $contrast) !default;
 [type="range"] {
   -webkit-appearance: none;
   background: transparent;
-  margin: 3px 0;
+  margin: 6px 0;
   width: $track-width;
 
   &::-moz-focus-outer {
@@ -92,14 +92,24 @@ $ie-bottom-track-color: darken($track-color, $contrast) !default;
     );
     background: $track-color;
     border: $track-border-width solid $track-border-color;
-    border-radius: $track-radius;
+    border: 1.5px solid #19d4bd;
+    /* border-radius: $track-radius; */
+    border-radius: 6px 0px 6px 0px;
   }
 
   &::-webkit-slider-thumb {
     @include thumb;
     -webkit-appearance: none;
     &:hover {
-      @include thumb-hover;
+      /* @include thumb-hover; */
+      /* border: 1.5px solid #14efc987; */
+      border-bottom: 1.5px inset #14efc973;
+      border-right: 1.5px inset #14efc973;
+      border-top: 1.5px outset #055578;
+      border-left: 1.5px outset #055578;
+      background-size: 65%;
+      filter: brightness(1.5) saturate(1.5) contrast(4);
+      background-color: black;
     }
     &:active {
       filter: drop-shadow(2px 4px 12px black) saturate(4) brightness(1.1);
@@ -172,30 +182,42 @@ $ie-bottom-track-color: darken($track-color, $contrast) !default;
 
 .slider-hold {
   margin: unset;
-  padding: 0 4px;
+  padding: 6px;
   outline: none;
   border: none;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  height: 28px;
+  height: 24px;
   hr {
     border-color: #57595a;
     border-width: 1px;
     margin: -1px;
-    width: 40px;
+    width: 42px;
     align-self: center;
   }
 }
 
 #volume-slider,
 #tempo-slider {
-  width: 50px;
-  /*transform: translateX(6px);*/
+  width: 65px;
+  transform: translateX(4px);
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+    margin: -1px; /* !importanté */
+    border-radius: 6px 0px 6px 0px; /* !importanté */
+    background: linear-gradient(to top, #26ee9f, #1189c7);
+    /* background: linear-gradient(to right, #26ee9f, #1189c7); */
+  }
 }
 
 #volume-slider {
-  width: 50px;
   &::-webkit-slider-thumb {
     background-image: url("/dist/images/hi-volume.png");
     background-image: url("https://stereo-fidelity.s3.amazonaws.com/hi-volume.png");
@@ -203,16 +225,15 @@ $ie-bottom-track-color: darken($track-color, $contrast) !default;
 }
 
 #tempo-slider {
-  width: 50px;
   &::-webkit-slider-thumb {
     background-image: url("/dist/images/uptempo.png");
     background-image: url("https://stereo-fidelity.s3.amazonaws.com/uptempo.png");
-    &:hover {
+    /*     &:hover {
       border: 1px solid #079980;
       background-size: 70%;
       filter: contrast(1.5);
-    }
-     &:active {
+    } */
+    &:active {
       filter: drop-shadow(2px 4px 12px black) saturate(4) brightness(1.1);
     }
   }
