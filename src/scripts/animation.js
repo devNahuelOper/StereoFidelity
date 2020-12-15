@@ -79,6 +79,23 @@ export const diagonalTiming = {
  
 
 
+
+export function scrollSong(elem, iterations = Infinity) {
+  const padScroll = [
+    { paddingLeft: "5%" },
+    { paddingLeft: "45%" },
+    { paddingLeft: "5%" },
+  ];
+
+  const padScrollTiming = {
+    duration: 20000,
+    iterations
+  };
+
+  return elem.animate(padScroll, padScrollTiming);
+}
+
+
 // Extra -- For testing Web Animations API
 
 // export function setZoom(ele, pers, tranZ, dur = 10, fill = "forwards") {
