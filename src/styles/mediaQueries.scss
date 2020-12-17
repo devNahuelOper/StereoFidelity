@@ -100,6 +100,12 @@
 
 /*Larger Width */
 
+@media only screen and (min-width: 1300px) {
+  .tracks {
+    width: 270px;
+  }
+}
+
 @media only screen and (min-width: 1600px) {
   .freestyle-wrap {
     top: -40px !important;
