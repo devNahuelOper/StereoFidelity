@@ -8,7 +8,7 @@ import toggleBackgrounds from "./scripts/backgrounds";
 import { activateEffects, shuffleEffects } from "./scripts/effects";
 import { startGame, endGame } from "./scripts/game";
 import getPerformance from "./scripts/performance";
-import { toggleSecretPlaylist } from "./scripts/playlist";
+import { toggleSecretPlaylist, addMoreTracks } from "./scripts/playlist";
 import { scrollSong } from "./scripts/animation";
 
 window.addEventListener("DOMContentLoaded", main);
@@ -45,7 +45,6 @@ async function main() {
     let songTitle = song.nextElementSibling;
 
     song.onplay = function () {
-      // songTitle.classList.add("playSong");
       scrollSong(songTitle, Math.round(song.duration / 20));
       const start = new Date();
 
