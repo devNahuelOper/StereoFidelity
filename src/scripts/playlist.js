@@ -91,7 +91,6 @@ export function addMoreTracks(tracks) {
 
   function makeSong(url, song) {
     let audio = document.createElement("audio");
-    // audio.controls = true;
     audio.src = url;
     audio.id = song.split(" ")[0].toLowerCase();
     return audio;
@@ -104,7 +103,11 @@ export function addMoreTracks(tracks) {
     return span;
   }
 
-  createSongs();
+  tracks.onscroll = () => { 
+    createSongs();
+    tracks.onscroll = null;
+  }
+
 }
 
 export function toggleSecretPlaylist() {
