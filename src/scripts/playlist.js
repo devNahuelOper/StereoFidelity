@@ -2,7 +2,14 @@ import { setAttributes } from "./util";
 
 export function addMoreTracks(tracks) {
   const url = "https://denizen-confidant-seeds.s3.amazonaws.com/songs/";
-  const songs = ["404", "Atmosphere", "Breaking The Habit (Linkin Park Cover)"];
+  const songs = [
+    "Millenium Bug",
+    "404",
+    "Atmosphere",
+    "On Off",
+    "Breaking The Habit (Linkin Park Cover)",
+    "LIVID",
+  ];
   const links = songs.map((song) => `${url}${song.replace(/\s/g, "+")}.mp3`);
 
   function createSongs() {
