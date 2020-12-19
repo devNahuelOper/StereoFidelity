@@ -98,7 +98,7 @@ export function addMoreTracks(tracks) {
 
   function makeSongTitle(song) {
     let span = document.createElement("span");
-    span.innerHTML = song;
+    span.innerHTML = song.replace(/\(.*\)/, '').trim();
     span.className = "songTitle";
     return span;
   }
