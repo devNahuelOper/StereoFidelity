@@ -22,22 +22,22 @@ export function addMoreTracks(tracks) {
     ctrl.className = "playerControls";
 
     const buttons = {
-      play: { src: "dist/images/play-button.png", action: song.play() },
+      play: { src: "dist/images/play-button.png", action: () => song.play() },
       pause: {
         src: "dist/images/pause-button.png",
-        action: song.pause(),
+        action: () => song.pause(),
       },
       stop: {
         src: "dist/images/stop-button.png",
-        action: (song.currentTime = 0),
+        action: () => (song.currentTime = song.duration),
       },
       rewind: {
         src: "dist/images/rewind.png",
-        action: (song.currentTime -= 5),
+        action: () => (song.currentTime -= 5),
       },
       forward: {
         src: "dist/images/forward.png",
-        action: (song.currentTime += 5),
+        action: () => (song.currentTime += 5),
       },
     };
 
@@ -45,8 +45,8 @@ export function addMoreTracks(tracks) {
       let img = document.createElement("img");
       img.id = btn;
       img.src = buttons[btn].src;
-      // img.onclick = () => buttons[btn].action;
-      img.onclick = console.log(buttons[btn].action);
+      img.onclick = buttons[btn].action;
+      // img.onclick = () => console.log(buttons[btn].action);
       ctrl.append(img);
     }
 
