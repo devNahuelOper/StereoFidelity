@@ -1,3 +1,5 @@
+import { setAttributes } from "./util";
+
 export function addMoreTracks(tracks) {
   const url = "https://denizen-confidant-seeds.s3.amazonaws.com/songs/";
   const songs = ["404", "Atmosphere", "Breaking The Habit (Linkin Park Cover)"];
@@ -46,9 +48,43 @@ export function addMoreTracks(tracks) {
       img.id = btn;
       img.src = buttons[btn].src;
       img.onclick = buttons[btn].action;
-      // img.onclick = () => console.log(buttons[btn].action);
       ctrl.append(img);
     }
+
+    const sliders = () => {
+      let fieldset = document.createElement("fieldset");
+      fieldset.className = "slider-hold";
+      let hr = document.createElement("hr");
+
+      let volume = document.createElement("input");
+      let tempo = document.createElement("input");
+      volume.type = tempo.type = "range";
+
+      setAttributes(volume, {
+        id: "volume-slider",
+        title: "Volume",
+        min: "0",
+        max: "1",
+        step: "0.1",
+        value: "0.5",
+      });
+      setAttributes(tempo, {
+        id: "tempo-slider",
+        title: "Tempo",
+        min: "0.1",
+        max: "2",
+        step: "0.1",
+        value: "1",
+      });
+
+      volume.oninput = () => song.volume = this.value;
+      tempo.oninput = () => song.playbackRate = this.value;
+
+      fieldset.append(volume, hr, tempo);
+      return fieldset;
+    };
+
+    ctrl.append(sliders());
 
     return ctrl;
   }
