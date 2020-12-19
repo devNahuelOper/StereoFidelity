@@ -77,8 +77,8 @@ export function addMoreTracks(tracks) {
         value: "1",
       });
 
-      volume.oninput = () => song.volume = this.value;
-      tempo.oninput = () => song.playbackRate = this.value;
+      volume.oninput = () => song.volume = volume.value;
+      tempo.oninput = () => song.playbackRate = tempo.value;
 
       fieldset.append(volume, hr, tempo);
       return fieldset;
