@@ -127,3 +127,15 @@ export function toggleSecretPlaylist() {
     }
   });
 }
+
+// async function playExternalAudio(path) {
+//   let audio = new Audio(path);
+//   audio.type = "audio/mp3";
+
+//   try {
+//     await audio.play();
+//     console.log("Playing...");
+//   } catch (err) {
+//     console.log(`Failed to play...${err}`);
+//   }
+// }
