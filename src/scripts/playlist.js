@@ -9,6 +9,7 @@ export function addMoreTracks(tracks) {
     "On Off",
     "Breaking The Habit (Linkin Park Cover)",
     "LIVID",
+    "The Drop"
   ];
   const links = songs.map((song) => `${url}${song.replace(/\s/g, "+")}.mp3`);
 
