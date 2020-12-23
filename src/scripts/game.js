@@ -2,8 +2,6 @@ function lowerVolume(...soundArgs) {
   for (let sound of soundArgs) sound.volume = 0.3;
 }
 
-let isGameOn = false;
-
 export function startGame(song, sounds, effects, ctx, images, trippleImages) {
   isGameOn = true;
   lowerVolume(...sounds);
@@ -42,7 +40,6 @@ export function startGame(song, sounds, effects, ctx, images, trippleImages) {
   processor.addEventListener("audioprocess", matchFrame);
 
   function matchFrame() {
-    // console.log(isGameOn);
     effects.scrollIntoView();
     analyser.getByteFrequencyData(data);
 
@@ -101,7 +98,6 @@ export function startGame(song, sounds, effects, ctx, images, trippleImages) {
 // const timeRemaining = (song) => song.duration - song.currentTime;
 
 export function endGame(effects, start, tracks, song) {
-  isGameOn = false;
   let frame = document.getElementById("gameFrame");
   frame.remove();
 
