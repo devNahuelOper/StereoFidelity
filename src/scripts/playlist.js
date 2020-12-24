@@ -1,4 +1,5 @@
 import { setAttributes } from "./util";
+import { startGame, endGame } from "./game";
 
 export function addMoreTracks(tracks) {
   const url = "https://denizen-confidant-seeds.s3.amazonaws.com/songs/";
