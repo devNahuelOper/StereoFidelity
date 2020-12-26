@@ -8,5 +8,8 @@ module.exports = merge(common, {
     contentBase: "./",
     watchContentBase: true,
     open: "Google Chrome",
+    headers: {
+      "Access-Control-Allow-Origin": "*",
+    },
   },
 });

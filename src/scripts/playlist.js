@@ -129,6 +129,7 @@ export function addMoreTracks(tracks) {
     let audio = document.createElement("audio");
     audio.src = url;
     audio.id = song.split(" ")[0].toLowerCase();
+    // console.dir(audio);
     // audio.crossOrigin = "anonymous";
     return audio;
   }
