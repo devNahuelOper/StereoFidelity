@@ -1,5 +1,5 @@
 import { setAttributes } from "./util";
-import { startGame, endGame } from "./game";
+// import { startGame, endGame } from "./game";
 
 export function addMoreTracks(tracks) {
   const url = "https://denizen-confidant-seeds.s3.amazonaws.com/songs/";
@@ -10,7 +10,7 @@ export function addMoreTracks(tracks) {
     "On Off",
     "Breaking The Habit (Linkin Park Cover)",
     "LIVID",
-    "The Drop"
+    "The Drop",
   ];
   const links = songs.map((song) => `${url}${song.replace(/\s/g, "+")}.mp3`);
 
@@ -25,6 +25,33 @@ export function addMoreTracks(tracks) {
 
       article.append(songTitle, song, controls);
       tracks.appendChild(article);
+
+      // let [sounds, images] = [
+      //   document.querySelectorAll(".effects audio"),
+      //   document.querySelectorAll(".effects img"),
+      // ];
+
+      // song.addEventListener("playing", () => startGame(
+      //     song,
+      //     sounds,
+      //     document.querySelector(".effects"),
+      //     ctx,
+      //     images,
+      //     [...images, ...images, ...images]
+      //   ));
+
+      // song.onplay = () =>
+      //   startGame(
+      //     song,
+      //     sounds,
+      //     document.querySelector(".effects"),
+      //     ctx,
+      //     images,
+      //     [...images, ...images, ...images]
+      //   );
+
+      // song.onended = () =>
+      //   endGame(document.querySelector(".effects"), new Date(), tracks.parentElement, song);
     });
   }
 
@@ -86,8 +113,8 @@ export function addMoreTracks(tracks) {
         value: "1",
       });
 
-      volume.oninput = () => song.volume = volume.value;
-      tempo.oninput = () => song.playbackRate = tempo.value;
+      volume.oninput = () => (song.volume = volume.value);
+      tempo.oninput = () => (song.playbackRate = tempo.value);
 
       fieldset.append(volume, hr, tempo);
       return fieldset;
@@ -102,21 +129,22 @@ export function addMoreTracks(tracks) {
     let audio = document.createElement("audio");
     audio.src = url;
     audio.id = song.split(" ")[0].toLowerCase();
+    // audio.crossOrigin = "anonymous";
     return audio;
   }
 
+
   function makeSongTitle(song) {
     let span = document.createElement("span");
-    span.innerHTML = song.replace(/\(.*\)/, '').trim();
+    span.innerHTML = song.replace(/\(.*\)/, "").trim();
     span.className = "songTitle";
     return span;
   }
 
-  tracks.onscroll = () => { 
+  tracks.onscroll = () => {
     createSongs();
     tracks.onscroll = null;
-  }
-
+  };
 }
 
 export function toggleSecretPlaylist() {

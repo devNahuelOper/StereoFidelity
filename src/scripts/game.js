@@ -3,7 +3,6 @@ function lowerVolume(...soundArgs) {
 }
 
 export function startGame(song, sounds, effects, ctx, images, trippleImages) {
-  isGameOn = true;
   lowerVolume(...sounds);
   effects.classList.add("playing");
 

@@ -36,10 +36,11 @@ async function main() {
   const tracks = document.getElementsByClassName("tracks")[0];
   const songs = tracks.querySelectorAll("audio");
 
-  addMoreTracks(tracks.firstElementChild);
-
+  
   let AudioContext = window.AudioContext || window.webkitAudioContext;
   this.ctx = new AudioContext();
+
+  addMoreTracks(tracks.firstElementChild);
 
   songs.forEach((song) => {
     let songTitle = song.nextElementSibling;
