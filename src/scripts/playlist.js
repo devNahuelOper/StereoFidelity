@@ -18,7 +18,8 @@ export function addMoreTracks(tracks) {
     links.forEach((link, i) => {
       let article = document.createElement("article");
       article.className = "track";
-
+      article.classList.add('addedTrack');
+      
       let songTitle = makeSongTitle(songs[i]);
       let song = makeSong(link, songs[i]);
       let controls = makeControls(song);

@@ -145,6 +145,28 @@ ul {
   /* box-shadow: 3px 1px 2px 0px #20bc82, 0px -2px 0px -1px #525151; */
 }
 
+.addedTrack {
+  box-shadow: 1px 22px 34px 1px #2083bc, 4px 10px 20px 4px #710ce0;
+  .playerControls {
+    img {
+      filter: hue-rotate(15deg);
+      /* border-radius: 50%;
+      box-shadow: inset 0px 0px 0px 0px #2083bc, inset 0px 0px 0px 1px #710ce0; */
+    }
+ /*    #rewind {
+      padding-left: unset;
+      margin-left: 8px;
+    }
+    #forward {
+      padding-right: unset;
+      margin-right: 8px;
+    } */
+    [type="range"]::-webkit-slider-runnable-track {
+        border: 1.5px solid #196ad4;
+    }
+  }
+}
+
 .songTitle {
   position: relative;
   cursor: default;
