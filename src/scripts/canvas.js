@@ -34,4 +34,6 @@ class canvasExample {
   }
 }
 
+window.canvasExample = canvasExample;
+
 export default canvasExample;

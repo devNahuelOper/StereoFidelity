@@ -10,6 +10,7 @@ import { startGame, endGame } from "./scripts/game";
 import getPerformance from "./scripts/performance";
 import { toggleSecretPlaylist, addMoreTracks } from "./scripts/playlist";
 import { scrollSong } from "./scripts/animation";
+import canvasExample from "./scripts/canvas";
 
 window.addEventListener("DOMContentLoaded", main);
 
@@ -40,7 +41,7 @@ async function main() {
   let AudioContext = window.AudioContext || window.webkitAudioContext;
   this.ctx = new AudioContext();
 
-  addMoreTracks(tracks.firstElementChild);
+  addMoreTracks(tracks.firstElementChild, ctx);
 
   songs.forEach((song) => {
     let songTitle = song.nextElementSibling;

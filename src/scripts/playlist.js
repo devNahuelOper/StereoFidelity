@@ -1,5 +1,6 @@
-import { setAttributes } from "./util";
-// import { startGame, endGame } from "./game";
+import { setAttributes, proxyUrl } from "./util";
+import { startGame, endGame } from "./game";
+import { scrollSong } from "./animation";
 
 export function addMoreTracks(tracks) {
   const url = "https://denizen-confidant-seeds.s3.amazonaws.com/songs/";
@@ -12,14 +13,17 @@ export function addMoreTracks(tracks) {
     "LIVID",
     "The Drop",
   ];
-  const links = songs.map((song) => `${url}${song.replace(/\s/g, "+")}.mp3`);
+  const links = songs.map(
+    (song) => `${proxyUrl}${url}${song.replace(/\s/g, "+")}.mp3`
+  );
 
   function createSongs() {
+
     links.forEach((link, i) => {
       let article = document.createElement("article");
       article.className = "track";
-      article.classList.add('addedTrack');
-      
+      // article.classList.add("addedTrack");
+
       let songTitle = makeSongTitle(songs[i]);
       let song = makeSong(link, songs[i]);
       let controls = makeControls(song);
@@ -27,33 +31,35 @@ export function addMoreTracks(tracks) {
       article.append(songTitle, song, controls);
       tracks.appendChild(article);
 
-      // let [sounds, images] = [
-      //   document.querySelectorAll(".effects audio"),
-      //   document.querySelectorAll(".effects img"),
-      // ];
+      let [sounds, images] = [
+        document.querySelectorAll(".effects audio"),
+        document.querySelectorAll(".effects img"),
+      ];
 
-      // song.addEventListener("playing", () => startGame(
-      //     song,
-      //     sounds,
-      //     document.querySelector(".effects"),
-      //     ctx,
-      //     images,
-      //     [...images, ...images, ...images]
-      //   ));
+      song.addEventListener("play", () => {
+        scrollSong(songTitle, Math.round(song.duration / 20));
+        const start = Date.now();
 
-      // song.onplay = () =>
-      //   startGame(
-      //     song,
-      //     sounds,
-      //     document.querySelector(".effects"),
-      //     ctx,
-      //     images,
-      //     [...images, ...images, ...images]
-      //   );
+        startGame(
+          song,
+          sounds,
+          document.querySelector(".effects"),
+          ctx,
+          images,
+          [...images, ...images, ...images]
+        );
 
-      // song.onended = () =>
-      //   endGame(document.querySelector(".effects"), new Date(), tracks.parentElement, song);
+        song.onended = () =>
+          endGame(
+            document.querySelector(".effects"),
+            start,
+            tracks.parentElement,
+            song
+          );
+      });
+
     });
+
   }
 
   function makeControls(song) {
@@ -131,10 +137,9 @@ export function addMoreTracks(tracks) {
     audio.src = url;
     audio.id = song.split(" ")[0].toLowerCase();
     // console.dir(audio);
-    // audio.crossOrigin = "anonymous";
+    audio.crossOrigin = "anonymous";
     return audio;
   }
-
 
   function makeSongTitle(song) {
     let span = document.createElement("span");

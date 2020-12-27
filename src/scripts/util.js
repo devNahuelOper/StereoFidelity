@@ -2,6 +2,8 @@ export const setAttributes = (ele, attrs) => {
   for (let key in attrs) ele.setAttribute(key, attrs[key]);
 }
 
+export const proxyUrl = "https://cors-anywhere.herokuapp.com/";
+
 // let constraints = { audio: true, video: { width: 1280, height: 720 } };
 
 // navigator.mediaDevices
