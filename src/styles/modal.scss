@@ -80,6 +80,13 @@
   position: sticky;
   top: 10px;
   white-space: nowrap;
+  
+}
+
+#welcome.modal-freeze {
+  z-index: 1000;
+  width: 7em;
+  background-color: black;
 }
 
 .instructions-header {
@@ -109,6 +116,9 @@
     font-size: 1.1em;
     font-weight: bolder;
     text-transform: uppercase;
+  }
+  #added-strong {
+    color: #33b9f0;
   }
   small {
     font-size: 8px;
