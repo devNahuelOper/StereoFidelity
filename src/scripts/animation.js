@@ -83,7 +83,7 @@ export const diagonalTiming = {
 export function scrollSong(elem, iterations = Infinity) {
   const padScroll = [
     { paddingLeft: "5%" },
-    { paddingLeft: "45%" },
+    { paddingLeft: `${Math.round(180 / elem.textContent.length)}%` },
     { paddingLeft: "5%" },
   ];
 

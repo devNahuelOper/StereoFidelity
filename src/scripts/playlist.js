@@ -1,4 +1,4 @@
-import { setAttributes, proxyUrl } from "./util";
+import { setAttributes, proxyUrl, timeRemaining } from "./util";
 import { startGame, endGame } from "./game";
 import { scrollSong } from "./animation";
 
@@ -18,7 +18,6 @@ export function addMoreTracks(tracks) {
   );
 
   function createSongs() {
-
     links.forEach((link, i) => {
       let article = document.createElement("article");
       article.className = "track";
@@ -40,6 +39,14 @@ export function addMoreTracks(tracks) {
         scrollSong(songTitle, Math.round(song.duration / 20));
         const start = Date.now();
 
+        const time = document.createElement("time");
+        time.innerHTML = timeRemaining(song);
+        songTitle.append(time);
+        songTitle.classList.add("songPlaying");
+        song.ontimeupdate = () => {
+          time.innerHTML = timeRemaining(song);
+        };
+
         startGame(
           song,
           sounds,
@@ -49,17 +56,20 @@ export function addMoreTracks(tracks) {
           [...images, ...images, ...images]
         );
 
-        song.onended = () =>
+        song.onended = () => {
+          time.remove();
+          songTitle.classList.remove('songPlaying');
+          
           endGame(
             document.querySelector(".effects"),
             start,
             tracks.parentElement,
             song
           );
+        }
+
       });
-
     });
-
   }
 
   function makeControls(song) {
@@ -136,6 +146,7 @@ export function addMoreTracks(tracks) {
     let audio = document.createElement("audio");
     audio.src = url;
     audio.id = song.split(" ")[0].toLowerCase();
+    // console.log(totalTime(audio));
     // console.dir(audio);
     audio.crossOrigin = "anonymous";
     return audio;
@@ -152,6 +163,13 @@ export function addMoreTracks(tracks) {
     createSongs();
     tracks.onscroll = null;
   };
+}
+
+function totalTime(song) {
+  let mins = Math.trunc(song.duration / 60);
+  let secs = Math.trunc(60 * ((song.duration / 60) % mins));
+  secs = secs < 10 ? `0${secs}` : secs;
+  return `${mins}:${secs}`;
 }
 
 export function toggleSecretPlaylist() {

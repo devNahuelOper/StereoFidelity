@@ -10,6 +10,7 @@ import { startGame, endGame } from "./scripts/game";
 import getPerformance from "./scripts/performance";
 import { toggleSecretPlaylist, addMoreTracks } from "./scripts/playlist";
 import { scrollSong } from "./scripts/animation";
+import { timeRemaining } from "./scripts/util";
 import canvasExample from "./scripts/canvas";
 
 window.addEventListener("DOMContentLoaded", main);
@@ -45,10 +46,21 @@ async function main() {
 
   songs.forEach((song) => {
     let songTitle = song.nextElementSibling;
+   
+
+  
 
     song.onplay = function () {
       scrollSong(songTitle, Math.round(song.duration / 20));
       const start = new Date();
+
+      const time = document.createElement("time");
+      time.innerHTML = timeRemaining(song);
+      songTitle.append(time);
+      songTitle.classList.add('songPlaying');
+      song.ontimeupdate = () => {
+        time.innerHTML = timeRemaining(song);
+      };
 
       startGame(
         song,
@@ -59,7 +71,11 @@ async function main() {
         trippleImages
       );
 
-      song.onended = () => endGame(effects, start, tracks, song);
+      song.onended = () => { 
+        time.remove();
+        songTitle.classList.remove('songPlaying');
+        endGame(effects, start, tracks, song);
+      }
     };
     // song.onpause = () => songTitle.classList.remove("playSong");
   });

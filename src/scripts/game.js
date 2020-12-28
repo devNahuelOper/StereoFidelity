@@ -38,8 +38,14 @@ export function startGame(song, sounds, effects, ctx, images, trippleImages) {
 
   processor.addEventListener("audioprocess", matchFrame);
 
+  let scrolled = false;
+
   function matchFrame() {
-    effects.scrollIntoView();
+    if (!scrolled) {
+      effects.scrollIntoView();
+      scrolled = true;
+    }
+
     analyser.getByteFrequencyData(data);
 
     let currentImages = effects.querySelectorAll("img");

@@ -191,6 +191,16 @@ ul {
   }
 }
 
+.songPlaying {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  time {
+    color: whitesmoke;
+    font-size: 12px;
+  }
+}
+
 .playSong {
   animation: 15s linear 0s infinite normal none running quick-scroll;
   font-size: 18px;
