@@ -76,6 +76,10 @@ async function main() {
         songTitle.classList.remove('songPlaying');
         endGame(effects, start, tracks, song);
       }
+      song.onpause = () => {
+        time.remove();
+        songTitle.classList.remove("songPlaying");
+      }
     };
     // song.onpause = () => songTitle.classList.remove("playSong");
   });

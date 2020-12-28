@@ -47,6 +47,8 @@ export function startGame(song, sounds, effects, ctx, images, trippleImages) {
     }
 
     analyser.getByteFrequencyData(data);
+    // window.data = data;
+    // if (song.currentTime <= 0.3) console.log(data);
 
     let currentImages = effects.querySelectorAll("img");
 
