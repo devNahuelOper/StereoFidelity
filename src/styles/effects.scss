@@ -44,6 +44,15 @@
     -moz-transform: scale(1.48);
     transform: scale(1.48);
   }
+  .imageMatch {
+    border: 2px double #52d389;
+    animation: flicker 0.5s infinite alternate;
+    transform: scale3d(1.7, 1.7, 1.7);
+  }
+  .imageNoMatch {
+    animation: none;
+    transform: none;
+  }
 }
 
 .draggedImg {
@@ -65,15 +74,10 @@
   cursor: url("https://stereo-fidelity.s3.amazonaws.com/spinhand3.png"), auto;
 }
 
-.imageMatch {
-  animation: flicker 0.5s infinite alternate;
-  transform: scale3d(1.7, 1.7, 1.7) !important;
-}
-
-.imageNoMatch {
+/* .imageNoMatch {
   animation: none !important;
   transform: none;
-}
+} */
 
 #gameFrame {
   position: relative;
@@ -81,8 +85,7 @@
 }
 
 .framePic {
-  width: 6% !important;
-  height: 6% !important;
+  width: 5%;
   border: 1px solid #041029;
   border-radius: 18px;
   margin: 8px;

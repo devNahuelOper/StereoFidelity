@@ -6,9 +6,9 @@ export const proxyUrl = "https://cors-anywhere.herokuapp.com/";
 
 export const timeRemaining = (song) => {
   let mins = Math.trunc((song.duration - song.currentTime) / 60);
-  let secs = Math.trunc(
+  let secs = mins >= 1 ? Math.trunc(
     60 * (((song.duration - song.currentTime) / 60) % mins)
-  );
+  ) : Math.trunc(song.duration - song.currentTime);
   secs = secs < 10 ? `0${secs}` : secs;
   return `${mins}:${secs}`;
 };
