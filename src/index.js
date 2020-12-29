@@ -11,7 +11,7 @@ import getPerformance from "./scripts/performance";
 import { toggleSecretPlaylist, addMoreTracks } from "./scripts/playlist";
 import { scrollSong } from "./scripts/animation";
 import { displayTime } from "./scripts/util";
-import canvasExample from "./scripts/canvas";
+// import canvasExample from "./scripts/canvas";
 
 window.addEventListener("DOMContentLoaded", main);
 

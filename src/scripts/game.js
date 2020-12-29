@@ -1,3 +1,6 @@
+import { createCanvas } from "./canvas";
+import { makeScore, makeFrame } from "./util";
+
 function lowerVolume(...soundArgs) {
   for (let sound of soundArgs) sound.volume = 0.3;
 }
@@ -5,6 +8,16 @@ function lowerVolume(...soundArgs) {
 export function startGame(song, sounds, effects, ctx, images, trippleImages) {
   lowerVolume(...sounds);
   effects.classList.add("playing");
+
+  const pic1 = document.createElement("img");
+  const pic2 = document.createElement("img");
+  const pic3 = document.createElement("img");
+
+  makeFrame(effects, pic1, pic2, pic3);
+  const score = makeScore(effects);
+
+  let canvas = createCanvas();
+  let canvasCtx = canvas.getContext("2d");
 
   let audioSrc = ctx.createMediaElementSource(song);
   audioSrc.connect(ctx.destination);
@@ -17,25 +30,6 @@ export function startGame(song, sounds, effects, ctx, images, trippleImages) {
   let data = new Uint8Array(analyser.frequencyBinCount);
   audioSrc.connect(analyser);
 
-  const frame = document.createElement("aside");
-  frame.id = "gameFrame";
-
-  const pic1 = document.createElement("img");
-  const pic2 = document.createElement("img");
-  const pic3 = document.createElement("img");
-
-  [pic1, pic2, pic3].forEach((pic) => {
-    pic.classList.add("framePic");
-    frame.appendChild(pic);
-  });
-
-  effects.insertAdjacentElement("beforebegin", frame);
-  effects.style.height = "fit-content";
-
-  const score = document.createElement("h1");
-  score.id = "score";
-  effects.insertAdjacentElement("beforeend", score);
-
   processor.addEventListener("audioprocess", matchFrame);
 
   let scrolled = false;
@@ -47,8 +41,6 @@ export function startGame(song, sounds, effects, ctx, images, trippleImages) {
     }
 
     analyser.getByteFrequencyData(data);
-    // window.data = data;
-    // if (song.currentTime <= 0.3) console.log(data);
 
     let currentImages = effects.querySelectorAll("img");
 
@@ -208,7 +200,6 @@ function dupCheck(name, obj) {
   if (name in obj) name = dupCheck(name + 0, obj);
   return name;
 }
-
 
 const scoresPresent = Boolean(document.getElementsByClassName("highScores")[0]);
 
