@@ -38,11 +38,45 @@
 
 // export default canvasExample;
 
-export function createCanvas() {
+export function createCanvas(el, pos) {
    let canvas = document.createElement("canvas");
    canvas.id = "canvas";
    canvas.classList.add('canvas');
-   canvas.width = (window.innerWidth / 2);
+   canvas.width = (window.innerWidth / 2.5);
    canvas.height = (window.innerHeight / 3);
+   el.insertAdjacentElement(pos, canvas);
    return canvas;
+}
+
+export function updateCanvas(canvas, ctx, data, hue) {
+  canvas.getContext('2d').clearRect(0, 0, canvas.width, canvas.height);
+  draw(ctx, canvas, data, hue);
+  hue += 1;
+  // console.log(ctx, canvas, hue);
+  requestAnimationFrame(updateCanvas);
+}
+
+function draw(ctx, canvas, data, hue, opacity = Math.random().toFixed(1)) {
+  ctx.beginPath();
+  let freqWidth = canvas.width * 1.0 / data.length;
+
+  let pointX = 0;
+
+  for (let i = 0; i < data.length; i++) {
+    let v = data[i] / 86.0;
+    let y = v * 200 / 2;
+
+    if (i === 0) {
+      ctx.moveTo(pointX, y);
+    } else {
+      ctx.lineTo(pointX, y);
+    }
+
+    pointX += freqWidth;
+  }
+
+  ctx.strokeStyle = `hsla(${hue}, 100%, 40%, ${opacity})`;
+  ctx.lineTo(canvas.width, canvas.height / 2);
+  ctx.lineWidth = 2;
+  ctx.stroke();
 }

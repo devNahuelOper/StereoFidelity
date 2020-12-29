@@ -2,6 +2,8 @@ export const setAttributes = (ele, attrs) => {
   for (let key in attrs) ele.setAttribute(key, attrs[key]);
 };
 
+export const randInRange = (min, max) => Math.floor(Math.random() * (max - min) + min);
+
 export const proxyUrl = "https://cors-anywhere.herokuapp.com/";
 
 export const timeRemaining = (song) => {

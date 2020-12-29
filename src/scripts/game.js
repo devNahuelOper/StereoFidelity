@@ -1,5 +1,5 @@
-import { createCanvas } from "./canvas";
-import { makeScore, makeFrame } from "./util";
+import { createCanvas, updateCanvas } from "./canvas";
+import { makeScore, makeFrame, randInRange } from "./util";
 
 function lowerVolume(...soundArgs) {
   for (let sound of soundArgs) sound.volume = 0.3;
@@ -16,8 +16,9 @@ export function startGame(song, sounds, effects, ctx, images, trippleImages) {
   makeFrame(effects, pic1, pic2, pic3);
   const score = makeScore(effects);
 
-  let canvas = createCanvas();
+  let canvas = createCanvas(effects, 'beforebegin');
   let canvasCtx = canvas.getContext("2d");
+  let hue, opacity;
 
   let audioSrc = ctx.createMediaElementSource(song);
   audioSrc.connect(ctx.destination);
@@ -26,8 +27,9 @@ export function startGame(song, sounds, effects, ctx, images, trippleImages) {
   let analyser = ctx.createAnalyser();
   processor.connect(ctx.destination);
   analyser.connect(processor);
+  analyser.smoothingTimeConstant = 0.1;
+  analyser.fftSize = 512;
 
-  let data = new Uint8Array(analyser.frequencyBinCount);
   audioSrc.connect(analyser);
 
   processor.addEventListener("audioprocess", matchFrame);
@@ -40,7 +42,13 @@ export function startGame(song, sounds, effects, ctx, images, trippleImages) {
       scrolled = true;
     }
 
+    hue = randInRange(1, 360);
+    opacity = Math.random().toFixed(1);
+
+    let data = new Uint8Array(analyser.frequencyBinCount);
     analyser.getByteFrequencyData(data);
+
+    updateCanvas(canvas, canvasCtx, data, hue);
 
     let currentImages = effects.querySelectorAll("img");
 
