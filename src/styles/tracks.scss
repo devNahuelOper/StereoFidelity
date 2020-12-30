@@ -1,0 +1,169 @@
+
+$lightbulb: -0.2rem -0.2rem 1rem #fff, 0.2rem 0.2rem 1rem #fff,
+  0 0 2rem var(--neon-text-color), 0 0 4rem var(--neon-text-color),
+  0 0 6rem var(--neon-text-color), 0 0 8rem var(--neon-text-color),
+  0 0 10rem var(--neon-text-color);
+
+.tracks {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin: 24px 18px;
+  width: 25%;
+  width: 21%;
+  min-height: 325px;
+}
+
+#track-wrap {
+  max-height: 260px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+
+  &::-webkit-scrollbar {
+    width: 12px;
+    cursor: pointer;
+  }
+  &::-webkit-scrollbar-track {
+    border-radius: 10px;
+  }
+  &::-webkit-scrollbar-track-piece {
+    background: linear-gradient(to top, #252525, #212121, #4f514f, black);
+    border-radius: 4px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: linear-gradient(to top, #26ee9f, #1189c7);
+    cursor: pointer;
+    border-radius: 10px;
+    border-width: 4px;
+    border-color: #212121;
+    border-style: ridge;
+  }
+}
+
+.track {
+  margin-bottom: 4px;
+  background: #212121;
+  box-sizing: border-box;
+  padding: 8px;
+  border-radius: 18px 0px 18px 0;
+
+  /* connector green */
+  box-shadow: 1px 22px 34px 1px #20bc82, -1px -1px 0px -2px #161617;
+  /* connector green-blue */
+  box-shadow: 1px 22px 34px 1px #20bc82, 4px 10px 20px 4px #0c9fe0;
+
+  /* box-shadow: 3px 1px 2px 0px #20bc82, 0px -2px 0px -1px #525151; */
+}
+
+.addedTrack {
+  box-shadow: 1px 22px 34px 1px #2083bc, 4px 10px 20px 4px #710ce0;
+  .playerControls {
+    img {
+      filter: hue-rotate(15deg);
+      /* border-radius: 50%;
+      box-shadow: inset 0px 0px 0px 0px #2083bc, inset 0px 0px 0px 1px #710ce0; */
+    }
+ /*    #rewind {
+      padding-left: unset;
+      margin-left: 8px;
+    }
+    #forward {
+      padding-right: unset;
+      margin-right: 8px;
+    } */
+    [type="range"]::-webkit-slider-runnable-track {
+        border: 1.5px solid #196ad4;
+    }
+  }
+}
+
+.songTitle {
+  position: relative;
+  cursor: default;
+  font-size: 16px;
+  font-family: "Exo 2", sans-serif;
+  box-sizing: border-box;
+  white-space: nowrap;
+  padding: 4px 8px;
+  /*   margin-right: 13px;
+  border-radius: 4px;
+  font-weight: bold;
+  font-style: italic; */
+  /* border: 1px groove #27e79b; */
+  color: #fff;
+  background-color: black;
+  text-transform: uppercase;
+  display: block;
+  border-radius: 12px 0px 18px 0;
+  border-radius: 14px 0px 14px 0;
+  &:hover {
+    text-shadow: $lightbulb;
+  }
+}
+
+.songPlaying {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  time {
+    color: whitesmoke;
+    font-size: 12px;
+  }
+}
+
+.playSong {
+  animation: 15s linear 0s infinite normal none running quick-scroll;
+  font-size: 18px;
+}
+
+.playerControls {
+  width: 60%;
+  width: 260px;
+  display: flex;
+  align-items: center;
+  /*  border: 2px solid #0d7a91;
+  background-color: #000510; */
+  border-radius: 20px;
+  box-sizing: border-box;
+  /*  padding: 0 4px; */
+  margin-top: 4px;
+  img {
+    cursor: pointer;
+    image-rendering: -webkit-optimize-contrast;
+    width: 9.5%;
+    margin: 2px auto;
+    margin: auto 2px;
+    &:hover {
+      /* transform: scale(1.2); */
+      transform: perspective(500px) translateZ(50px);
+      filter: brightness(1.5);
+    }
+  }
+}
+
+#rewind,
+#forward {
+  width: 8%;
+}
+
+#rewind {
+  padding-left: 8px;
+  border-left: 4px double #5a5757;
+}
+#forward {
+  padding-right: 8px;
+  border-right: 4px double #5a5757;
+}
+
+
+@keyframes quick-scroll {
+  0% {
+    left: 0;
+  }
+  50% {
+    left: 9%;
+  }
+  100% {
+    left: 0;
+  }
+}

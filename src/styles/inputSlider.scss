@@ -245,3 +245,20 @@ $ie-bottom-track-color: darken($track-color, $contrast) !default;
   width: 25px;
   margin: 12px 2px 12px 8px;
 } */
+
+/* input[type="range" i] {
+  -webkit-appearance: none;
+  &::-webkit-slider-runnable-track {
+    background-color: #0d7a91;
+  }
+  #thumb {
+    background: black;
+    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+    border: 1px solid #000000;
+    -webkit-user-modify: read-write !important;
+    margin-top: -4px;
+    height: 12px;
+    width: 12px;
+    border-radius: 4px;
+  }
+} */

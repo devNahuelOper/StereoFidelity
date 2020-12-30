@@ -3,6 +3,7 @@ import "./styles/effects.scss";
 import "./styles/mediaQueries.scss";
 import "./styles/inputSlider.scss";
 import "./styles/modal.scss";
+import "./styles/tracks.scss";
 import { toggleModal } from "./scripts/modal";
 import toggleBackgrounds from "./scripts/backgrounds";
 import { activateEffects, shuffleEffects } from "./scripts/effects";
