@@ -224,7 +224,8 @@ ul {
     margin: 2px auto;
     margin: auto 2px;
     &:hover {
-      transform: scale(1.2);
+      /* transform: scale(1.2); */
+      transform: perspective(500px) translateZ(50px);
       filter: brightness(1.5);
     }
   }

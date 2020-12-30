@@ -13,6 +13,7 @@ export function addMoreTracks(tracks) {
     "Breaking The Habit (Linkin Park Cover)",
     "LIVID",
     "The Drop",
+    "Zombie (Gammer Flip)",
   ];
   const links = songs.map(
     (song) => `${proxyUrl}${url}${song.replace(/\s/g, "+")}.mp3`
