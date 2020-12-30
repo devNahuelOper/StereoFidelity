@@ -49,7 +49,7 @@ export function createCanvas(el, pos) {
 }
 
 export function updateCanvas(canvas, ctx, data, hue) {
-  canvas.getContext('2d').clearRect(0, 0, canvas.width, canvas.height);
+  document.getElementById("canvas").getContext('2d').clearRect(0, 0, canvas.width, canvas.height);
   draw(ctx, canvas, data, hue);
   hue += 1;
   // console.log(ctx, canvas, hue);

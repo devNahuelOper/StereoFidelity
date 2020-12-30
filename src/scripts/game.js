@@ -105,8 +105,8 @@ export function startGame(song, sounds, effects, ctx, images, trippleImages) {
 // const timeRemaining = (song) => song.duration - song.currentTime;
 
 export function endGame(effects, start, tracks, song) {
-  let frame = document.getElementById("gameFrame");
-  frame.remove();
+  document.getElementById("gameFrame").remove();
+  document.getElementById('canvas').remove();
 
   let iconsLeft = effects.querySelectorAll("img").length;
 

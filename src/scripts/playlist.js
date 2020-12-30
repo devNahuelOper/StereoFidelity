@@ -1,6 +1,7 @@
 import { setAttributes, proxyUrl, timeRemaining } from "./util";
 import { startGame, endGame } from "./game";
 import { scrollSong } from "./animation";
+import { displayTime } from "./util";
 
 export function addMoreTracks(tracks) {
   const url = "https://denizen-confidant-seeds.s3.amazonaws.com/songs/";
@@ -37,15 +38,8 @@ export function addMoreTracks(tracks) {
 
       song.addEventListener("play", () => {
         scrollSong(songTitle, Math.round(song.duration / 20));
+        displayTime(song, songTitle);
         const start = Date.now();
-
-        const time = document.createElement("time");
-        time.innerHTML = timeRemaining(song);
-        songTitle.append(time);
-        songTitle.classList.add("songPlaying");
-        song.ontimeupdate = () => {
-          time.innerHTML = timeRemaining(song);
-        };
 
         startGame(
           song,
@@ -57,9 +51,6 @@ export function addMoreTracks(tracks) {
         );
 
         song.onended = () => {
-          time.remove();
-          songTitle.classList.remove('songPlaying');
-          
           endGame(
             document.querySelector(".effects"),
             start,
