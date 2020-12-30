@@ -39,32 +39,35 @@
 // export default canvasExample;
 
 export function createCanvas(el, pos) {
-   let canvas = document.createElement("canvas");
-   canvas.id = "canvas";
-   canvas.classList.add('canvas');
-   canvas.width = (window.innerWidth / 2.5);
-   canvas.height = (window.innerHeight / 3);
-   el.insertAdjacentElement(pos, canvas);
-   return canvas;
+  let canvas = document.createElement("canvas");
+  canvas.id = "canvas";
+  canvas.classList.add("canvas");
+  canvas.width = window.innerWidth / 2.5;
+  canvas.height = window.innerHeight / 3;
+  el.insertAdjacentElement(pos, canvas);
+  return canvas;
 }
 
 export function updateCanvas(canvas, ctx, data, hue) {
-  document.getElementById("canvas").getContext('2d').clearRect(0, 0, canvas.width, canvas.height);
-  draw(ctx, canvas, data, hue);
-  hue += 1;
-  // console.log(ctx, canvas, hue);
-  requestAnimationFrame(updateCanvas);
+  try {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    draw(canvas, ctx, data, hue);
+    hue += 1;
+    requestAnimationFrame(updateCanvas);
+  } catch (e){
+    return true;
+  }
 }
 
-function draw(ctx, canvas, data, hue, opacity = Math.random().toFixed(1)) {
+function draw(canvas, ctx, data, hue, opacity = Math.random().toFixed(1)) {
   ctx.beginPath();
-  let freqWidth = canvas.width * 1.0 / data.length;
+  let freqWidth = (canvas.width * 1.0) / data.length;
 
   let pointX = 0;
 
   for (let i = 0; i < data.length; i++) {
     let v = data[i] / 86.0;
-    let y = v * 200 / 2;
+    let y = (v * 200) / 2;
 
     if (i === 0) {
       ctx.moveTo(pointX, y);
