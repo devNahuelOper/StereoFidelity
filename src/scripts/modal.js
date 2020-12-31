@@ -41,7 +41,6 @@ export function toggleModal() {
     },
   };
 
-
   document.addEventListener("keydown", function (event) {
     if (event.key === "Escape") {
       modalView.close();
@@ -90,7 +89,6 @@ export function toggleModal() {
       "<strong>Right-Click</strong> dragged icon to send it back to the board.",
     optZ:
       "Press <strong>OPTION/ALT + Z</strong> to show secret playlist (these songs will not trigger a game start).",
-    // added: "<strong id='added-strong'>Added Tracks</strong> on regular playlist are colored blue (also will not trigger game).",
     keyboard: "<h2 class='freestyle-header'>OTHER KEYBOARD TRICKS</h2>",
     shuffle: "Press <strong>R</strong> to Shuffle Effects!",
     modal:
