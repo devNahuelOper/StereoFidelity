@@ -185,6 +185,32 @@
   }
 }
 
+#framefig {
+  margin: unset;
+}
+
+.frame-still {
+  width: 150px;
+  outline-color: #32a09f;
+  outline-offset: 8px;
+  input[pseudo="-internal-media-controls-overflow-button"], &::-webkit-media-controls-fullscreen-button, &::-webkit-media-controls-timeline, &::-webkit-media-controls-volume-control-container {
+    display: none;
+  }
+  /* div[pseudo="-internal-media-controls-button-panel"] */
+  &::-internal-media-controls-button-panel {
+    overflow: visible !important;
+    &::-webkit-media-controls-play-button {
+      background-image: url('/dist/images/play-button.png') !important;
+      background-size: contain;
+      margin: 35px auto;
+    }
+  }
+}
+
+.inst-playbtn {
+  filter: grayscale(1) brightness(0.7);
+}
+
 .close {
   animation: color-change 15s linear infinite both;
   /*position: relative;

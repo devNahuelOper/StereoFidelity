@@ -74,11 +74,11 @@ export function startGame(song, sounds, effects, ctx, images, trippleImages) {
             image.previousElementSibling.remove();
             image.remove();
             // song.playbackRate -= 1.0;
-            if (iconsLeft <= 60) {
+            if (iconsLeft <= 60 && song.playbackRate >= 0.1) {
               song.playbackRate -= 0.8;
             }
           } else {
-            if (iconsLeft <= 60) {
+            if (iconsLeft <= 60 && song.playbackRate <= 16.0) {
               song.playbackRate += 0.1;
             }
           }

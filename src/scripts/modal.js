@@ -113,4 +113,8 @@ export function toggleModal() {
     addFreestyle();
     modalContent.onscroll = null;
   };
+
+  function viewFrameVideo() {
+    
+  }
 }

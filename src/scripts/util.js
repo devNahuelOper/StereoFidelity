@@ -5,6 +5,7 @@ export const setAttributes = (ele, attrs) => {
 export const randInRange = (min, max) => Math.floor(Math.random() * (max - min) + min);
 
 export const proxyUrl = "https://cors-anywhere.herokuapp.com/";
+window.proxyUrl = proxyUrl;
 
 export const timeRemaining = (song) => {
   let mins = Math.trunc((song.duration - song.currentTime) / 60);
