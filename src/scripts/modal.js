@@ -119,6 +119,13 @@ export function toggleModal() {
 
   frame.addEventListener("play", viewFrameVideo);
   frame.addEventListener("ended", endFrameVideo);
+  frame.ontimeupdate = () => {
+    if (frame.currentTime > 3 && frame.currentTime < 5) {
+      frame.classList.add("frame-zoom");
+    } else {
+      frame.classList.remove("frame-zoom");
+    }
+  };
 
   function viewFrameVideo() {
     frame.classList.add("frame-view");
@@ -126,6 +133,7 @@ export function toggleModal() {
     modalWrapper.classList.add("modal-freeze");
   }
   function endFrameVideo() {
+    // setTimeout(() => frame.classList.remove("frame-view"), 1000);
     frame.classList.remove("frame-view");
   }
 }
