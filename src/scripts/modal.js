@@ -118,10 +118,14 @@ export function toggleModal() {
   };
 
   frame.addEventListener("play", viewFrameVideo);
+  frame.addEventListener("ended", endFrameVideo);
 
   function viewFrameVideo() {
     frame.classList.add("frame-view");
     modal.classList.add("modal-freeze");
     modalWrapper.classList.add("modal-freeze");
+  }
+  function endFrameVideo() {
+    frame.classList.remove("frame-view");
   }
 }

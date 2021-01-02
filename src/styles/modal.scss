@@ -189,8 +189,9 @@
 }
 
 #frameAppear {
-  outline-color: #32a09f;
-  outline-offset: 8px;
+ /*  outline-color: #32a09f;
+  outline-offset: 8px; */
+  outline: none;
   animation: none;
   &::-webkit-media-controls-fullscreen-button,
   &::-webkit-media-controls-timeline,
@@ -218,12 +219,15 @@
 
 .frame-still {
   width: 150px;
+  transition: 1s;
 }
 .frame-view {
-  transform: perspective(500px) translate3d(80px, 0px, 390px);
+  transform: perspective(500px) translate3d(75px, 0px, 390px);
   outline: none;
   z-index: 2000;
   position: relative;
+  box-shadow: 0px 0px 30px 10px #3f3d3dbf;
+  transition: transform 1s;
 }
 
 /* video#frameAppear.frame-still::-webkit-media-controls.sizing-small input[pseudo="-internal-media-controls-overflow-button" i] {
