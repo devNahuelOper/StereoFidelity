@@ -38,7 +38,7 @@
   border: 13px solid #191719;
   border-radius: 50%;
   box-shadow: 0px 0px 0px 1px silver inset;
- /* animation: spin 1s ease-in-out 1, color-change 25s linear infinite; */
+  /* animation: spin 1s ease-in-out 1, color-change 25s linear infinite; */
   z-index: 1001;
 }
 
@@ -52,8 +52,8 @@
   border-radius: 50%;
   border: 1px solid #9b9b9b;
   box-shadow: 0px 0px 0px 1px #1f1f2c inset;
- /* animation: color-change 15s linear infinite; */
-  animation: color-change 15s ease-in-out infinite; 
+  /* animation: color-change 15s linear infinite; */
+  animation: color-change 15s ease-in-out infinite;
 }
 
 .modal-content {
@@ -80,7 +80,6 @@
   position: sticky;
   top: 10px;
   white-space: nowrap;
-  
 }
 
 #welcome.modal-freeze {
@@ -99,7 +98,7 @@
   white-space: nowrap;
   border-radius: 40px;
   box-sizing: border-box;
- /* background: #000000 border-box; */
+  /* background: #000000 border-box; */
   font-size: 1rem;
   position: relative;
   list-style: none;
@@ -193,19 +192,33 @@
   width: 150px;
   outline-color: #32a09f;
   outline-offset: 8px;
-  input[pseudo="-internal-media-controls-overflow-button"], &::-webkit-media-controls-fullscreen-button, &::-webkit-media-controls-timeline, &::-webkit-media-controls-volume-control-container {
+  &::-webkit-media-controls-fullscreen-button,
+  &::-webkit-media-controls-timeline,
+  &::-webkit-media-controls-volume-control-container {
     display: none;
   }
-  /* div[pseudo="-internal-media-controls-button-panel"] */
-  &::-internal-media-controls-button-panel {
-    overflow: visible !important;
-    &::-webkit-media-controls-play-button {
-      background-image: url('/dist/images/play-button.png') !important;
-      background-size: contain;
-      margin: 35px auto;
-    }
+  &::-webkit-media-controls-panel {
+    appearance: none;
+    overflow: visible;
+    flex-direction: row;
+    align-items: center;
+  }
+  &::-webkit-media-controls-play-button {
+    background-image: url("/dist/images/play-button.png");
+    background-size: contain;
+    /* margin: 35px auto; */
+    /* margin: auto 70px; */
+    margin: auto 25%;
   }
 }
+
+/* video#frameAppear.frame-still::-webkit-media-controls.sizing-small input[pseudo="-internal-media-controls-overflow-button" i] {
+  display: none;
+}
+
+video::-webkit-media-controls.sizing-small input[pseudo="-internal-media-controls-overflow-button" i] {
+  display: none;
+} */
 
 .inst-playbtn {
   filter: grayscale(1) brightness(0.7);

@@ -106,6 +106,9 @@
   }
   .frame-still {
     width: 220px !important;
+    &::-webkit-media-controls-play-button {
+      margin: auto 35% !important;
+    }
   }
 }
 
