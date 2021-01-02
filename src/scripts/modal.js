@@ -8,6 +8,7 @@ export function toggleModal() {
   const strong = modal.querySelectorAll("strong");
   const close = document.getElementsByClassName("close")[0];
   const about = document.getElementById("about");
+  const frame = document.getElementById("frameAppear");
 
   window.setMorph = setMorph;
   window.setZoom = setZoom;
@@ -60,9 +61,11 @@ export function toggleModal() {
   };
 
   modal.onpointerout = function () {
-    playAnimations();
-    modal.classList.remove("modal-freeze");
-    modalWrapper.classList.remove("modal-freeze");
+    if (frame.paused) {
+      playAnimations();
+      modal.classList.remove("modal-freeze");
+      modalWrapper.classList.remove("modal-freeze");
+    }
   };
 
   window.onpointerdown = function (event) {
@@ -114,7 +117,11 @@ export function toggleModal() {
     modalContent.onscroll = null;
   };
 
+  frame.addEventListener("play", viewFrameVideo);
+
   function viewFrameVideo() {
-    
+    frame.classList.add("frame-view");
+    modal.classList.add("modal-freeze");
+    modalWrapper.classList.add("modal-freeze");
   }
 }
