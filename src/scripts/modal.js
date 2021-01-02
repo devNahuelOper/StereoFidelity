@@ -9,6 +9,7 @@ export function toggleModal() {
   const close = document.getElementsByClassName("close")[0];
   const about = document.getElementById("about");
   const frame = document.getElementById("frameAppear");
+  const match = document.getElementById("matchAppear");
 
   window.setMorph = setMorph;
   window.setZoom = setZoom;
@@ -61,7 +62,7 @@ export function toggleModal() {
   };
 
   modal.onpointerout = function () {
-    if (frame.paused) {
+    if (frame.paused && match.paused) {
       playAnimations();
       modal.classList.remove("modal-freeze");
       modalWrapper.classList.remove("modal-freeze");
@@ -117,8 +118,7 @@ export function toggleModal() {
     modalContent.onscroll = null;
   };
 
-  frame.addEventListener("play", viewFrameVideo);
-  frame.addEventListener("ended", endFrameVideo);
+
   frame.ontimeupdate = () => {
     if (frame.currentTime > 3 && frame.currentTime < 5) {
       frame.classList.add("frame-zoom");
@@ -127,13 +127,19 @@ export function toggleModal() {
     }
   };
 
-  function viewFrameVideo() {
-    frame.classList.add("frame-view");
-    modal.classList.add("modal-freeze");
-    modalWrapper.classList.add("modal-freeze");
+  const videos = document.getElementsByClassName("frame-still");
+
+  for (let video of videos) {
+    video.onplay = () => viewFrameVideo(video);
+    video.onended = () => endFrameVideo(video);
   }
-  function endFrameVideo() {
-    // setTimeout(() => frame.classList.remove("frame-view"), 1000);
-    frame.classList.remove("frame-view");
-  }
+
+   function viewFrameVideo(ele) {
+     ele.classList.add("frame-view");
+     modal.classList.add("modal-freeze");
+     modalWrapper.classList.add("modal-freeze");
+   }
+   function endFrameVideo(ele) {
+     ele.classList.remove("frame-view");
+   }
 }
