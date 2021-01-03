@@ -1,12 +1,55 @@
-.keyboardContainer {
+/* .keyboardContainer {
   display: flex;
   flex-direction: column;
   background-color: #3086e0;
   float: right;
   display: none;
-} 
+}
 
 .keyboard {
   display: flex;
   white-space: nowrap;
+} */
+
+#keyboard {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+ /*  width: 60%; */
+  width: 58%;
+  margin: 6px auto;
+  height: 130px;
+
+  span {
+    border-radius: 4px;
+    cursor: pointer;
+    box-shadow: 0px 0px 2px 2px grey;
+    position: relative;
+    &:hover {
+      transform: perspective(500px) translateZ(-30px);
+    }
+  }
+}
+
+.whole {
+  background-color: white;
+  color: black;
+  height: 100%;
+ /*  padding: 6px; */
+  padding: 17px;
+  z-index: 0;
+}
+
+.sharp {
+  background-color: black;
+  color: white;
+  height: 100%;
+  z-index: 1;
+ /*  margin-left: -14px;
+  margin-right: -4px; */
+  margin-left: -18px;
+  margin-right: -18px;
+  /* width: 20px; */
+  width: 24px;
+  padding: 4px;
 }
