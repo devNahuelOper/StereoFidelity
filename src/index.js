@@ -39,6 +39,11 @@ async function main() {
       if (document.getElementById("keyboard")) return;
       makePiano();
     }
+    // if (e.code === "KeyQ") {
+    //   if (document.getElementById("keyboard")) {
+    //     document.getElementById("keyboard").remove();
+    //   }
+    // }
   });
 
   let trippleImages = [...images, ...images, ...images];

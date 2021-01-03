@@ -667,6 +667,10 @@ export function makePiano() {
   }
 
   keyboard.addEventListener("mouseover", playWholes);
+
+  let distortion = makeDistortion(oscillator);
+  let distRange = addDistortion(distortion);
+  keyboard.prepend(distRange);
 }
 
 function makeOscillator() {
@@ -705,3 +709,16 @@ function makeDistortionCurve(amount) {
   }
   return curve;
 };
+
+function addDistortion(distortion) {
+  let distRange = document.createElement('input');
+  distRange.type = "range";
+  distRange.min = 0;
+  distRange.max = 1000;
+  distRange.step = 1.0;
+  distRange.value = 400;
+  distRange.oninput = () => {
+    distortion.curve = makeDistortionCurve(distRange.value);
+  }
+  return distRange;
+}

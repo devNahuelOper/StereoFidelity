@@ -25,8 +25,12 @@
     cursor: pointer;
     box-shadow: 0px 0px 2px 2px grey;
     position: relative;
+    text-align: center;
     &:hover {
       transform: perspective(500px) translateZ(-30px);
+    }
+    sub {
+      font-size: 12px;
     }
   }
 }
@@ -38,6 +42,11 @@
  /*  padding: 6px; */
   padding: 17px;
   z-index: 0;
+  sub {
+    position: relative;
+    top: 15px;
+    right: 10px;
+  }
 }
 
 .sharp {
