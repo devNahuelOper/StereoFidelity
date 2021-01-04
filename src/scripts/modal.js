@@ -97,6 +97,8 @@ export function toggleModal() {
     shuffle: "Press <strong>R</strong> to Shuffle Effects!",
     modal:
       "Press <strong>H</strong> to Show, <strong>ESC</strong> to Hide Instructions",
+    piano:
+      "Press <strong>P</strong> for a 🎹 PIANO 🎹...<strong>Q</strong> to hide it and <strong>T</strong> to move it.",
   };
 
   function addFreestyle() {
@@ -118,7 +120,6 @@ export function toggleModal() {
     modalContent.onscroll = null;
   };
 
-
   frame.ontimeupdate = () => {
     if (frame.currentTime > 3 && frame.currentTime < 5) {
       frame.classList.add("frame-zoom");
@@ -134,12 +135,12 @@ export function toggleModal() {
     video.onended = () => endFrameVideo(video);
   }
 
-   function viewFrameVideo(ele) {
-     ele.classList.add("frame-view");
-     modal.classList.add("modal-freeze");
-     modalWrapper.classList.add("modal-freeze");
-   }
-   function endFrameVideo(ele) {
-     ele.classList.remove("frame-view");
-   }
+  function viewFrameVideo(ele) {
+    ele.classList.add("frame-view");
+    modal.classList.add("modal-freeze");
+    modalWrapper.classList.add("modal-freeze");
+  }
+  function endFrameVideo(ele) {
+    ele.classList.remove("frame-view");
+  }
 }
