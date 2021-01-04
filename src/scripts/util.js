@@ -55,6 +55,14 @@ export const makeScore = (el) => {
   el.insertAdjacentElement("beforeend", score);
   return score;
 };
+
+export function addLabel(ele) {
+  let label = document.createElement("label");
+  label.htmlFor = label.id = ele.name;
+  label.innerHTML = ele.name + "</br>";
+  label.append(ele);
+  return label;
+}
 // let constraints = { audio: true, video: { width: 1280, height: 720 } };
 
 // navigator.mediaDevices

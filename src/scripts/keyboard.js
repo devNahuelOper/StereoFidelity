@@ -506,11 +506,21 @@
 
 // export default piano;
 
+import { addLabel, setAttributes } from "./util";
+
 export const activatePiano = (audioCtx) => {
-  let oscillator;
+  let oscillator,
+    distortion,
+    keyboard = document.createElement("div"),
+    kbContainer = document.createElement("div"),
+    pianoControls = document.createElement("fieldset");
+  setAttributes(keyboard, { id: "keyboard", class: "keyboard" });
+  setAttributes(kbContainer, { id: "keyboardContainer", class: "kbc" });
+  pianoControls.setAttribute("class", "pianoControls");
 
   function makePiano() {
     oscillator = makeOscillator(audioCtx);
+    oscillator.start();
 
     let notes = [
       "C",
@@ -645,10 +655,6 @@ export const activatePiano = (audioCtx) => {
       return key;
     });
 
-    let keyboard = document.createElement("div");
-    keyboard.id = "keyboard";
-    keyboard.className = "keyboard";
-
     for (let key of keys) {
       let span = document.createElement("span");
       span.id = key.note;
@@ -669,16 +675,8 @@ export const activatePiano = (audioCtx) => {
       keyboard.append(span);
     }
 
-    let kbContainer = document.createElement("div");
-    kbContainer.id = "keyboardContainer";
-    kbContainer.append(keyboard);
-
-    let pianoControls = document.createElement("fieldset");
-    pianoControls.className = "pianoControls";
-    kbContainer.prepend(pianoControls);
-
+    kbContainer.append(pianoControls, keyboard);
     document.body.append(kbContainer);
-    oscillator.start();
 
     document.addEventListener("keydown", (e) => {
       if (e.code === "KeyT") {
@@ -696,6 +694,25 @@ export const activatePiano = (audioCtx) => {
 
     keyboard.addEventListener("mouseover", playWholes);
 
+    kbContainer.addEventListener("mouseover", () => {
+      // audioCtx.resume();
+      oscillator.connect(audioCtx.destination);
+      oscillator.connect(distortion);
+      kbContainer.onmouseover = null;
+    });
+    kbContainer.addEventListener("mouseout", () => {
+      // audioCtx.suspend();
+      oscillator.disconnect();
+      kbContainer.onmouseout = null;
+    });
+
+    let distRange = addDistortionRange();
+    pianoControls.prepend(distRange);
+
+    distRange.oninput = () => {
+      makeDistortion(distRange.value);
+    };
+
     function setFreq(hz) {
       oscillator.frequency.setValueAtTime(hz, audioCtx.currentTime);
     }
@@ -705,17 +722,6 @@ export const activatePiano = (audioCtx) => {
       if (!target.classList.contains("whole")) return;
       setFreq(target.dataset["freq"]);
     }
-
-    let distRange = addDistortion();
-    pianoControls.prepend(distRange);
-
-    distRange.oninput = () => {
-      let distortion = audioCtx.createWaveShaper();
-      distortion.oversample = "4x";
-      distortion.curve = makeDistortionCurve(distRange.value);
-      distortion.connect(audioCtx.destination);
-      oscillator.connect(distortion);
-    };
   }
 
   document.addEventListener("keydown", (e) => {
@@ -743,9 +749,17 @@ export const activatePiano = (audioCtx) => {
     let cosineTerms = new Float32Array(sineTerms.length);
     let customWave = audioCtx.createPeriodicWave(cosineTerms, sineTerms);
     oscillator.setPeriodicWave(customWave);
-    oscillator.connect(audioCtx.destination);
-
+    // oscillator.connect(audioCtx.destination);
     return oscillator;
+  }
+
+  function makeDistortion(amt) {
+    distortion = audioCtx.createWaveShaper();
+    distortion.connect(audioCtx.destination);
+    oscillator.connect(distortion);
+    distortion.oversample = "4x";
+    distortion.curve = makeDistortionCurve(amt);
+    return distortion;
   }
 
   function makeDistortionCurve(amount) {
@@ -762,44 +776,17 @@ export const activatePiano = (audioCtx) => {
     return curve;
   }
 
-  function addDistortion() {
+  function addDistortionRange() {
     let distRange = document.createElement("input");
-    distRange.id = "distRange";
-    distRange.type = "range";
-    distRange.name = "distortion";
-    distRange.min = 0;
-    distRange.max = 1000;
-    distRange.step = 1;
+    setAttributes(distRange, {
+      id: "distRange",
+      type: "range",
+      name: "distortion",
+      min: 0,
+      max: 1000,
+      step: 1,
+    });
 
     return addLabel(distRange);
   }
 };
-
-function addLabel(ele) {
-  let label = document.createElement("label");
-  label.htmlFor = label.id = ele.name;
-  label.innerHTML = ele.name + '</br>';
-  label.append(ele);
-  return label;
-}
-
-// function makeDistortion(oscillator) {
-//   let audioCtx = oscillator.context;
-//   let distortion = audioCtx.createWaveShaper();
-//   distortion.curve = makeDistortionCurve(400);
-//   distortion.oversample = "4x";
-//   distortion.connect(audioCtx.destination);
-//   oscillator.connect(distortion);
-//   return distortion;
-// }
-
-// function addDistortion() {
-//   let distRange = document.createElement("input");
-//   distRange.id = "distRange";
-//   distRange.type = "range";
-//   distRange.min = 0;
-//   distRange.max = 1000;
-//   distRange.step = 1;
-
-//   return distRange;
-// }
