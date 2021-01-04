@@ -649,16 +649,6 @@ export const activatePiano = (audioCtx) => {
     keyboard.id = "keyboard";
     keyboard.className = "keyboard";
 
-    document.addEventListener("keydown", (e) => {
-      if (e.code === "KeyT") {
-        if (!keyboard.classList.contains("keyboard-top")) {
-          keyboard.classList.add("keyboard-top");
-        } else {
-          keyboard.classList.remove("keyboard-top");
-        }
-      }
-    })
-
     for (let key of keys) {
       let span = document.createElement("span");
       span.id = key.note;
@@ -678,8 +668,28 @@ export const activatePiano = (audioCtx) => {
       keyboard.append(span);
     }
 
-    document.body.append(keyboard);
+    let kbContainer = document.createElement("div");
+    kbContainer.id = "keyboardContainer";
+    kbContainer.append(keyboard);
+
+    let pianoControls = document.createElement("fieldset");
+    pianoControls.className = "pianoControls";
+    kbContainer.prepend(pianoControls);
+
+    document.body.append(kbContainer);
     oscillator.start();
+
+    document.addEventListener("keydown", (e) => {
+      if (e.code === "KeyT") {
+        if (!keyboard.classList.contains("keyboard-top")) {
+          keyboard.classList.add("keyboard-top");
+          kbContainer.classList.add("kbc-top");
+        } else {
+          keyboard.classList.remove("keyboard-top");
+          kbContainer.classList.remove("kbc-top");
+        }
+      }
+    });
 
     keyboard.addEventListener("mouseover", playWholes);
 
@@ -694,7 +704,7 @@ export const activatePiano = (audioCtx) => {
     }
 
     let distRange = addDistortion();
-    keyboard.prepend(distRange);
+    pianoControls.prepend(distRange);
 
     distRange.oninput = () => {
       let distortion = audioCtx.createWaveShaper();
@@ -716,7 +726,7 @@ export const activatePiano = (audioCtx) => {
   });
 
   function hidePiano() {
-    let keyboard = document.getElementById("keyboard");
+    let keyboard = document.getElementById("keyboardContainer");
     if (keyboard) {
       keyboard.remove();
       oscillator.disconnect();

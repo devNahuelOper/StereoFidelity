@@ -37,17 +37,28 @@
 
 .keyboard {
   width: 58%;
-  margin: 6px auto;
+  margin: 4px auto;
   height: 130px;
 }
 
 .keyboard-top {
   position: absolute;
   top: 0%;
-  left: 20%;
+  /* left: 20%; */
   width: 56%;
   height: 90px;
-  margin: 24px auto;
+  margin: 42px auto;
+}
+
+.kbc-top {
+  position: absolute;
+  top: 0%;
+  left: 20%;
+  width: 100%;
+  .pianoControls {
+    width: 56%;
+    margin: unset;
+  }
 }
 
 .whole {
@@ -76,4 +87,14 @@
   /* width: 20px; */
   width: 24px;
   padding: 4px;
+}
+
+.pianoControls {
+  width: 58%;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+#distRange {
+  width: 20%;
 }
