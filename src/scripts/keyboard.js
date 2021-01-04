@@ -369,7 +369,7 @@
 //       noteFreq[6]["A"] = 1760.0;
 //       noteFreq[6]["A#"] = 1864.655;
 //       noteFreq[6]["B"] = 1975.533;
-  
+
 //       noteFreq[7]["C"] = 2093.004522404789077;
 //       noteFreq[7]["C#"] = 2217.461047814976769;
 //       noteFreq[7]["D"] = 2349.318143339260482;
@@ -384,7 +384,6 @@
 //       noteFreq[7]["B"] = 3951.066410048992894;
 //     }
 
-
 //     noteFreq[8]["C"] = 4186.009044809578154;
 //     noteFreq[8]["C#"] = 4434.922;
 //     noteFreq[8]["D"] = 4698.636;
@@ -397,7 +396,7 @@
 //     noteFreq[8]["A"] = 7040.0;
 //     noteFreq[8]["A#"] = 7458.62;
 //     noteFreq[8]["B"] = 7902.133;
-    
+
 //     return noteFreq;
 //   }
 
@@ -506,7 +505,6 @@
 // }
 
 // export default piano;
-
 
 export function makePiano() {
   let oscillator = makeOscillator();
@@ -636,13 +634,13 @@ export function makePiano() {
     return key;
   });
 
-  let keyboard = document.createElement('div');
+  let keyboard = document.createElement("div");
   keyboard.id = "keyboard";
 
   for (let key of keys) {
     let span = document.createElement("span");
     span.id = key.note;
-    span.dataset['freq'] = key.freq;
+    span.dataset["freq"] = key.freq;
 
     if (key.note.includes("#")) {
       span.className = "sharp";
@@ -668,9 +666,17 @@ export function makePiano() {
 
   keyboard.addEventListener("mouseover", playWholes);
 
-  let distortion = makeDistortion(oscillator);
-  let distRange = addDistortion(distortion);
+
+  let distRange = addDistortion();
   keyboard.prepend(distRange);
+
+  distRange.oninput = () => {
+    let distortion = audioCtx.createWaveShaper();
+    distortion.oversample = "4x";
+    distortion.curve = makeDistortionCurve(distRange.value);
+    distortion.connect(audioCtx.destination);
+    oscillator.connect(distortion);
+  };
 }
 
 function makeOscillator() {
@@ -686,39 +692,37 @@ function makeOscillator() {
   return oscillator;
 }
 
-function makeDistortion(oscillator) {
-  let audioCtx = oscillator.context;
-  let distortion = audioCtx.createWaveShaper();
-  distortion.curve = makeDistortionCurve(400);
-  distortion.oversample = '4x';
-  distortion.connect(audioCtx.destination);
-  oscillator.connect(distortion);
-  return distortion;
-}
+// function makeDistortion(oscillator) {
+//   let audioCtx = oscillator.context;
+//   let distortion = audioCtx.createWaveShaper();
+//   distortion.curve = makeDistortionCurve(400);
+//   distortion.oversample = "4x";
+//   distortion.connect(audioCtx.destination);
+//   oscillator.connect(distortion);
+//   return distortion;
+// }
 
 function makeDistortionCurve(amount) {
-  let k = typeof amount === 'number' ? amount : 50,
+  let k = typeof amount === "number" ? amount : 50,
     n_samples = 44100,
     curve = new Float32Array(n_samples),
     deg = Math.PI / 180,
     i = 0,
     x;
-  for ( ; i < n_samples; ++i ) {
-    x = i * 2 / n_samples - 1;
-    curve[i] = ( 3 + k ) * x * 20 * deg / ( Math.PI + k * Math.abs(x) );
+  for (; i < n_samples; ++i) {
+    x = (i * 2) / n_samples - 1;
+    curve[i] = ((3 + k) * x * 20 * deg) / (Math.PI + k * Math.abs(x));
   }
   return curve;
-};
+}
 
-function addDistortion(distortion) {
-  let distRange = document.createElement('input');
+function addDistortion() {
+  let distRange = document.createElement("input");
+  distRange.id = "distRange";
   distRange.type = "range";
   distRange.min = 0;
   distRange.max = 1000;
-  distRange.step = 1.0;
-  distRange.value = 400;
-  distRange.oninput = () => {
-    distortion.curve = makeDistortionCurve(distRange.value);
-  }
+  distRange.step = 1;
+
   return distRange;
 }
