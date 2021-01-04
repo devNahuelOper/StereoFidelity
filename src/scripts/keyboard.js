@@ -658,6 +658,7 @@ export const activatePiano = (audioCtx) => {
         span.className = "sharp";
       } else {
         span.className = "whole";
+        span.classList.add(key.note[0]);
       }
 
       span.innerHTML = `${key.note.slice(
@@ -684,9 +685,11 @@ export const activatePiano = (audioCtx) => {
         if (!keyboard.classList.contains("keyboard-top")) {
           keyboard.classList.add("keyboard-top");
           kbContainer.classList.add("kbc-top");
+          effects.style.top = 50 + "px";
         } else {
           keyboard.classList.remove("keyboard-top");
           kbContainer.classList.remove("kbc-top");
+          effects.style.top = "";
         }
       }
     });
@@ -699,7 +702,7 @@ export const activatePiano = (audioCtx) => {
 
     function playWholes(event) {
       let target = event.target;
-      if (target.className != "whole") return;
+      if (!target.classList.contains("whole")) return;
       setFreq(target.dataset["freq"]);
     }
 
@@ -763,13 +766,22 @@ export const activatePiano = (audioCtx) => {
     let distRange = document.createElement("input");
     distRange.id = "distRange";
     distRange.type = "range";
+    distRange.name = "distortion";
     distRange.min = 0;
     distRange.max = 1000;
     distRange.step = 1;
 
-    return distRange;
+    return addLabel(distRange);
   }
 };
+
+function addLabel(ele) {
+  let label = document.createElement("label");
+  label.htmlFor = label.id = ele.name;
+  label.innerHTML = ele.name + '</br>';
+  label.append(ele);
+  return label;
+}
 
 // function makeDistortion(oscillator) {
 //   let audioCtx = oscillator.context;
