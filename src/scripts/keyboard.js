@@ -509,18 +509,18 @@
 import { addLabel, setAttributes } from "./util";
 
 export const activatePiano = (audioCtx) => {
-  let oscillator,
-    distortion,
-    keyboard = document.createElement("div"),
-    kbContainer = document.createElement("div"),
-    pianoControls = document.createElement("fieldset");
-  setAttributes(keyboard, { id: "keyboard", class: "keyboard" });
-  setAttributes(kbContainer, { id: "keyboardContainer", class: "kbc" });
-  pianoControls.setAttribute("class", "pianoControls");
+  let oscillator, distortion, keyboard, kbContainer, pianoControls;
 
   function makePiano() {
     oscillator = makeOscillator(audioCtx);
     oscillator.start();
+
+    (keyboard = document.createElement("div")),
+      (kbContainer = document.createElement("div")),
+      (pianoControls = document.createElement("fieldset"));
+    setAttributes(keyboard, { id: "keyboard", class: "keyboard" });
+    setAttributes(kbContainer, { id: "keyboardContainer", class: "kbc" });
+    pianoControls.setAttribute("class", "pianoControls");
 
     let notes = [
       "C",
@@ -735,9 +735,8 @@ export const activatePiano = (audioCtx) => {
   });
 
   function hidePiano() {
-    let keyboard = document.getElementById("keyboardContainer");
-    if (keyboard) {
-      keyboard.remove();
+    if (kbContainer) {
+      kbContainer.remove();
       oscillator.disconnect();
     }
   }
