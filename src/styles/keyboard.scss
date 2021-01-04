@@ -15,11 +15,11 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
- /*  width: 60%; */
-  width: 58%;
+ 
+/*   width: 58%;
   margin: 6px auto;
   height: 130px;
-
+ */
   span {
     border-radius: 4px;
     cursor: pointer;
@@ -33,6 +33,21 @@
       font-size: 12px;
     }
   }
+}
+
+.keyboard {
+  width: 58%;
+  margin: 6px auto;
+  height: 130px;
+}
+
+.keyboard-top {
+  position: absolute;
+  top: 0%;
+  left: 20%;
+  width: 56%;
+  height: 90px;
+  margin: 24px auto;
 }
 
 .whole {

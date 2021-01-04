@@ -647,6 +647,17 @@ export const activatePiano = (audioCtx) => {
 
     let keyboard = document.createElement("div");
     keyboard.id = "keyboard";
+    keyboard.className = "keyboard";
+
+    document.addEventListener("keydown", (e) => {
+      if (e.code === "KeyT") {
+        if (!keyboard.classList.contains("keyboard-top")) {
+          keyboard.classList.add("keyboard-top");
+        } else {
+          keyboard.classList.remove("keyboard-top");
+        }
+      }
+    })
 
     for (let key of keys) {
       let span = document.createElement("span");
