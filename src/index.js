@@ -13,7 +13,7 @@ import getPerformance from "./scripts/performance";
 import { toggleSecretPlaylist, addMoreTracks } from "./scripts/playlist";
 import { scrollSong } from "./scripts/animation";
 import { displayTime } from "./scripts/util";
-import { makePiano } from "./scripts/keyboard";
+import { activatePiano } from "./scripts/keyboard";
 // import canvasExample from "./scripts/canvas";
 
 window.addEventListener("DOMContentLoaded", main);
@@ -28,38 +28,29 @@ async function main() {
   let sounds = effects.querySelectorAll("audio");
   let images = effects.querySelectorAll("img");
 
+  let trippleImages = [...images, ...images, ...images];
+
+  const tracks = document.getElementsByClassName("tracks")[0];
+  const songs = tracks.querySelectorAll("audio");
+
+  let AudioContext = window.AudioContext || window.webkitAudioContext;
+  this.ctx = new AudioContext();
+
+  activatePiano(ctx);
+
   document.addEventListener("keydown", (e) => {
     if (e.code === "KeyR") {
       shuffleEffects();
       sounds = effects.querySelectorAll("audio");
       images = effects.querySelectorAll("img");
     }
-
-    if (e.code === "KeyP") {
-      if (document.getElementById("keyboard")) return;
-      makePiano();
-    }
-    // if (e.code === "KeyQ") {
-    //   if (document.getElementById("keyboard")) {
-    //     document.getElementById("keyboard").remove();
-    //   }
-    // }
   });
-
-  let trippleImages = [...images, ...images, ...images];
-
-  const tracks = document.getElementsByClassName("tracks")[0];
-  const songs = tracks.querySelectorAll("audio");
-
-  
-  let AudioContext = window.AudioContext || window.webkitAudioContext;
-  this.ctx = new AudioContext();
 
   addMoreTracks(tracks.firstElementChild, ctx);
 
   songs.forEach((song) => {
     let songTitle = song.nextElementSibling;
-   
+
     song.onplay = function () {
       scrollSong(songTitle, Math.round(song.duration / 20));
       displayTime(song, songTitle);
@@ -74,16 +65,15 @@ async function main() {
         trippleImages
       );
 
-      song.onended = () => { 
+      song.onended = () => {
         endGame(effects, start, tracks, song);
-      }
+      };
     };
   });
 
   window.addEventListener("unhandledrejection", (e) => {
     e.preventDefault();
   });
-
 }
 
 getPerformance();
