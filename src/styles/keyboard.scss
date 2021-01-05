@@ -88,7 +88,7 @@
   label {
     color: silver;
     text-transform: capitalize;
-    font-size: 14px;
+    font-size: 16px;
   }
 }
 
@@ -102,7 +102,7 @@
 
 .reverbButtons {
   width: 70%;
-  list-style: none;
+  /* list-style: none; */
   color: silver;
   columns: 5;
   cursor: pointer;
@@ -111,8 +111,25 @@
 #reverbTitle {
   color: silver;
   font-size: 16px;
+  margin-bottom: 1px;
 }
 
 .reverb {
-  font-size: 14px;
+  font-size: 12px;
+  margin-left: 12px;
+  &::marker {
+    color: #222121;
+  }
+  &:hover {
+    &::marker {
+      color: #6fe006;
+    }
+  }
+}
+
+.selected {
+  color: white;
+  &::marker {
+    color: #6fe006;
+  }
 }

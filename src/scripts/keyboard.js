@@ -509,7 +509,7 @@
 import { addLabel, setAttributes, proxyUrl } from "./util";
 
 export const activatePiano = (audioCtx) => {
-  let oscillator, distortion, keyboard, kbContainer, pianoControls;
+  let oscillator, distortion, reverb, keyboard, kbContainer, pianoControls;
 
   function makePiano() {
     oscillator = makeOscillator(audioCtx);
@@ -698,6 +698,7 @@ export const activatePiano = (audioCtx) => {
       // audioCtx.resume();
       oscillator.connect(audioCtx.destination);
       oscillator.connect(distortion);
+      oscillator.connect(reverb);
       kbContainer.onmouseover = null;
     });
     kbContainer.addEventListener("mouseout", () => {
@@ -800,20 +801,19 @@ export const activatePiano = (audioCtx) => {
     const reverbs = ["Bottle Hall", "Deep Space", "Going Home", "In The Silo", "Masonic Lodge", "Nice Drum Room", "On a Star", "Parking Garage", "Rays", "Vocal Duo"];
     let ul = document.createElement("ul");
     setAttributes(ul, { id: "reverbButtons", class: "reverbButtons"});
-    let h1 = document.createElement("h1");
-    h1.innerHTML = "Reverb";
-   
-    // ul.append(h1);
-    // ul.innerHTML = "<strong>Reverb</strong> </br>";
+
     for (let reverb of reverbs) {
       let li = document.createElement("li");
       setAttributes(li, { id: reverb.replace(/\s/g, ""), class: "reverb"});
       li.innerHTML = reverb;
-      // li.addEventListener("click", connectReverb(reverb));
-      li.onclick = () => connectReverb(reverb);
+
+      li.onclick = () =>{ 
+        connectReverb(reverb);
+        markReverbSelected(li);
+      }
       ul.append(li);
     }
-    ul.insertAdjacentElement("beforebegin", h1);
+
     return ul;
   }
   
@@ -828,8 +828,20 @@ export const activatePiano = (audioCtx) => {
 
       return convolver;
     }
-    let reverb = await createReverb();
+    reverb = await createReverb();
     oscillator.connect(reverb);
     reverb.connect(audioCtx.destination);
   }
+
+  function markReverbSelected(rev) {
+    if (!document.getElementsByClassName("reverb")) return;
+      let reverbs = document.getElementsByClassName("reverb");
+      for (let reverb of reverbs) {
+        if (reverb.classList.contains("selected")) {
+          reverb.classList.remove("selected");
+        }
+      }
+      rev.classList.add("selected");
+    }
+  
 };
