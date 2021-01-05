@@ -715,6 +715,10 @@ export const activatePiano = (audioCtx) => {
 
     let reverbButtons = addReverbButtons();
     pianoControls.append(reverbButtons);
+    reverbButtons.insertAdjacentHTML(
+      "beforebegin",
+      '<h1 id="reverbTitle">Reverb</h1>'
+    );
 
     function setFreq(hz) {
       oscillator.frequency.setValueAtTime(hz, audioCtx.currentTime);
@@ -796,7 +800,11 @@ export const activatePiano = (audioCtx) => {
     const reverbs = ["Bottle Hall", "Deep Space", "Going Home", "In The Silo", "Masonic Lodge", "Nice Drum Room", "On a Star", "Parking Garage", "Rays", "Vocal Duo"];
     let ul = document.createElement("ul");
     setAttributes(ul, { id: "reverbButtons", class: "reverbButtons"});
-    ul.innerHTML = "<strong>Reverb</strong> </br>";
+    let h1 = document.createElement("h1");
+    h1.innerHTML = "Reverb";
+   
+    // ul.append(h1);
+    // ul.innerHTML = "<strong>Reverb</strong> </br>";
     for (let reverb of reverbs) {
       let li = document.createElement("li");
       setAttributes(li, { id: reverb.replace(/\s/g, ""), class: "reverb"});
@@ -805,7 +813,7 @@ export const activatePiano = (audioCtx) => {
       li.onclick = () => connectReverb(reverb);
       ul.append(li);
     }
-
+    ul.insertAdjacentElement("beforebegin", h1);
     return ul;
   }
   
