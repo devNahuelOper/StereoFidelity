@@ -129,6 +129,7 @@
 
 .selected {
   color: white;
+  filter: brightness(1.5);
   &::marker {
     color: #6fe006;
   }
