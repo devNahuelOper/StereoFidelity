@@ -506,7 +506,7 @@
 
 // export default piano;
 
-import { addLabel, setAttributes } from "./util";
+import { addLabel, setAttributes, proxyUrl } from "./util";
 
 export const activatePiano = (audioCtx) => {
   let oscillator, distortion, keyboard, kbContainer, pianoControls;
@@ -713,6 +713,9 @@ export const activatePiano = (audioCtx) => {
       makeDistortion(distRange.value);
     };
 
+    let reverbButtons = addReverbButtons();
+    pianoControls.append(reverbButtons);
+
     function setFreq(hz) {
       oscillator.frequency.setValueAtTime(hz, audioCtx.currentTime);
     }
@@ -787,5 +790,38 @@ export const activatePiano = (audioCtx) => {
     });
 
     return addLabel(distRange);
+  }
+
+  function addReverbButtons() {
+    const reverbs = ["Bottle Hall", "Deep Space", "Going Home", "In The Silo", "Masonic Lodge", "Nice Drum Room", "On a Star", "Parking Garage", "Rays", "Vocal Duo"];
+    let ul = document.createElement("ul");
+    setAttributes(ul, { id: "reverbButtons", class: "reverbButtons"});
+    ul.innerHTML = "<strong>Reverb</strong> </br>";
+    for (let reverb of reverbs) {
+      let li = document.createElement("li");
+      setAttributes(li, { id: reverb.replace(/\s/g, ""), class: "reverb"});
+      li.innerHTML = reverb;
+      // li.addEventListener("click", connectReverb(reverb));
+      li.onclick = () => connectReverb(reverb);
+      ul.append(li);
+    }
+
+    return ul;
+  }
+  
+
+  async function connectReverb(sound) {
+    const reverbFolder = "https://stereo-fidelity.s3.amazonaws.com/reverb/";
+    async function createReverb() {
+      let convolver = audioCtx.createConvolver();
+      let response = await fetch(`${proxyUrl}${reverbFolder}${sound.replace(/\s/g, '+')}.wav`);
+      let arrayBuffer = await response.arrayBuffer();
+      convolver.buffer = await audioCtx.decodeAudioData(arrayBuffer);
+
+      return convolver;
+    }
+    let reverb = await createReverb();
+    oscillator.connect(reverb);
+    reverb.connect(audioCtx.destination);
   }
 };

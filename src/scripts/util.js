@@ -7,6 +7,10 @@ export const randInRange = (min, max) => Math.floor(Math.random() * (max - min) 
 export const proxyUrl = "https://cors-anywhere.herokuapp.com/";
 window.proxyUrl = proxyUrl;
 
+export const churchReverb =
+  "https://www.dropbox.com/home/IMreverbs?preview=St+Nicolaes+Church.wav";
+  window.churchReverb = churchReverb;
+
 export const timeRemaining = (song) => {
   let mins = Math.trunc((song.duration - song.currentTime) / 60);
   let secs =
