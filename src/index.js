@@ -13,7 +13,8 @@ import getPerformance from "./scripts/performance";
 import { toggleSecretPlaylist, addMoreTracks } from "./scripts/playlist";
 import { scrollSong } from "./scripts/animation";
 import { displayTime } from "./scripts/util";
-import { activatePiano } from "./scripts/keyboard/keyboard";
+import { activatePiano } from "./scripts/keyboard";
+// import { activatePiano } from "./scripts/keyboard/keyboard";
 
 window.addEventListener("DOMContentLoaded", main);
 

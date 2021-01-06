@@ -1,14 +1,19 @@
 import { keys, setFreq } from "./noteFreq";
 import { addLabel, setAttributes, proxyUrl } from "../util";
-import { makeDistortion, addDistortionRange } from "./distortion";
+// import { makeDistortion, addDistortionRange } from "./distortion";
+import Distortion from "./distortion";
 import getReverb from "./reverb";
-import { makeOscillator } from "./oscillator";
+// import { makeOscillator } from "./oscillator";
+import Oscillator from "./oscillator";
 
 export const activatePiano = (audioCtx) => {
   let oscillator, distortion, reverb, keyboard, kbContainer, pianoControls;
 
   function makePiano() {
-    oscillator = makeOscillator(audioCtx);
+    // oscillator = makeOscillator(audioCtx);
+    oscillator = new Oscillator(audioCtx);
+    distortion = new Distortion(audioCtx);
+    // distortion = oscillator.distortion;
 
     (keyboard = document.createElement("div")),
       (kbContainer = document.createElement("div")),
@@ -33,31 +38,37 @@ export const activatePiano = (audioCtx) => {
         0,
         -1
       )} <sub style="color: lightgrey;">${key.note.slice(-1)}</sub>`;
-      span.addEventListener("mousedown", () =>
-        setFreq(audioCtx, oscillator, key.freq)
-      );
+      span.addEventListener("mousedown", () =>{
+        // setFreq(audioCtx, oscillator, key.freq)
+        oscillator.play(key.freq);
+        oscillator.connectNode(distortion.distortion);
+      });
       keyboard.append(span);
     }
 
     kbContainer.append(pianoControls, keyboard);
     document.body.append(kbContainer);
 
-    let distRange = addDistortionRange();
+    // let distRange = addDistortionRange();
+    let distRange = distortion.makeRange();
     pianoControls.prepend(distRange);
 
-    distRange.oninput = () => {
-      distortion = makeDistortion(
-        distortion,
-        audioCtx,
-        oscillator,
-        distRange.value
-      );
-    };
+    distRange.addEventListener("change", () => oscillator.connectNode(distortion.distortion));
+
+    // distRange.oninput = () => {
+    //   distortion = makeDistortion(
+    //     distortion,
+    //     audioCtx,
+    //     oscillator,
+    //     distRange.value
+    //   );
+    // };
 
     let rev = getReverb(audioCtx, oscillator, reverb);
+    console.log(`Reverb: ${Object.entries(rev)}`);
     reverb = rev.reverb;
+   
     let reverbButtons = rev.buttons;
-
     pianoControls.append(reverbButtons);
 
     document.addEventListener("keydown", (e) => {
@@ -76,17 +87,24 @@ export const activatePiano = (audioCtx) => {
 
     keyboard.addEventListener("mouseover", playWholes);
 
-    kbContainer.addEventListener("mouseover", () => {
-      oscillator.connect(audioCtx.destination);
-      oscillator.connect(distortion);
-      oscillator.connect(reverb);
-      kbContainer.onmouseover = null;
-    });
+    document.addEventListener("mousemove", (e) => {
+      if (kbContainer.contains(e.target) || !oscillator.playing) return;
+      oscillator.stop();
+    })
 
-    kbContainer.addEventListener("mouseout", () => {
-      oscillator.disconnect();
-      kbContainer.onmouseout = null;
-    });
+    // kbContainer.addEventListener("mouseover", (e) => {
+    //   // oscillator.connect(audioCtx.destination);
+    //   // oscillator.connect(distortion);
+    //   // oscillator.oscillator.connect(reverb);
+    //   oscillator.play(e.target.dataset["freq"] || 21);
+    //   kbContainer.onmouseover = null;
+    // });
+
+    // kbContainer.addEventListener("mouseout", () => {
+    //   // oscillator.disconnect();
+    //   oscillator.stop();
+    //   kbContainer.onmouseout = null;
+    // });
   }
 
   document.addEventListener("keydown", (e) => {
@@ -102,13 +120,17 @@ export const activatePiano = (audioCtx) => {
   function hidePiano() {
     if (kbContainer) {
       kbContainer.remove();
-      oscillator.disconnect();
+      // oscillator.disconnect();
+      oscillator.stop();
     }
   }
 
   function playWholes(event) {
     let target = event.target;
     if (!target.classList.contains("whole")) return;
-    setFreq(audioCtx, oscillator, target.dataset["freq"]);
+    // setFreq(audioCtx, oscillator, target.dataset["freq"]);
+    oscillator.play(target.dataset["freq"]);
+    oscillator.connectNode(distortion.distortion);
+    oscillator.connectNode(reverb);
   }
 };

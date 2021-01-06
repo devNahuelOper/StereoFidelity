@@ -2,6 +2,8 @@ export const setAttributes = (ele, attrs) => {
   for (let key in attrs) ele.setAttribute(key, attrs[key]);
 };
 
+window.setAttributes = setAttributes;
+
 export const randInRange = (min, max) => Math.floor(Math.random() * (max - min) + min);
 
 export const proxyUrl = "https://cors-anywhere.herokuapp.com/";
@@ -67,6 +69,8 @@ export function addLabel(ele) {
   label.append(ele);
   return label;
 }
+
+window.addLabel = addLabel;
 // let constraints = { audio: true, video: { width: 1280, height: 720 } };
 
 // navigator.mediaDevices

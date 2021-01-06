@@ -46,12 +46,13 @@ const getReverb = (audioCtx, oscillator, reverb) => {
       );
       let arrayBuffer = await response.arrayBuffer();
       convolver.buffer = await audioCtx.decodeAudioData(arrayBuffer);
-  
+      
       return convolver;
     }
     reverb = await createReverb();
     oscillator.connect(reverb);
     reverb.connect(audioCtx.destination);
+   console.log(`Oscillator: ${oscillator}`);
   }
   
   const markReverbSelected = (rev) => {
@@ -65,7 +66,7 @@ const getReverb = (audioCtx, oscillator, reverb) => {
     rev.classList.add("selected");
   }
 
-
+ 
   return {
     buttons: addReverbButtons(),
     reverb,
