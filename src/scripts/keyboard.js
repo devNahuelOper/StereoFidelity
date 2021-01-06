@@ -1,6 +1,5 @@
 // OLD VERSION
 
-
 import { addLabel, setAttributes, proxyUrl } from "./util";
 
 export const activatePiano = (audioCtx) => {
@@ -189,18 +188,23 @@ export const activatePiano = (audioCtx) => {
 
     keyboard.addEventListener("mouseover", playWholes);
 
-    kbContainer.addEventListener("mouseover", () => {
-      // audioCtx.resume();
-      oscillator.connect(audioCtx.destination);
-      oscillator.connect(distortion);
-      oscillator.connect(reverb);
-      kbContainer.onmouseover = null;
-    });
-    kbContainer.addEventListener("mouseout", () => {
-      // audioCtx.suspend();
+    document.addEventListener("mousemove", (e) => {
+      if (kbContainer.contains(e.target)) return;
       oscillator.disconnect();
-      kbContainer.onmouseout = null;
     });
+
+    // kbContainer.addEventListener("mouseover", () => {
+    //   // audioCtx.resume();
+    //   oscillator.connect(audioCtx.destination);
+    //   oscillator.connect(distortion);
+    //   oscillator.connect(reverb);
+    //   kbContainer.onmouseover = null;
+    // });
+    // kbContainer.addEventListener("mouseout", () => {
+    //   // audioCtx.suspend();
+    //   oscillator.disconnect();
+    //   kbContainer.onmouseout = null;
+    // });
 
     let distRange = addDistortionRange();
     pianoControls.prepend(distRange);
@@ -223,7 +227,9 @@ export const activatePiano = (audioCtx) => {
     function playWholes(event) {
       let target = event.target;
       if (!target.classList.contains("whole")) return;
+      // oscillator.connect(audioCtx.destination);
       setFreq(target.dataset["freq"]);
+      connectOscillator();
     }
   }
 
@@ -253,6 +259,11 @@ export const activatePiano = (audioCtx) => {
     oscillator.setPeriodicWave(customWave);
     // oscillator.connect(audioCtx.destination);
     return oscillator;
+  }
+
+  function connectOscillator() {
+    let nodes = [audioCtx.destination, distortion, reverb];
+    for(let node of nodes) oscillator.connect(node);
   }
 
   function makeDistortion(amt) {
@@ -293,31 +304,43 @@ export const activatePiano = (audioCtx) => {
   }
 
   function addReverbButtons() {
-    const reverbs = ["Bottle Hall", "Deep Space", "Going Home", "In The Silo", "Masonic Lodge", "Nice Drum Room", "On a Star", "Parking Garage", "Rays", "Vocal Duo"];
+    const reverbs = [
+      "Bottle Hall",
+      "Deep Space",
+      "Going Home",
+      "In The Silo",
+      "Masonic Lodge",
+      "Nice Drum Room",
+      "On a Star",
+      "Parking Garage",
+      "Rays",
+      "Vocal Duo",
+    ];
     let ul = document.createElement("ul");
-    setAttributes(ul, { id: "reverbButtons", class: "reverbButtons"});
+    setAttributes(ul, { id: "reverbButtons", class: "reverbButtons" });
 
     for (let reverb of reverbs) {
       let li = document.createElement("li");
-      setAttributes(li, { id: reverb.replace(/\s/g, ""), class: "reverb"});
+      setAttributes(li, { id: reverb.replace(/\s/g, ""), class: "reverb" });
       li.innerHTML = reverb;
 
-      li.onclick = () =>{ 
+      li.onclick = () => {
         connectReverb(reverb);
         markReverbSelected(li);
-      }
+      };
       ul.append(li);
     }
 
     return ul;
   }
-  
 
   async function connectReverb(sound) {
     const reverbFolder = "https://stereo-fidelity.s3.amazonaws.com/reverb/";
     async function createReverb() {
       let convolver = audioCtx.createConvolver();
-      let response = await fetch(`${proxyUrl}${reverbFolder}${sound.replace(/\s/g, '+')}.wav`);
+      let response = await fetch(
+        `${proxyUrl}${reverbFolder}${sound.replace(/\s/g, "+")}.wav`
+      );
       let arrayBuffer = await response.arrayBuffer();
       convolver.buffer = await audioCtx.decodeAudioData(arrayBuffer);
 
@@ -330,13 +353,12 @@ export const activatePiano = (audioCtx) => {
 
   function markReverbSelected(rev) {
     if (!document.getElementsByClassName("reverb")) return;
-      let reverbs = document.getElementsByClassName("reverb");
-      for (let reverb of reverbs) {
-        if (reverb.classList.contains("selected")) {
-          reverb.classList.remove("selected");
-        }
+    let reverbs = document.getElementsByClassName("reverb");
+    for (let reverb of reverbs) {
+      if (reverb.classList.contains("selected")) {
+        reverb.classList.remove("selected");
       }
-      rev.classList.add("selected");
     }
-  
+    rev.classList.add("selected");
+  }
 };
