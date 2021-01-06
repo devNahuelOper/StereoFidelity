@@ -27,8 +27,9 @@ export const activatePiano = (audioCtx) => {
         span.className = "whole";
         span.classList.add(key.note[0]);
       }
+      span.classList.add(`note${key.note.slice(-1)}`);
 
-      span.innerHTML = `${key.note.slice(0,-1)} <sub style="color: lightgrey;">${key.note.slice(-1)}</sub>`;
+      span.innerHTML = `${key.note.slice(0, -1)} <sub class=sub${key.note.slice(-1)} style="color: lightgrey;">${key.note.slice(-1)}</sub>`;
       span.addEventListener("mousedown", () => setFreq(key.freq));
       keyboard.append(span);
     }
