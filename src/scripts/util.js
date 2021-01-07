@@ -71,6 +71,20 @@ export function addLabel(ele) {
 }
 
 window.addLabel = addLabel;
+
+export function compress(audioCtx, source) {
+  let compressor = audioCtx.createDynamicsCompressor();
+  compressor.threshold.setValueAtTime(-50, audioCtx.currentTime);
+  compressor.knee.setValueAtTime(40, audioCtx.currentTime);
+  compressor.ratio.setValueAtTime(12, audioCtx.currentTime);
+  compressor.attack.setValueAtTime(0, audioCtx.currentTime);
+  compressor.release.setValueAtTime(0.25, audioCtx.currentTime);
+  compressor.connect(audioCtx.destination);
+  source.connect(compressor);
+}
+
+window.compress = compress;
+// let audio = "dist/sounds/2448.mp3";
 // let constraints = { audio: true, video: { width: 1280, height: 720 } };
 
 // navigator.mediaDevices
