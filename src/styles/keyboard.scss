@@ -1,104 +1,58 @@
-@media only screen and (min-width: 1300px) {
-  #keyboard {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-  }
-
-  .keyboard {
-    width: 100%;
-    margin: 0 auto;
-    height: 130px;
-    span {
-      border-radius: 4px;
-      cursor: pointer;
-      box-shadow: 0px 0px 2px 2px grey;
-      position: relative;
-      text-align: center;
-      &:hover {
-        transform: perspective(500px) translateZ(-30px);
-      }
-      sub {
-        font-size: 12px;
-      }
-    }
-  }
-
-  .keyboard-top {
-    height: 90px;
-    /* margin: 4px auto; */
-    .D,
-    .E,
-    .G,
-    .A,
-    .B {
-      text-indent: 0;
-    }
-  }
-
-  .kbc {
-    width: 58%;
-    margin: 0 auto;
-  }
-
-  .kbc-top {
-   /*   position: absolute;
-    top: 0%;
-    left: 20%; */
+.keyboard {
+  width: 100%;
+  margin: 0 auto;
+  height: 130px;
+  span {
+    border-radius: 4px;
+    cursor: pointer;
+    box-shadow: 0px 0px 2px 2px grey;
     position: relative;
-    left: 60px;
-    bottom: 275px;
-    width: 58%; 
-    height: 80%;
-    /* width: 1075; */
-    .pianoControls {
-      margin: unset;
-    }
-  }
-
-  .whole {
-    background-color: white;
-    color: black;
-    height: 100%;
-    padding: 17px;
-    z-index: 0;
-    box-shadow: -9px 0 0 rgba(255, 255, 255, 0.8) inset, 0 0 5px #ccc inset,
-      0 0 6px rgba(0, 0, 0, 0.2) !important;
-    background: linear-gradient(to bottom, #eee 0%, #fff 100%);
+    text-align: center;
     &:hover {
-      box-shadow: 2px 0 3px rgba(0, 0, 0, 0.1) inset,
-        -5px 5px 20px rgba(0, 0, 0, 0.2) inset, 0 0 3px rgba(0, 0, 0, 0.2);
-      background: linear-gradient(to bottom, #fff 0%, #e9e9e9 100%);
+      transform: perspective(500px) translateZ(-30px);
     }
     sub {
-      position: relative;
-      top: 15px;
-      right: 10px;
+      font-size: 12px;
     }
   }
+}
 
-  .sharp {
-    background-color: black;
-    color: white;
-    height: 100%;
-    z-index: 1;
-    margin-left: -18px;
-    margin-right: -18px;
-    width: 24px;
-    padding: 4px;
-    box-shadow: -1px -1px 2px rgba(255, 255, 255, 0.2) inset,
-      0 -5px 2px 3px rgba(0, 0, 0, 0.6) inset, 0 2px 4px rgba(0, 0, 0, 0.5) !important;
-    background: linear-gradient(45deg, #222 0%, #555 100%);
-  }
+.kbc {
+  margin: 0 auto;
+}
+.kbc-top {
+  position: relative;
+  height: 80%;
+}
 
-  .D,
-  .E,
-  .G,
-  .A,
-  .B {
-    left: 2px;
-    text-indent: 2px;
+.whole {
+  background-color: white;
+  color: black;
+  height: 100%;
+  z-index: 0;
+  box-shadow: -9px 0 0 rgba(255, 255, 255, 0.8) inset, 0 0 5px #ccc inset,
+    0 0 6px rgba(0, 0, 0, 0.2) !important;
+  background: linear-gradient(to bottom, #eee 0%, #fff 100%);
+  &:hover {
+    box-shadow: 2px 0 3px rgba(0, 0, 0, 0.1) inset,
+      -5px 5px 20px rgba(0, 0, 0, 0.2) inset, 0 0 3px rgba(0, 0, 0, 0.2);
+    background: linear-gradient(to bottom, #fff 0%, #e9e9e9 100%);
   }
+  sub {
+    position: relative;
+    top: 15px;
+    right: 10px;
+  }
+}
+
+.sharp {
+  background: linear-gradient(45deg, #222 0%, #555 100%);
+  color: white;
+  height: 100%;
+  z-index: 1;
+  padding: 4px;
+  box-shadow: -1px -1px 2px rgba(255, 255, 255, 0.2) inset,
+    0 -5px 2px 3px rgba(0, 0, 0, 0.6) inset, 0 2px 4px rgba(0, 0, 0, 0.5) !important;
 }
 
 .pianoControls {
@@ -124,7 +78,6 @@
 
 .reverbButtons {
   width: 70%;
-  /* list-style: none; */
   color: silver;
   columns: 5;
   cursor: pointer;
@@ -159,27 +112,60 @@
   }
 }
 
-/* GRID */
+@media only screen and (min-width: 1300px) {
+  #keyboard {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+  }
 
-@media only screen and (max-width: 1300px) {
+  .keyboard-top {
+    height: 90px;
+    .D,
+    .E,
+    .G,
+    .A,
+    .B {
+      text-indent: 0;
+    }
+  }
+
   .kbc {
     width: 58%;
-    width: 741px;
-    margin: 0 auto;
   }
 
   .kbc-top {
-    /*  position: absolute;
-    top: 0%;
-    left: 25%;
-    width: 58%; */
-    position: relative;
-    bottom: 285px;
-    left: 50px;
-    width: 741px;
-    height: 80%;
+    left: 60px;
+    bottom: 275px;
+    width: 58%;
+    .pianoControls {
+      margin: unset;
+    }
   }
 
+  .whole {
+    padding: 17px;
+  }
+
+  .sharp {
+    width: 24px;
+    margin-left: -18px;
+    margin-right: -18px;
+  }
+
+  .D,
+  .E,
+  .G,
+  .A,
+  .B {
+    left: 2px;
+    text-indent: 2px;
+  }
+}
+
+/* GRID */
+
+@media only screen and (max-width: 1300px) {
   #keyboard {
     display: grid;
     grid-template-columns: repeat(24, auto);
@@ -190,60 +176,27 @@
     justify-items: stretch;
   }
 
-  .keyboard {
-    width: 100%;
-    margin: 0px auto;
-    span {
-      border-radius: 4px;
-      cursor: pointer;
-      box-shadow: 0px 0px 2px 2px grey;
-      position: relative;
-      text-align: center;
-      &:hover {
-        transform: perspective(500px) translateZ(-30px);
-      }
-      sub {
-        font-size: 12px;
-      }
-    }
+  .kbc {
+    width: 741px;
+  }
+
+  .kbc-top {
+    bottom: 285px;
+    left: 50px;
+    width: 741px;
+    height: 80%;
   }
 
   .whole {
-    background-color: white;
-    color: black;
-    height: 100%;
     padding: 18px 0px;
-    z-index: 0;
     justify-self: stretch;
-    width: 52px;
     width: 3.27em;
-    box-shadow: -9px 0 0 rgba(255, 255, 255, 0.8) inset, 0 0 5px #ccc inset,
-      0 0 6px rgba(0, 0, 0, 0.2) !important;
-    background: linear-gradient(to bottom, #eee 0%, #fff 100%);
-    &:hover {
-      box-shadow: 2px 0 3px rgba(0, 0, 0, 0.1) inset,
-        -5px 5px 20px rgba(0, 0, 0, 0.2) inset, 0 0 3px rgba(0, 0, 0, 0.2);
-      background: linear-gradient(to bottom, #fff 0%, #e9e9e9 100%);
-    }
-    sub {
-      position: relative;
-      top: 15px;
-      right: 10px;
-    }
   }
 
   .sharp {
-    background: linear-gradient(45deg, #222 0%, #555 100%);
-    color: white;
-    height: 100%;
-    z-index: 1;
+    width: 1.4em;
     margin-left: -1em;
     margin-right: -1em;
-    width: 24px;
-    width: 1.4em;
-    padding: 4px;
-    box-shadow: -1px -1px 2px rgba(255, 255, 255, 0.2) inset,
-      0 -5px 2px 3px rgba(0, 0, 0, 0.6) inset, 0 2px 4px rgba(0, 0, 0, 0.5) !important;
     justify-self: stretch;
   }
 
