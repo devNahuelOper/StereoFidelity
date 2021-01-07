@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta http-equiv="Access-Control-Allow-Origin" content="*">
+    <meta http-equiv="Access-Control-Allow-Origin" content="*" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <meta
       property="og:image"
       content="https://devnahueloper.github.io/StereoFidelity/dist/images/StereoMain.png"
-      />
-      <!-- content="https://devnahueloper.github.io/StereoFidelity/dist/images/main.png" -->
-    
+    />
+    <!-- content="https://devnahueloper.github.io/StereoFidelity/dist/images/main.png" -->
+
     <link rel="stylesheet" href="./dist/main.css" />
     <link rel="icon" type="image/png" href="favicon.ico" />
 
@@ -74,14 +74,24 @@
                   ***<strong>FRAME w/ 3 SPINNING ICONS</strong>(FROM FX BOARD)
                   WILL APPEAR <strong>ABOVE FX BOARD</strong>.***
                   <figure id="framefig">
-                    <video src="dist/images/frameAppear.mov" id="frameAppear" class="frame-still" controls></video>
+                    <video
+                      src="dist/images/frameAppear.mov"
+                      id="frameAppear"
+                      class="frame-still"
+                      controls
+                    ></video>
                     <!-- <img src="dist/images/frame.png" id="frame" /> -->
                     <!-- <figcaption>Hover to zoom in</figcaption> -->
                   </figure>
                   *** AT ANY GIVEN MOMENT, 1 - 3 <strong>FX ICONS</strong> -->
                   <strong>MATCH FRAME ICONS</strong>.***
                   <figure id="matchfig">
-                    <video src="dist/images/matchAppear.mp4" id="matchAppear" class="frame-still" controls></video>
+                    <video
+                      src="dist/images/matchAppear.mp4"
+                      id="matchAppear"
+                      class="frame-still"
+                      controls
+                    ></video>
                     <!-- <img src="dist/images/match.png" id="match" />
                     <figcaption>Hover to zoom in</figcaption> -->
                   </figure>
@@ -98,10 +108,7 @@
               </li>
               <!-- <li class="freestyle">🎧 start with your device volume low 🎧</li> -->
             </ul>
-            <span
-              class="close"
-              >Let's Play!</span
-            >
+            <span class="close">Let's Play!</span>
           </div>
         </div>
       </div>
@@ -519,15 +526,24 @@
       </div>
 
       <fieldset id="playOptions">
-        <label for="game">Game
-          <input type="radio" id="game" value="game">
+        <label
+          for="game"
+          title="This option triggers game when any song is played"
+          >Game
+          <input type="radio" id="game" name="gamemode" value="game" />
         </label>
-        <label for="freestyle">Freestyle
-          <input type="radio" id="freestyle" value="freestyle">
+        <label
+          for="freestyle"
+          title="This option lets you just mess around with the effects/piano when any song is played (no game triggered)"
+          >Freestyle
+          <input
+            type="radio"
+            id="freestyle"
+            name="gamemode"
+            value="freestyle"
+          />
         </label>
       </fieldset>
-
-      <!-- <video src="dist/images/frameAppear.mov" id="frameAppear" class="frame-still"></video> -->
 
       <iframe
         id="playlist"
@@ -873,8 +889,7 @@
         <img id="dolphin" src="dist/images/dolphin.png" />
       </div>
     </main>
-    <!-- <div class="canvas"><canvas id="canvas" width="800" height="523"></canvas></div> -->
-    <!-- <canvas id="canvas"></canvas> -->
+
     <footer id="footer">
       <div class="bgtoggle-container">
         <button id="bgtoggle">Change Background</button>
@@ -888,5 +903,7 @@
     <script src="https://unpkg.com/regenerator-runtime@0.13.1/runtime.js"></script>
 
     <!-- <script src="dist/main.js"></script> -->
+    <!-- <div class="canvas"><canvas id="canvas" width="800" height="523"></canvas></div> -->
+    <!-- <canvas id="canvas"></canvas> -->
   </body>
 </html>

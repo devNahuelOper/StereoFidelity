@@ -380,19 +380,23 @@ ul {
     display: flex;
     flex-direction: row-reverse;
   }
-  input[type="radio" i]:checked {
-    align-self: flex-start;
-    background: linear-gradient(to top, #26ee9f, #1189c7);
-    padding: 6px;
-    border-radius: 50%;
-    appearance: none;
-    border: 1px solid #009688;
-  /*   border: 1px solid #6d6e6d;
-    border-color: #999898;
-    box-shadow: 0px 0px 0px 1px #454744; */
-    box-shadow: 0px 1px 2px black inset, 1px 0px 2px black inset, -1px -1px 2px black inset, 0px -1px 2px black inset;
+  input[type="radio" i] {
     outline: none;
-    filter: brightness(1.2);
+    cursor: pointer;
+    &:checked {
+      align-self: flex-start;
+      background: linear-gradient(to top, #26ee9f, #1189c7);
+      padding: 6px;
+      border-radius: 50%;
+      appearance: none;
+      border: 1px solid #009688;
+    /*   border: 1px solid #6d6e6d;
+      border-color: #999898;
+      box-shadow: 0px 0px 0px 1px #454744; */
+      box-shadow: 0px 1px 2px black inset, 1px 0px 2px black inset, -1px -1px 2px black inset, 0px -1px 2px black inset;
+      outline: none;
+      filter: brightness(1.2);
+    }
   }
 }
 
