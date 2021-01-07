@@ -1,7 +1,7 @@
-import { setAttributes, proxyUrl, timeRemaining } from "./util";
+import { setAttributes, proxyUrl, displayTime} from "./util";
 import { startGame, endGame } from "./game";
 import { scrollSong } from "./animation";
-import { displayTime } from "./util";
+// import { displayTime } from "./util";
 
 export function addMoreTracks(tracks) {
   const url = "https://denizen-confidant-seeds.s3.amazonaws.com/songs/";
@@ -40,6 +40,7 @@ export function addMoreTracks(tracks) {
       song.addEventListener("play", () => {
         scrollSong(songTitle, Math.round(song.duration / 20));
         displayTime(song, songTitle);
+        if (document.getElementById("freestyle").checked) return;
         const start = Date.now();
 
         startGame(
@@ -140,7 +141,7 @@ export function addMoreTracks(tracks) {
     audio.id = song.split(" ")[0].toLowerCase();
     // console.log(totalTime(audio));
     // console.dir(audio);
-    audio.crossOrigin = "anonymous";
+    audio.crossOrigin = "";
     return audio;
   }
 

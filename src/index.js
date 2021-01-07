@@ -24,6 +24,8 @@ async function main() {
   toggleBackgrounds();
   activateEffects();
 
+  document.getElementById("game").checked = true;
+
   const effects = document.getElementsByClassName("effects")[0];
   let sounds = effects.querySelectorAll("audio");
   let images = effects.querySelectorAll("img");
@@ -32,6 +34,7 @@ async function main() {
 
   const tracks = document.getElementsByClassName("tracks")[0];
   const songs = tracks.querySelectorAll("audio");
+  const freestyle = document.getElementById("freestyle");
 
   let AudioContext = window.AudioContext || window.webkitAudioContext;
   this.ctx = new AudioContext();
@@ -48,12 +51,14 @@ async function main() {
 
   addMoreTracks(tracks.firstElementChild, ctx);
 
+
   songs.forEach((song) => {
     let songTitle = song.nextElementSibling;
 
     song.onplay = function () {
       scrollSong(songTitle, Math.round(song.duration / 20));
       displayTime(song, songTitle);
+      if (freestyle.checked) return;
       const start = new Date();
 
       startGame(
