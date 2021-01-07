@@ -274,3 +274,26 @@
     transition: transform 1s, text-shadow 1.5s, text-transform 2s;
   }
 }
+
+/* @media only screen and (max-width: 1280px) {
+
+}
+ */
+@media only screen and (max-width: 980px) {
+  .modal {
+    height: 80%;
+    width: 65%;
+  }
+  .modal-content {
+    width: 70%;
+    height: 70%;
+    padding: 34px;
+  }
+  #welcome {
+    top: 15px;
+  }
+  .instructions {
+    font-size: 12px;
+    transform: scale(0.6);
+  }
+}

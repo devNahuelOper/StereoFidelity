@@ -55,6 +55,12 @@
   }
 }
 
+@media only screen and (max-width: 1300px) {
+  .shifted {
+    bottom: 200px;
+  }
+}
+
 .draggedImg {
   cursor: url("https://stereo-fidelity.s3.amazonaws.com/spinhand2.png"), auto;
   animation: flicker 0.5s infinite alternate;

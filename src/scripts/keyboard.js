@@ -44,11 +44,15 @@ export const activatePiano = (audioCtx) => {
         if (!keyboard.classList.contains("keyboard-top")) {
           keyboard.classList.add("keyboard-top");
           kbContainer.classList.add("kbc-top");
-          effects.style.top = 50 + "px";
+          effects.classList.add("shifted");
+          stage.insertBefore(keyboardContainer, effects);
+          // effects.style.top = 50 + "px";
         } else {
           keyboard.classList.remove("keyboard-top");
           kbContainer.classList.remove("kbc-top");
-          effects.style.top = "";
+          effects.classList.remove("shifted");
+          stage.insertBefore(effects, keyboardContainer);
+          // effects.style.top = "";
         }
       }
     });
