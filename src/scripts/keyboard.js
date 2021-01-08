@@ -9,8 +9,8 @@ export const activatePiano = (audioCtx) => {
     oscillator.start();
 
     (keyboard = document.createElement("div")),
-    (kbContainer = document.createElement("div")),
-    (pianoControls = document.createElement("fieldset"));
+      (kbContainer = document.createElement("div")),
+      (pianoControls = document.createElement("fieldset"));
 
     setAttributes(keyboard, { id: "keyboard", class: "keyboard" });
     setAttributes(kbContainer, { id: "keyboardContainer", class: "kbc" });
@@ -29,7 +29,9 @@ export const activatePiano = (audioCtx) => {
       }
       span.classList.add(`note${key.note.slice(-1)}`);
 
-      span.innerHTML = `${key.note.slice(0, -1)} <sub class=sub${key.note.slice(-1)} style="color: lightgrey;">${key.note.slice(-1)}</sub>`;
+      span.innerHTML = `${key.note.slice(0, -1)} <sub class=sub${key.note.slice(
+        -1
+      )} style="color: lightgrey;">${key.note.slice(-1)}</sub>`;
       span.addEventListener("mousedown", () => setFreq(key.freq));
       keyboard.append(span);
     }
@@ -46,13 +48,11 @@ export const activatePiano = (audioCtx) => {
           kbContainer.classList.add("kbc-top");
           effects.classList.add("shifted");
           stage.insertBefore(keyboardContainer, effects);
-          // effects.style.top = 50 + "px";
         } else {
           keyboard.classList.remove("keyboard-top");
           kbContainer.classList.remove("kbc-top");
           effects.classList.remove("shifted");
           stage.insertBefore(effects, keyboardContainer);
-          // effects.style.top = "";
         }
       }
     });
