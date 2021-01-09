@@ -183,16 +183,22 @@
   }
 
   .kbc-top {
-    bottom: 285px;
+  /*   bottom: 285px;
     left: 50px;
     width: 741px;
-    height: 80%;
+    height: 80%; */
+    bottom: 275px;
+    left: 30px;
+    width: 700px;
+    .whole {
+      width: 3.1em;
+    }
   }
 
   .whole {
     padding: 18px 0px;
     justify-self: stretch;
-    width: 3.27em;
+    width: 3.3em;
   }
 
   .sharp {
