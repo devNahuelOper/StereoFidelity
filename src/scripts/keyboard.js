@@ -71,7 +71,6 @@ export const activatePiano = (audioCtx) => {
     function playWholes(event) {
       let target = event.target;
       if (!target.classList.contains("whole")) return;
-      // oscillator.connect(audioCtx.destination);
       setFreq(target.dataset["freq"]);
       connectOscillator();
     }
@@ -101,7 +100,6 @@ export const activatePiano = (audioCtx) => {
     let cosineTerms = new Float32Array(sineTerms.length);
     let customWave = audioCtx.createPeriodicWave(cosineTerms, sineTerms);
     oscillator.setPeriodicWave(customWave);
-    // oscillator.connect(audioCtx.destination);
     return oscillator;
   }
 
