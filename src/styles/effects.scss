@@ -55,11 +55,16 @@
   }
 }
 
-/* @media only screen and (min-width: 1300px) {
+@media only screen and (min-width: 1300px) {
   .shifted {
-    bottom: 200px;
+    top: 200px;
   }
-} */
+}
+@media only screen and (min-width: 1600px) {
+  .shifted {
+    top: unset;
+  }
+}
 
 .draggedImg {
   cursor: url("https://stereo-fidelity.s3.amazonaws.com/spinhand2.png"), auto;

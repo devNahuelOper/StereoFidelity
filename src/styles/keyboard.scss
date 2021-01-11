@@ -137,7 +137,7 @@
 
   .kbc-top {
     left: 60px;
-    bottom: 275px;
+    /* bottom: 275px; */
     /* width: 58%; */
     width: 1104px;
     .pianoControls {
@@ -162,6 +162,12 @@
   .B {
     left: 2px;
     text-indent: 2px;
+  }
+}
+
+@media only screen and (min-width: 1600px) {
+  .kbc-top {
+    bottom: 275px;
   }
 }
 
