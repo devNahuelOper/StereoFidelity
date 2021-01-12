@@ -262,3 +262,10 @@ $ie-bottom-track-color: darken($track-color, $contrast) !default;
     border-radius: 4px;
   }
 } */
+
+@media only screen and (max-width: 700px) {
+  #volume-slider,
+  #tempo-slider {
+    width: 165px;
+  }
+}

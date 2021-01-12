@@ -159,7 +159,21 @@ $lightbulb: -0.2rem -0.2rem 1rem #fff, 0.2rem 0.2rem 1rem #fff,
 
 @media only screen and (max-width: 700px) {
   .tracks {
-    width: 300px;
+    /* width: 300px; */
+    width: 400px;
+  }
+  #track-wrap {
+    max-height: 272px;
+  }
+  .playerControls {
+    width: 280px;
+    height: 40px;
+    justify-content: space-between;
+  }
+  .slider-hold {
+    /* padding: 0 0 0 20px; */
+    padding: unset;
+    padding-left: 20px;
   }
 }
 

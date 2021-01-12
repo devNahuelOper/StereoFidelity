@@ -411,12 +411,13 @@ ul {
   .navlinks {
     justify-content: space-between;
     margin: unset;
-  }
-  .tracks {
-    width: 300px;
+    width: 400px;
   }
   .modal {
     width: 550px;
+  }
+  #playOptions {
+    width: 400px;
   }
 }
 
