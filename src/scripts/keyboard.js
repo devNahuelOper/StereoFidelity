@@ -1,4 +1,4 @@
-import { addLabel, setAttributes, proxyUrl } from "./util";
+import { addLabel, setAttributes, proxyUrl, runOnKeys } from "./util";
 import { keys } from "./keyboard/noteFreq";
 
 export const activatePiano = (audioCtx) => {
@@ -26,6 +26,7 @@ export const activatePiano = (audioCtx) => {
       } else {
         span.className = "whole";
         span.classList.add(key.note[0]);
+        runOnKeys(() => setFreq(key.freq), `Key${key.note[0]}`, `Digit${key.note[1]}`);
       }
       span.classList.add(`note${key.note.slice(-1)}`);
 

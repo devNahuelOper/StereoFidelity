@@ -84,6 +84,28 @@ export function compress(audioCtx, source) {
 }
 
 window.compress = compress;
+
+export function runOnKeys(func, ...codes) {
+  let pressed = new Set();
+
+  document.addEventListener("keydown", (event) => {
+    pressed.add(event.code);
+
+    for (let code of codes) {
+      if (!pressed.has(code)) {
+        return;
+      }
+    }
+
+    pressed.clear();
+    func();
+  });
+
+  document.addEventListener("keyup", (event) => {
+    pressed.delete(event.code);
+  });
+}
+window.runOnKeys = runOnKeys;
 // let audio = "dist/sounds/2448.mp3";
 // let constraints = { audio: true, video: { width: 1280, height: 720 } };
 

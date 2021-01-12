@@ -27,6 +27,8 @@
     border-radius: 18px;
     width: 3%;
     height: 7%;
+  /*   width: 30px;
+    height: 30px; */
     box-sizing: border-box;
     filter: contrast(1.5) drop-shadow(2px 4px 6px black);
     box-shadow: 0 0 0.5rem #f44336, inset 0 0 0.5rem #f44336,
@@ -59,6 +61,12 @@
   .shifted {
     top: 200px;
   }
+/*   .effects {
+    img {
+      width: 45px;
+      height: 45px;
+    }
+  } */
 }
 @media only screen and (min-width: 1600px) {
   .shifted {
