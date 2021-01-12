@@ -57,22 +57,6 @@
   }
 }
 
-@media only screen and (min-width: 1300px) {
-  .shifted {
-    top: 200px;
-  }
-/*   .effects {
-    img {
-      width: 45px;
-      height: 45px;
-    }
-  } */
-}
-@media only screen and (min-width: 1600px) {
-  .shifted {
-    top: unset;
-  }
-}
 
 .draggedImg {
   cursor: url("https://stereo-fidelity.s3.amazonaws.com/spinhand2.png"), auto;
@@ -224,4 +208,38 @@
 #xkicks {
   border-radius: 12px;
   padding-right: 2px;
+}
+
+@media only screen and (max-width: 700px) {
+  .effects {
+    width: 90%;
+    img {
+      width: 24px;
+      height: 24px;
+    }
+  }
+}
+
+
+@media only screen and (max-width: 1230px) {
+  .shifted {
+    top: 200px;
+  }
+}
+
+@media only screen and (min-width: 1300px) {
+  .shifted {
+    top: 200px;
+  }
+/*   .effects {
+    img {
+      width: 45px;
+      height: 45px;
+    }
+  } */
+}
+@media only screen and (min-width: 1600px) {
+  .shifted {
+    top: unset;
+  }
 }
