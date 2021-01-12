@@ -59,7 +59,9 @@ export const activatePiano = (audioCtx) => {
           keyboard.classList.remove("keyboard-top");
           kbContainer.classList.remove("kbc-top");
           effects.classList.remove("shifted");
-          stage.insertBefore(effects, keyboardContainer);
+          // stage.insertBefore(effects, keyboardContainer);
+          stage.insertAdjacentElement("afterend", keyboardContainer);
+          document.body.insertBefore(footer, keyboardContainer);
         }
       }
     });

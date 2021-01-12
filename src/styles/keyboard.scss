@@ -19,6 +19,7 @@
 
 .kbc {
   margin: 0 auto;
+  margin-top: 20px;
 }
 .kbc-top {
   position: relative;
@@ -225,6 +226,12 @@
   .kbc {
     width: 641px;
   }
+  .kbc-top {
+    left: unset;
+    .whole {
+      width: 2.87em;
+    }
+  }
   .whole {
     width: 2.87em;
   }
@@ -240,6 +247,11 @@
   .kbc {
     width: 550px;
   }
+  .kbc-top {
+    .whole {
+      width: 2.46em;
+    }
+  }
   .whole {
     width: 2.46em;
   }
@@ -252,6 +264,11 @@
   .kbc {
     width: 480px;
   }
+  .kbc-top {
+    .whole {
+      width: 2.15em;
+    }
+  }
   .whole {
     width: 2.15em;
   }
@@ -260,7 +277,11 @@
     margin-left: -0.7em;
     text-indent: -3px;
   }
-  .D, .E, .G, .A, .B {
+  .D,
+  .E,
+  .G,
+  .A,
+  .B {
     text-indent: 6px;
   }
 }
