@@ -25,10 +25,10 @@
     animation: flicker 0.5s infinite alternate;
     border: 1px solid #041029;
     border-radius: 18px;
-    width: 3%;
-    height: 7%;
-  /*   width: 30px;
-    height: 30px; */
+   /*  width: 3%;
+    height: 7%; */
+    width: 32px;
+    height: 32px;
     box-sizing: border-box;
     filter: contrast(1.5) drop-shadow(2px 4px 6px black);
     box-shadow: 0 0 0.5rem #f44336, inset 0 0 0.5rem #f44336,
@@ -212,7 +212,7 @@
 
 @media only screen and (max-width: 700px) {
   .effects {
-    width: 90%;
+    /* width: 90%; */
     img {
       width: 24px;
       height: 24px;
@@ -220,6 +220,15 @@
   }
 }
 
+@media only screen and (max-width: 900px) {
+  .effects {
+    width: 90%;
+    img {
+      width: 28px;
+      height: 28px;
+    }
+  }
+}
 
 @media only screen and (max-width: 1230px) {
   .shifted {
@@ -231,12 +240,12 @@
   .shifted {
     top: 200px;
   }
-/*   .effects {
+  .effects {
     img {
       width: 45px;
       height: 45px;
     }
-  } */
+  }
 }
 @media only screen and (min-width: 1600px) {
   .shifted {

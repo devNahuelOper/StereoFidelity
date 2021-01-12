@@ -281,8 +281,10 @@
  */
 @media only screen and (max-width: 980px) {
   .modal {
-    height: 80%;
-    width: 65%;
+  /*   height: 80%;
+    width: 65%; */
+    width: 650px;
+    height: 650px;
   }
   .modal-content {
     width: 70%;
@@ -293,7 +295,7 @@
     top: 15px;
   }
   .instructions {
-    font-size: 12px;
+    /* font-size: 12px; */
     transform: scale(0.6);
   }
 }
@@ -301,6 +303,10 @@
 @media only screen and (max-width: 700px) {
   .modal {
     width: 550px;
+    height: 550px;
+  }
+   .instructions {
+    font-size: 12px;
   }
 }
 
