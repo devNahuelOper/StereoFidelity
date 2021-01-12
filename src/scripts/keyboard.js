@@ -23,6 +23,12 @@ export const activatePiano = (audioCtx) => {
 
       if (key.note.includes("#")) {
         span.className = "sharp";
+        runOnKeys(
+          () => setFreq(key.freq),
+          'ShiftLeft',
+          `Key${key.note[0]}`,
+          `Digit${key.note[2]}`
+        );
       } else {
         span.className = "whole";
         span.classList.add(key.note[0]);
