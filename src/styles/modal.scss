@@ -25,7 +25,7 @@
   align-items: center;
   font-family: "Exo 2", sans-serif;
   position: fixed;
-/*   width: 55%;
+  /*   width: 55%;
   height: 90%; */
   width: 740px;
   height: 640px;
@@ -33,7 +33,7 @@
   right: 0;
   top: 0;
   bottom: 0;
- /*  top: 5%;
+  /*  top: 5%;
   bottom: 5%; */
   margin: 0 auto;
   overflow: auto;
@@ -297,7 +297,7 @@
   }
   .modal {
     width: 840px;
-    height: 740px
+    height: 740px;
   }
   .instructions {
     font-size: 1.15rem;
@@ -306,10 +306,11 @@
 
 @media only screen and (max-width: 780px) {
   .modal {
-  /*   height: 80%;
+    /*   height: 80%;
     width: 65%; */
     width: 640px;
     height: 580px;
+    top: 30px;
   }
   .modal-content {
     width: 70%;
@@ -329,16 +330,38 @@
 
 @media only screen and (max-width: 700px) {
   .modal {
-    width: 550px;
-    height: 550px;
+    width: 580px;
+    height: 520px;
+    top: 50px;
   }
-   .instructions {
-    font-size: 12px;
+  #welcome {
+    border-radius: 10px 10px 0 0;
+  }
+  .instructions {
+    font-size: 0.825rem;
+    top: -55px;
+  }
+  .close {
+    bottom: -15px;
   }
 }
 
-@media only screen and (max-width: 560px) {
+@media only screen and (max-width: 600px) {
   .modal {
-    width: 490px;
+    width: 500px;
+    height: 440px;
+  }
+  #welcome {
+    font-size: 2.35rem;
+  }
+  .instructions {
+    font-size: 0.7rem;
+    aside {
+      font-size: 1rem;
+    }
+  }
+  .close {
+    font-size: 1.5rem;
+    bottom: -20px;
   }
 }
