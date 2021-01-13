@@ -25,13 +25,14 @@
   align-items: center;
   font-family: "Exo 2", sans-serif;
   position: fixed;
-  width: 55%;
-  height: 90%;
+/*   width: 55%;
+  height: 90%; */
+  width: 740px;
+  height: 640px;
   left: 0;
   right: 0;
   top: 5%;
   bottom: 5%;
-  height: 90%;
   margin: 0 auto;
   overflow: auto;
   background-color: #21d498;
@@ -275,10 +276,27 @@
   }
 }
 
-/* @media only screen and (max-width: 1280px) {
-
+@media only screen and (min-width: 1600px) {
+  .modal {
+    width: 980px;
+    height: 840px;
+  }
+  .instructions {
+    font-size: 1.3rem;
+    top: -50px;
+  }
 }
- */
+
+@media only screen and (min-width: 1280px) and (max-width: 1600px) {
+  .modal {
+    width: 840px;
+    height: 740px
+  }
+  .instructions {
+    font-size: 1.15rem;
+  }
+}
+
 @media only screen and (max-width: 980px) {
   .modal {
   /*   height: 80%;
