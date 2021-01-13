@@ -141,6 +141,21 @@
   }
 }
 
+#scroll-msg {
+  margin: 16px auto;
+  color: #aba8a8;
+  display: flex;
+  justify-content: center;
+  font-size: 1rem;
+  &:before,
+  &:after {
+    content: "↓";
+    font-size: 0.67rem;
+    align-self: flex-end;
+    margin: 0 4px;
+  }
+}
+
 .freestyle-wrap {
   display: flex;
   flex-direction: column;
@@ -321,10 +336,13 @@
     /* top: 15px; */
   }
   .instructions {
-    /* font-size: 12px; */
     transform: scale(0.6);
     font-size: 0.95rem;
     top: -50px;
+  }
+  #scroll-msg {
+    margin: 6px auto;
+    font-size: 0.9rem;
   }
 }
 
@@ -339,7 +357,7 @@
   }
   .instructions {
     font-size: 0.825rem;
-    top: -55px;
+    top: -60px;
   }
   .close {
     bottom: -15px;
@@ -363,6 +381,13 @@
   .close {
     font-size: 1.5rem;
     bottom: -20px;
+  }
+  #scroll-msg {
+    margin: 2px auto;
+    font-size: 0.7rem;
+    &:before, &:after {
+      font-size: 0.4rem;
+    }
   }
 }
 
