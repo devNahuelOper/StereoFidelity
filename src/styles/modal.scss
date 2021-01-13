@@ -274,8 +274,6 @@
 
 .close {
   animation: color-change 15s linear infinite both;
-  /*position: relative;
-  bottom: 20%; */
   position: sticky;
   bottom: 0;
   color: #1ec190;
@@ -314,11 +312,6 @@
 }
 
 @media only screen and (min-width: 1300px) and (max-width: 1600px) {
-  /*   @media only screen and (max-height: 665px) {
-    .modal {
-      height: 665px;
-    }
-  } */
   .modal {
     width: 840px;
     height: 740px;
@@ -339,8 +332,6 @@
 
 @media only screen and (max-width: 780px) {
   .modal {
-    /*   height: 80%;
-    width: 65%; */
     width: 640px;
     height: 580px;
     top: 30px;
@@ -349,9 +340,6 @@
     width: 70%;
     height: 70%;
     padding: 34px;
-  }
-  #welcome {
-    /* top: 15px; */
   }
   .instructions {
     transform: scale(0.6);
