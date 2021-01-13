@@ -31,8 +31,10 @@
   height: 640px;
   left: 0;
   right: 0;
-  top: 5%;
-  bottom: 5%;
+  top: 0;
+  bottom: 0;
+ /*  top: 5%;
+  bottom: 5%; */
   margin: 0 auto;
   overflow: auto;
   background-color: #21d498;
@@ -287,7 +289,12 @@
   }
 }
 
-@media only screen and (min-width: 1280px) and (max-width: 1600px) {
+@media only screen and (min-width: 1300px) and (max-width: 1600px) {
+  @media only screen and (max-height: 665px) {
+    .modal {
+      height: 665px;
+    }
+  }
   .modal {
     width: 840px;
     height: 740px
@@ -297,12 +304,12 @@
   }
 }
 
-@media only screen and (max-width: 980px) {
+@media only screen and (max-width: 780px) {
   .modal {
   /*   height: 80%;
     width: 65%; */
-    width: 650px;
-    height: 650px;
+    width: 640px;
+    height: 580px;
   }
   .modal-content {
     width: 70%;
@@ -310,11 +317,13 @@
     padding: 34px;
   }
   #welcome {
-    top: 15px;
+    /* top: 15px; */
   }
   .instructions {
     /* font-size: 12px; */
     transform: scale(0.6);
+    font-size: 0.95rem;
+    top: -50px;
   }
 }
 
