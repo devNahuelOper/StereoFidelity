@@ -417,6 +417,10 @@
     width: 390px;
     height: 360px;
   }
+  .modal-wrapper {
+    animation: none;
+    -webkit-animation: none;
+  }
   .modal-content {
     width: 60%;
     height: 60%;

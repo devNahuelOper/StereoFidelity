@@ -16,16 +16,16 @@ export function toggleModal() {
 
   let morph = setMorph(modal);
   let zoomWrap = setZoom(modalWrapper, 20, -2);
-  // let zoomContent = setZoom(modalContent, 500, 25.5, 20);
+  let zoomContent = setZoom(modalContent, 500, 25.5, 20);
 
   function stopAnimations() {
-    // let animations = [morph, zoomWrap, zoomContent];
-    let animations = [morph, zoomWrap];
+    let animations = [morph, zoomWrap, zoomContent];
+    // let animations = [morph, zoomContent];
     for (let anim of animations) anim.cancel();
   }
   function playAnimations() {
-    // let animations = [morph, zoomWrap, zoomContent];
-    let animations = [morph, zoomWrap];
+    let animations = [morph, zoomWrap, zoomContent];
+    // let animations = [morph, zoomContent];
     for (let anim of animations) anim.play();
   }
 
