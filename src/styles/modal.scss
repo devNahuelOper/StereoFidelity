@@ -411,3 +411,15 @@
     font-size: 0.65rem;
   }
 }
+
+@media only screen and (max-width: 450px) {
+  #welcome,
+  .close {
+    animation: none;
+    -webkit-animation: none;
+  }
+  .instructions {
+    transform: scale(0.4);
+    top: -90px;
+  }
+}
