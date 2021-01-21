@@ -27,7 +27,7 @@ export function toggleModal() {
     for (let anim of animations) anim.play();
   }
 
-  let modalToggle;
+  let modalToggle = window.innerWidth > 450 ? diagonalZoom : mobileDiagonalZoom;
 
   window.onresize = () => {
     modalToggle = window.innerWidth > 450 ? diagonalZoom : mobileDiagonalZoom;
