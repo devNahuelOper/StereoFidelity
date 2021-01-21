@@ -420,6 +420,7 @@
   .modal-content {
     width: 60%;
     height: 60%;
+    justify-content: center;
   }
   #welcome,
   .close {
@@ -427,10 +428,22 @@
     -webkit-animation: none;
   }
   #welcome {
-    font-size: 2rem;
+    /* font-size: 2rem; */
+    font-size: 1.75rem;
+  }
+  .close {
+    font-size: 1.2rem;
   }
   .instructions {
-    transform: scale(0.4);
-    top: -90px;
+   /*  transform: scale(0.4);
+    top: -90px; */
+    transform: scale(0.34);
+    font-size: 0.55rem;
+    top: unset;
+    bottom: unset;
+    max-height: 260px;
+  }
+  .freestyle-wrap {
+    padding: 54px 0;
   }
 }

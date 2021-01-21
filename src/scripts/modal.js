@@ -1,4 +1,4 @@
-import { setMorph, setZoom, diagonalZoom, diagonalTiming } from "./animation";
+import { setMorph, setZoom, diagonalZoom, diagonalTiming, mobileDiagonalZoom } from "./animation";
 
 export function toggleModal() {
   const modal = document.getElementById("myModal");
@@ -27,15 +27,21 @@ export function toggleModal() {
     for (let anim of animations) anim.play();
   }
 
+  let modalToggle;
+
+  window.onresize = () => {
+    modalToggle = window.innerWidth > 450 ? diagonalZoom : mobileDiagonalZoom;
+  }
+
   const modalView = {
     open() {
       modal.classList.remove("modal-hide");
       about.classList.remove("about-show");
-      let openModal = modal.animate(diagonalZoom, diagonalTiming).reverse();
+      let openModal = modal.animate(modalToggle, diagonalTiming).reverse();
       modalContent.scrollTo(0, 0);
     },
     close() {
-      let closeModal = modal.animate(diagonalZoom, diagonalTiming);
+      let closeModal = modal.animate(modalToggle, diagonalTiming);
       closeModal.onfinish = () => {
         modal.classList.add("modal-hide");
         about.classList.add("about-show");

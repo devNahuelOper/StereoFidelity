@@ -70,6 +70,15 @@ export const diagonalZoom = [
       "perspective(500px) scale3d(0.06, 0.06, 0.2) translate3d(7200px, -3350px, 700px)",
   },
 ];
+
+export const mobileDiagonalZoom = [
+  { transform: "scale(1) translate(0px)" },
+  {
+    transform:
+      "perspective(500px) scale3d(0.2, 0.2, 1) translate3d(820px, -960px, -80px)",
+  },
+];
+
 export const diagonalTiming = {
 	  duration: 1000,
     iterations: 1,
