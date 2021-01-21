@@ -417,10 +417,17 @@
     width: 390px;
     height: 360px;
   }
+  .modal-content {
+    width: 60%;
+    height: 60%;
+  }
   #welcome,
   .close {
     animation: none;
     -webkit-animation: none;
+  }
+  #welcome {
+    font-size: 2rem;
   }
   .instructions {
     transform: scale(0.4);
