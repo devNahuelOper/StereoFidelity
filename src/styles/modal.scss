@@ -413,6 +413,10 @@
 }
 
 @media only screen and (max-width: 450px) {
+  .modal {
+    width: 390px;
+    height: 360px;
+  }
   #welcome,
   .close {
     animation: none;
