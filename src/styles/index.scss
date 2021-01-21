@@ -441,6 +441,12 @@ ul {
   }
 }
 
+@media only screen and (max-width: 450px) {
+  .navlinks, #playOptions {
+    width: 360px;
+  }
+}
+
 @keyframes scroll-right {
   0% {
     left: 0;

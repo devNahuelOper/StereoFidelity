@@ -269,3 +269,10 @@ $ie-bottom-track-color: darken($track-color, $contrast) !default;
     width: 165px;
   }
 }
+
+@media only screen and (max-width: 450px) {
+  #volume-slider,
+  #tempo-slider {
+    width: 125px;
+  }
+}
