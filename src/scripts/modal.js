@@ -20,7 +20,6 @@ export function toggleModal() {
 
   function stopAnimations() {
     let animations = [morph, zoomWrap, zoomContent];
-    // let animations = [morph, zoomContent];
     for (let anim of animations) anim.cancel();
   }
   function playAnimations() {
