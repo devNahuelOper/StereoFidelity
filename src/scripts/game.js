@@ -209,18 +209,17 @@ function dupCheck(name, obj) {
   return name;
 }
 
-const scoresPresent = Boolean(document.getElementsByClassName("highScores")[0]);
-
 function showHighScores() {
-  if (scoresPresent) return;
+  const highScores = document.querySelector(".highScores");
+  const scoresPresent = Boolean(highScores);
 
-  let scores = JSON.parse(localStorage.scores);
+  const scores = JSON.parse(localStorage.scores);
 
-  let ul = document.createElement("ul");
+  const ul = document.createElement("ul");
   ul.className = "highScores";
   ul.innerHTML = '<h1 id="scoreHeader">High Scores</h1>';
 
-  let pre = document.createElement("pre");
+  const pre = document.createElement("pre");
   pre.innerHTML = "x";
   ul.prepend(pre);
   pre.onclick = () => closeHighScores();
@@ -233,6 +232,7 @@ function showHighScores() {
     }
   }
 
+  if (scoresPresent) highScores.remove();
   document.body.append(ul);
 
   function closeHighScores() {
