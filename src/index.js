@@ -16,6 +16,7 @@ import { displayTime } from "./scripts/util";
 import { activatePiano } from "./scripts/keyboard";
 // import { activatePiano } from "./scripts/keyboard/keyboard";
 
+
 window.addEventListener("DOMContentLoaded", main);
 
 async function main() {
