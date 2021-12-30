@@ -62,7 +62,7 @@ export function toggleModal() {
 
   modal.onpointerover = function () {
     stopAnimations();
-    let modalItems = [modal, modalWrapper, welcome, close, ...strong];
+    const modalItems = [modal, modalWrapper, welcome, close, ...strong];
     for (let item of modalItems) {
       item.classList.add("modal-freeze");
     }
@@ -71,8 +71,10 @@ export function toggleModal() {
   modal.onpointerout = function () {
     if (frame.paused && match.paused) {
       playAnimations();
-      modal.classList.remove("modal-freeze");
-      modalWrapper.classList.remove("modal-freeze");
+      const modalItems = [modal, modalWrapper, welcome, close, ...strong];
+      for (let item of modalItems) {
+        item.classList.add("modal-freeze");
+      }
     }
   };
 
