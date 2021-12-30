@@ -73,7 +73,7 @@ export function toggleModal() {
       playAnimations();
       const modalItems = [modal, modalWrapper, welcome, close, ...strong];
       for (let item of modalItems) {
-        item.classList.add("modal-freeze");
+        item.classList.remove("modal-freeze");
       }
     }
   };
