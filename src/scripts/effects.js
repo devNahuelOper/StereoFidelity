@@ -25,6 +25,19 @@ export function activateEffects() {
     makeDraggable(target);
   };
 
+  const playOnFocus = e => {
+    const activeElem = document.activeElement;
+    const activeSound = activeElem.previousElementSibling;
+    if (e.key === 'Tab') {
+      if (effects.contains(activeElem)) {
+        if (activeSound && activeSound.tagName === 'AUDIO') {
+          activeSound.play();
+        }
+      }
+    }
+  }
+  document.addEventListener('keyup', playOnFocus);
+
   function makeDraggable(elem) {
     let audio = elem.previousElementSibling;
 

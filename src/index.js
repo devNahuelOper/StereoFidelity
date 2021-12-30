@@ -28,10 +28,12 @@ async function main() {
   document.getElementById("game").checked = true;
 
   const effects = document.getElementsByClassName("effects")[0];
-  let sounds = effects.querySelectorAll("audio");
-  let images = effects.querySelectorAll("img");
+  const sounds = effects.querySelectorAll("audio");
+  const images = effects.querySelectorAll("img");
 
-  let trippleImages = [...images, ...images, ...images];
+  images.forEach(img => img.tabIndex++);
+
+  const trippleImages = [...images, ...images, ...images];
 
   const tracks = document.getElementsByClassName("tracks")[0];
   const songs = tracks.querySelectorAll("audio");
