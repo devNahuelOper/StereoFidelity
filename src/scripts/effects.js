@@ -6,7 +6,7 @@ export function activateEffects() {
   const modal = document.getElementById("myModal");
 
   effects.onpointerover = function (event) {
-    let target = event.target;
+    const target = event.target;
     if (target.tagName != "IMG") return;
     if (modal.classList.contains("modal-hide")) {
       target.previousElementSibling.play();
@@ -14,13 +14,13 @@ export function activateEffects() {
   };
 
   effects.onpointerout = function (event) {
-    let target = event.target;
+    const target = event.target;
     if (target.tagName != "IMG") return;
     target.previousElementSibling.currentTime = 0;
   };
 
   effects.onpointerdown = function (event) {
-    let target = event.target;
+    const target = event.target;
     if (target.tagName != "IMG") return;
     makeDraggable(target);
   };
@@ -39,13 +39,13 @@ export function activateEffects() {
   document.addEventListener('keyup', playOnFocus);
 
   function makeDraggable(elem) {
-    let audio = elem.previousElementSibling;
+    const audio = elem.previousElementSibling;
 
     elem.onpointerdown = function (event) {
       elem.classList.add("draggingImg");
 
-      let shiftX = event.clientX - elem.getBoundingClientRect().left;
-      let shiftY = event.clientY - elem.getBoundingClientRect().top;
+      const shiftX = event.clientX - elem.getBoundingClientRect().left;
+      const shiftY = event.clientY - elem.getBoundingClientRect().top;
 
       elem.style.position = "absolute";
       elem.style.zIndex = 1000;
@@ -94,18 +94,18 @@ export function activateEffects() {
   // Used for switching cursor to DJ Spinhand lg when within 40px.
 
   function proximityCheck(event) {
-    let [x, y] = [event.clientX, event.clientY];
-    let element = document.elementFromPoint(x, y);
-    let elemLeft = document.elementFromPoint(x - 40, y);
-    let elemLeftDown = document.elementFromPoint(x - 40, y - 40);
-    let elemLeftUp = document.elementFromPoint(x - 40, y + 40);
-    let elemRight = document.elementFromPoint(x + 40, y);
-    let elemRightDown = document.elementFromPoint(x + 40, y - 40);
-    let elemRightUp = document.elementFromPoint(x + 40, y + 40);
-    let elemUp = document.elementFromPoint(x, y - 40);
-    let elemDown = document.elementFromPoint(x, y + 40);
+    const [x, y] = [event.clientX, event.clientY];
+    const element = document.elementFromPoint(x, y);
+    const elemLeft = document.elementFromPoint(x - 40, y);
+    const elemLeftDown = document.elementFromPoint(x - 40, y - 40);
+    const elemLeftUp = document.elementFromPoint(x - 40, y + 40);
+    const elemRight = document.elementFromPoint(x + 40, y);
+    const elemRightDown = document.elementFromPoint(x + 40, y - 40);
+    const elemRightUp = document.elementFromPoint(x + 40, y + 40);
+    const elemUp = document.elementFromPoint(x, y - 40);
+    const elemDown = document.elementFromPoint(x, y + 40);
 
-    let dirs = [
+    const dirs = [
       element,
       elemLeft,
       elemLeftDown,
@@ -117,7 +117,7 @@ export function activateEffects() {
       elemDown,
     ];
 
-    let nearby = dirs.find((dir) => dir.classList.contains("draggedImg"));
+    const nearby = dirs.find((dir) => dir.classList.contains("draggedImg"));
 
     if (nearby) {
       stage.classList.add("near-dragged");
