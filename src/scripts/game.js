@@ -75,11 +75,20 @@ export function startGame(song, sounds, effects, ctx, images, trippleImages) {
             image.remove();
             // song.playbackRate -= 1.0;
             if (iconsLeft <= 60 && song.playbackRate >= 0.1) {
-              song.playbackRate -= 0.8;
+              if (song.playbackRate >= 0.8) {
+                song.playbackRate = Number((song.playbackRate - 0.8).toFixed(1));
+                // song.playbackRate -= 0.8;
+              } else {
+                song.playbackRate = Number(
+                  (song.playbackRate - 0.1).toFixed(1)
+                );
+                // song.playbackRate -= 0.1;
+              }
             }
           } else {
-            if (iconsLeft <= 60 && song.playbackRate <= 16.0) {
-              song.playbackRate += 0.1;
+            if (iconsLeft <= 60 && song.playbackRate <= 15.9) {
+              song.playbackRate = Number((song.playbackRate + 0.1).toFixed(1));
+              // song.playbackRate += 0.1;
             }
           }
           score.innerHTML = `Sounds Cleared: ${101 - iconsLeft}`;
