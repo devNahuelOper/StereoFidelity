@@ -16,8 +16,8 @@ export const activatePiano = (audioCtx) => {
     setAttributes(kbContainer, { id: "keyboardContainer", class: "kbc" });
     pianoControls.setAttribute("class", "pianoControls");
 
-    for (let key of keys) {
-      let span = document.createElement("span");
+    for (const key of keys) {
+      const span = document.createElement("span");
       span.id = key.note;
       span.dataset["freq"] = key.freq;
 
@@ -44,7 +44,7 @@ export const activatePiano = (audioCtx) => {
     }
 
     kbContainer.append(pianoControls, keyboard);
-    let [distRange, reverbButtons] = [addDistortionRange(), addReverbButtons()];
+    const [distRange, reverbButtons] = [addDistortionRange(), addReverbButtons()];
     pianoControls.append(distRange, reverbButtons);
     document.body.append(kbContainer);
 
@@ -78,7 +78,7 @@ export const activatePiano = (audioCtx) => {
     }
 
     function playWholes(event) {
-      let target = event.target;
+      const target = event.target;
       if (!target.classList.contains("whole")) return;
       setFreq(target.dataset["freq"]);
       connectOscillator();
@@ -103,18 +103,18 @@ export const activatePiano = (audioCtx) => {
   }
 
   function makeOscillator(audioCtx) {
-    let oscillator = audioCtx.createOscillator();
+    const oscillator = audioCtx.createOscillator();
 
-    let sineTerms = new Float32Array([0, 0, 1, 0, 1]);
-    let cosineTerms = new Float32Array(sineTerms.length);
-    let customWave = audioCtx.createPeriodicWave(cosineTerms, sineTerms);
+    const sineTerms = new Float32Array([0, 0, 1, 0, 1]);
+    const cosineTerms = new Float32Array(sineTerms.length);
+    const customWave = audioCtx.createPeriodicWave(cosineTerms, sineTerms);
     oscillator.setPeriodicWave(customWave);
     return oscillator;
   }
 
   function connectOscillator() {
-    let nodes = [audioCtx.destination, distortion, reverb];
-    for (let node of nodes) oscillator.connect(node);
+    const nodes = [audioCtx.destination, distortion, reverb];
+    for (const node of nodes) oscillator.connect(node);
   }
 
   function makeDistortion(amt) {
@@ -141,7 +141,7 @@ export const activatePiano = (audioCtx) => {
   }
 
   function addDistortionRange() {
-    let distRange = document.createElement("input");
+    const distRange = document.createElement("input");
     setAttributes(distRange, {
       id: "distRange",
       type: "range",
@@ -171,11 +171,11 @@ export const activatePiano = (audioCtx) => {
       "Rays",
       "Vocal Duo",
     ];
-    let ul = document.createElement("ul");
+    const ul = document.createElement("ul");
     setAttributes(ul, { id: "reverbButtons", class: "reverbButtons" });
 
-    for (let reverb of reverbs) {
-      let li = document.createElement("li");
+    for (const reverb of reverbs) {
+      const li = document.createElement("li");
       setAttributes(li, { id: reverb.replace(/\s/g, ""), class: "reverb" });
       li.innerHTML = reverb;
 
@@ -186,7 +186,7 @@ export const activatePiano = (audioCtx) => {
       ul.append(li);
     }
 
-    let fragment = document.createDocumentFragment();
+    const fragment = document.createDocumentFragment();
     fragment.append(ul);
     ul.insertAdjacentHTML("beforebegin", '<h1 id="reverbTitle">Reverb</h1>');
 
@@ -196,11 +196,11 @@ export const activatePiano = (audioCtx) => {
   async function connectReverb(sound) {
     const reverbFolder = "https://stereo-fidelity.s3.amazonaws.com/reverb/";
     async function createReverb() {
-      let convolver = audioCtx.createConvolver();
-      let response = await fetch(
+      const convolver = audioCtx.createConvolver();
+      const response = await fetch(
         `${proxyUrl}${reverbFolder}${sound.replace(/\s/g, "+")}.wav`
       );
-      let arrayBuffer = await response.arrayBuffer();
+      const arrayBuffer = await response.arrayBuffer();
       convolver.buffer = await audioCtx.decodeAudioData(arrayBuffer);
 
       return convolver;
@@ -212,8 +212,8 @@ export const activatePiano = (audioCtx) => {
 
   function markReverbSelected(rev) {
     if (!document.getElementsByClassName("reverb")) return;
-    let reverbs = document.getElementsByClassName("reverb");
-    for (let reverb of reverbs) {
+    const reverbs = document.getElementsByClassName("reverb");
+    for (const reverb of reverbs) {
       if (reverb.classList.contains("selected")) {
         reverb.classList.remove("selected");
       }

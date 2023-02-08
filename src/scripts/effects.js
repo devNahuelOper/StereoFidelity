@@ -1,7 +1,7 @@
 import { setZoom } from "./animation";
 
 export function activateEffects() {
-  const effects = document.getElementsByClassName("effects")[0];
+  const [effects] = document.getElementsByClassName("effects");
   const stage = document.querySelector("main");
   const modal = document.getElementById("myModal");
 
@@ -166,26 +166,26 @@ export function shuffleEffects() {
   }
 
   function shuffEfx() {
-    let sounds = effects.querySelectorAll("audio");
-    let images = effects.querySelectorAll("img");
-    let zipped = zip(sounds, images);
-    let shuffled = shuffle(zip(sounds, images));
+    const sounds = effects.querySelectorAll("audio");
+    const images = effects.querySelectorAll("img");
+    const zipped = zip(sounds, images);
+    const shuffled = shuffle(zip(sounds, images));
 
     for (let i = 0; i < zipped.length; i++) {
-      let [aud, img] = [zipped[i][0], zipped[i][1]];
-      let [subAud, subImg] = [shuffled[i][0], shuffled[i][1]];
+      const [aud, img] = [zipped[i][0], zipped[i][1]];
+      const [subAud, subImg] = [shuffled[i][0], shuffled[i][1]];
       aud.replaceWith(subAud.cloneNode());
       img.replaceWith(subImg.cloneNode());
     }
 
     for (let j = 0; j < images.length; j++) {
-      let img = effects.querySelectorAll("img")[j];
+      const img = effects.querySelectorAll("img")[j];
       setTimeout(() => setZoom(img, 500, 100, 1, "forwards", 1), j * 20);
     }
   }
 
   function preWave() {
-    let images = effects.querySelectorAll("img");
+    const images = effects.querySelectorAll("img");
     for (let i = images.length - 1; i >= 0; i--) {
       setTimeout(() => setZoom(images[i], 500, -200, 1, "backwards", 1), (images.length - i) * 10);
     }

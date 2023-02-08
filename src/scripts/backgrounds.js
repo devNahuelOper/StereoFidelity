@@ -15,7 +15,7 @@ function toggleBackgrounds() {
   }
 
   const bgtoggle = document.getElementById("bgtoggle");
-  const bgcontainer = document.getElementsByClassName("bgtoggle-container")[0];
+  const [bgcontainer] = document.getElementsByClassName("bgtoggle-container");
 
   bgtoggle.onclick = function () {
     randomBg();

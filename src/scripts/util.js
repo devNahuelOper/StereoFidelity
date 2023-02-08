@@ -1,5 +1,5 @@
 export const setAttributes = (ele, attrs) => {
-  for (let key in attrs) ele.setAttribute(key, attrs[key]);
+  for (const key in attrs) ele.setAttribute(key, attrs[key]);
 };
 
 window.setAttributes = setAttributes;
@@ -14,7 +14,7 @@ export const churchReverb =
   window.churchReverb = churchReverb;
 
 export const timeRemaining = (song) => {
-  let mins = Math.trunc((song.duration - song.currentTime) / 60);
+  const mins = Math.trunc((song.duration - song.currentTime) / 60);
   let secs =
     mins >= 1
       ? Math.trunc(60 * (((song.duration - song.currentTime) / 60) % mins))
@@ -46,7 +46,7 @@ export const makeFrame = (el, ...pics) => {
   const frame = document.createElement("aside");
   frame.id = "gameFrame";
 
-  for (let pic of pics) {
+  for (const pic of pics) {
     pic.classList.add("framePic");
     frame.appendChild(pic);
   }
@@ -63,7 +63,7 @@ export const makeScore = (el) => {
 };
 
 export function addLabel(ele) {
-  let label = document.createElement("label");
+  const label = document.createElement("label");
   label.htmlFor = label.id = ele.name;
   label.innerHTML = ele.name + "</br>";
   label.append(ele);
@@ -73,7 +73,7 @@ export function addLabel(ele) {
 window.addLabel = addLabel;
 
 export function compress(audioCtx, source) {
-  let compressor = audioCtx.createDynamicsCompressor();
+  const compressor = audioCtx.createDynamicsCompressor();
   compressor.threshold.setValueAtTime(-50, audioCtx.currentTime);
   compressor.knee.setValueAtTime(40, audioCtx.currentTime);
   compressor.ratio.setValueAtTime(12, audioCtx.currentTime);
@@ -86,12 +86,12 @@ export function compress(audioCtx, source) {
 window.compress = compress;
 
 export function runOnKeys(func, ...codes) {
-  let pressed = new Set();
+  const pressed = new Set();
 
   document.addEventListener("keydown", (event) => {
     pressed.add(event.code);
 
-    for (let code of codes) {
+    for (const code of codes) {
       if (!pressed.has(code)) {
         return;
       }
@@ -102,17 +102,17 @@ export function runOnKeys(func, ...codes) {
   });
 
   document.addEventListener("keyup", (event) => {
-    pressed.delete(event.code);
+    pressed.deconste(event.code);
   });
 }
 window.runOnKeys = runOnKeys;
-// let audio = "dist/sounds/2448.mp3";
-// let constraints = { audio: true, video: { width: 1280, height: 720 } };
+// const audio = "dist/sounds/2448.mp3";
+// const constraints = { audio: true, video: { width: 1280, height: 720 } };
 
 // navigator.mediaDevices
 //   .getUserMedia(constraints)
 //   .then((mediaStream) => {
-//     let video = document.createElement(video);
+//     const video = document.createElement(video);
 //     document.body.append(video);
 //     video.srcObject = mediaStream;
 //     video.onloadedmetadata = () => video.play();

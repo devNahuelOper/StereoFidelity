@@ -27,7 +27,7 @@ async function main() {
 
   document.getElementById("game").checked = true;
 
-  const effects = document.getElementsByClassName("effects")[0];
+  const [effects] = document.getElementsByClassName("effects");
   const sounds = effects.querySelectorAll("audio");
   const images = effects.querySelectorAll("img");
 
@@ -35,7 +35,7 @@ async function main() {
 
   const trippleImages = [...images, ...images, ...images];
 
-  const tracks = document.getElementsByClassName("tracks")[0];
+  const [tracks] = document.getElementsByClassName("tracks");
   const songs = tracks.querySelectorAll("audio");
   const freestyle = document.getElementById("freestyle");
 

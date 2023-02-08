@@ -21,18 +21,18 @@ export function addMoreTracks(tracks) {
 
   function createSongs() {
     links.forEach((link, i) => {
-      let article = document.createElement("article");
+      const article = document.createElement("article");
       article.className = "track";
       // article.classList.add("addedTrack");
 
-      let songTitle = makeSongTitle(songs[i]);
-      let song = makeSong(link, songs[i]);
-      let controls = makeControls(song);
+      const songTitle = makeSongTitle(songs[i]);
+      const song = makeSong(link, songs[i]);
+      const controls = makeControls(song);
 
       article.append(songTitle, song, controls);
       tracks.appendChild(article);
 
-      let [sounds, images] = [
+      const [sounds, images] = [
         document.querySelectorAll(".effects audio"),
         document.querySelectorAll(".effects img"),
       ];
@@ -89,8 +89,8 @@ export function addMoreTracks(tracks) {
       },
     };
 
-    for (let btn in buttons) {
-      let img = document.createElement("img");
+    for (const btn in buttons) {
+      const img = document.createElement("img");
       img.id = btn;
       img.src = buttons[btn].src;
       img.onclick = buttons[btn].action;
@@ -98,12 +98,12 @@ export function addMoreTracks(tracks) {
     }
 
     const sliders = () => {
-      let fieldset = document.createElement("fieldset");
+      const fieldset = document.createElement("fieldset");
       fieldset.className = "slider-hold";
-      let hr = document.createElement("hr");
+      const hr = document.createElement("hr");
 
-      let volume = document.createElement("input");
-      let tempo = document.createElement("input");
+      const volume = document.createElement("input");
+      const tempo = document.createElement("input");
       volume.type = tempo.type = "range";
 
       setAttributes(volume, {
@@ -135,8 +135,8 @@ export function addMoreTracks(tracks) {
     return ctrl;
   }
 
-  function makeSong(url, song) {
-    let audio = document.createElement("audio");
+  function makeSong(url = "", song = "") {
+    const audio = document.createElement("audio");
     audio.src = url;
     audio.id = song.split(" ")[0].toLowerCase();
     // console.log(totalTime(audio));
@@ -146,7 +146,7 @@ export function addMoreTracks(tracks) {
   }
 
   function makeSongTitle(song) {
-    let span = document.createElement("span");
+    const span = document.createElement("span");
     span.innerHTML = song.replace(/\(.*\)/, "").trim();
     span.className = "songTitle";
     return span;
@@ -159,7 +159,7 @@ export function addMoreTracks(tracks) {
 }
 
 function totalTime(song) {
-  let mins = Math.trunc(song.duration / 60);
+  const mins = Math.trunc(song.duration / 60);
   let secs = Math.trunc(60 * ((song.duration / 60) % mins));
   secs = secs < 10 ? `0${secs}` : secs;
   return `${mins}:${secs}`;
@@ -177,7 +177,7 @@ export function toggleSecretPlaylist() {
 }
 
 // async function playExternalAudio(path) {
-//   let audio = new Audio(path);
+//   const audio = new Audio(path);
 //   audio.type = "audio/mp3";
 
 //   try {
