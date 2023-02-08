@@ -1,12 +1,18 @@
-import { setMorph, setZoom, diagonalZoom, diagonalTiming, mobileDiagonalZoom } from "./animation";
+import {
+  setMorph,
+  setZoom,
+  diagonalZoom,
+  diagonalTiming,
+  mobileDiagonalZoom,
+} from "./animation";
 
 export function toggleModal() {
   const modal = document.getElementById("myModal");
-  const modalWrapper = document.getElementsByClassName("modal-wrapper")[0];
-  const modalContent = document.getElementsByClassName("modal-content")[0];
+  const [modalWrapper] = document.getElementsByClassName("modal-wrapper");
+  const [modalContent] = document.getElementsByClassName("modal-content");
   const welcome = document.getElementById("welcome");
   const strong = modal.querySelectorAll("strong");
-  const close = document.getElementsByClassName("close")[0];
+  const [close] = document.getElementsByClassName("close");
   const about = document.getElementById("about");
   const frame = document.getElementById("frameAppear");
   const match = document.getElementById("matchAppear");
@@ -14,14 +20,22 @@ export function toggleModal() {
   window.setMorph = setMorph;
   window.setZoom = setZoom;
 
-  let morph = setMorph(modal);
-  let zoomWrap = setZoom(modalWrapper, 20, -2);
-  let zoomContent = setZoom(modalContent, 500, 25.5, 20);
+  const morph = setMorph(modal);
+  const zoomWrap = setZoom(modalWrapper, 20, -2);
+  const zoomContent = setZoom(modalContent, 500, 25.5, 20);
+
+  window.morphZoom = [morph, zoomWrap, zoomContent];
 
   function stopAnimations() {
-    let animations = [morph, zoomWrap, zoomContent];
+    const animations = [morph, zoomWrap, zoomContent];
     for (let anim of animations) anim.cancel();
+
+    const modalItems = [modal, modalWrapper, welcome, close, ...strong];
+    for (let item of modalItems) item.classList.add("modal-freeze");
   }
+
+  window.stopAnimations = stopAnimations;
+
   function playAnimations() {
     let animations = [morph, zoomWrap, zoomContent];
     // let animations = [morph, zoomContent];
@@ -32,7 +46,7 @@ export function toggleModal() {
 
   window.onresize = () => {
     modalToggle = window.innerWidth > 450 ? diagonalZoom : mobileDiagonalZoom;
-  }
+  };
 
   const modalView = {
     open() {
@@ -60,13 +74,7 @@ export function toggleModal() {
     }
   });
 
-  modal.onpointerover = function () {
-    stopAnimations();
-    const modalItems = [modal, modalWrapper, welcome, close, ...strong];
-    for (let item of modalItems) {
-      item.classList.add("modal-freeze");
-    }
-  };
+  modal.onpointerover = stopAnimations;
 
   modal.onpointerout = function () {
     if (frame.paused && match.paused) {
@@ -96,12 +104,10 @@ export function toggleModal() {
 
   const freestyle = {
     title: "<h2 class='freestyle-header'>FREESTYLE MODE</h2>",
-    drag:
-      "<strong>Drag</strong> icons anywhere off the board to isolate your favorite sounds.",
+    drag: "<strong>Drag</strong> icons anywhere off the board to isolate your favorite sounds.",
     rClick:
       "<strong>Right-Click</strong> dragged icon to send it back to the board.",
-    optZ:
-      "Press <strong>OPTION/ALT + Z</strong> to show secret playlist (these songs will not trigger a game start).",
+    optZ: "Press <strong>OPTION/ALT + Z</strong> to show secret playlist (these songs will not trigger a game start).",
     keyboard: "<h2 class='freestyle-header'>OTHER KEYBOARD TRICKS</h2>",
     shuffle: "Press <strong>R</strong> to Shuffle Effects!",
     modal:

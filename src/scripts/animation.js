@@ -40,16 +40,16 @@ export function setZoom(ele, pers, tranZ, dur = 10, fill = "forwards", iteration
   return ele.animate(
     [
       {
-        transform: `perspective(${pers - pers}px) translateZ(${
-          tranZ - tranZ
+        transform: `perspective(${pers * (15 / 100)}px) translateZ(${
+          tranZ * 0.25
         }px)`,
       },
       { transform: `perspective(${pers}px) translateZ(${tranZ + 1}px)` },
       { transform: `perspective(${pers}px) translateZ(${tranZ}px)` },
       { transform: `perspective(${pers}px) translateZ(${tranZ + 1}px)` },
       {
-        transform: `perspective(${pers - pers}px) translateZ(${
-          tranZ - tranZ
+        transform: `perspective(${pers * (15 / 100)}px) translateZ(${
+          tranZ * 0.25
         }px)`,
       },
     ],
